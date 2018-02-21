@@ -2,8 +2,6 @@
 
 ## TODO
 
-- example: use the 'fastify-favicon' plugin, to test it ... done (in page, still not in tests), but when calling [favicon.ico - localhost 8000](http://localhost:8000/favicon.ico) still it doesn't return the requested resource (should be published by the plugin)... wip
-
 - general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... wip
 - general: update to Fastify ('1.0.0' or later) when available (and all related plugins will be updated too ... wip
 
@@ -33,6 +31,8 @@
 - content: printing routes at server startup, but only for non production environments ... ok
 
 - example: use fastify options to change log level, etc ... ok
+- example: use the 'fastify-favicon' plugin, to test it ... done (in page, still not in tests), but when calling [favicon.ico - localhost 8000](http://localhost:8000/favicon.ico) still it doesn't return the requested resource (should be published by the plugin)... ok, needed to update to a newer release of the plugin ('0.1.1')
+- example: tag initial release (but without changing release number in 'package.json') ... ok
 
 
 ---------------
