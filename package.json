@@ -29,6 +29,7 @@
     "fastify": "^0.43.0",
     "fastify-cookie": "1.2.0",
     "fastify-env": "^0.4.0",
+    "fastify-favicon": "^0.1.0",
     "fastify-session": "0.4.0",
     "fastify-static": "^0.8.0",
     "make-promises-safe": "^1.1.0",
