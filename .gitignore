@@ -1,3 +1,38 @@
+# .DS_Store
+.git
+.cache
+.metadata
+.settings
+.vscode
+*.log
+*.iws
+.idea/
+*.iml
+*.md5
+*.sha1
+*~*
+*.bak
+Thumbs.db
+*.db
+*.zip
+*.tar
+*.tar.gz
+_old/
+# bin/
+build/
+dist/
+out/
+private/
+# server/
+# target/
+temp/
+tmp/
+
+
+# Dependency directories
+node_modules
+jspm_packages
+
 # Logs
 logs
 *.log
@@ -32,15 +67,14 @@ bower_components
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules/
-jspm_packages/
-
 # Typescript v1 declaration files
 typings/
 
 # Optional npm cache directory
 .npm
+
+# npm 5 dependencies lock file (in general should be committed)
+package-lock.json
 
 # Optional eslint cache
 .eslintcache
@@ -56,4 +90,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Others
+lib/
+.DS_Store
+._.DS_Store
 

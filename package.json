@@ -1,0 +1,63 @@
+{
+  "name": "fastify-example",
+  "version": "1.0.0",
+  "description": "Example web application with Fastify",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "prestart": "",
+    "start": "node ./src/server.js",
+    "start:dev": "./node_modules/.bin/nodemon --watch src ./src/server.js",
+    "start:simple": "node ./src/server-simple.js",
+    "postinstall": "",
+    "cache:cleanup": "npm cache clean --force",
+    "cache:verify": "npm cache verify",
+    "debug": "node --inspect ./src/server.js",
+    "debug:dev": "./node_modules/.bin/nodemon --debug --watch src ./src/server.js",
+    "dependency:log": "npm list > ./temp/dependencies.log",
+    "lint:standard": "./node_modules/.bin/standard \"./src/**/*.js\" \"./test/**/*.test.js\"",
+    "lint:standard:log": "npm run lint:standard > ./temp/lint-standard.log",
+    "pretest": "",
+    "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
+    "test:coverage:all": "npm run test:unit --  --cov",
+    "test:unit": "standard && tap test/*.test.js test/*/*.test.js",
+    "test:unit:with-snapshot": "standard && cross-env TAP_SNAPSHOT=1 npm run test:unit",
+    "test": "npm run test:unit"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "fastify": "^0.43.0",
+    "fastify-cookie": "1.2.0",
+    "fastify-env": "^0.4.0",
+    "fastify-session": "0.4.0",
+    "fastify-static": "^0.8.0",
+    "make-promises-safe": "^1.1.0",
+    "point-of-view": "^0.7.0"
+  },
+  "devDependencies": {
+    "cross-env": "^5.1.3",
+    "nodemon": "^1.15.1",
+    "semver": "^5.5.0",
+    "standard": "^11.0.0",
+    "request": "^2.83.0",
+    "tap": "^11.1.1"
+  },
+  "engines": {
+    "node": ">=8.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartiniOnGitHub/fastify-example.git"
+  },
+  "keywords": [
+    "node",
+    "example",
+    "fastify",
+    "ejs",
+    "es6",
+    "es7",
+    "es8"
+  ],
+  "author": "Sandro Martini <sandro.martini@gmail.com>",
+  "license": "Apache-2.0"
+}
