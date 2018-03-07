@@ -26,14 +26,14 @@
   },
   "dependencies": {
     "ejs": "^2.5.7",
-    "fastify": "^0.43.0",
-    "fastify-cookie": "1.2.0",
+    "fastify": "^1.0.0",
+    "fastify-cookie": "^1.2.1",
     "fastify-env": "^0.4.0",
     "fastify-favicon": "^0.1.2",
-    "fastify-session": "0.4.0",
+    "fastify-session": "^0.4.1",
     "fastify-static": "^0.8.0",
     "make-promises-safe": "^1.1.0",
-    "point-of-view": "^0.7.0"
+    "point-of-view": "^0.8.0"
   },
   "devDependencies": {
     "cross-env": "^5.1.3",
