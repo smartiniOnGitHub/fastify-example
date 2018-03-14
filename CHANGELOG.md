@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.2.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.1) (2018-03-14)
+Summary Changelog:
+- Update to latest Fastify 1.x.x (currently 1.1.1) and update all related plugins, to ensure all works
+- Update README with requirements
+
 ## [0.2.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.0) (2018-03-07)
 Summary Changelog:
 - Update to Fastify 1.0.0 (just released) and update all related plugins, to ensure all works
