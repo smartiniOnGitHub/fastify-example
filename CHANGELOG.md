@@ -1,5 +1,15 @@
 # Change Log
 
+## [0.2.4](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.3) (2018-04-15)
+Summary Changelog:
+- Small updates like in latest Fastify: remove dependency from 'request' and use 'simple-get' instead, add 'is-docker', etc
+
+## [0.2.3](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.3) (2018-04-14)
+Summary Changelog:
+- Update to latest Fastify 1.x.x (currently 1.2.1) and update all related plugins, to ensure all works
+- Update dependencies (and empty all 'peerDependencies')
+- Update README with requirements
+
 ## [0.2.2](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.2) (2018-03-29)
 Summary Changelog:
 - Update to latest Fastify 1.x.x (currently 1.2.0) and update all related plugins, to ensure all works
