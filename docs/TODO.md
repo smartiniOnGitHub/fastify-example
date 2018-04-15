@@ -59,6 +59,7 @@
 "eslint-plugin-promise": "^3.6.0",
 "eslint-plugin-react": "^7.6.1"
  ''' ... ok, and all tests seems to run well
+ * [x] example: use latest version of my 'fastify-favicon' plugin ('0.2.1'), to test it ... ok
 
 
 ---------------
