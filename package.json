@@ -16,13 +16,13 @@
     "debug:dev": "./node_modules/.bin/nodemon --debug --watch src ./src/server.js",
     "dependency:log": "npm list > ./temp/dependencies.log",
     "lint": "./node_modules/.bin/standard \"./src/**/*.js\" \"./test/**/*.test.js\"",
-    "lint:log": "npm run lint:standard > ./temp/lint-standard.log",
+    "lint:log": "npm run lint > ./temp/lint-standard.log",
     "pretest": "",
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",
-    "test:unit": "standard && tap test/*.test.js test/*/*.test.js",
-    "test:unit:with-snapshot": "standard && cross-env TAP_SNAPSHOT=1 npm run test:unit",
-    "test": "npm run test:unit"
+    "test:unit": "tap test/*.test.js test/*/*.test.js",
+    "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
+    "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
     "ejs": "^2.5.8",
@@ -42,15 +42,10 @@
     "nodemon": "^1.17.3",
     "semver": "^5.5.0",
     "standard": "^11.0.1",
-    "request": "^2.85.0",
+    "simple-get": "^2.7.0",
     "tap": "^11.1.4"
   },
-  "peerDependencies": {
-    "ajv": "^5.0.0",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-react": "^7.6.1"
-  },
+  "peerDependencies": {},
   "engines": {
     "node": ">=8.11.1"
   },

@@ -25,7 +25,8 @@ const fastifyOptions = {
   // logger: false  // by default disabled, so not needed to write here ...
   logger: {
     level: 'info'
-  }
+  },
+  port: 8000
 }
 
 const fastify = require('fastify')(fastifyOptions)
@@ -35,6 +36,8 @@ const path = require('path')
 
 const templateEngine = require('ejs')
 const resolve = require('path').resolve
+const isDocker = require('is-docker')
+
 const templatesFolder = 'templates'
 const pubFolder = '../public'
 const data = { text: 'text' }
@@ -45,6 +48,9 @@ const opts = {
   hello: 'world',
   something: true
 }
+
+// note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
+const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -75,13 +81,13 @@ fastify.get('/', (req, reply) => {
 })
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(8000, '0.0.0.0', (err) => {
+fastify.listen(fastifyOptions.port, listenAddress, (err) => {
   if (err) {
     // fastify.log.error(err)
     // process.exit(1)
     throw err
   }
-  fastify.log.info(`server listening on ${fastify.server.address().port}`)
+  // fastify.log.info(`Server listening on '${fastify.server.address().address}:${fastify.server.address().port}' ...`)
 })
 
 fastify.ready(() => {

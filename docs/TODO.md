@@ -2,13 +2,9 @@
 
 ## TODO
 
+* [ ] general: after latest updates (as of today, 2018-04-15), check why the response for any page is very very slow, urgent ... note that even after a manual cleanup of 'node_modules' folder and redo an 'npm install' nothing changed; but it I open Browser Developer Console all seems to be good (both in latest Firefox and Chrome); check with Fastify guys, urgent ... wip
+
 * [ ] example: use the 'fastify-webhook' plugin, to test it ...
-
-* [ ] general: like in Fastify (and its core plugins), check if remove the dev dependency on 'request', and instead use 'simple-get', and update all tests ... wip
-* [ ] general: check if empty peerDependencies and move them under devDependencies in 'package.json'; for more info see even [peer-dependencies - node.js](https://nodejs.org/en/blog/npm/peer-dependencies/) ... try removing 'request' from dev dependencies and (like other Fastify core plugin) use 'simple-get'; but first try emptying peerDependencies ... wip
-
-* [ ] general: add a dependency on [is-docker](https://www.npmjs.com/package/is-docker), to change (in the server script) the listening address to '0.0.0.0' when in Docker, as in [fastify-cli - Fastify](https://github.com/fastify/fastify-cli); anyway the change to replicate in this project is shown [here](https://github.com/fastify/fastify-cli/commit/0d581c474bd6c7ade5c292decf5fe1062c1e5e03) ... added in dependencies, but need to use it now ... wip
-* [ ] general: check if use [fast-json-stringify - Fastify](https://github.com/fastify/fast-json-stringify) to generate (and maybe even validate) output in JSON; should be faster that 'JSON.stringify' ... try to use it in some function in the 'utils.js' module ... added in dependencies, but need to use it now ... wip
 
 * [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
 
@@ -51,6 +47,18 @@
 * [x] example: tag initial release (but without changing release number in 'package.json') ... ok
 
 * [x] general: update to latest (post-1.0.x) stable Fastify ... ok, so for now use '^1.2.1'
+
+* [x] general: update npm custom commands to run unit tests to not call 'standard' directly, but to call its custom task 'lint' defined in this project ... ok, done; note that calling only 'standard' (but always better to call the local installation of it) without arguments let it scan all folders in the project, so in this case passing the list of folders/subfolders to scan should be better/faster
+* [x] general: like in Fastify (and its core plugins), check if remove the dev dependency on 'request', and instead use 'simple-get' ... changed, now update all tests ... ok, done; but improve later all tests here
+- general: add a dependency on [is-docker](https://www.npmjs.com/package/is-docker), to change (in the server script) the listening address to '0.0.0.0' when in Docker, as in [fastify-cli - Fastify](https://github.com/fastify/fastify-cli); anyway the change to replicate in this project is shown [here](https://github.com/fastify/fastify-cli/commit/0d581c474bd6c7ade5c292decf5fe1062c1e5e03) ... added in dependencies, but need to use it now ... ok, done
+* [x] general: check if use [fast-json-stringify - Fastify](https://github.com/fastify/fast-json-stringify) to generate (and maybe even validate) output in JSON; should be faster that 'JSON.stringify' ... try to use it in some function in the 'utils.js' module ... added in dependencies ... ok, but use later in utils
+* [x] general: like in Fastify (and its core plugins), check if remove the dev dependency on 'request', and instead use 'simple-get' ... changed, now update all tests ... ok, done; but improve later all tests here
+* [x] general: check if empty peerDependencies and move them under devDependencies in 'package.json'; for more info see even [peer-dependencies - node.js](https://nodejs.org/en/blog/npm/peer-dependencies/) ... try removing 'request' from dev dependencies and (like other Fastify core plugin) use 'simple-get'; but first try emptying peerDependencies, from: '''
+"ajv": "^5.0.0",
+"eslint-plugin-import": "^2.8.0",
+"eslint-plugin-promise": "^3.6.0",
+"eslint-plugin-react": "^7.6.1"
+ ''' ... ok, and all tests seems to run well
 
 
 ---------------

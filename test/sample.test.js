@@ -25,7 +25,7 @@ console.log(`Sample JavaScript Test file using TAP ...`)
 
 const tap = require('tap')
 const test = tap.test
-const request = require('request')
+const sget = require('simple-get').concat
 const fs = require('fs')
 const path = require('path')
 const resolve = require('path').resolve
