@@ -69,8 +69,14 @@ fastify.register(require('fastify-static'), {
   prefix: '/public/' // optional: default '/'
 })
 
-// example with null or empty options, returning a default
+// example with null or empty options, using only plugin default options
 fastify.register(require('fastify-favicon'))
+
+// example with null or empty options, using only plugin default options
+fastify.register(require('fastify-webhook'))
+// enable later and comment the previous example ...
+// const webhookHandlers = require('fastify-webhook/handlers.js') // get plugin handlers (optional)
+// const webhookPlugin = require('fastify-webhook')
 
 fastify.get('/', (req, reply) => {
   reply.view('index', {

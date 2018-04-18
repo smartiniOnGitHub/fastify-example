@@ -32,6 +32,7 @@
     "fastify-favicon": "^0.2.1",
     "fastify-session": "^1.0.0",
     "fastify-static": "^0.10.1",
+    "fastify-webhook": "^0.1.0",
     "fast-json-stringify": "^1.2.1",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^1.1.0",

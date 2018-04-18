@@ -2,7 +2,10 @@
 
 ## TODO
 
-* [ ] example: use the 'fastify-webhook' plugin, to test it ...
+* [ ] example: update usage of 'fastify-webhook' plugin, to better test it, but keep previous code commented (for a minimal sample usage) ... wip
+* [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies) ... wip
+* [x] example: use the 'fastify-webhook' plugin, to test it ... but for now don't add specific unit tests here ... ok
+* [x] general: test 'fastify-webhook' plugin, even from a CLI tool like curl, for example run the server with: `npm start` and check with a Browser that the [Home page](http://localhost:8000) is reachable; then in another terminal do: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d '{"payload":"test"}'` => returning a JSON response (maybe in this case a dump of the given data), and no error thrown ... yes but maybe it would be better to have another example server script ... done, but note that on Windows I need to do the curl call in this way (in the json data using a double quote but escaping it in json fields), so: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`; check if I could move that data in a file (for example 'body.json') and point to it with: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d @body.json` not only for Windows; expected response: `{"statusCode":200,"result":"success"}` ... ok
 
 * [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
 
