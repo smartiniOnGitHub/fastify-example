@@ -1,6 +1,10 @@
 # Change Log
 
-## [0.2.4](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.3) (2018-04-15)
+## [0.2.5](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.5) (2018-04-18)
+Summary Changelog:
+- Update dependencies to fix the problem in 'fastify-static' on the reload of pages with cache enabled (default behaviour in browsers)
+
+## [0.2.4](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.4) (2018-04-15)
 Summary Changelog:
 - Small updates like in latest Fastify: remove dependency from 'request' and use 'simple-get' instead, add 'is-docker', etc
 
