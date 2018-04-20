@@ -62,6 +62,7 @@
  ''' ... ok, and all tests seems to run well
 * [x] general: in the example, use latest version of my 'fastify-favicon' plugin ('0.2.1'), to test it ... ok
 * [x] general: after latest updates (as of today, 2018-04-13), check why the response for any page is very very slow, urgent ... note that even after a manual cleanup of 'node_modules' folder and redo an 'npm install' nothing changed; but it I open Browser Developer Console all seems to be good (both in latest Firefox and Chrome); check with Fastify guys, urgent ... not sure it's a bug, so for now I just opened an help request [here](https://github.com/fastify/help/issues/9) ... now check as suggested, and then maybe debug 'fastify-static' ... no wait, probably the issue is this: [issue#50 - fastify-static](https://github.com/fastify/fastify-static/issues/50) and maybe even [issue#23 - node-fastify-auto-push](https://github.com/google/node-fastify-auto-push/issues/23) even if not strictly related to my usage; so wait for the fix and a new release of 'fastify-static' to test ... ok, with '0.10.1' the problem is resolved
+* [x] general: update to latest Fastify 1.3.0 (just released) and related plugins, to ensure all work ... ok, done and tested
 
 
 ---------------

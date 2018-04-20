@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.3.0) (2018-04-xx)
+Summary Changelog:
+- Update to latest Fastify 1.x.x (currently 1.3.0) and update all related plugins, to ensure all works
+- Update sample usage of 'fastify-webhook' with more custom options
+
 ## [0.2.5](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.5) (2018-04-18)
 Summary Changelog:
 - Update dependencies to fix the problem in 'fastify-static' on the reload of pages with cache enabled (default behaviour in browsers)
