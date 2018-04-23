@@ -73,10 +73,15 @@ fastify.register(require('fastify-static'), {
 fastify.register(require('fastify-favicon'))
 
 // example with null or empty options, using only plugin default options
-fastify.register(require('fastify-webhook'))
-// enable later and comment the previous example ...
-// const webhookHandlers = require('fastify-webhook/handlers.js') // get plugin handlers (optional)
-// const webhookPlugin = require('fastify-webhook')
+// fastify.register(require('fastify-webhook'))
+// enable later and comment the previous example ... ok
+const webhookHandlers = require('fastify-webhook/handlers.js') // get plugin handlers (optional)
+const webhookPlugin = require('fastify-webhook')
+fastify.register(webhookPlugin, {
+  'url': '/custom-webhook',
+  'handler': webhookHandlers.echo
+})
+fastify.log.info(`Webhook registered with custom options`)
 
 fastify.get('/', (req, reply) => {
   reply.view('index', {

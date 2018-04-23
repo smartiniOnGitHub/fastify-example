@@ -1,9 +1,9 @@
 # Change Log
 
-## [0.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.3.0) (2018-04-xx)
+## [0.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.3.0) (2018-04-23)
 Summary Changelog:
 - Update to latest Fastify 1.x.x (currently 1.3.0) and update all related plugins, to ensure all works
-- Update sample usage of 'fastify-webhook' with more custom options
+- Update sample usage of 'fastify-webhook' with some custom options: now try to call it for example with (from Windows): `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`, otherwise remove the escape of double quote chars and keep the rest
 
 ## [0.2.5](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.5) (2018-04-18)
 Summary Changelog:
