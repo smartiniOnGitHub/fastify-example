@@ -2,7 +2,8 @@
 
 ## TODO
 
-* [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies) ... wip
+* [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
+* [ ] example: update 'fastify-webhook' to latest version ... wip
 
 * [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
 
