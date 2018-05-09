@@ -2,8 +2,7 @@
 
 ## TODO
 
-* [ ] general: update 'fastify-favicon' usage to show a sample with custom options ... wip
-* [ ] general: update npm custom commands to use local installed tools via [npx](https://www.npmjs.com/package/npx) ... note that should already be installed with latest npx, but if not (sometimes in Windows) install with `npm install -g npx`, then check with `npx --version` ... wip
+* [ ] general: update 'fastify-favicon' usage to show a sample with custom options ... added a sample 'favicon.ico' (16x16) generated with GIMP ... wip, because it seems that there is a problem in 'fastify-plugin' with custom path; check from the 'temp' folder with `wget http://localhost:8000/favicon.ico --no-cache` (or similar with 'curl') and then open generated file to ensure it's the custom favicon
 * [ ] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... wip
 * [ ] general: update all core dependencies on Fastify and related plugins ... now wait for the new point-of-view release too ... wip
 
@@ -72,6 +71,7 @@
 * [x] general: update to latest Fastify 1.3.0 (just released) and related plugins, to ensure all work ... ok, done and tested
 * [x] general: update to latest Fastify 1.4.0 (just released) and related plugins, to ensure all work; then update CHANGELOG, commit and tag ... ok
 * [x general: start to move to ES Modules, enabled since Node.js 10 as seen [here](https://levelup.gitconnected.com/whats-new-in-node-10-ad360ae55ee4); look [here](https://medium.com/@giltayar/native-es-modules-in-nodejs-status-and-future-directions-part-i-ee5ea3001f71) for an overview ... do only some trivial changes accordingly to [package.json - npmjs](https://docs.npmjs.com/files/package.json) ... maybe later do more
+* [x] general: update npm custom commands to use local installed tools via [npx](https://www.npmjs.com/package/npx) ... note that should already be installed with latest npx, but if not (sometimes in Windows) install with `npm install -g npx`, then check with `npx --version` ... no, because as seen [here](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html), npx can't run npm custom commands but instead is made for run local tools; anyway, simplify 'package.json' to remove './node_modules/.bin/' from any custom command, and (recommended) remove those (and in general any if possible) global npm packages
 
 
 ---------------
