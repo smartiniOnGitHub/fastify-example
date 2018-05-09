@@ -2,9 +2,15 @@
 
 ## TODO
 
+* [ ] general: update 'fastify-favicon' usage to show a sample with custom options ... wip
+* [ ] general: update npm custom commands to use local installed tools via [npx](https://www.npmjs.com/package/npx) ... note that should already be installed with latest npx, but if not (sometimes in Windows) install with `npm install -g npx`, then check with `npx --version` ... wip
+* [ ] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... wip
+* [ ] general: update all core dependencies on Fastify and related plugins ... now wait for the new point-of-view release too ... wip
+
 * [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
 * [ ] example: update 'fastify-webhook' to latest version ... wip
 
+* [ ] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) ... wip
 * [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
@@ -64,6 +70,8 @@
 * [x] general: in the example, use latest version of my 'fastify-favicon' plugin ('0.2.1'), to test it ... ok
 * [x] general: after latest updates (as of today, 2018-04-13), check why the response for any page is very very slow, urgent ... note that even after a manual cleanup of 'node_modules' folder and redo an 'npm install' nothing changed; but it I open Browser Developer Console all seems to be good (both in latest Firefox and Chrome); check with Fastify guys, urgent ... not sure it's a bug, so for now I just opened an help request [here](https://github.com/fastify/help/issues/9) ... now check as suggested, and then maybe debug 'fastify-static' ... no wait, probably the issue is this: [issue#50 - fastify-static](https://github.com/fastify/fastify-static/issues/50) and maybe even [issue#23 - node-fastify-auto-push](https://github.com/google/node-fastify-auto-push/issues/23) even if not strictly related to my usage; so wait for the fix and a new release of 'fastify-static' to test ... ok, with '0.10.1' the problem is resolved
 * [x] general: update to latest Fastify 1.3.0 (just released) and related plugins, to ensure all work ... ok, done and tested
+* [x] general: update to latest Fastify 1.4.0 (just released) and related plugins, to ensure all work; then update CHANGELOG, commit and tag ... ok
+* [x general: start to move to ES Modules, enabled since Node.js 10 as seen [here](https://levelup.gitconnected.com/whats-new-in-node-10-ad360ae55ee4); look [here](https://medium.com/@giltayar/native-es-modules-in-nodejs-status-and-future-directions-part-i-ee5ea3001f71) for an overview ... do only some trivial changes accordingly to [package.json - npmjs](https://docs.npmjs.com/files/package.json) ... maybe later do more
 
 
 ---------------
