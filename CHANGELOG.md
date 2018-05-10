@@ -1,6 +1,6 @@
 # Change Log
 
-## [0.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.4.0) (2018-05-09)
+## [0.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.4.0) (2018-05-xx)
 Summary Changelog:
 - Update to latest Fastify (currently 1.4.0) and update all related plugins (and other dependencies), to ensure all works
 - Simplified 'package.json'
