@@ -71,8 +71,8 @@ fastify.register(require('fastify-static'), {
 
 // example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-favicon'))
-// enable later and comment the previous example ... ok
-fastify.register(require('fastify-favicon'), { path: '/public/img/' })
+// example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
+fastify.register(require('fastify-favicon'), { path: './public/img/' })
 
 // example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
