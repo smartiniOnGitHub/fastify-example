@@ -2,11 +2,10 @@
 
 ## TODO
 
-* [ ] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... wip
-* [ ] general: update all core dependencies on Fastify and related plugins ... now wait for the new point-of-view release too ... wip
-
 * [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
 * [ ] example: update 'fastify-webhook' to latest version ... wip
+* [ ] example: update 'point-of-view' to latest version (when published) ... wip
+* [ ] general: update all core dependencies on Fastify and related plugins ... wip
 
 * [ ] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) ... wip
 * [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
@@ -72,6 +71,8 @@
 * [x general: start to move to ES Modules, enabled since Node.js 10 as seen [here](https://levelup.gitconnected.com/whats-new-in-node-10-ad360ae55ee4); look [here](https://medium.com/@giltayar/native-es-modules-in-nodejs-status-and-future-directions-part-i-ee5ea3001f71) for an overview ... do only some trivial changes accordingly to [package.json - npmjs](https://docs.npmjs.com/files/package.json) ... maybe later do more
 * [x] general: update npm custom commands to use local installed tools via [npx](https://www.npmjs.com/package/npx) ... note that should already be installed with latest npx, but if not (sometimes in Windows) install with `npm install -g npx`, then check with `npx --version` ... no, because as seen [here](https://michael-kuehnel.de/tooling/2018/03/22/helpers-and-tips-for-npm-run-scripts.html), npx can't run npm custom commands but instead is made for run local tools; anyway, simplify 'package.json' to remove './node_modules/.bin/' from any custom command, and (recommended) remove those (and in general any if possible) global npm packages
 * [x] general: update the example (and first the test) to show a sample with custom options, and let it work with a sample 'favicon.ico' (16x16) generated with GIMP ... note that it seems that there is a problem in 'fastify-favicon' with custom path (both absolute and relative to server script); check from the 'temp' folder with `wget http://localhost:8000/favicon.ico --no-cache` (or similar with 'curl') and then open generated file to ensure it's the custom favicon; then update changelog, release number, etc ...  ok, but no issue raised because it was due to a wrong path given; so updated readme and the example
+* [x] general: update all core dependencies on Fastify and related plugins ... ok
+* [x] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... ok, all works even with Node.js 10.1.0
 
 
 ---------------

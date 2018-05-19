@@ -1,10 +1,10 @@
 # Change Log
 
-## [0.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.4.0) (2018-05-xx)
+## [0.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.4.0) (2018-05-19)
 Summary Changelog:
 - Update to latest Fastify (currently 1.4.0) and update all related plugins (and other dependencies), to ensure all works
 - Simplified 'package.json'
-- Update 'fastify-favicon' usage to show a sample with custom options
+- Update 'fastify-favicon' usage to show a sample with custom options, and update to latest release
 
 ## [0.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.3.0) (2018-04-23)
 Summary Changelog:
