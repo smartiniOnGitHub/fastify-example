@@ -3,7 +3,6 @@
 ## TODO
 
 * [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
-* [ ] example: update 'fastify-webhook' to latest version ... wip
 * [ ] example: update 'point-of-view' to latest version (when published) ... wip
 * [ ] general: update all core dependencies on Fastify and related plugins ... wip
 
@@ -20,6 +19,7 @@
 * [ ] general: implement some automation tool, using [Gulp](https://gulpjs.com/) or [WebPack](https://webpack.js.org/) ...
 * [ ] general: rewrite all using latest [TypeScript](https://www.typescriptlang.org/), but in a branch (and merge later into master) ...
 
+* [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
 * [ ] content: add error handlers ...
 * [ ] content cleanup/update to latest standards my custom styles ...
@@ -49,7 +49,7 @@
 * [x] example: tag initial release (but without changing release number in 'package.json') ... ok
 * [x] example: use the 'fastify-webhook' plugin, to test it ... but for now don't add specific unit tests here ... ok
 * [x] example: test 'fastify-webhook' plugin, even from a CLI tool like curl, for example run the server with: `npm start` and check with a Browser that the [Home page](http://localhost:8000) is reachable; then in another terminal do: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d '{"payload":"test"}'` => returning a JSON response (maybe in this case a dump of the given data), and no error thrown ... yes but maybe it would be better to have another example server script ... done, but note that on Windows I need to do the curl call in this way (in the json data using a double quote but escaping it in json fields), so: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`; check if I could move that data in a file (for example 'body.json') and point to it with: `curl http://127.0.0.1:8000/webhook -X POST -H "Content-Type: application/json" -d @body.json` not only for Windows; expected response: `{"statusCode":200,"result":"success"}` ... ok
-* [x] example: update usage of 'fastify-webhook' plugin, to better test it, but keep previous code commented (for a minimal sample usage) ... ok, so now try to call it for example with (from Windows): `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`, otherwise remove the escape of double quote chars and keep the rest
+* [x] example: update usage of 'fastify-webhook' plugin, to better test it, but keep previous code commented (for a minimal sample usage) ... ok, so now try to call it for example with (from Windows): `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`, otherwise remove the escape of double quote chars and keep the rest for Linux/Mac: `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d '{"payload":"test"}'`
 
 * [x] general: update to latest (post-1.0.x) stable Fastify ... ok, so for now use '^1.2.1'
 
@@ -73,6 +73,7 @@
 * [x] general: update the example (and first the test) to show a sample with custom options, and let it work with a sample 'favicon.ico' (16x16) generated with GIMP ... note that it seems that there is a problem in 'fastify-favicon' with custom path (both absolute and relative to server script); check from the 'temp' folder with `wget http://localhost:8000/favicon.ico --no-cache` (or similar with 'curl') and then open generated file to ensure it's the custom favicon; then update changelog, release number, etc ...  ok, but no issue raised because it was due to a wrong path given; so updated readme and the example
 * [x] general: update all core dependencies on Fastify and related plugins ... ok
 * [x] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... ok, all works even with Node.js 10.1.0
+* [x] example: update 'fastify-webhook' to latest version ... ok
 
 
 ---------------
