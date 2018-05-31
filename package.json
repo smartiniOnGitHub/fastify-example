@@ -17,6 +17,8 @@
     "dependency:log": "npm list > ./temp/dependencies.log",
     "lint": "standard \"./src/**/*.js\" \"./test/**/*.test.js\"",
     "lint:log": "npm run lint > ./temp/lint-standard.log",
+    "license-check": "npx legally",
+    "license-check:log": "npx legally > ./temp/license-check.log",
     "pretest": "",
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",

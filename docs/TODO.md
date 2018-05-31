@@ -75,5 +75,7 @@
 * [x] general: run all even with Node.js 10.x.x, to check if everything works (as should) ... ok, all works even with Node.js 10.1.0
 * [x] example: update 'fastify-webhook' to latest version ... ok
 
+* [x] general: check licenses of dependencies, for example with [legally - npm](https://www.npmjs.com/package/legally) or with [license-checker - npm](https://www.npmjs.com/package/license-checker); then repeat after some time ... ok, used 'legally' but run via npx, all seems to be good
+
 
 ---------------
