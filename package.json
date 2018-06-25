@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "ejs": "^2.6.1",
-    "fastify": "^1.6.0",
+    "fastify": "^1.7.0",
     "fastify-compress": "^0.6.0",
     "fastify-cookie": "^2.0.1",
     "fastify-env": "^0.6.0",
@@ -42,7 +42,7 @@
     "point-of-view": "^1.1.0"
   },
   "devDependencies": {
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "nodemon": "^1.17.5",
     "semver": "^5.5.0",
     "standard": "^11.0.1",
@@ -51,7 +51,7 @@
   },
   "peerDependencies": {},
   "engines": {
-    "node": ">=8.11.2"
+    "node": ">=8.11.3"
   },
   "repository": {
     "type": "git",

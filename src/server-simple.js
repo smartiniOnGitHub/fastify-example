@@ -62,13 +62,13 @@ fastify.get('/', (req, reply) => {
 })
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(8000, '0.0.0.0', (err) => {
+fastify.listen(8000, '0.0.0.0', (err, address) => {
   if (err) {
-    // fastify.log.error(err)
-    // process.exit(1)
-    throw err
+    app.log.error(err)
+    process.exit(1)
+    // throw err
   }
-  fastify.log.info(`server listening on ${fastify.server.address().port}`)
+  fastify.log.info(`Server listening on '${address}' ...`)
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...

@@ -76,6 +76,7 @@
 * [x] example: update 'fastify-webhook' to latest version ... ok
 
 * [x] general: check licenses of dependencies, for example with [legally - npm](https://www.npmjs.com/package/legally) or with [license-checker - npm](https://www.npmjs.com/package/license-checker); then repeat after some time ... ok, used 'legally' but run via npx, all seems to be good
+* [x] general: update to latest Fastify (1.7.0), and update diagnostic code on the listening address and port using the new syntax ... ok
 
 
 ---------------
