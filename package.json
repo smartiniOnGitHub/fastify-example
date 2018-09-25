@@ -15,6 +15,10 @@
     "debug": "node --inspect ./src/server",
     "debug:dev": "nodemon --debug --watch src ./src/server",
     "dependency:log": "npm list > ./temp/dependencies.log",
+    "docker:build": "docker build -t fastify-example .",
+    "docker:run": "docker run --rm --name fastify-example -d -p 8000:8000 -t fastify-example",
+    "docker:stop": "docker kill fastify-example",
+    "docker:clean": "docker rmi fastify-example",
     "lint": "standard \"./src/**/*.js\" \"./test/**/*.test.js\"",
     "lint:log": "npm run lint > ./temp/lint-standard.log",
     "license-check": "npx legally",
@@ -28,10 +32,10 @@
   },
   "dependencies": {
     "ejs": "^2.6.1",
-    "fastify": "^1.11.2",
+    "fastify": "^1.12.0",
     "fastify-compress": "^0.7.0",
     "fastify-cookie": "^2.0.2",
-    "fastify-env": "^0.6.0",
+    "fastify-env": "^0.6.1",
     "fastify-favicon": "^0.2.4",
     "fastify-session": "^1.1.0",
     "fastify-static": "^0.14.0",
@@ -51,7 +55,7 @@
   },
   "peerDependencies": {},
   "engines": {
-    "node": ">=8.11.4"
+    "node": ">=8.12.0"
   },
   "repository": {
     "type": "git",

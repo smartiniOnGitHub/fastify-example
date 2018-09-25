@@ -7,6 +7,9 @@ LABEL maintainer "Sandro Martini <sandro.martini@gmail.com>"
 RUN mkdir -p /work
 WORKDIR /work
 
+# Set a non privileged user to use when running this image
+# USER node
+
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 # ENV NODE_ENV production
@@ -14,11 +17,15 @@ ENV NODE_ENV $NODE_ENV
 
 ENV NPM_CONFIG_LOGLEVEL warn
 
-# copy all sources in the container (exclusions in .dockerignore file)
-COPY . $WORKDIR
+# copy project definition/dependencies files, for better reuse of layers
+COPY ./package*.json ./$WORKDIR
 
+# install dependencies here, for better reuse of layers
 RUN npm install
 # RUN npm install --only=production
+
+# copy all sources in the container (exclusions in .dockerignore file)
+COPY . $WORKDIR
 
 # build/pack binaries from sources ...
 
