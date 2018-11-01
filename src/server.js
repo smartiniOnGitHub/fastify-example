@@ -85,6 +85,9 @@ fastify.register(webhookPlugin, {
 })
 fastify.log.info(`Webhook registered with custom options`)
 
+// example with null or empty options, using only plugin default options
+fastify.register(require('fastify-healthcheck'))
+
 fastify.get('/', (req, reply) => {
   reply.view('index', {
     environment: 'development',
