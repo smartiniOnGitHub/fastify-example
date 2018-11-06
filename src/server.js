@@ -44,13 +44,21 @@ const data = { text: 'text' }
 
 const utils = require('./utils')
 
-const opts = {
-  hello: 'world',
-  something: true
-}
-
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+
+const k = {
+  protocol: 'http',
+  address: '0.0.0.0',
+  port: 3000,
+  baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
+  cloudEventOptions: {
+    strict: true // enable strict mode in generated CloudEvents, optional
+  }
+}
+k.address = listenAddress
+k.serverUrl = `${k.protocol}://${k.address}:${k.port}/`
+k.cloudEventOptions.source = k.serverUrl
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -88,12 +96,43 @@ fastify.log.info(`Webhook registered with custom options`)
 // example with null or empty options, using only plugin default options
 fastify.register(require('fastify-healthcheck'))
 
+// define a sample id generator here
+const hostname = require('os').hostname()
+const pid = require('process').pid
+function * idCounterExample () {
+  let counter = 0
+  while (true) {
+    yield `${counter++}`
+  }
+}
+
+// define a generator, to use everywhere here
+const gen = idCounterExample()
+
+// example with only some most-common options
+fastify.register(require('fastify-cloudevents'), {
+  serverUrl: k.serverUrl,
+  idGenerator: gen,
+  onRequestCallback: loggingCallback,
+  onResponseCallback: loggingCallback,
+  cloudEventOptions: k.cloudEventOptions
+})
+
+function loggingCallback (ce) {
+  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+}
+
+// define the root route
 fastify.get('/', (req, reply) => {
   reply.view('index', {
     environment: 'development',
     title: 'Home',
     welcome: 'Welcome to the Home Page'
   })
+})
+// example route, to return current timestamp but in async way
+fastify.get('/time', async (req, reply) => {
+  return { timestamp: Math.floor(Date.now()) }
 })
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
