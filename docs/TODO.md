@@ -2,12 +2,11 @@
 
 ## TODO
 
+* [x] example: use the 'fastify-cloudevents' plugin, to test it (configure it for a common usage scenario, and add a /time route) ... but for now don't add specific unit tests here ... wip
+
 * [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
 * [ ] example: update 'point-of-view' to latest version (when published) ... wip
 * [ ] general: update all core dependencies on Fastify and related plugins ... wip
-
-* [ ] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) ... wip
-* [ ] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
 * [ ] general: check if add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc), and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ...
@@ -78,6 +77,9 @@
 * [x] general: check licenses of dependencies, for example with [legally - npm](https://www.npmjs.com/package/legally) or with [license-checker - npm](https://www.npmjs.com/package/license-checker); then repeat after some time ... ok, used 'legally' but run via npx, all seems to be good
 * [x] general: update to latest Fastify (1.7.0), and update diagnostic code on the listening address and port using the new syntax ... ok
 * [x] general: change all references to js sources by removing its '.js' explicit extension, to be more future proof for using Node.js modules ('.mjs') since Node.js 10 ... ok, done in 'package.json' commands and even when using 'handlers' from 'fastify-webhook' for example
+
+* [x] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) ... maybe later
+* [x] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... maybe later
 
 
 ---------------
