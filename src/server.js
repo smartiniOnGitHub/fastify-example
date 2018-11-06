@@ -112,7 +112,7 @@ const gen = idCounterExample()
 // example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
   serverUrl: k.serverUrl,
-  idGenerator: gen,
+  // idGenerator: gen,
   onRequestCallback: loggingCallback,
   onResponseCallback: loggingCallback,
   cloudEventOptions: k.cloudEventOptions
