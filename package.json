@@ -39,12 +39,12 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "fastify": "^1.13.0",
-    "fastify-cloudevents": "^0.1.1",
+    "fastify-cloudevents": "^0.1.4",
     "fastify-compress": "^0.7.0",
-    "fastify-cookie": "^2.1.0",
+    "fastify-cookie": "^2.1.1",
     "fastify-env": "^0.6.1",
     "fastify-favicon": "^0.2.4",
-    "fastify-healthcheck": "^0.1.0",
+    "fastify-healthcheck": "^0.1.1",
     "fastify-session": "^1.1.0",
     "fastify-static": "^0.14.0",
     "fastify-webhook": "^0.2.0",
@@ -59,7 +59,7 @@
     "semver": "^5.6.0",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
-    "tap": "^12.0.1"
+    "tap": "^12.1.0"
   },
   "peerDependencies": {},
   "engines": {
