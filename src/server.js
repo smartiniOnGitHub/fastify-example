@@ -31,6 +31,7 @@ const fastifyOptions = {
 
 const fastify = require('fastify')(fastifyOptions)
 
+const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
 
@@ -54,6 +55,9 @@ const k = {
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
   cloudEventOptions: {
     strict: true // enable strict mode in generated CloudEvents, optional
+  },
+  natsQueueOptions: {
+    url: 'nats://demo.nats.io:4222' // sample queue, publicly available for tests
   }
 }
 k.address = listenAddress
@@ -96,6 +100,7 @@ fastify.log.info(`Webhook registered with custom options`)
 // example with null or empty options, using only plugin default options
 fastify.register(require('fastify-healthcheck'))
 
+// example usage of fastify-cloudevents plugin
 // define a sample id generator here
 const hostname = require('os').hostname()
 const pid = require('process').pid
@@ -105,10 +110,12 @@ function * idCounterExample () {
     yield `${counter++}`
   }
 }
-
-// define a generator, to use everywhere here
+// instance the generator, to use everywhere here
 const gen = idCounterExample()
-
+// add a sample logging callback
+function loggingCallback (ce) {
+  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+}
 // example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
   serverUrl: k.serverUrl,
@@ -118,10 +125,18 @@ fastify.register(require('fastify-cloudevents'), {
   cloudEventOptions: k.cloudEventOptions
 })
 
-function loggingCallback (ce) {
-  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
-}
+// example to connect to a nats queue using related plugin
+fastify.register(require('fastify-nats'), k.natsQueueOptions)
+// fastify.register(require('../../smartiniOnGitHub_fastify-nats/'), k.natsQueueOptions) // TODO: temp, using my fork ... wip
+fastify.after((err) => {
+  if (err) console.log(err)
+  assert(fastify.nats !== null) // example
+  if (fastify.nats !== null) {
+    utils.logToConsole(`Connected to the queue at: '${fastify.nats.currentServer.url.href}'`)
+  }
+})
 
+// define some routes
 // define the root route
 fastify.get('/', (req, reply) => {
   reply.view('index', {
@@ -138,7 +153,7 @@ fastify.get('/time', async (req, reply) => {
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 fastify.listen(fastifyOptions.port, listenAddress, (err, address) => {
   if (err) {
-    app.log.error(err)
+    fastify.log.error(err)
     process.exit(1)
     // throw err
   }
