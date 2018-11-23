@@ -31,6 +31,7 @@ const fastifyOptions = {
 
 const fastify = require('fastify')(fastifyOptions)
 
+const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
 
@@ -77,12 +78,12 @@ fastify.register(require('fastify-static'), {
   prefix: '/public/' // optional: default '/'
 })
 
-// example with null or empty options, using only plugin default options
+// fastify-favicon, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-favicon'))
 // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
 fastify.register(require('fastify-favicon'), { path: './public/img/' })
 
-// example with null or empty options, using only plugin default options
+// fastify-webhook, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
 // enable later and comment the previous example ... ok
 const webhookHandlers = require('fastify-webhook/handlers') // get plugin handlers (optional)
@@ -93,7 +94,7 @@ fastify.register(webhookPlugin, {
 })
 fastify.log.info(`Webhook registered with custom options`)
 
-// example with null or empty options, using only plugin default options
+// fastify-healthcheck, example with null or empty options, using only plugin default options
 fastify.register(require('fastify-healthcheck'))
 
 // define a sample id generator here
@@ -105,11 +106,13 @@ function * idCounterExample () {
     yield `${counter++}`
   }
 }
-
-// define a generator, to use everywhere here
+// instance the generator, to use everywhere here
 const gen = idCounterExample()
-
-// example with only some most-common options
+// add a sample logging callback
+function loggingCallback (ce) {
+  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+}
+// fastify-cloudevents, example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
   serverUrl: k.serverUrl,
   // idGenerator: gen,
@@ -118,10 +121,7 @@ fastify.register(require('fastify-cloudevents'), {
   cloudEventOptions: k.cloudEventOptions
 })
 
-function loggingCallback (ce) {
-  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
-}
-
+// define some routes
 // define the root route
 fastify.get('/', (req, reply) => {
   reply.view('index', {
@@ -138,7 +138,7 @@ fastify.get('/time', async (req, reply) => {
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 fastify.listen(fastifyOptions.port, listenAddress, (err, address) => {
   if (err) {
-    app.log.error(err)
+    fastify.log.error(err)
     process.exit(1)
     // throw err
   }
