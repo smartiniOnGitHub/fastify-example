@@ -45,19 +45,17 @@ const data = { text: 'text' }
 
 const utils = require('./utils')
 
-// note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
-
 const k = {
   protocol: 'http',
-  address: '0.0.0.0',
-  port: 3000,
+  address: '127.0.0.1', // safer default
+  port: fastifyOptions.port,
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
   cloudEventOptions: {
     strict: true // enable strict mode in generated CloudEvents, optional
   }
 }
-k.address = listenAddress
+// to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
+k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}/`
 k.cloudEventOptions.source = k.serverUrl
 
@@ -122,21 +120,10 @@ fastify.register(require('fastify-cloudevents'), {
 })
 
 // define some routes
-// define the root route
-fastify.get('/', (req, reply) => {
-  reply.view('index', {
-    environment: 'development',
-    title: 'Home',
-    welcome: 'Welcome to the Home Page'
-  })
-})
-// example route, to return current timestamp but in async way
-fastify.get('/time', async (req, reply) => {
-  return { timestamp: Math.floor(Date.now()) }
-})
+fastify.register(require('./route'))
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(fastifyOptions.port, listenAddress, (err, address) => {
+fastify.listen(fastifyOptions.port, k.address, (err, address) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)
