@@ -35,7 +35,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify 1.13.0 or later, Node.js 8.12.0 or later.
+Fastify 1.13.0 or later, Node.js 8.14.0 or later.
 
 
 ## License
