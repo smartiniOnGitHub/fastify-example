@@ -84,7 +84,7 @@ fastify.register(require('fastify-favicon'), { path: './public/img/' })
 // fastify-webhook, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
 // enable later and comment the previous example ... ok
-const webhookHandlers = require('fastify-webhook/handlers') // get plugin handlers (optional)
+const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
 const webhookPlugin = require('fastify-webhook')
 fastify.register(webhookPlugin, {
   'url': '/custom-webhook',

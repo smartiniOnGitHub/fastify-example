@@ -47,7 +47,7 @@
     "fastify-healthcheck": "^0.2.0",
     "fastify-session": "^1.2.1",
     "fastify-static": "^0.14.0",
-    "fastify-webhook": "^0.2.0",
+    "fastify-webhook": "^0.3.0",
     "fast-json-stringify": "^1.9.2",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^4.0.0",
