@@ -2,9 +2,8 @@
 
 ## TODO
 
-* [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
-* [ ] example: update 'point-of-view' to latest version (when published) ... wip
-* [ ] general: update all core dependencies on Fastify and related plugins ... wip
+* [x] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
+* [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
 * [ ] general: check if add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc), and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ...
@@ -80,6 +79,9 @@
 * [x] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... maybe later
 
 * [x] example: use the 'fastify-cloudevents' plugin, to test it (configure it for a common usage scenario, and add a /time route) ... but for now don't add specific unit tests here ... ok, even if 'loggingCallback' does some noise (additional output for the dump of related Cloudevents) in the console
+
+* [x] example: update 'point-of-view' to latest version (when published) ... ok
+* [x] general: update all core dependencies on Fastify and related plugins ... ok, and often repeat this task
 
 
 ---------------
