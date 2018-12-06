@@ -89,7 +89,7 @@ fastify.register(require('fastify-favicon'), { path: './public/img/' })
 // example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
 // enable later and comment the previous example ... ok
-const webhookHandlers = require('fastify-webhook/handlers') // get plugin handlers (optional)
+const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
 const webhookPlugin = require('fastify-webhook')
 fastify.register(webhookPlugin, {
   'url': '/custom-webhook',
@@ -126,13 +126,14 @@ fastify.register(require('fastify-cloudevents'), {
 })
 
 // example to connect to a nats queue using related plugin
-fastify.register(require('fastify-nats'), k.natsQueueOptions)
-// fastify.register(require('../../smartiniOnGitHub_fastify-nats/'), k.natsQueueOptions) // TODO: temp, using my fork ... wip
+// TODO: temporarily disable standard plugin, and use my temporary one ... wip
+// fastify.register(require('fastify-nats'), k.natsQueueOptions)
+fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
 fastify.after((err) => {
   if (err) console.log(err)
   assert(fastify.nats !== null) // example
   if (fastify.nats !== null) {
-    utils.logToConsole(`Connected to the queue at: '${fastify.nats.currentServer.url.href}'`)
+    utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
   }
 })
 
