@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: in the branch 'add-fastify-nats', use my fork of 'fastify-nats', with its temporary name 'fastify-nats-client' and ensure all is good; but do not merge those changes into master ... wip
 * [x] general: in the branch 'add-fastify-nats', revert the use of 'fastify-nats-client' and use the new version of 'fastify-nats' (one time it has been published) and ensure all is good; then merge those changes into master (via Pull Request) ... wip
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
@@ -85,6 +84,8 @@
 * [x] example: update 'point-of-view' to latest version (when published) ... ok
 * [x] general: update all core dependencies on Fastify and related plugins ... ok, and often repeat this task
 * [x] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... maybe later
+* [x] general: in the branch 'add-fastify-nats', use my fork of 'fastify-nats', with its temporary name 'fastify-nats-client' and ensure all is good; but do not merge those changes into master ... ok
+* [x] general: update dependencies to latest Fastify 1.x (1.13.1) and all plugins ... ok
 
 
 ---------------
