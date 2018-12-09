@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.9.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.8.0) (2018-12-09)
+- Updated to latest Fastify 1.13.1 (stay on 1.x for now) and all plugins to latest release
+- in the branch 'add-fastify-nats' (still not merged with the 'master' branch) 
+  add a sample usage of 'fastify-nats' plugin, or better my fork of that plugin, 'fastify-nats-client',
+  a little more updated and with some more features; later maybe switch back to the original one.
+  Note that this branch is not merged into master mainly because the NATS server used is a public one,
+  so could not be reachable, for example by corporate firewall rules, etc; 
+  anyway it'a available in that branch
+
 ## [0.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.8.0) (2018-11-28)
 - Updated to latest Fastify 1.13.0 (stay on 1.x for now) and all plugins to latest release
 - Minor tweaks
