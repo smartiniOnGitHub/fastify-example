@@ -2,8 +2,6 @@
 
 ## TODO
 
-* [x] general: in the branch 'add-fastify-nats', revert the use of 'fastify-nats-client' and use the new version of 'fastify-nats' (one time it has been published) and ensure all is good; then merge those changes into master (via Pull Request) ... wip
-
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
@@ -86,6 +84,8 @@
 * [x] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... maybe later
 * [x] general: in the branch 'add-fastify-nats', use my fork of 'fastify-nats', with its temporary name 'fastify-nats-client' and ensure all is good; but do not merge those changes into master ... ok
 * [x] general: update dependencies to latest Fastify 1.x (1.13.1) and all plugins ... ok
+* [x] general: in the branch 'add-fastify-nats', revert the use of 'fastify-nats-client' and use the new version of 'fastify-nats' (one time it has been published) and ensure all is good; then merge those changes into master (via Pull Request) ... maybe later (see next comment)
+* [x] example: in the branch 'add-fastify-nats' branch, use the 'fastify-nats' pligin to send/receive messages with a publiuc NATS server; but instead (at least for now) use my fork of that plugin, 'fastify-nats-client' that has some more features and more updates ... ok, but do not merge this branch because in some cases the external NATS server could not be reachable (for example by corporate firewall rules), instead keep it not merged and see later if/what to do
 
 
 ---------------
