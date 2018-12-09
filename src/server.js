@@ -48,6 +48,8 @@ const utils = require('./utils')
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
 
+const packageName = require('../package.json').name // get package name
+const packageVersion = require('../package.json').version // get package version
 const k = {
   protocol: 'http',
   address: '0.0.0.0',
@@ -57,12 +59,14 @@ const k = {
     strict: true // enable strict mode in generated CloudEvents, optional
   },
   natsQueueOptions: {
-    url: 'nats://demo.nats.io:4222' // sample queue, publicly available for tests
+    // url: 'nats://demo.nats.io:4222' // same as plugin default, so no ned to specify here
   }
 }
 k.address = listenAddress
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}/`
 k.cloudEventOptions.source = k.serverUrl
+k.queueName = `${packageName}-${packageVersion}`
+k.message = 'Hello World, from a Fastify web application just started !'
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -125,8 +129,29 @@ fastify.register(require('fastify-cloudevents'), {
   cloudEventOptions: k.cloudEventOptions
 })
 
+// sample subscriber function for the NATS queue specified in constants
+function subscribe (nats,
+  cb = function (msg) {
+    console.log(`Received message: ${msg}`)
+  }) {
+  console.log(`Subscribe to messages from the queue '${k.queueName}'`)
+  assert(fastify.nats !== null)
+
+  // simple subscriber
+  nats.subscribe(k.queueName, cb)
+}
+
+// sample publish function for the NATS queue specified in constants
+function publish (nats, msg = '') {
+  console.log(`Publish the given message in the queue '${k.queueName}'`)
+  assert(fastify.nats !== null)
+
+  // simple publisher
+  nats.publish(k.queueName, msg)
+}
+
 // example to connect to a nats queue using related plugin
-// TODO: temporarily disable standard plugin, and use my temporary one ... wip
+// temporarily disable standard plugin, and use my temporary one ... ok
 // fastify.register(require('fastify-nats'), k.natsQueueOptions)
 fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
 fastify.after((err) => {
@@ -145,6 +170,9 @@ fastify.get('/', (req, reply) => {
     title: 'Home',
     welcome: 'Welcome to the Home Page'
   })
+
+  // publish a message in the queue, as a sample
+  publish(fastify.nats, 'Hello World, from the root page of a Fastify web application !')
 })
 // example route, to return current timestamp but in async way
 fastify.get('/time', async (req, reply) => {
@@ -170,6 +198,11 @@ fastify.ready(() => {
     // note that in this case it would be better to log to console (for a better formatting), for example with:
     utils.logToConsole(`Printing Routes: only for non production environments\n${routes}`)
   }
+
+  // subscribe and publish a message to the queue, as a sample
+  assert(fastify.nats !== null)
+  subscribe(fastify.nats)
+  publish(fastify.nats, k.message)
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
