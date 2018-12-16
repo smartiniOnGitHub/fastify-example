@@ -2,6 +2,8 @@
 
 ## TODO
 
+* [x] general: update 'fastify-cloudevents' to latest release ('0.2.0' or later), and update server script (some TODO are for this) ... wip
+
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
