@@ -49,6 +49,7 @@ const k = {
   protocol: 'http',
   address: '127.0.0.1', // safer default
   port: fastifyOptions.port,
+  serverUrlMode: 'pluginAndRequestUrl', // same behavior as default value, but in this way set in CloudEvent extension object
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
   cloudEventOptions: {
     strict: true // enable strict mode in generated CloudEvents, optional
@@ -56,8 +57,9 @@ const k = {
 }
 // to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
-k.serverUrl = `${k.protocol}://${k.address}:${k.port}/`
+k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
 k.cloudEventOptions.source = k.serverUrl
+// k.source = k.serverUrl // TODO: since the release '0.2.0' of fastify-cloudevents, enable this and remove the previous line ... wip
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -113,6 +115,7 @@ function loggingCallback (ce) {
 // fastify-cloudevents, example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
   serverUrl: k.serverUrl,
+  // serverUrlMode: k.serverUrlMode, // TODO: since the release '0.2.0' of fastify-cloudevents, enable this ... wip
   // idGenerator: gen,
   onRequestCallback: loggingCallback,
   onResponseCallback: loggingCallback,
