@@ -2,7 +2,10 @@
 
 ## TODO
 
-* [x] general: update 'fastify-cloudevents' to latest release ('0.2.0' or later), and update server script (some TODO are for this) ... wip
+* [x] general: add badges at the top of README ... ok
+* [x] general: update 'fastify-cloudevents' to latest release ('0.2.0' or later), and update server script (some TODO in sources are for this) ... wip
+* [x] general: updated dependencies etc ... wip
+* [x] general: rebase the branch 'add-fastify-nats' on top of updated master; add even a counter for messages sent and received; then add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... wip
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
