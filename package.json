@@ -46,6 +46,7 @@
     "fastify-env": "^0.6.1",
     "fastify-favicon": "^0.3.0",
     "fastify-healthcheck": "^0.2.0",
+    "fastify-nats-client": "^0.3.1",
     "fastify-session": "^1.2.1",
     "fastify-static": "^1.0.0",
     "fastify-webhook": "^0.3.0",
