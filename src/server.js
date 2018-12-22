@@ -20,13 +20,17 @@
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
 
+// load environment specific variables (if any) into the process.env ...
+const dotenv = require('dotenv')
+dotenv.config()
+
 // startup configuration constants
 const fastifyOptions = {
   // logger: false  // by default disabled, so not needed to write here ...
   logger: {
     level: 'info'
   },
-  port: 8000
+  port: process.env.HTTP_PORT || 8000
 }
 
 const fastify = require('fastify')(fastifyOptions)
@@ -34,9 +38,6 @@ const fastify = require('fastify')(fastifyOptions)
 const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
-
-// load environment specific variables (if any) into the process.env ...
-require('dotenv').config()
 
 const templateEngine = require('ejs')
 const resolve = require('path').resolve
@@ -48,16 +49,12 @@ const data = { text: 'text' }
 
 const utils = require('./utils')
 
-// TODO: remove after the merge ... wip
-// note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-// const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
-
 const packageName = require('../package.json').name // get package name
 const packageVersion = require('../package.json').version // get package version
 
 const k = {
   protocol: 'http',
-  address: '127.0.0.1', // safer default
+  address: process.env.HTTP_ADDRESS || '127.0.0.1', // safer default
   port: fastifyOptions.port,
   serverUrlMode: 'pluginAndRequestUrl', // same behavior as default value, but in this way set in CloudEvent extension object
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
@@ -65,11 +62,14 @@ const k = {
     strict: true // enable strict mode in generated CloudEvents, optional
   },
   natsQueueOptions: {
-    // url: 'nats://demo.nats.io:4222' // same as plugin default, so no ned to specify here
-  }
+    url: process.env.NATS_SERVER_URL // use the specified one, or plugin default
+  },
+  natsQueueDisable: process.env.NATS_SERVER_DISABLE || false
 }
 // to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+if (!process.env.HTTP_ADDRESS) {
+  k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+}
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
 k.source = k.serverUrl
 k.queueName = `${packageName}-${packageVersion}`
@@ -125,7 +125,7 @@ function * idCounterExample () {
 const gen = idCounterExample()
 // add a sample logging callback
 function loggingCallback (ce) {
-  console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+  console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
 }
 // fastify-cloudevents, example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
@@ -142,6 +142,9 @@ function subscribe (nats,
   cb = function (msg) {
     console.log(`Received message: ${msg}`)
   }) {
+  if (k.natsQueueDisable) {
+    return
+  }
   console.log(`Subscribe to messages from the queue '${k.queueName}'`)
   assert(fastify.nats !== null)
 
@@ -151,6 +154,9 @@ function subscribe (nats,
 
 // sample publish function for the NATS queue specified in constants
 function publish (nats, msg = '') {
+  if (k.natsQueueDisable) {
+    return
+  }
   console.log(`Publish the given message in the queue '${k.queueName}'`)
   assert(fastify.nats !== null)
 
@@ -171,23 +177,7 @@ fastify.after((err) => {
 })
 
 // define some routes
-// define the root route
-fastify.get('/', (req, reply) => {
-  reply.view('index', {
-    environment: 'development',
-    title: 'Home',
-    welcome: 'Welcome to the Home Page'
-  })
-
-  // publish a message in the queue, as a sample
-  publish(fastify.nats, 'Hello World, from the root page of a Fastify web application !')
-})
-// example route, to return current timestamp but in async way
-fastify.get('/time', async (req, reply) => {
-  return { timestamp: Math.floor(Date.now()) }
-})
-// TODO: enable after the merge, and add even the publish call in the route source ... wip
-// fastify.register(require('./route'))
+fastify.register(require('./route'))
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 fastify.listen(fastifyOptions.port, k.address, (err, address) => {

@@ -36,10 +36,17 @@ async function routes (fastify, options) {
       title: 'Home',
       welcome: 'Welcome to the Home Page'
     })
+    // publish a message in the queue, as a sample
+    // TODO: uncomment and let it work ... wip
+    // publish(fastify.nats, 'Hello World, from the root page of a Fastify web application !')
   })
   // example route, to return current timestamp but in async way
   fastify.get('/time', async (req, reply) => {
-    return { timestamp: Math.floor(Date.now()) }
+    const timestamp = Math.floor(Date.now())
+    // publish a message in the queue, as a sample
+    // TODO: uncomment and let it work ... wip
+    // publish(fastify.nats, `Ask for server timestamp: ${timestamp}`)
+    return { timestamp: timestamp }
   })
 
   // next()  // no with async routes

@@ -42,7 +42,20 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify 1.13.2 or later, Node.js 8.14.0 or later.
+Fastify 1.13.3 or later, Node.js 8.14.0 or later.
+
+
+## Note
+
+Some features can be configured via environment variables; 
+if a `.env` file is found in project root, all its contents 
+will be loaded into environmental variables.
+Supported variables:
+- `HTTP_PORT`, set default HTTP port for the server
+- `HTTP_ADDRESS`, set default HTTP address for the server
+- `NATS_SERVER_URL`, set the URL for the NATS server (if enabled), or plugin default
+- `NATS_SERVER_DISABLE`, if `true` it will disable all the interaction with a NATS Server, default `false`
+if not specified default behavior will be applied.
 
 
 ## License

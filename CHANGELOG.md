@@ -1,6 +1,13 @@
 # Change Log
 
-## [0.9.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.8.0) (2018-12-09)
+## [0.10.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.10.0) (unreleased)
+- Updated to latest Fastify 1.13.3 (stay on 1.x for now) and all plugins to latest release
+- Add the ability to load some configuration variables from environment variables, 
+  and from an '.env' file if present; for example handle HTTP_PORT, HTTP_ADDRESS, etc
+- Merge features from the branch 'add-fastify-nats' and add some improvement, like 
+  disable the integration with a NATS Server, and publish more content to the queues
+
+## [0.9.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.9.0) (2018-12-09)
 - Updated to latest Fastify 1.13.1 (stay on 1.x for now) and all plugins to latest release
 - in the branch 'add-fastify-nats' (still not merged with the 'master' branch) 
   add a sample usage of 'fastify-nats' plugin, or better my fork of that plugin, 'fastify-nats-client',

@@ -2,7 +2,9 @@
 
 ## TODO
 
-* [x] general: rebase the branch 'add-fastify-nats' on top of updated master; add even a counter for messages sent and received; then add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... wip
+* [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... wip
+* [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... wip
+* [x] general: tag sources as '0.10.0' ... wip
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
@@ -93,6 +95,11 @@
 * [x] general: update dependencies etc ... ok
 * [x] general: add 'dotenv' in dependencies, to be able to define some environment-dependent variables in a '.env' file (excluded by source control) and have all them populated as environment variables ... ok, but use later if/when needed
 * [x] example: in the branch 'add-fastify-nats' branch, use the 'fastify-nats' pligin to send/receive messages with a publiuc NATS server; but instead (at least for now) use my fork of that plugin, 'fastify-nats-client' that has some more features and more updates ... ok, but do not merge this branch because in some cases the external NATS server could not be reachable (for example by corporate firewall rules), instead keep it not merged and see later if/what to do
+* [x] general: rebase the branch 'add-fastify-nats' on top of updated master ... ok, but instead of rebase I used a Pull Request (PR) and GitHub Review and Web UI to fix conflicts
+* [x] general: to handle command-line options, use [yargs-parser](https://www.npmjs.com/package/yargs-parser) (already used in other Fastify-related projects) ... maybe later
+* [x] general: to improve the NATS queue feature (usage), add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... no, use an environment variable instead (see related note)
+* [x] general: to improve the NATS queue feature (usage), configure the NATS server URL with the environmental variable NATS_SERVER_URL (for example using .env file), and use NATS_SERVER_DISABLE to disable it (and related features), instead of using command-line arguments/flags ... ok
+* [x] general: in the '.env' (local, not in source control, as per best practices), comment the line with `NATS_SERVER_DISABLE=true`, and ensure all works as before ... ok
 
 
 ---------------
