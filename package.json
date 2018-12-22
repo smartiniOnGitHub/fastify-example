@@ -37,9 +37,10 @@
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
-    "fastify": "^1.13.2",
-    "fastify-cloudevents": "^0.2.0",
+    "fastify": "^1.13.3",
+    "fastify-cloudevents": "^0.2.1",
     "fastify-compress": "^0.7.1",
     "fastify-cookie": "^2.1.4",
     "fastify-env": "^0.6.1",
@@ -48,7 +49,7 @@
     "fastify-session": "^1.2.1",
     "fastify-static": "^1.0.0",
     "fastify-webhook": "^0.3.0",
-    "fast-json-stringify": "^1.9.2",
+    "fast-json-stringify": "^1.10.0",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^4.0.0",
     "point-of-view": "^2.1.0"

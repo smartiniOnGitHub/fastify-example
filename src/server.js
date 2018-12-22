@@ -35,6 +35,9 @@ const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
 
+// load environment specific variables (if any) into the process.env ...
+require('dotenv').config()
+
 const templateEngine = require('ejs')
 const resolve = require('path').resolve
 const isDocker = require('is-docker')

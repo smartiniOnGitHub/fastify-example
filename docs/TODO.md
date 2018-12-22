@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: update dependencies etc ... wip
 * [x] general: rebase the branch 'add-fastify-nats' on top of updated master; add even a counter for messages sent and received; then add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... wip
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
@@ -91,6 +90,8 @@
 * [x] example: in the branch 'add-fastify-nats' branch, use the 'fastify-nats' pligin to send/receive messages with a publiuc NATS server; but instead (at least for now) use my fork of that plugin, 'fastify-nats-client' that has some more features and more updates ... ok, but do not merge this branch because in some cases the external NATS server could not be reachable (for example by corporate firewall rules), instead keep it not merged and see later if/what to do
 * [x] general: add badges at the top of README ... ok
 * [x] general: update 'fastify-cloudevents' to latest release ('0.2.0' or later), and update server script (some TODO in sources are for this) ... ok
+* [x] general: update dependencies etc ... ok
+* [x] general: add 'dotenv' in dependencies, to be able to define some environment-dependent variables in a '.env' file (excluded by source control) and have all them populated as environment variables ... ok, but use later if/when needed
 
 
 ---------------
