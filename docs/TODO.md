@@ -2,9 +2,9 @@
 
 ## TODO
 
-* [ ] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... wip
-* [ ] example: update 'point-of-view' to latest version (when published) ... wip
-* [ ] general: update all core dependencies on Fastify and related plugins ... wip
+* [x] general: rebase the branch 'add-fastify-nats' on top of updated master; add even a counter for messages sent and received; then add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... wip
+
+* [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
 * [ ] general: check if add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc), and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ...
@@ -12,7 +12,6 @@
 
 * [ ] general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... wip
 
-* [ ] general: change template engine from 'ejs' to [Nunjucks](https://mozilla.github.io/nunjucks/) or [Marko](https://markojs.com), but in a branch (and merge later into master) ...
 * [ ] general: implement some automation tool, using [Gulp](https://gulpjs.com/) or [WebPack](https://webpack.js.org/) ...
 * [ ] general: rewrite all using latest [TypeScript](https://www.typescriptlang.org/), but in a branch (and merge later into master) ...
 
@@ -81,6 +80,18 @@
 
 * [x] example: use the 'fastify-cloudevents' plugin, to test it (configure it for a common usage scenario, and add a /time route) ... but for now don't add specific unit tests here ... ok, even if 'loggingCallback' does some noise (additional output for the dump of related Cloudevents) in the console
 
+* [x] general: change template engine from 'ejs' to [Nunjucks](https://mozilla.github.io/nunjucks/) or [Marko](https://markojs.com), but in a branch (and merge later into master) ... maybe later, or in another repository
+* [x] example: update 'point-of-view' to latest version (when published) ... ok
+* [x] general: update all core dependencies on Fastify and related plugins ... ok, and often repeat this task
+* [x] example: add some minimal unit test to ensure published routes are available (at least that for the home page), using  'simple-get' (already available in devDependencies); and that some are no more available (default webhook url for example, but that the new one it is) ... maybe later
+* [x] general: in the branch 'add-fastify-nats', use my fork of 'fastify-nats', with its temporary name 'fastify-nats-client' and ensure all is good; but do not merge those changes into master ... ok
+* [x] general: update dependencies to latest Fastify 1.x (1.13.1) and all plugins ... ok
+* [x] general: in the branch 'add-fastify-nats', revert the use of 'fastify-nats-client' and use the new version of 'fastify-nats' (one time it has been published) and ensure all is good; then merge those changes into master (via Pull Request) ... maybe later (see next comment)
+* [x] example: in the branch 'add-fastify-nats' branch, use the 'fastify-nats' pligin to send/receive messages with a publiuc NATS server; but instead (at least for now) use my fork of that plugin, 'fastify-nats-client' that has some more features and more updates ... ok, but do not merge this branch because in some cases the external NATS server could not be reachable (for example by corporate firewall rules), instead keep it not merged and see later if/what to do
+* [x] general: add badges at the top of README ... ok
+* [x] general: update 'fastify-cloudevents' to latest release ('0.2.0' or later), and update server script (some TODO in sources are for this) ... ok
+* [x] general: update dependencies etc ... ok
+* [x] general: add 'dotenv' in dependencies, to be able to define some environment-dependent variables in a '.env' file (excluded by source control) and have all them populated as environment variables ... ok, but use later if/when needed
 * [x] example: in the branch 'add-fastify-nats' branch, use the 'fastify-nats' pligin to send/receive messages with a publiuc NATS server; but instead (at least for now) use my fork of that plugin, 'fastify-nats-client' that has some more features and more updates ... ok, but do not merge this branch because in some cases the external NATS server could not be reachable (for example by corporate firewall rules), instead keep it not merged and see later if/what to do
 
 

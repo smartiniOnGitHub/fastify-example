@@ -35,6 +35,9 @@ const assert = require('assert')
 const fs = require('fs')
 const path = require('path')
 
+// load environment specific variables (if any) into the process.env ...
+require('dotenv').config()
+
 const templateEngine = require('ejs')
 const resolve = require('path').resolve
 const isDocker = require('is-docker')
@@ -45,15 +48,18 @@ const data = { text: 'text' }
 
 const utils = require('./utils')
 
+// TODO: remove after the merge ... wip
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+// const listenAddress = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
 
 const packageName = require('../package.json').name // get package name
 const packageVersion = require('../package.json').version // get package version
+
 const k = {
   protocol: 'http',
-  address: '0.0.0.0',
-  port: 3000,
+  address: '127.0.0.1', // safer default
+  port: fastifyOptions.port,
+  serverUrlMode: 'pluginAndRequestUrl', // same behavior as default value, but in this way set in CloudEvent extension object
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
   cloudEventOptions: {
     strict: true // enable strict mode in generated CloudEvents, optional
@@ -62,9 +68,10 @@ const k = {
     // url: 'nats://demo.nats.io:4222' // same as plugin default, so no ned to specify here
   }
 }
-k.address = listenAddress
-k.serverUrl = `${k.protocol}://${k.address}:${k.port}/`
-k.cloudEventOptions.source = k.serverUrl
+// to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
+k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
+k.source = k.serverUrl
 k.queueName = `${packageName}-${packageVersion}`
 k.message = 'Hello World, from a Fastify web application just started !'
 
@@ -85,12 +92,12 @@ fastify.register(require('fastify-static'), {
   prefix: '/public/' // optional: default '/'
 })
 
-// example with null or empty options, using only plugin default options
+// fastify-favicon, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-favicon'))
 // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
 fastify.register(require('fastify-favicon'), { path: './public/img/' })
 
-// example with null or empty options, using only plugin default options
+// fastify-webhook, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
 // enable later and comment the previous example ... ok
 const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
@@ -101,7 +108,7 @@ fastify.register(webhookPlugin, {
 })
 fastify.log.info(`Webhook registered with custom options`)
 
-// example with null or empty options, using only plugin default options
+// fastify-healthcheck, example with null or empty options, using only plugin default options
 fastify.register(require('fastify-healthcheck'))
 
 // example usage of fastify-cloudevents plugin
@@ -120,9 +127,10 @@ const gen = idCounterExample()
 function loggingCallback (ce) {
   console.log(`loggingCallback - CloudEvent dump ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
 }
-// example with only some most-common options
+// fastify-cloudevents, example with only some most-common options
 fastify.register(require('fastify-cloudevents'), {
   serverUrl: k.serverUrl,
+  serverUrlMode: k.serverUrlMode,
   // idGenerator: gen,
   onRequestCallback: loggingCallback,
   onResponseCallback: loggingCallback,
@@ -178,9 +186,11 @@ fastify.get('/', (req, reply) => {
 fastify.get('/time', async (req, reply) => {
   return { timestamp: Math.floor(Date.now()) }
 })
+// TODO: enable after the merge, and add even the publish call in the route source ... wip
+// fastify.register(require('./route'))
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(fastifyOptions.port, listenAddress, (err, address) => {
+fastify.listen(fastifyOptions.port, k.address, (err, address) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

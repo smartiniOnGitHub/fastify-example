@@ -1,4 +1,11 @@
 # fastify-example
+
+  [![NPM Version](https://img.shields.io/npm/v/fastify-example.svg?style=flat)](https://npmjs.org/package/fastify-example/)
+  [![NPM Downloads](https://img.shields.io/npm/dm/fastify-example.svg?style=flat)](https://npmjs.org/package/fastify-example/)
+  [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+  [![Coverage Status](https://coveralls.io/repos/github/smartiniOnGitHub/fastify-example/badge.svg?branch=master)](https://coveralls.io/github/smartiniOnGitHub/fastify-example/?branch=master)
+  [![Dependencies](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)
+
 Example webapp with Fastify
 
 
@@ -35,7 +42,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify 1.4.0 or later, Node.js 8.11.1 or later.
+Fastify 1.13.2 or later, Node.js 8.14.0 or later.
 
 
 ## License
