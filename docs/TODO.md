@@ -4,7 +4,7 @@
 
 * [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... wip
 * [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... wip
-* [x] general: tag sources as '0.10.0' ... wip
+* [x] general: tag sources as '0.11.0' ... wip
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
