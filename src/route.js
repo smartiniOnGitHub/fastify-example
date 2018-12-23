@@ -20,32 +20,38 @@
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
 
+const k = require('./constants')
 const utils = require('./utils')
 
 // sample data for pages and responses
 const data = { text: 'Hello from EJS Templates' }
 
+// load some publish/subscribe utility functions
+const { publish, subscribe } = require('./pubsub')
+
 // define routes as async
 // note that some routes here are normal (non-async) ...
 async function routes (fastify, options) {
   // define the root route
-  fastify.get('/', (req, reply) => {
-    // utils.logRoute(req)
+  fastify.get('/', (request, reply) => {
+    // utils.logRoute(request)
     reply.view('index', {
       environment: utils.currentEnv(),
       title: 'Home',
       welcome: 'Welcome to the Home Page'
     })
     // publish a message in the queue, as a sample
-    // TODO: uncomment and let it work ... wip
-    // publish(fastify.nats, 'Hello World, from the root page of a Fastify web application !')
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Hello World, from the root page of a Fastify web application at '${k.hostname}'!`
+    )
   })
   // example route, to return current timestamp but in async way
-  fastify.get('/time', async (req, reply) => {
+  fastify.get('/time', async (request, reply) => {
     const timestamp = Math.floor(Date.now())
     // publish a message in the queue, as a sample
-    // TODO: uncomment and let it work ... wip
-    // publish(fastify.nats, `Ask for server timestamp: ${timestamp}`)
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Ask for server timestamp: ${timestamp} at '${k.hostname}'`
+    )
     return { timestamp: timestamp }
   })
 

@@ -36,44 +36,18 @@ const fastifyOptions = {
 const fastify = require('fastify')(fastifyOptions)
 
 const assert = require('assert')
-const fs = require('fs')
+// const fs = require('fs')
 const path = require('path')
 
 const templateEngine = require('ejs')
-const resolve = require('path').resolve
-const isDocker = require('is-docker')
+const resolve = path.resolve
 
 const templatesFolder = 'templates'
 const pubFolder = '../public'
 const data = { text: 'text' }
 
 const utils = require('./utils')
-
-const packageName = require('../package.json').name // get package name
-const packageVersion = require('../package.json').version // get package version
-
-const k = {
-  protocol: 'http',
-  address: process.env.HTTP_ADDRESS || '127.0.0.1', // safer default
-  port: fastifyOptions.port,
-  serverUrlMode: 'pluginAndRequestUrl', // same behavior as default value, but in this way set in CloudEvent extension object
-  baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
-  cloudEventOptions: {
-    strict: true // enable strict mode in generated CloudEvents, optional
-  },
-  natsQueueOptions: {
-    url: process.env.NATS_SERVER_URL // use the specified one, or plugin default
-  },
-  natsQueueDisable: process.env.NATS_SERVER_DISABLE || false
-}
-// to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-if (!process.env.HTTP_ADDRESS) {
-  k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
-}
-k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
-k.source = k.serverUrl
-k.queueName = `${packageName}-${packageVersion}`
-k.message = 'Hello World, from a Fastify web application just started !'
+const k = require('./constants')
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -113,7 +87,6 @@ fastify.register(require('fastify-healthcheck'))
 
 // example usage of fastify-cloudevents plugin
 // define a sample id generator here
-const hostname = require('os').hostname()
 const pid = require('process').pid
 function * idCounterExample () {
   let counter = 0
@@ -137,33 +110,6 @@ fastify.register(require('fastify-cloudevents'), {
   cloudEventOptions: k.cloudEventOptions
 })
 
-// sample subscriber function for the NATS queue specified in constants
-function subscribe (nats,
-  cb = function (msg) {
-    console.log(`Received message: ${msg}`)
-  }) {
-  if (k.natsQueueDisable) {
-    return
-  }
-  console.log(`Subscribe to messages from the queue '${k.queueName}'`)
-  assert(fastify.nats !== null)
-
-  // simple subscriber
-  nats.subscribe(k.queueName, cb)
-}
-
-// sample publish function for the NATS queue specified in constants
-function publish (nats, msg = '') {
-  if (k.natsQueueDisable) {
-    return
-  }
-  console.log(`Publish the given message in the queue '${k.queueName}'`)
-  assert(fastify.nats !== null)
-
-  // simple publisher
-  nats.publish(k.queueName, msg)
-}
-
 // example to connect to a nats queue using related plugin
 // temporarily disable standard plugin, and use my temporary one ... ok
 // fastify.register(require('fastify-nats'), k.natsQueueOptions)
@@ -175,6 +121,8 @@ fastify.after((err) => {
     utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
   }
 })
+// load some publish/subscribe utility functions
+const { publish, subscribe } = require('./pubsub')
 
 // define some routes
 fastify.register(require('./route'))
@@ -201,8 +149,8 @@ fastify.ready(() => {
 
   // subscribe and publish a message to the queue, as a sample
   assert(fastify.nats !== null)
-  subscribe(fastify.nats)
-  publish(fastify.nats, k.message)
+  subscribe(fastify.nats, k.queueName, k.queueDisabled)
+  publish(fastify.nats, k.queueName, k.queueDisabled, k.message)
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...

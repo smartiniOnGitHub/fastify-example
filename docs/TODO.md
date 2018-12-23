@@ -2,10 +2,11 @@
 
 ## TODO
 
-* [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... wip
+* [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... ok
 * [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... wip
 * [x] general: tag sources as '0.11.0' ... wip
 
+* [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
 * [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
