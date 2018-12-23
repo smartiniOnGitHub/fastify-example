@@ -2,10 +2,6 @@
 
 ## TODO
 
-* [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... ok
-* [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... wip
-* [x] general: tag sources as '0.11.0' ... wip
-
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 
@@ -101,6 +97,9 @@
 * [x] general: to improve the NATS queue feature (usage), add a command-line flag to disable the publish/subscribe of messages to the public NATS server (and add an npm custom command with that flag) ... no, use an environment variable instead (see related note)
 * [x] general: to improve the NATS queue feature (usage), configure the NATS server URL with the environmental variable NATS_SERVER_URL (for example using .env file), and use NATS_SERVER_DISABLE to disable it (and related features), instead of using command-line arguments/flags ... ok
 * [x] general: in the '.env' (local, not in source control, as per best practices), comment the line with `NATS_SERVER_DISABLE=true`, and ensure all works as before ... ok
+* [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... ok
+* [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... maybe later (not really needed now)
+* [x] general: tag sources as '0.11.0' ... ok
 
 
 ---------------
