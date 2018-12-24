@@ -57,6 +57,10 @@ Supported variables:
 - `NATS_SERVER_DISABLE`, if `true` it will disable all the interaction with a NATS Server, default `false`
 if not specified default behavior will be applied.
 
+As a sample, by default (unless disabled) some messages will be sent to a NATS queue, 
+when the web application has started and when a client ask for a page.
+NATS server by default (in related plugin) is a public one, [demo.nats.io](nats://demo.nats.io:4222).
+
 
 ## License
 
