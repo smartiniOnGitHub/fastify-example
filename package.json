@@ -40,7 +40,7 @@
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "fastify": "^1.13.3",
-    "fastify-cloudevents": "^0.2.1",
+    "fastify-cloudevents": "^0.2.2",
     "fastify-compress": "^0.7.1",
     "fastify-cookie": "^2.1.4",
     "fastify-env": "^0.6.1",

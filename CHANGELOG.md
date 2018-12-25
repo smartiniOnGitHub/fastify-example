@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.11.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.11.1) (2018-12-25)
+- Updated all plugins to latest release
+- Ensure that generated CloiudEvent instances now contain client IP address in a custom attribute 
+  (inside the usual data attribute), could be really useful; this is a feature is latest release 
+  of my plugin 'fastify-cloudevents'
+
 ## [0.11.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.11.0) (2018-12-23)
 - Updated to latest Fastify 1.13.3 (stay on 1.x for now) and all plugins to latest release
 - Add the ability to load some configuration variables from environment variables, 
