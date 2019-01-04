@@ -77,8 +77,9 @@ fastify.register(require('fastify-favicon'), { path: './public/img/' })
 const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
 const webhookPlugin = require('fastify-webhook')
 fastify.register(webhookPlugin, {
-  'url': '/custom-webhook',
-  'handler': webhookHandlers.echo
+  url: '/custom-webhook',
+  handler: webhookHandlers.echo,
+  secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
 })
 fastify.log.info(`Webhook registered with custom options`)
 
