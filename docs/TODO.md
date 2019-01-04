@@ -2,14 +2,12 @@
 
 ## TODO
 
-* [x] general: get webhook secretKey from an environment variable (so could be defined like others enev in the '.env' file) or null, then test all cases (not present, present but wrong, present and good) ... wip
-* [x] general: tag sources as '0.12.0' ... wip
-
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
-* [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
+* [x] general: tag sources as '0.13.0' ...
 
-* [ ] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but write docs to the usual output folder './out/' (already excluded from commits, via '.gitignore') ...
-* [ ] general: check if add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc), and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ...
+* [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
+* [x] general: tag sources as '0.14.0' ...
+
 * [ ] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ...
 
 * [ ] general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... wip
@@ -103,8 +101,13 @@
 * [x] general: fix TODO in the `route` source, to be able to use publish/subscribe functions ... ok
 * [x] general: to improve the NATS queue feature (usage), add even a counter for messages sent and received ... maybe later (not really needed now)
 * [x] general: tag sources as '0.11.0' ... ok
+* [x] general: tag sources as '0.11.1' with latest changes (see CHANGELOG and README)... ok
 * [x] general: like in Fastify, add a custom npm command to perform a license check (but for production dependencies only) using 'license-checker', with only some acceptable licenses ('Apache-2.0;BSD-2-Clause;BSD-3-Clause;MIT;ISC'); some more info on Apache compatible/incompatible licenses [here](https://www.apache.org/legal/resolved.html#what-can-we-not-include-in-an-asf-project-category-x) ... done, but check what to do for a package that has a license (incompatible) 'Artistic-2.0'; note that even some npm related packages use that license, so a good compromise (for now) is to add it in acceptable licenses (even in the Apache compatibility page is not explicitly forbidden so should be good the same) ... note that this npm custom command still raise errors because other dependencies are found, fix later by removing my dependencies (using them) ... maybe later
 * [x] general: on license-checker, for private npm packages still is seems that an 'UNLICENSED' license is assigned (without reading related license) ... ok, could be a bug in the library
+* [x] general: get webhook secretKey from an environment variable (so could be defined like others enev in the '.env' file) or null, then test all cases (not present, present but wrong, present and good) ... ok
+* [x] general: add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc) and related plugins for esnext, etc, and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ... ok
+* [x] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but in this case in the './out/' folder (already excluded from commits, via '.gitignore') instead of the usual './docs/' ... ok, all done in the '.esdoc.json' configuration file
+* [x] general: tag sources as '0.12.0' ... ok
 
 
 ---------------

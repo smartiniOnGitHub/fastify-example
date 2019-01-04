@@ -55,6 +55,7 @@ Supported variables:
 - `HTTP_ADDRESS`, set default HTTP address for the server
 - `NATS_SERVER_URL`, set the URL for the NATS server (if enabled), or plugin default
 - `NATS_SERVER_DISABLE`, if `true` it will disable all the interaction with a NATS Server, default `false`
+- `WEBHOOK_SECRET_KEY`, set the secret key to require by exposed webhook
 if not specified default behavior will be applied.
 
 As a sample, by default (unless disabled) some messages will be sent to a NATS queue, 

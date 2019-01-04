@@ -1,8 +1,18 @@
 # Change Log
 
+## [0.12.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (2019-01-04)
+- Updated all plugins to latest release
+- Handle webhook secret key via environmental variable (if given)
+- As a sample, call the webhhok with something like: `curl http://127.0.0.1:8000/custom-webhook -X POST -H 'Content-Type: application/json' -d '{"payload":"test", "secretKey":"my example Secret Key"}'`
+  end try different combinations, even when secret key is not set or the given one (in this call) is wrong
+- Add some custom npm command to perform a license check; 
+  done, but note that some dependencies currently uses non compatible licenses, 
+  and this need to be fixed soon
+- Add custom command to generate documentation of sources via ESDoc and related plugins
+
 ## [0.11.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.11.1) (2018-12-25)
 - Updated all plugins to latest release
-- Ensure that generated CloiudEvent instances now contain client IP address in a custom attribute 
+- Ensure that generated CloudEvent instances now contain client IP address in a custom attribute 
   (inside the usual data attribute), could be really useful; this is a feature is latest release 
   of my plugin 'fastify-cloudevents'
 
@@ -57,7 +67,7 @@ Summary Changelog:
 ## [0.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.3.0) (2018-04-23)
 Summary Changelog:
 - Update to latest Fastify 1.x.x (currently 1.3.0) and update all related plugins, to ensure all works
-- Update sample usage of 'fastify-webhook' with some custom options: now try to call it for example with (from Windows): `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`, otherwise remove the escape of double quote chars and keep the rest
+- Update sample usage of 'fastify-webhook' with some custom options: now try to call it for example with (from Windows): `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d "{\"payload\":\"test\"}"`, otherwise remove the escape of double quote chars and keep the rest, so use: `curl http://127.0.0.1:8000/custom-webhook -X POST -H "Content-Type: application/json" -d '{"payload":"test"}'`
 
 ## [0.2.5](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.2.5) (2018-04-18)
 Summary Changelog:
