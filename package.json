@@ -14,6 +14,7 @@
     "debug": "node --inspect ./src/server",
     "debug:dev": "nodemon --debug --watch src ./src/server",
     "dependency:log": "npm list > ./temp/dependencies.log",
+    "docs": "npx esdoc",
     "docker:build": "docker build -t fastify-example .",
     "docker:run": "docker run --rm --name fastify-example -d -p 8000:8000 -t fastify-example",
     "docker:inspect": "docker exec -it fastify-example bash",
@@ -60,6 +61,10 @@
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-node": "^1.0.4",
     "nodemon": "^1.18.9",
     "semver": "^5.6.0",
     "standard": "^12.0.1",
