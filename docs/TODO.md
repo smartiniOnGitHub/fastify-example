@@ -3,6 +3,7 @@
 ## TODO
 
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
+* [x] general: as usual, update all dependencies to latest release ... wip
 * [x] general: tag sources as '0.13.0' ...
 
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
