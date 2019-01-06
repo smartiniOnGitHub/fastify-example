@@ -34,7 +34,7 @@ const resolve = require('path').resolve
 tap.pass('this is an empty test, but test frameworks works')
 
 // load the module/s to test
-const utilModule = require('../src/utils.js')
+const utilModule = require('../src/utils')
 
 // first tests, on a utility module
 tap.equal(utilModule.isStringEmpty('not empty'), false)
