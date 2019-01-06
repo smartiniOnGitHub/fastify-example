@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-<% include templates/head %>
-    </head>
-    <body>
-<% include templates/header %>
 
-<h2><%= welcome %></h2>
+<head>
+    <% include templates/fragment-head %>
+</head>
 
-<div>
-    <p>
-    Work-In-Progress
-    </p>
-</div>
+<body>
+    <% include templates/fragment-header %>
 
-<br/>
-<% include templates/footer %>
+    <h2>
+        <%= welcome %>
+    </h2>
+
+    <div>
+        <p>
+            Work-In-Progress
+        </p>
+    </div>
+
+    <br />
+    <% include templates/fragment-footer %>
 </body>
+
 </html>

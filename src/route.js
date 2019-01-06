@@ -24,7 +24,11 @@ const k = require('./constants')
 const utils = require('./utils')
 
 // sample data for pages and responses
-const data = { text: 'Hello from EJS Templates' }
+const commonPageData = {
+  project: 'fastify-example',
+  environment: utils.currentEnv(),
+  welcome: 'Hello from EJS Templates'
+}
 
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
@@ -36,7 +40,7 @@ async function routes (fastify, options) {
   fastify.get('/', (request, reply) => {
     // utils.logRoute(request)
     reply.view('index', {
-      environment: utils.currentEnv(),
+      ...commonPageData,
       title: 'Home',
       welcome: 'Welcome to the Home Page'
     })
@@ -45,7 +49,7 @@ async function routes (fastify, options) {
       `Hello World, from the root page of a Fastify web application at '${k.hostname}'!`
     )
   })
-  // example route, to return current timestamp but in async way
+  // example route to return current timestamp, in async way
   fastify.get('/time', async (request, reply) => {
     const timestamp = Math.floor(Date.now())
     // publish a message in the queue, as a sample
@@ -53,6 +57,14 @@ async function routes (fastify, options) {
       `Ask for server timestamp: ${timestamp} at '${k.hostname}'`
     )
     return { timestamp: timestamp }
+  })
+  // example route to return a page from a template, in async way
+  fastify.get('/template', async (request, reply) => {
+    // publish a message in the queue, as a sample
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Ask for a template page at '${k.hostname}'`
+    )
+    reply.view('index', { ...commonPageData, title: 'Template' })
   })
 
   // next()  // no with async routes
