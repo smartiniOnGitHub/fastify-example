@@ -43,8 +43,8 @@ const templateEngine = require('ejs')
 const resolve = path.resolve
 
 const templatesFolder = 'templates'
-const pubFolder = '../public'
-const data = { text: 'text' }
+const projectFolderFromScript = path.normalize(path.join(__dirname, path.sep, '..', path.sep))
+const publicFolderFromScript = path.normalize(path.join(projectFolderFromScript, 'public', path.sep))
 
 const utils = require('./utils')
 const k = require('./constants')
@@ -57,19 +57,21 @@ fastify.register(require('point-of-view'), {
   templates: templatesFolder,
   options: {
     filename: resolve(templatesFolder),
-    views: [__dirname, pubFolder]
+    views: [publicFolderFromScript]
   }
 })
 
 fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, pubFolder),
+  root: publicFolderFromScript,
   prefix: '/public/' // optional: default '/'
 })
 
 // fastify-favicon, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-favicon'))
 // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
-fastify.register(require('fastify-favicon'), { path: './public/img/' })
+fastify.register(require('fastify-favicon'), {
+  path: path.normalize(path.join(projectFolderFromScript, path.sep, 'public', path.sep, 'img', path.sep))
+})
 
 // fastify-webhook, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-webhook'))
