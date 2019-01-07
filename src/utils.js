@@ -38,6 +38,9 @@ module.exports.normalizeData = function (data, asArray) {
 module.exports.getOrElse = function (obj, def) {
   if (typeof obj !== 'undefined' && obj !== null) { return Object.create(obj) } else { return def }
 }
+module.exports.getType = function (obj) {
+  return typeof obj
+}
 module.exports.getTypeFromConstructor = function (obj) {
   if (typeof obj !== 'undefined' && obj !== null) { return obj.constructor.name } else { return null }
 }
@@ -98,6 +101,7 @@ module.exports.isNumber = function (o) {
 }
 module.exports.isDate = function (o) {
   return (typeof o === 'object' || o instanceof Date)
+  // return (o instanceof Date)
   // return (this.getTypeFromPrototype(o) === 'Date')
   // return (this.getTypeFromConstructor(o) === 'Date')
 }
@@ -117,6 +121,7 @@ module.exports.isNullOrEmpty = function (o) {
 }
 module.exports.isRegExp = function (o) {
   return (typeof o === 'object' && o instanceof RegExp)
+  // return (o && typeof o === 'object' && o.constructor === RegExp)
 }
 module.exports.isMap = function (o) { // ES6 Maps
   return (o instanceof Map || o instanceof WeakMap)
@@ -129,6 +134,10 @@ module.exports.isSymbol = function (o) { // ES6 Symbols
 }
 module.exports.isObject = function (o) {
   return (typeof o === 'object')
+  // return (o && typeof o === 'object' && o.constructor === Object)
+}
+module.isError = function (o) {
+  return (o instanceof Error && typeof o.message !== 'undefined')
 }
 module.exports.objectOwnPropertiesNames = function (obj) {
   // return all own properties names of the given object, as a list (array)
@@ -157,20 +166,20 @@ module.exports.isStringTrimmedEmpty = function (obj) {
   if (this.isUndefinedOrNull(obj)) { return true }
   return obj.trim().length === 0
 }
-module.exports.isStringFalse = function (obj) {
-  return (this.isString(obj) && ['false', 'f', 'no', 'n'].indexOf(obj.toLowerCase()) > -1)
-}
-module.exports.isStringTrue = function (obj) {
-  return (this.isString(obj) && ['true', 't', 'yes', 'y'].indexOf(obj.toLowerCase()) > -1)
-}
 module.exports.isEmpty = function (obj) {
   if (this.isUndefinedOrNull(obj)) { return true }
   if (this.isArray(obj) || this.isString(obj)) { return obj.length === 0 }
   if (this.isMap(obj) || this.isSet(obj)) { return obj.size === 0 }
   if (this.isObject(obj)) { return this.isObjectEmpty(obj) }
 }
+module.exports.isStringFalse = function (obj) {
+  return (this.isString(obj) && ['false', 'f', 'no', 'n'].indexOf(obj.toLowerCase()) > -1)
+}
+module.exports.isStringTrue = function (obj) {
+  return (this.isString(obj) && ['true', 't', 'yes', 'y'].indexOf(obj.toLowerCase()) > -1)
+}
 module.exports.inherit = function (proto) {
-  function F () {}
+  function F () { }
   F.prototype = proto
   return new F()
 }
