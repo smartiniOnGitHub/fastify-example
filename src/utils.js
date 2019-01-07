@@ -157,6 +157,12 @@ module.exports.isStringTrimmedEmpty = function (obj) {
   if (this.isUndefinedOrNull(obj)) { return true }
   return obj.trim().length === 0
 }
+module.exports.isStringFalse = function (obj) {
+  return (this.isString(obj) && ['false', 'f', 'no', 'n'].indexOf(obj.toLowerCase()) > -1)
+}
+module.exports.isStringTrue = function (obj) {
+  return (this.isString(obj) && ['true', 't', 'yes', 'y'].indexOf(obj.toLowerCase()) > -1)
+}
 module.exports.isEmpty = function (obj) {
   if (this.isUndefinedOrNull(obj)) { return true }
   if (this.isArray(obj) || this.isString(obj)) { return obj.length === 0 }

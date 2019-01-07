@@ -54,8 +54,13 @@ Supported variables:
 - `HTTP_PORT`, set default HTTP port for the server
 - `HTTP_ADDRESS`, set default HTTP address for the server
 - `NATS_SERVER_URL`, set the URL for the NATS server (if enabled), or plugin default
-- `NATS_SERVER_DISABLE`, if `true` it will disable all the interaction with a NATS Server, default `false`
+- `NATS_SERVER_DISABLE`, if `true` it will disable all the interaction with a NATS Server, default `false` ... deprecated, a new one will be used soon
 - `WEBHOOK_SECRET_KEY`, set the secret key to require by exposed webhook
+- `FEATURE_FAVICON_DISABLE`, to disable (not load) related plugin
+- `FEATURE_WEBHOOK_DISABLE`, to disable (not load) related plugin
+- `FEATURE_HEALTHCHECK_DISABLE`, to disable (not load) related plugin
+- `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin
+- `FEATURE_NATS_DISABLE`, to disable (not load) related plugin
 if not specified default behavior will be applied.
 
 As a sample, by default (unless disabled) some messages will be sent to a NATS queue, 

@@ -111,6 +111,7 @@
 * [x] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but in this case in the './out/' folder (already excluded from commits, via '.gitignore') instead of the usual './docs/' ... ok, all done in the '.esdoc.json' configuration file
 * [x] general: tag sources as '0.12.0' ... ok
 * [x] general: simplify and generalize paths, and improve templates (and use common variables to merge with specific variables when using templates); move folders names into constants (maybe in a Map); then ensure all works as before ... ok
+* [x] general: enable functions using feature flags (set in the environment) ... for NATS queue keep the (already existing) NATS_SERVER_DISABLE env var; for others check if/when to use a disable flag or an enable one ... ok, but used a disable logic, so by default any feature is enabled
 
 
 ---------------

@@ -1,8 +1,10 @@
 # Change Log
 
-## [0.13.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (unreleased)
+## [0.13.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.13.0) (unreleased)
 - Updated all plugins to latest release
 - Simplify and generalize paths, and improve templates
+- Add feature flags to disable some functionalities (like those exposed but some plugins); 
+  used a disabling logic, so by default related features are enabled
 - Remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead
 
 ## [0.12.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (2019-01-04)

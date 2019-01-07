@@ -19,6 +19,7 @@
 /* eslint no-undef: "off" */
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
+/* eslint no-inner-declarations: "off" */
 
 // load environment specific variables (if any) into the process.env ...
 const dotenv = require('dotenv')
@@ -64,64 +65,74 @@ fastify.register(require('fastify-static'), {
   prefix: k.mappings.staticAssetsMapping // optional: default '/'
 })
 
-// fastify-favicon, example with null or empty options, using only plugin default options
-// fastify.register(require('fastify-favicon'))
-// example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
-fastify.register(require('fastify-favicon'), {
-  path: path.normalize(path.join(projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
-})
-
-// fastify-webhook, example with null or empty options, using only plugin default options
-// fastify.register(require('fastify-webhook'))
-// enable later and comment the previous example ... ok
-const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
-const webhookPlugin = require('fastify-webhook')
-fastify.register(webhookPlugin, {
-  url: k.mappings.webhookMapping,
-  handler: webhookHandlers.echo,
-  secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
-})
-fastify.log.info(`Webhook registered with custom options`)
-
-// fastify-healthcheck, example with null or empty options, using only plugin default options
-fastify.register(require('fastify-healthcheck'))
-
-// example usage of fastify-cloudevents plugin
-// define a sample id generator here
-const pid = require('process').pid
-function * idCounterExample () {
-  let counter = 0
-  while (true) {
-    yield `${counter++}`
-  }
+if (!utils.isStringTrue(process.env.FEATURE_FAVICON_DISABLE)) {
+  // fastify-favicon, example with null or empty options, using only plugin default options
+  // fastify.register(require('fastify-favicon'))
+  // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
+  fastify.register(require('fastify-favicon'), {
+    path: path.normalize(path.join(projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
+  })
 }
-// instance the generator, to use everywhere here
-const gen = idCounterExample()
-// add a sample logging callback
-function loggingCallback (ce) {
-  console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
-}
-// fastify-cloudevents, example with only some most-common options
-fastify.register(require('fastify-cloudevents'), {
-  serverUrl: k.serverUrl,
-  serverUrlMode: k.serverUrlMode,
-  // idGenerator: gen,
-  onRequestCallback: loggingCallback,
-  onResponseCallback: loggingCallback,
-  cloudEventOptions: k.cloudEventOptions
-})
 
-// example to connect to a nats queue using related plugin
-// temporarily disable standard plugin, and use my temporary one ... ok
-// fastify.register(require('fastify-nats'), k.natsQueueOptions)
-fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
-fastify.after((err) => {
-  if (err) console.log(err)
-  assert(fastify.nats !== null) // example
-  if (fastify.nats !== null) {
-    utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
+if (!utils.isStringTrue(process.env.FEATURE_WEBHOOK_DISABLE)) {
+  // fastify-webhook, example with null or empty options, using only plugin default options
+  // fastify.register(require('fastify-webhook'))
+  // enable later and comment the previous example ... ok
+  const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
+  const webhookPlugin = require('fastify-webhook')
+  fastify.register(webhookPlugin, {
+    url: k.mappings.webhookMapping,
+    handler: webhookHandlers.echo,
+    secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
+  })
+  fastify.log.info(`Webhook registered with custom options`)
+}
+
+if (!utils.isStringTrue(process.env.FEATURE_HEALTHCHECK_DISABLE)) {
+  // fastify-healthcheck, example with null or empty options, using only plugin default options
+  fastify.register(require('fastify-healthcheck'))
+}
+
+if (!utils.isStringTrue(process.env.FEATURE_CLOUDEVENTS_DISABLE)) {
+  // example usage of fastify-cloudevents plugin
+  // define a sample id generator here
+  // const pid = require('process').pid
+  function * idCounterExample () {
+    let counter = 0
+    while (true) {
+      yield `${counter++}`
+    }
   }
-})
+  // instance the generator, to use everywhere here
+  const gen = idCounterExample()
+  // add a sample logging callback
+  function loggingCallback (ce) {
+    console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+  }
+  // fastify-cloudevents, example with only some most-common options
+  fastify.register(require('fastify-cloudevents'), {
+    serverUrl: k.serverUrl,
+    serverUrlMode: k.serverUrlMode,
+    // idGenerator: gen,
+    onRequestCallback: loggingCallback,
+    onResponseCallback: loggingCallback,
+    cloudEventOptions: k.cloudEventOptions
+  })
+}
+
+if (!utils.isStringTrue(process.env.FEATURE_NATS_DISABLE)) {
+  // example to connect to a nats queue using related plugin
+  // temporarily disable standard plugin, and use my temporary one ... ok
+  // fastify.register(require('fastify-nats'), k.natsQueueOptions)
+  fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
+  fastify.after((err) => {
+    if (err) console.log(err)
+    assert(fastify.nats !== null) // example
+    if (fastify.nats !== null) {
+      utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
+    }
+  })
+}
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
 
@@ -149,7 +160,7 @@ fastify.ready(() => {
   }
 
   // subscribe and publish a message to the queue, as a sample
-  assert(fastify.nats !== null)
+  // assert(fastify.nats !== null)
   subscribe(fastify.nats, k.queueName, k.queueDisabled)
   publish(fastify.nats, k.queueName, k.queueDisabled, k.message)
 })

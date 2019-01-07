@@ -31,10 +31,9 @@ function logReceivedMessage (msg) {
 
 // sample subscriber function for the NATS queue specified in constants
 function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage) {
-  if (disabled === true) {
+  if (!nats || disabled === true) {
     return
   }
-  assert(nats !== null)
   utils.logToConsole(`Subscribe to messages from the queue '${queueName}'`)
 
   // simple subscriber
@@ -43,10 +42,9 @@ function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage) 
 
 // sample publish function for the NATS queue specified in constants
 function publish (nats, queueName, disabled = false, msg = '') {
-  if (disabled === true) {
+  if (!nats || disabled === true) {
     return
   }
-  assert(nats !== null)
   utils.logToConsole(`Publish message in the queue '${queueName}'`)
 
   // simple publisher
