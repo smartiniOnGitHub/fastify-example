@@ -51,10 +51,8 @@ const k = {
   },
   natsQueueOptions: {
     url: process.env.NATS_SERVER_URL // use the specified one, or plugin default
-  // }
   },
-  queueDisabled: process.env.NATS_SERVER_DISABLE || false
-  // queueDisabled: utils.isStringTrue(process.env.FEATURE_NATS_DISABLE)
+  queueDisabled: false // always try to send messages to the queue, as a sample
 }
 // to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 if (!process.env.HTTP_ADDRESS) {
