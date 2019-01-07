@@ -1,9 +1,14 @@
 # Change Log
 
+## [0.13.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (unreleased)
+- Updated all plugins to latest release
+- Simplify and generalize paths, and improve templates
+- Remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead
+
 ## [0.12.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (2019-01-04)
 - Updated all plugins to latest release
 - Handle webhook secret key via environmental variable (if given)
-- As a sample, call the webhhok with something like: `curl http://127.0.0.1:8000/custom-webhook -X POST -H 'Content-Type: application/json' -d '{"payload":"test", "secretKey":"my example Secret Key"}'`
+- As a sample, call the webhook with something like: `curl http://127.0.0.1:8000/custom-webhook -X POST -H 'Content-Type: application/json' -d '{"payload":"test", "secretKey":"my example Secret Key"}'`
   end try different combinations, even when secret key is not set or the given one (in this call) is wrong
 - Add some custom npm command to perform a license check; 
   done, but note that some dependencies currently uses non compatible licenses, 

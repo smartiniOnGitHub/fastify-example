@@ -36,41 +36,39 @@ const fastifyOptions = {
 const fastify = require('fastify')(fastifyOptions)
 
 const assert = require('assert')
-// const fs = require('fs')
 const path = require('path')
 
 const templateEngine = require('ejs')
 const resolve = path.resolve
 
-const templatesFolder = 'templates'
+const k = require('./constants')
+const utils = require('./utils')
+
 const projectFolderFromScript = path.normalize(path.join(__dirname, path.sep, '..', path.sep))
 const publicFolderFromScript = path.normalize(path.join(projectFolderFromScript, 'public', path.sep))
-
-const utils = require('./utils')
-const k = require('./constants')
 
 fastify.register(require('point-of-view'), {
   engine: {
     ejs: templateEngine
   },
   includeViewExtension: true,
-  templates: templatesFolder,
+  templates: k.folders.templatesFolderName,
   options: {
-    filename: resolve(templatesFolder),
+    filename: resolve(k.folders.templatesFolderName),
     views: [publicFolderFromScript]
   }
 })
 
 fastify.register(require('fastify-static'), {
   root: publicFolderFromScript,
-  prefix: '/public/' // optional: default '/'
+  prefix: k.mappings.staticAssetsMapping // optional: default '/'
 })
 
 // fastify-favicon, example with null or empty options, using only plugin default options
 // fastify.register(require('fastify-favicon'))
 // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
 fastify.register(require('fastify-favicon'), {
-  path: path.normalize(path.join(projectFolderFromScript, path.sep, 'public', path.sep, 'img', path.sep))
+  path: path.normalize(path.join(projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
 })
 
 // fastify-webhook, example with null or empty options, using only plugin default options
@@ -79,7 +77,7 @@ fastify.register(require('fastify-favicon'), {
 const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
 const webhookPlugin = require('fastify-webhook')
 fastify.register(webhookPlugin, {
-  url: '/custom-webhook',
+  url: k.mappings.webhookMapping,
   handler: webhookHandlers.echo,
   secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
 })

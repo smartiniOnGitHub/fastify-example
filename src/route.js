@@ -25,8 +25,9 @@ const utils = require('./utils')
 
 // sample data for pages and responses
 const commonPageData = {
-  project: 'fastify-example',
+  project: k.packageName,
   environment: utils.currentEnv(),
+  assets: k.mappings.staticAssetsMapping,
   welcome: 'Hello from EJS Templates'
 }
 

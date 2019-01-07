@@ -2,6 +2,7 @@
 
 ## TODO
 
+* [x] general: remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead ... wip
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
 * [x] general: as usual, update all dependencies to latest release ... wip
 * [x] general: tag sources as '0.13.0' ...
@@ -109,6 +110,7 @@
 * [x] general: add a dev dependency on [ESDoc](https://www.npmjs.com/package/esdoc) and related plugins for esnext, etc, and the add an npm custom command to generate doc (in the usual output folder 'out' already excluded by '.gitignore'); and provide a configuration file for it (.esdoc.json') as seen in their docs ... ok
 * [x] general: use ESDoc to generate the right documentation, at least for public functions (from folders './src/', and maybe even for './example/', './test/'), and add an npm custom task to generate/update it, but in this case in the './out/' folder (already excluded from commits, via '.gitignore') instead of the usual './docs/' ... ok, all done in the '.esdoc.json' configuration file
 * [x] general: tag sources as '0.12.0' ... ok
+* [x] general: simplify and generalize paths, and improve templates (and use common variables to merge with specific variables when using templates); move folders names into constants (maybe in a Map); then ensure all works as before ... ok
 
 
 ---------------

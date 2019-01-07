@@ -25,14 +25,25 @@ const hostname = require('os').hostname()
 
 const isDocker = require('is-docker')
 
-const packageName = require('../package.json').name // get package name
-const packageVersion = require('../package.json').version // get package version
-
 const k = {
+  packageName: require('../package.json').name,
+  packageVersion: require('../package.json').version,
   hostname,
   protocol: 'http',
   address: process.env.HTTP_ADDRESS || '127.0.0.1', // safer default
   port: process.env.HTTP_PORT || 8000,
+  folders: {
+    templatesFolderName: 'templates',
+    publicAssetsFolderName: 'public',
+    cssAssetsFolderName: 'css',
+    imagesAssetsFolderName: 'img',
+    jsAssetsFolderName: 'js'
+  },
+  mappings: {
+    rootMapping: '/',
+    staticAssetsMapping: '/static/',
+    webhookMapping: '/custom-webhook'
+  },
   serverUrlMode: 'pluginAndRequestUrl', // same behavior as default value, but in this way set in CloudEvent extension object
   baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
   cloudEventOptions: {
@@ -49,7 +60,7 @@ if (!process.env.HTTP_ADDRESS) {
 }
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
 k.source = k.serverUrl
-k.queueName = `${packageName}-${packageVersion}`
+k.queueName = `${k.packageName}-${k.packageVersion}`
 k.message = `Hello World, from a Fastify web application just started at '${k.hostname}'!`
 
 module.exports = k
