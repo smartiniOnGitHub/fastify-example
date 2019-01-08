@@ -4,8 +4,8 @@
   [![NPM Downloads](https://img.shields.io/npm/dm/fastify-example.svg?style=flat)](https://npmjs.org/package/fastify-example/)
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
   [![Coverage Status](https://coveralls.io/repos/github/smartiniOnGitHub/fastify-example/badge.svg?branch=master)](https://coveralls.io/github/smartiniOnGitHub/fastify-example/?branch=master)
-  [![Dependencies](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)
-  [![DevDependencies](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example.svg?type=dev)
+  [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
+  [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
 
 Example webapp with Fastify
 
