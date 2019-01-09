@@ -173,10 +173,10 @@ module.exports.isEmpty = function (obj) {
   if (this.isObject(obj)) { return this.isObjectEmpty(obj) }
 }
 module.exports.isStringFalse = function (obj) {
-  return (this.isString(obj) && ['false', 'f', 'no', 'n'].indexOf(obj.toLowerCase()) > -1)
+  return (this.isString(obj) && ['false', 'f', 'no', 'n', '0'].indexOf(obj.toLowerCase()) > -1)
 }
 module.exports.isStringTrue = function (obj) {
-  return (this.isString(obj) && ['true', 't', 'yes', 'y'].indexOf(obj.toLowerCase()) > -1)
+  return (this.isString(obj) && ['true', 't', 'yes', 'y', '1'].indexOf(obj.toLowerCase()) > -1)
 }
 module.exports.inherit = function (proto) {
   function F () { }
@@ -208,6 +208,41 @@ module.exports.formatCurrentDateToTimestamp = function () {
 }
 module.exports.parseDateFromISOStringNoCheck = function (d) {
   return Date.parse(d)
+}
+module.exports.parseStringToBoolean = function (str, def) {
+  if (this.isUndefinedOrNull(str) && this.isDefinedAndNotNull(def)) {
+    return def
+  }
+
+  switch (str.toLowerCase().trim()) {
+    case 'false':
+    case 'f':
+    case 'no':
+    case 'n':
+    case '0':
+    case null:
+      return false
+    case 'true':
+    case 't':
+    case 'yes':
+    case 'y':
+    case '1':
+      return true
+    default:
+      return def
+  }
+}
+module.exports.parseJSON = function (str, callback) {
+  if (!this.isFunction(callback)) {
+    throw new TypeError(`Illegal argument: callback must be a function, instead got a '${typeof callback}'`)
+  }
+
+  try {
+    const parsedJSON = JSON.parse(str)
+    callback(null, parsedJSON)
+  } catch (err) {
+    callback(err, null)
+  }
 }
 module.exports.lowercase = function (o) {
   return this.isString(o) ? o.toLowerCase() : o.toString().toLowerCase()
@@ -334,7 +369,7 @@ module.exports.buildError = function (req, msg, code, description, throwError) {
 const util = require('util') // provided by Node.js
 
 // dump the given object using 'JSON.stringify' or Node.js 'util.inspect' (requires its module 'util'), depending on the given options
-// optsis optional, but if given
+// opts is optional, but if given
 // opts.method could have one of the following values: 'stringify', 'inspect', 'fast-json-stringify', null (for the default behavior)
 module.exports.dumpObject = function (obj, opts) {
   if (this.isUndefinedOrNull(opts)) { return (obj != null) ? obj.toString() : obj }
@@ -346,10 +381,10 @@ module.exports.dumpObject = function (obj, opts) {
       break
     case 'fast-json-stringify':
       // TODO: implement later ...
-      // val = obj.toString()
+      // val = stringify(obj)
       break
     case 'stringify':
-      val = obj.toString() // attention to circular references, some types not dump, etc ...
+      val = JSON.stringify(obj) // attention to circular references, some types not dump, etc ...
       break
     default:
       val = obj.toString() // default in js
