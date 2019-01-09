@@ -2,6 +2,8 @@
 
 ## TODO
 
+* [x] general: move in a new source ('features.js') all code blocks that load?register/configure/etc application features; note that related source must accept arguments, so it has to be exposed as a function (or as a class) ... wip
+* [x] general: change all callbacks to follow best practices, so: ensure that a callbacks is callable (if it's a function), always pass error parameter first with something like 'function callback (err, data) { }', inside a callback always check for its error parameter (if not null), etc ... so here fix callbacks for cloudevents and callbacks for nats (check if related plugins must be updated before) ... wip
 * [x] general: remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead ... wip
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
 * [x] general: as usual, update all dependencies to latest release ... wip
