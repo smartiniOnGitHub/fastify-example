@@ -19,12 +19,18 @@
 /* eslint no-undef: "off" */
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
+/* eslint no-inner-declarations: "off" */
+
+const assert = require('assert')
+const path = require('path')
 
 const k = require('./constants')
 const utils = require('./utils')
 
+const projectFolderFromScript = path.normalize(path.join(__dirname, path.sep, '..', path.sep))
+
 // configuration for enabled/disabled features
-const featuresCEnabled = {
+const featuresEnabled = {
   favicon: !utils.parseStringToBoolean(process.env.FEATURE_FAVICON_DISABLE, false),
   webhook: !utils.parseStringToBoolean(process.env.FEATURE_WEBHOOK_DISABLE, false),
   healthcheck: !utils.parseStringToBoolean(process.env.FEATURE_HEALTHCHECK_DISABLE, false),
@@ -39,9 +45,76 @@ function features (fastify, options = {}) {
     throw new Error('Fastify instance must have a value')
   }
 
-  utils.logToConsole(`Features enabled: '${utils.dumpObject(featuresCEnabled, { method: 'stringify' })}'`)
+  utils.logToConsole(`Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`)
 
-  // TODO: ...
+  if (featuresEnabled.favicon) {
+    // fastify-favicon, example with null or empty options, using only plugin default options
+    // fastify.register(require('fastify-favicon'))
+    // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
+    fastify.register(require('fastify-favicon'), {
+      path: path.normalize(path.join(projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
+    })
+  }
+
+  if (featuresEnabled.webhook) {
+    // fastify-webhook, example with null or empty options, using only plugin default options
+    // fastify.register(require('fastify-webhook'))
+    // enable later and comment the previous example ... ok
+    const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
+    const webhookPlugin = require('fastify-webhook')
+    fastify.register(webhookPlugin, {
+      url: k.mappings.webhookMapping,
+      handler: webhookHandlers.echo,
+      secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
+    })
+    fastify.log.info(`Webhook registered with custom options`)
+  }
+
+  if (featuresEnabled.healthcheck) {
+    // fastify-healthcheck, example with null or empty options, using only plugin default options
+    fastify.register(require('fastify-healthcheck'))
+  }
+
+  if (featuresEnabled.cloudevents) {
+    // example usage of fastify-cloudevents plugin
+    // define a sample id generator here
+    // const pid = require('process').pid
+    function * idCounterExample () {
+      let counter = 0
+      while (true) {
+        yield `${counter++}`
+      }
+    }
+    // instance the generator, to use everywhere here
+    const gen = idCounterExample()
+    // add a sample logging callback
+    function loggingCallback (ce) {
+      console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+    }
+    // fastify-cloudevents, example with only some most-common options
+    fastify.register(require('fastify-cloudevents'), {
+      serverUrl: k.serverUrl,
+      serverUrlMode: k.serverUrlMode,
+      // idGenerator: gen,
+      onRequestCallback: loggingCallback,
+      onResponseCallback: loggingCallback,
+      cloudEventOptions: k.cloudEventOptions
+    })
+  }
+
+  if (featuresEnabled.nats) {
+    // example to connect to a nats queue using related plugin
+    // temporarily disable standard plugin, and use my temporary one ... ok
+    // fastify.register(require('fastify-nats'), k.natsQueueOptions)
+    fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
+    fastify.after((err) => {
+      if (err) console.log(err)
+      assert(fastify.nats !== null) // example
+      if (fastify.nats !== null) {
+        utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
+      }
+    })
+  }
 }
 
 module.exports = features
