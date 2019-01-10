@@ -21,15 +21,13 @@
 /* eslint callback-return: "off" */
 /* eslint no-inner-declarations: "off" */
 
-const assert = require('assert')
-const path = require('path')
+// const assert = require('assert')
 
 const k = require('./constants')
 const utils = require('./utils')
 
-const projectFolderFromScript = path.normalize(path.join(__dirname, path.sep, '..', path.sep))
-
 // configuration for enabled/disabled features
+// TODO: move logic into a private (not exposed) function ... wip
 const featuresEnabled = {
   favicon: !utils.parseStringToBoolean(process.env.FEATURE_FAVICON_DISABLE, false),
   webhook: !utils.parseStringToBoolean(process.env.FEATURE_WEBHOOK_DISABLE, false),
@@ -52,7 +50,7 @@ function features (fastify, options = {}) {
     // fastify.register(require('fastify-favicon'))
     // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
     fastify.register(require('fastify-favicon'), {
-      path: path.normalize(path.join(projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
+      path: k.imagesFolderFromScript
     })
   }
 
@@ -109,8 +107,8 @@ function features (fastify, options = {}) {
     fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
     fastify.after((err) => {
       if (err) console.log(err)
-      assert(fastify.nats !== null) // example
-      if (fastify.nats !== null) {
+      // assert(fastify.nats !== null) // example
+      if (fastify.nats !== null && fastify.nats.currentServer !== null) {
         utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
       }
     })

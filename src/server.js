@@ -36,7 +36,7 @@ const fastifyOptions = {
 
 const fastify = require('fastify')(fastifyOptions)
 
-const assert = require('assert')
+// const assert = require('assert')
 const path = require('path')
 
 const templateEngine = require('ejs')
@@ -45,8 +45,7 @@ const resolve = path.resolve
 const k = require('./constants')
 const utils = require('./utils')
 
-const projectFolderFromScript = path.normalize(path.join(__dirname, path.sep, '..', path.sep))
-const publicFolderFromScript = path.normalize(path.join(projectFolderFromScript, 'public', path.sep))
+const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
 fastify.register(require('point-of-view'), {
   engine: {

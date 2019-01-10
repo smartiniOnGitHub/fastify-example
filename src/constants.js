@@ -20,14 +20,16 @@
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
 
-const hostname = require('os').hostname()
 // const assert = require('assert')
+const path = require('path')
+const hostname = require('os').hostname()
 
 const isDocker = require('is-docker')
 
 const k = {
   packageName: require('../package.json').name,
   packageVersion: require('../package.json').version,
+  projectFolderFromScript: path.normalize(path.join(__dirname, path.sep, '..', path.sep)),
   hostname,
   protocol: 'http',
   address: process.env.HTTP_ADDRESS || '127.0.0.1', // safer default
@@ -54,6 +56,7 @@ const k = {
   },
   queueDisabled: false // always try to send messages to the queue, as a sample
 }
+k.imagesFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
 // to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 if (!process.env.HTTP_ADDRESS) {
   k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
@@ -61,6 +64,6 @@ if (!process.env.HTTP_ADDRESS) {
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
 k.source = k.serverUrl
 k.queueName = `${k.packageName}-${k.packageVersion}`
-k.message = `Hello World, from a Fastify web application just started at '${k.hostname}'!`
+k.message = `Hello World, from a Fastify web application just started at '${k.hostname}' and available at '${k.serverUrl}'!`
 
 module.exports = k
