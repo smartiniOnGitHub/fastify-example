@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: move in a new source ('features.js') all code blocks that load?register/configure/etc application features; note that related source must accept arguments, so it has to be exposed as a function (or as a class) ... wip
 * [x] general: change all callbacks to follow best practices, so: ensure that a callbacks is callable (if it's a function), always pass error parameter first with something like 'function callback (err, data) { }', inside a callback always check for its error parameter (if not null), etc ... so here fix callbacks for cloudevents and callbacks for nats (check if related plugins must be updated before) ... wip
 * [x] general: remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead ... wip
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
@@ -114,6 +113,7 @@
 * [x] general: tag sources as '0.12.0' ... ok
 * [x] general: simplify and generalize paths, and improve templates (and use common variables to merge with specific variables when using templates); move folders names into constants (maybe in a Map); then ensure all works as before ... ok
 * [x] general: enable functions using feature flags (set in the environment) ... for NATS queue keep the (already existing) NATS_SERVER_DISABLE env var; for others check if/when to use a disable flag or an enable one ... ok, but used a disable logic, so by default any feature is enabled
+* [x] general: move in a new source ('features.js') all code blocks that load?register/configure/etc application features; note that related source must accept arguments, so it has to be exposed as a function (or as a class) ... ok, implemented/exposed as a function (at least for now)
 
 
 ---------------
