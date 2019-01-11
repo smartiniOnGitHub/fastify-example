@@ -1,13 +1,16 @@
 # Change Log
 
 ## [0.13.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.13.0) (unreleased)
-- Updated all plugins to latest release
+- Updated all dependencies to latest release
 - Simplify and generalize paths, and improve templates
 - Add feature flags to disable some functionalities (like those exposed but some plugins); 
   used a disabling logic, so by default related features are enabled
 - Move webapp features in its own source, and load it by passing as arguments 
   the fastify instance, and maybe an options object
-- Remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead
+- Keep dependency on 'dotenv' instead of using its wrapper 'fastify-env' which works 
+  in a way different of my setup here: 
+  all variables to read must be declared in the schema (which is good), 
+  env variables are populated in async, etc; so I prefer to stay with normal 'dotenv' usage
 
 ## [0.12.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.12.0) (2019-01-04)
 - Updated all plugins to latest release
