@@ -43,7 +43,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify 1.13.3 or later, Node.js 8.14.0 or later.
+Fastify 1.13.4 or later, Node.js 8.15.0 or later.
 
 
 ## Note
@@ -52,6 +52,9 @@ Some features can be configured via environment variables;
 if a `.env` file is found in project root, all its contents 
 will be loaded into environmental variables.
 Supported variables:
+- `FASTIFY_OPTIONS`, set Fastify main options at startup, as a JSON string; 
+  to change logging level for example use something like: `{ "logger": { "level": "debug" } }'
+  and to remove logging for example use: '{ }'
 - `HTTP_PORT`, set default HTTP port for the server
 - `HTTP_ADDRESS`, set default HTTP address for the server
 - `NATS_SERVER_URL`, set the URL for the NATS server (if enabled), or plugin default
