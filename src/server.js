@@ -30,13 +30,17 @@ const k = require('./constants')
 const utils = require('./utils')
 
 // startup configuration constants
+/*
 const fastifyOptions = {
   // logger: false  // by default disabled, so not needed to write here ...
   logger: {
     level: 'info'
   }
 }
-
+ */
+// TODO: cleanup/simplify later .. wip
+const fastifyOptions = JSON.parse(k.fastifyOptionsString)
+console.log(`DEBUG: fastifyOptions = ${JSON.stringify(fastifyOptions)}`)
 const fastify = require('fastify')(fastifyOptions)
 
 // const assert = require('assert')
