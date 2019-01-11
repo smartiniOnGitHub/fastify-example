@@ -22,9 +22,8 @@
 /* eslint no-inner-declarations: "off" */
 
 // load environment specific variables (if any) from process.env ...
-// TODO: remove because now I use instead its fastify wrapper ... wip
-// const dotenv = require('dotenv')
-// dotenv.config()
+const dotenv = require('dotenv')
+dotenv.config()
 
 // startup configuration constants
 const fastifyOptions = {
@@ -42,31 +41,6 @@ const path = require('path')
 
 const templateEngine = require('ejs')
 const resolve = path.resolve
-
-// load environment specific variables (if any) from process.env ...
-fastify.register(require('fastify-env'), {
-  // confKey: 'config', // optional, default: 'config'
-  schema: { // mandatory here
-    type: 'object',
-    // required: [],
-    properties: {
-      PORT: {
-        type: 'integer',
-        default: 9000
-      }
-    }
-    // additionalProperties: true // to handle unspecified properties // no effect, because the plugin force it to false ...
-  },
-  data: { }, // initil data, optional
-  env: true, // to get data from process.env
-  // dotenv: { path: `${__dirname}/.env` }, // to load data from a local '.env' file
-  dotenv: true, // enable dotenv default behavior
-  errorMessage: 'error in fastify-env schema validation'
-})
-console.log(`DEBUG: fastify.config = ${fastify.config}`)
-// note that this doesn't work at the moment because the plugin populates fastify.config in async,
-// so it must be read from the ready function just after the register
-// so I think that here it's better for me to not use this plugin ... wip
 
 const k = require('./constants')
 const utils = require('./utils')
