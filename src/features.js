@@ -27,13 +27,19 @@ const k = require('./constants')
 const utils = require('./utils')
 
 // configuration for enabled/disabled features
-// TODO: move logic into a private (not exposed) function ... wip
 const featuresEnabled = {
-  favicon: !utils.parseStringToBoolean(process.env.FEATURE_FAVICON_DISABLE, false),
-  webhook: !utils.parseStringToBoolean(process.env.FEATURE_WEBHOOK_DISABLE, false),
-  healthcheck: !utils.parseStringToBoolean(process.env.FEATURE_HEALTHCHECK_DISABLE, false),
-  cloudevents: !utils.parseStringToBoolean(process.env.FEATURE_CLOUDEVENTS_DISABLE, false),
-  nats: !utils.parseStringToBoolean(process.env.FEATURE_NATS_DISABLE, false)
+  favicon: featureIsEnabled(true, process.env.FEATURE_FAVICON_DISABLE, false),
+  webhook: featureIsEnabled(true, process.env.FEATURE_WEBHOOK_DISABLE, false),
+  healthcheck: featureIsEnabled(true, process.env.FEATURE_HEALTHCHECK_DISABLE, false),
+  cloudevents: featureIsEnabled(true, process.env.FEATURE_CLOUDEVENTS_DISABLE, false),
+  nats: featureIsEnabled(true, process.env.FEATURE_NATS_DISABLE, false)
+}
+
+// tell if a feature is enabled
+function featureIsEnabled (trueIsDisabled = false, booleanStringName = '', defaultBooleanValue = true) {
+  return (trueIsDisabled === true)
+    ? !utils.parseStringToBoolean(booleanStringName, defaultBooleanValue)
+    : utils.parseStringToBoolean(booleanStringName, defaultBooleanValue)
 }
 
 // features is a function because I need to pass fastify instance, and some configuration options
