@@ -41,9 +41,8 @@
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
-    "fastify": "^1.13.3",
+    "fastify": "^1.13.4",
     "fastify-cloudevents": "^0.2.2",
     "fastify-compress": "^0.7.1",
     "fastify-cookie": "^2.1.5",
