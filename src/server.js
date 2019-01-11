@@ -25,13 +25,16 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+// load/init webapp constants and general utilities
+const k = require('./constants')
+const utils = require('./utils')
+
 // startup configuration constants
 const fastifyOptions = {
   // logger: false  // by default disabled, so not needed to write here ...
   logger: {
     level: 'info'
-  },
-  port: process.env.HTTP_PORT || 8000
+  }
 }
 
 const fastify = require('fastify')(fastifyOptions)
@@ -41,9 +44,6 @@ const path = require('path')
 
 const templateEngine = require('ejs')
 const resolve = path.resolve
-
-const k = require('./constants')
-const utils = require('./utils')
 
 const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
@@ -74,7 +74,7 @@ const { publish, subscribe } = require('./pubsub')
 fastify.register(require('./route'))
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(fastifyOptions.port, k.address, (err, address) => {
+fastify.listen(k.port, k.address, (err, address) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

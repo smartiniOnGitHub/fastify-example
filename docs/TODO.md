@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: move listen port in the constants source (like others) ... wip
 * [x] general: handle Fastify main options (for example the logger level, etc) via an environment variable (like for many other options); check if even the whole js object would be accepted in an env var (and by default use an empty object); then update README ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: change all callbacks to follow best practices, so: ensure that a callbacks is callable (if it's a function), always pass error parameter first with something like 'function callback (err, data) { }', inside a callback always check for its error parameter (if not null), etc ... so here fix callbacks for cloudevents and callbacks for nats (check if related plugins must be updated before) ... wip
@@ -118,6 +117,7 @@
 * [x] general: enable functions using feature flags (set in the environment) ... for NATS queue keep the (already existing) NATS_SERVER_DISABLE env var; for others check if/when to use a disable flag or an enable one ... ok, but used a disable logic, so by default any feature is enabled
 * [x] general: move in a new source ('features.js') all code blocks that load?register/configure/etc application features; note that related source must accept arguments, so it has to be exposed as a function (or as a class) ... ok, implemented/exposed as a function (at least for now)
 * [x] general: remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead ... no, I tried but the plugin works in a way different that my setup here: all variables to read must be declared in the schema (which is good), are populated in async, etc; so I prefer ro revert to normal 'dotenv' usage
+* [x] general: move listen port in the constants source (like others) ... ok, and removed from fastifyOptions because it was there only to be used manually
 
 
 ---------------
