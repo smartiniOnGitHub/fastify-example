@@ -2,6 +2,9 @@
 
 ## TODO
 
+* [x] general: move listen port in the constants source (like others) ... wip
+* [x] general: handle Fastify main options (for example the logger level, etc) via an environment variable (like for many other options); check if even the whole js object would be accepted in an env var (and by default use an empty object) ... wip
+* [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: change all callbacks to follow best practices, so: ensure that a callbacks is callable (if it's a function), always pass error parameter first with something like 'function callback (err, data) { }', inside a callback always check for its error parameter (if not null), etc ... so here fix callbacks for cloudevents and callbacks for nats (check if related plugins must be updated before) ... wip
 * [x] general: remove dependency on 'dotenv' and use its wrapper 'fastify-env' instead ... wip
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
