@@ -2,7 +2,7 @@
 
 ## TODO
 
-* [x] general: send some CloudEvent events (serialized) the the NATS queue ... wip
+* [x] general: send some CloudEvent events (serialized) the the NATS queue ... done, now test all with nats feature enabled (then re-disable it) ... wip
 * [x] general: as usual, update all dependencies to latest release ... wip
 * [x] general: tag sources as '0.13.0' ...
 

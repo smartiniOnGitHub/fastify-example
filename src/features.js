@@ -42,6 +42,9 @@ function featureIsEnabled (trueIsDisabled = false, booleanStringName = '', defau
     : utils.parseStringToBoolean(booleanStringName, defaultBooleanValue)
 }
 
+// load some publish/subscribe utility functions
+const { publish, subscribe } = require('./pubsub')
+
 // features is a function because I need to pass fastify instance, and some configuration options
 // otherwise implement as a class and pass those arguments in its constructor)
 function features (fastify, options = {}) {
@@ -93,7 +96,14 @@ function features (fastify, options = {}) {
     const gen = idCounterExample()
     // add a sample logging callback
     function loggingCallback (ce) {
-      console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
+      // const dump = fastify.CloudEvent.dumpObject(ce, 'ce')
+      // utils.logToConsole(`CloudEvent dump, ${dump}`)
+      // serialize the event, as a sample in all supported ways, but enable only one here
+      // const ser = fastify.CloudEvent.serializeEvent(ce)
+      // const ser = ce.serialize()
+      const ser = fastify.cloudEventSerializeFast(ce)
+      utils.logToConsole(`CloudEvent serialized, ${ser}`)
+      publish(fastify.nats, k.queueName, k.queueDisabled, ser)
     }
     // fastify-cloudevents, example with only some most-common options
     fastify.register(require('fastify-cloudevents'), {
@@ -119,6 +129,8 @@ function features (fastify, options = {}) {
       }
     })
   }
+
+  utils.logToConsole(`Webapp features loaded`)
 }
 
 module.exports = features
