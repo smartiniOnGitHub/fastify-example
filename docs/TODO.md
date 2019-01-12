@@ -2,10 +2,6 @@
 
 ## TODO
 
-* [x] general: send some CloudEvent events (serialized) the the NATS queue ... done, now test all with nats feature enabled (then re-disable it) ... wip
-* [x] general: as usual, update all dependencies to latest release ... wip
-* [x] general: tag sources as '0.13.0' ...
-
 * [x] content: check if use [fastify-nextjs](https://www.npmjs.com/package/fastify-nextjs) to have a pre-configured (and simplified, ready to use) environment with React pages rendered at Server-Side, using [next](https://www.npmjs.com/package/next); but note that next has many dependencies; check if it could render pages even at client side; note that next can render even to static pages (to have a fully static web site); anyway try in a branch ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
@@ -120,6 +116,9 @@
 * [x] general: move listen port in the constants source (like others) ... ok, and removed from fastifyOptions because it was there only to be used manually
 * [x] general: handle Fastify main options (for example the logger level, etc) via an environment variable (like for many other options); check if even the whole js object would be accepted in an env var (and by default use current value I used); then update README ... ok, and of course I had to write it as a JSON string, so: '{ "logger": { "level": "info" } }'; chose to used this as a default instead of an empty object ('{ }')
 * [x] general: change all callbacks to follow best practices, so: ensure that a callbacks is callable (if it's a function), always pass error parameter first with something like 'function callback (err, data) { }', inside a callback always check for its error parameter (if not null), etc ... so here fix callbacks for cloudevents and callbacks for nats (check if related plugins must be updated before) ... note that for nats callbacks (cb) it seems no possible due to the underlying implementation ... maybe later, after 'fastify-cloudevents' release '0.3.0' or later (if callbacks will be changed with that format)
+* [x] general: send some CloudEvent events (serialized) the the NATS queue ... done, now test all with nats feature enabled (then re-disable it) ... ok
+* [x] general: as usual, update all dependencies to latest release ... ok
+* [x] general: tag sources as '0.13.0' ... ok
 
 
 ---------------
