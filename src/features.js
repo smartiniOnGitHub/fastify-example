@@ -52,7 +52,9 @@ function features (fastify, options = {}) {
     throw new Error('Fastify instance must have a value')
   }
 
-  utils.logToConsole(`Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`)
+  const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
+  utils.logToConsole(featuresEnabledMsg)
+  fastify.log.info(featuresEnabledMsg)
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options
@@ -130,7 +132,7 @@ function features (fastify, options = {}) {
     })
   }
 
-  utils.logToConsole(`Webapp features loaded`)
+  fastify.log.info(`Webapp features loaded`)
 }
 
 module.exports = features

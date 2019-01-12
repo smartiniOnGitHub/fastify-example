@@ -74,17 +74,20 @@ fastify.listen(k.port, k.address, (err, address) => {
     process.exit(1)
     // throw err
   }
+  utils.logToConsole(`Server listening on '${address}' ...`)
   // fastify.log.info(`Server listening on '${address}' ...`)
 })
 
 fastify.ready(() => {
+  const msgPrintRoutesStart = `Printing Routes (env '${utils.currentEnv()}')`
   if (utils.isEnvProduction()) {
-    fastify.log.info(`Printing Routes: not in production environment`)
+    fastify.log.info(`${msgPrintRoutesStart}, disabled in a production environment`)
   } else {
     const routes = fastify.printRoutes()
-    fastify.log.info(`Printing Routes:\n${routes}`)
+    const msgPrintRoutesFull = `${msgPrintRoutesStart}, only for non production environments\n${routes}`
+    fastify.log.info(msgPrintRoutesFull)
     // note that in this case it would be better to log to console (for a better formatting), for example with:
-    utils.logToConsole(`Printing Routes: only for non production environments\n${routes}`)
+    utils.logToConsole(msgPrintRoutesFull)
   }
 
   // subscribe and publish a message to the queue, as a sample
