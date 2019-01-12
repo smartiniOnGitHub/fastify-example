@@ -92,6 +92,17 @@ function features (fastify, options = {}) {
     // instance the generator, to use everywhere here
     const gen = idCounterExample()
     // add a sample logging callback
+    /*
+    // TODO: add err as first argument, and use it or the normal one, so use: if (err) console.error else console.log ... wip
+    function loggingCallback (err, ce) {
+      const msg = `CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`
+      if (err) {
+        console.error(msg)
+      } else {
+        console.log(msg)
+      }
+    }
+     */
     function loggingCallback (ce) {
       console.log(`CloudEvent dump, ${fastify.CloudEvent.dumpObject(ce, 'ce')}`)
     }
