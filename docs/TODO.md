@@ -2,8 +2,6 @@
 
 ## TODO
 
-* [x] general: check if use [fastify-acl-auth](https://www.npmjs.com/package/fastify-acl-auth) for a generic authentication and authorization flow for routes here ... wip
-* [x] content: check if use [fastify-nextjs](https://www.npmjs.com/package/fastify-nextjs) to have a pre-configured (and simplified, ready to use) environment with React pages rendered at Server-Side, using [next](https://www.npmjs.com/package/next); but note that next has many dependencies; check if it could render pages even at client side; note that next can render even to static pages (to have a fully static web site); anyway try in a branch ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
@@ -120,6 +118,9 @@
 * [x] general: send some CloudEvent events (serialized) the the NATS queue ... done, now test all with nats feature enabled (then re-disable it) ... ok
 * [x] general: as usual, update all dependencies to latest release ... ok
 * [x] general: tag sources as '0.13.0' ... ok
+* [x] general: check if use [require-all](https://www.npmjs.com/package/require-all) to load many/all source ('.js' and maybe even all '.json') files from a given folder, but filtered ... maybe later
+* [x] general: check if use [fastify-acl-auth](https://www.npmjs.com/package/fastify-acl-auth) for a generic authentication and authorization flow for routes here ... maybe later
+* [x] content: check if use [fastify-nextjs](https://www.npmjs.com/package/fastify-nextjs) to have a pre-configured (and simplified, ready to use) environment with React pages rendered at Server-Side, using [next](https://www.npmjs.com/package/next); but note that next has many dependencies; check if it could render pages even at client side; note that next can render even to static pages (to have a fully static web site); anyway try in a branch ... maybe later
 
 
 ---------------
