@@ -2,6 +2,7 @@
 
 ## TODO
 
+* [x] general: in 'features.js' source, check if add an intrnal function that uses `const { NODE_ENV } = process.env` to give only env var name, to hide that's reading from the env ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
