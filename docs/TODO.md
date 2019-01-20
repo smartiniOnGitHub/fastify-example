@@ -4,6 +4,7 @@
 
 * [x] general: in 'features.js' source, check if add an intrnal function that uses `const { NODE_ENV } = process.env` to give only env var name, to hide that's reading from the env ... wip
 * [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
+* [x] general: add npm custom command to run unit tests with nodejs debugger breaks enabled (inspector) and no parallel and no timeout, useful for example in Visual Studio Code; some info [here](https://github.com/fastify/fastify/blob/master/docs/Testing.md), [here](https://nodejs.org/en/docs/guides/debugging-getting-started/), [here](https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach) ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
 * [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
