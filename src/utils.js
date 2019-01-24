@@ -312,6 +312,11 @@ module.exports.userLocale = function () {
   if (window && window.navigator && window.navigator.languages) { return window.navigator.languages[0] } else { return null }
 }
 
+const NODE_ENV = process.env
+// returns the given variable name from the Node.js environment
+module.exports.fromEnv = function (varName) {
+  return NODE_ENV[varName]
+}
 // returns the current Node.js environment
 module.exports.currentEnv = function () {
   return process.env.NODE_ENV || 'development'

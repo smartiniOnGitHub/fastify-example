@@ -28,12 +28,25 @@ const utils = require('./utils')
 
 // configuration for enabled/disabled features
 const featuresEnabled = {
-  favicon: featureIsEnabled(true, process.env.FEATURE_FAVICON_DISABLE, false),
-  webhook: featureIsEnabled(true, process.env.FEATURE_WEBHOOK_DISABLE, false),
-  healthcheck: featureIsEnabled(true, process.env.FEATURE_HEALTHCHECK_DISABLE, false),
-  cloudevents: featureIsEnabled(true, process.env.FEATURE_CLOUDEVENTS_DISABLE, false),
-  nats: featureIsEnabled(true, process.env.FEATURE_NATS_DISABLE, false)
+  favicon: featureIsEnabled(true, utils.fromEnv('FEATURE_FAVICON_DISABLE'), false),
+  webhook: featureIsEnabled(true, utils.fromEnv('FEATURE_WEBHOOK_DISABLE'), false),
+  healthcheck: featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
+  cloudevents: featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_DISABLE'), false),
+  nats: featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
 }
+
+/*
+// ok but move it in utils ... wip
+const NODE_ENV = process.env
+function fromEnv (envVarName) {
+  return NODE_ENV[envVarName]
+}
+// temp
+console.log(`DEBUG: fromEnv('FEATURE_FAVICON_DISABLE') = ${fromEnv('FEATURE_FAVICON_DISABLE')}`)
+console.log(`DEBUG: fromEnv('FEATURE_NATS_DISABLE') = ${fromEnv('FEATURE_NATS_DISABLE')}`)
+ */
+console.log(`DEBUG: utils.fromEnv('FEATURE_FAVICON_DISABLE') = ${utils.fromEnv('FEATURE_FAVICON_DISABLE')}`)
+console.log(`DEBUG: utils.fromEnv('FEATURE_NATS_DISABLE') = ${utils.fromEnv('FEATURE_NATS_DISABLE')}`)
 
 // tell if a feature is enabled
 function featureIsEnabled (trueIsDisabled = false, booleanStringName = '', defaultBooleanValue = true) {
