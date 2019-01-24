@@ -1,0 +1,24 @@
+#  configuration variables for the current environment
+ENVIRONMENT=dev-local
+
+# FASTIFY_OPTIONS={ "logger": { "level": "debug" } }
+# FASTIFY_OPTIONS={ }
+
+# HTTP_PORT=3000
+# HTTP_ADDRESS=0.0.0.0
+
+# NATS_SERVER_URL=nats://demo.nats.io:4222
+# NATS_SERVER_URL=nats://localhost:4222
+
+# WEBHOOK_SECRET_KEY=my example Secret Key
+
+# feature flags, uncomment to disable related feature
+# FEATURE_FAVICON_DISABLE=true
+# FEATURE_WEBHOOK_DISABLE=true
+# FEATURE_HEALTHCHECK_DISABLE=true
+# FEATURE_CLOUDEVENTS_DISABLE=true
+# FEATURE_NATS_DISABLE=true
+# some tests for those values
+# FEATURE_FAVICON_DISABLE=false
+FEATURE_NATS_DISABLE=true
+
