@@ -2,8 +2,6 @@
 
 ## TODO
 
-* [x] general: in 'features.js' source, check if add an internal function that uses `const { NODE_ENV } = process.env` to give only env var name, to hide that's reading from the env ... wip
-* [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
 * [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
 * [x] general: tag sources as '0.14.0' ...
@@ -122,6 +120,11 @@
 * [x] general: implement some automation tool, using [Gulp](https://gulpjs.com/) or [WebPack](https://webpack.js.org/) ... maybe later, but with [WebPack](https://webpack.js.org)
 * [x] general: rewrite all using latest [TypeScript](https://www.typescriptlang.org/), but in a branch (and merge later into master) ... maybe later, or (even better) in a similar project 'fastify-example-ts'
 * [x] general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... maybe later
+* [x] general: check if introduct the [TypeScript]() compile, maybe only to let it check JavaScript code, as seen [here](https://slack.engineering/typescript-at-slack-a81307fa288d) and [here](https://blog.bitsrc.io/why-and-how-use-typescript-in-your-react-app-60e8987be8de) ... maybe later, but do changes in a branch
+* [x] general: in 'features.js' source, check if add an internal function that uses `const NODE_ENV = process.env` to give only env var name (as a string), to hide that's reading from the env ... ok, but added in utilities functions, in 'utils.js'
+* [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... maybe later
+* [x] general: as a sample, under the folder './docs/', add a copy of Visul Studio Code launch configurations (copied from project root '.vscode/launch.json') because usually the folder '.vscode/' is excluded by git (by adding it in '.gitignore') ... ok
+* [x] general: as a sample, under the folder './docs/', add a copy of a sample local environment variables configurations (copied from project root '.env' but renamed into '_env') because usually that file (and related variants) is excluded by git (by adding it in '.gitignore') ... ok
 
 
 ---------------
