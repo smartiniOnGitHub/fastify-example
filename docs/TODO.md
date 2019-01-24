@@ -2,9 +2,7 @@
 
 ## TODO
 
-* [x] general: in 'features.js' source, check if add an intrnal function that uses `const { NODE_ENV } = process.env` to give only env var name, to hide that's reading from the env ... wip
-* [x] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ... wip
-* [x] general: add npm custom command to run unit tests with nodejs debugger breaks enabled (inspector) and no parallel and no timeout, useful for example in Visual Studio Code; some info [here](https://github.com/fastify/fastify/blob/master/docs/Testing.md), [here](https://nodejs.org/en/docs/guides/debugging-getting-started/), [here](https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach) ... wip
+* [x] general: in 'features.js' source, check if add an internal function that uses `const { NODE_ENV } = process.env` to give only env var name, to hide that's reading from the env ... wip
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... wip
 * [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
 * [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
@@ -12,16 +10,12 @@
 
 * [ ] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ...
 
-* [ ] general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... wip
-
-* [ ] general: implement some automation tool, using [Gulp](https://gulpjs.com/) or [WebPack](https://webpack.js.org/) ...
-* [ ] general: rewrite all using latest [TypeScript](https://www.typescriptlang.org/), but in a branch (and merge later into master) ...
-
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
 * [ ] content: add error handlers ...
 * [ ] content cleanup/update to latest standards my custom styles ...
 * [ ] content: remove my custom styles from pages and change with some good default style, for example starting from latest [Bootstrap](https://getbootstrap.com/), then update licenses ...
+* [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
 * [ ] content: implement a full-stack webapp, with a modern front-end (Angular or React or Vue.js or other) ...
 
 
@@ -124,6 +118,10 @@
 * [x] general: check if use [fastify-acl-auth](https://www.npmjs.com/package/fastify-acl-auth) for a generic authentication and authorization flow for routes here ... maybe later
 * [x] content: check if use [fastify-nextjs](https://www.npmjs.com/package/fastify-nextjs) to have a pre-configured (and simplified, ready to use) environment with React pages rendered at Server-Side, using [next](https://www.npmjs.com/package/next); but note that next has many dependencies; check if it could render pages even at client side; note that next can render even to static pages (to have a fully static web site); anyway try in a branch ... maybe later
 * [x] content: check if add in 'package.json' a proxy statement like `"proxy": "http://localhost:8000/"`, as seen in [Proxying API Requests in Development - Create React App](https://facebook.github.io/create-react-app/docs/proxying-api-requests-in-development), [How to get create-react-app to work with a Node.js back-end API - freeCodeCamp](https://medium.freecodecamp.org/how-to-make-create-react-app-work-with-a-node-backend-api-7c5c48acb1b0), [Setting up a proxy server in create-react-app - vschool](https://coursework.vschool.io/setting-up-a-full-stack-react-application/), etc ... maybe later, because at the moment here I don't use React for the client part so I don't have a subproject in a folder '/client/' (and related 'package.json' where to put that setting); check if it would be useful the same with a different framework for client side, like Angular
+* [x] general: add npm custom command to run unit tests with nodejs debugger breaks enabled (inspector) and no parallel and no timeout, useful for example in Visual Studio Code; some info [here](https://github.com/fastify/fastify/blob/master/docs/Testing.md), [here](https://nodejs.org/en/docs/guides/debugging-getting-started/), [here](https://code.visualstudio.com/blogs/2018/07/12/introducing-logpoints-and-auto-attach) ... ok, added a debugger attach configuration (in '.vscode/launch.json'), and an npm custom command 'test:unit:debug' to run Tap unit tests with Node.js inspector enabled (and without timeout)
+* [x] general: implement some automation tool, using [Gulp](https://gulpjs.com/) or [WebPack](https://webpack.js.org/) ... maybe later, but with [WebPack](https://webpack.js.org)
+* [x] general: rewrite all using latest [TypeScript](https://www.typescriptlang.org/), but in a branch (and merge later into master) ... maybe later, or (even better) in a similar project 'fastify-example-ts'
+* [x] general: update folders for pages (public, templates, etc) to move all under a 'web' or 'pages' folder (but with 'git mv' to not losing files history) ... maybe later
 
 
 ---------------
