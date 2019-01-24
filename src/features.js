@@ -35,19 +35,6 @@ const featuresEnabled = {
   nats: featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
 }
 
-/*
-// ok but move it in utils ... wip
-const NODE_ENV = process.env
-function fromEnv (envVarName) {
-  return NODE_ENV[envVarName]
-}
-// temp
-console.log(`DEBUG: fromEnv('FEATURE_FAVICON_DISABLE') = ${fromEnv('FEATURE_FAVICON_DISABLE')}`)
-console.log(`DEBUG: fromEnv('FEATURE_NATS_DISABLE') = ${fromEnv('FEATURE_NATS_DISABLE')}`)
- */
-console.log(`DEBUG: utils.fromEnv('FEATURE_FAVICON_DISABLE') = ${utils.fromEnv('FEATURE_FAVICON_DISABLE')}`)
-console.log(`DEBUG: utils.fromEnv('FEATURE_NATS_DISABLE') = ${utils.fromEnv('FEATURE_NATS_DISABLE')}`)
-
 // tell if a feature is enabled
 function featureIsEnabled (trueIsDisabled = false, booleanStringName = '', defaultBooleanValue = true) {
   return (trueIsDisabled === true)
