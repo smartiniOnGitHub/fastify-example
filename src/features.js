@@ -28,18 +28,12 @@ const utils = require('./utils')
 
 // configuration for enabled/disabled features
 const featuresEnabled = {
-  favicon: featureIsEnabled(true, utils.fromEnv('FEATURE_FAVICON_DISABLE'), false),
-  webhook: featureIsEnabled(true, utils.fromEnv('FEATURE_WEBHOOK_DISABLE'), false),
-  healthcheck: featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
-  cloudevents: featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_DISABLE'), false),
-  nats: featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
-}
-
-// tell if a feature is enabled
-function featureIsEnabled (trueIsDisabled = false, booleanStringName = '', defaultBooleanValue = true) {
-  return (trueIsDisabled === true)
-    ? !utils.parseStringToBoolean(booleanStringName, defaultBooleanValue)
-    : utils.parseStringToBoolean(booleanStringName, defaultBooleanValue)
+  favicon: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_FAVICON_DISABLE'), false),
+  webhook: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_WEBHOOK_DISABLE'), false),
+  healthcheck: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
+  cloudevents: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_DISABLE'), false),
+  cloudeventsStrictMode: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false),
+  nats: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
 }
 
 // load some publish/subscribe utility functions
@@ -107,6 +101,10 @@ function features (fastify, options = {}) {
       utils.logToConsole(`CloudEvent serialized, ${ser}`)
       publish(fastify.nats, k.queueName, k.queueDisabled, ser)
     }
+    // override cloudEventOptions strict mode with a feature flag,
+    // so in this way I don't need to add a dependency from constants to utils
+    k.cloudEventOptions.strict = utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false)
+    console.log(`DEBUG: cloudEventOptions.strict = ${k.cloudEventOptions.strict}`) // temp
     // fastify-cloudevents, example with only some most-common options
     fastify.register(require('fastify-cloudevents'), {
       serverUrl: k.serverUrl,

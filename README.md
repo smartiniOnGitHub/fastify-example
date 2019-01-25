@@ -63,6 +63,7 @@ Supported variables:
 - `FEATURE_WEBHOOK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_HEALTHCHECK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin
+- `FEATURE_CLOUDEVENTS_STRICT_DISABLE`, to disable strict mode in generated CloudEvents (if/when related plugin is enabled)
 - `FEATURE_NATS_DISABLE`, to disable (not load) related plugin
 if not specified default behavior will be applied.
 

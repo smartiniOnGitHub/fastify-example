@@ -2,8 +2,11 @@
 
 ## TODO
 
-* [x] general: update all dependencies, mainly to lastest 'fastify-cloudevents' release '0.3.0' or later ... wip
+* [x] general: check how to pass to the Docker container all environment variables used here (called 'feature flags', and maybe even others)... wip
+
+* [x] general: update all dependencies, mainly to latest 'fastify-cloudevents' release '0.3.0' or later ... wip
 * [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
+* [x] general: update info in the README and CHANGELOG ... wip
 * [x] general: tag sources as '0.14.0' ...
 
 * [ ] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ...
@@ -125,6 +128,7 @@
 * [x] general: refactor main server source as described in [Testing - fastify](https://github.com/fastify/fastify/blob/master/docs/Testing.md), for simpler testing and have Fastify instance exposed by a specific source (maybe a new here here) ... maybe later
 * [x] general: as a sample, under the folder './docs/', add a copy of Visul Studio Code launch configurations (copied from project root '.vscode/launch.json') because usually the folder '.vscode/' is excluded by git (by adding it in '.gitignore') ... ok
 * [x] general: as a sample, under the folder './docs/', add a copy of a sample local environment variables configurations (copied from project root '.env' but renamed into '_env') because usually that file (and related variants) is excluded by git (by adding it in '.gitignore') ... ok
+* [x] general: enable strict mode in all created CloudEvent instances if environment is not production ... better, use a feature flag like others (so something like 'FEATURE_CLOUDEVENTS_STRICT_DISABLE') and get it from env vars (so disable/enable it in any specific environment); then update related info in the README ... ok
 
 
 ---------------

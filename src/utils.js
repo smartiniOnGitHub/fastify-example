@@ -407,5 +407,12 @@ module.exports.valueDelayed = function (value = 0, sec = 1) {
   })
 }
 
+// tell if a feature is enabled
+module.exports.featureIsEnabled = function (trueIsDisabled = false, booleanStringName = '', defaultBooleanValue = true) {
+  return (trueIsDisabled === true)
+    ? !this.parseStringToBoolean(booleanStringName, defaultBooleanValue)
+    : this.parseStringToBoolean(booleanStringName, defaultBooleanValue)
+}
+
 // export main object
 // module.exports.utils = utils
