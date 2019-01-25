@@ -104,7 +104,6 @@ function features (fastify, options = {}) {
     // override cloudEventOptions strict mode with a feature flag,
     // so in this way I don't need to add a dependency from constants to utils
     k.cloudEventOptions.strict = utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false)
-    console.log(`DEBUG: cloudEventOptions.strict = ${k.cloudEventOptions.strict}`) // temp
     // fastify-cloudevents, example with only some most-common options
     fastify.register(require('fastify-cloudevents'), {
       serverUrl: k.serverUrl,
