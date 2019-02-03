@@ -3,6 +3,7 @@
 ## TODO
 
 * [x] general: check how to pass to the Docker container all environment variables used here (called 'feature flags', and maybe even others)... wip
+* [x] general: check if the warning "Promise may not be fulfilled with 'undefined' when statusCode is not 204" (since Fastify 1.13.4) is related to the 'ejs' templating engine ... wip
 
 * [x] general: update all dependencies, mainly to latest 'fastify-cloudevents' release '0.3.0' or later ... wip
 * [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
