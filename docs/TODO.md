@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: check how to pass to the Docker container all environment variables used here (called 'feature flags', and maybe even others)... wip
 * [x] general: check if the warning "Promise may not be fulfilled with 'undefined' when statusCode is not 204" (since Fastify 1.13.4) is related to the 'ejs' templating engine ... wip
 
 * [x] general: update all dependencies, mainly to latest 'fastify-cloudevents' release '0.3.0' or later ... wip
@@ -12,6 +11,7 @@
 
 * [ ] general: use new features exposed by 'cloudevent' (if possible wrapped by 'fastify-cloudevents', otherwise using 'cloudevent' directly) to build CloudEvent instances from Error, etc ...
 
+* [ ] general: update to Fastify v2 (when released), and add here the same additional lint command (via TypeScript and related plugins) ... wip
 * [ ] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ...
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
@@ -132,6 +132,9 @@
 * [x] general: as a sample, under the folder './docs/', add a copy of Visul Studio Code launch configurations (copied from project root '.vscode/launch.json') because usually the folder '.vscode/' is excluded by git (by adding it in '.gitignore') ... ok
 * [x] general: as a sample, under the folder './docs/', add a copy of a sample local environment variables configurations (copied from project root '.env' but renamed into '_env') because usually that file (and related variants) is excluded by git (by adding it in '.gitignore') ... ok
 * [x] general: enable strict mode in all created CloudEvent instances if environment is not production ... better, use a feature flag like others (so something like 'FEATURE_CLOUDEVENTS_STRICT_DISABLE') and get it from env vars (so disable/enable it in any specific environment); then update related info in the README ... ok
+* [x] general: check how to pass to the Docker container all environment variables used here (called 'feature flags', and maybe even others); see [Builder - Docker Docs](https://docs.docker.com/engine/reference/builder/#arg); and the same for env vars; note that ARG variables (set via the '--build-arg' flag to 'docker build' command) are not persisted into the built image, but ENV variables (set via the '--env' flag in 'docker run/exec' commands) yes; and ENV variables have priority over ARG variables, so a good trick is to set ARG and then ENV to refer to it but with a default value; maybe then check if use even for specify a user for running the node process in the container, andthe production mode (or not) for npm install, etc ... ok, but maybe later
+* [x] general: improve Docker image generated here using some tricks seen [here](https://blog.bitsrc.io/manage-your-node-app-using-docker-like-a-pro-6266f6516cf), like multi-stage image, etc ... maybe later, not really needed here at the moment (no package generation via WebPack or other similar)
+* [x] general: improve the flow and data transformation paths using CQRS and Event Sourcing (ES), for example as seen [here](https://blog.bitsrc.io/building-a-cqrs-es-app-with-resolve-41f839362ffd) ... maybe later, not really needed here now
 
 
 ---------------

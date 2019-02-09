@@ -44,7 +44,7 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
-    "fastify": "^1.13.4",
+    "fastify": "^1.14.1",
     "fastify-cloudevents": "^0.2.3",
     "fastify-compress": "^0.8.0",
     "fastify-cookie": "^2.1.6",
@@ -54,7 +54,7 @@
     "fastify-session": "^1.2.1",
     "fastify-static": "^1.1.0",
     "fastify-webhook": "^0.3.2",
-    "fast-json-stringify": "^1.10.0",
+    "fast-json-stringify": "^1.11.0",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^4.0.0",
     "point-of-view": "^2.1.0"
@@ -65,11 +65,11 @@
     "esdoc-standard-plugin": "^1.0.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-node": "^1.0.4",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.18.10",
     "semver": "^5.6.0",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
-    "tap": "^12.5.1"
+    "tap": "^12.5.2"
   },
   "peerDependencies": {},
   "engines": {
