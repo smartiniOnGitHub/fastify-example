@@ -15,10 +15,13 @@ private/
 tmp/
 temp/
 
-scripts
-src
-test
-example
+coverage/
+.nyc_output
+
+scripts/
+src/
+test/
+example/
 
 *.zip
 *.tar
@@ -31,6 +34,7 @@ example
 .eslintignore
 .eslintrc*
 .eslintcache
+.esdoc.json
 .yarn-integrity
 
 .editorconfig
@@ -46,10 +50,11 @@ tslint.json
 *.log
 
 TODO.*
+BUILD.md
 
 .dockerignore
-Dockerfile
-Dockerfile*.*
+# Dockerfile
+# Dockerfile*.*
 Jenkinsfile
 Jenkinsfile*.*
 /jenkins
