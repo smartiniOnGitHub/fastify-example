@@ -44,7 +44,7 @@
   "dependencies": {
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
-    "fastify": "^1.14.1",
+    "fastify": "^1.14.2",
     "fastify-cloudevents": "^0.2.4",
     "fastify-compress": "^0.8.1",
     "fastify-cookie": "^2.1.7",
@@ -57,7 +57,7 @@
     "fast-json-stringify": "^1.11.0",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^4.0.0",
-    "point-of-view": "^2.2.0"
+    "point-of-view": "^2.3.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
