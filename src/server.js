@@ -65,7 +65,7 @@ const features = require('./features')(fastify, null)
 const { publish, subscribe } = require('./pubsub')
 
 // define some routes
-fastify.register(require('./route'))
+const routes = require('./route')(fastify, null)
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 fastify.listen(k.port, k.address, (err, address) => {

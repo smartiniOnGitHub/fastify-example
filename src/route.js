@@ -34,9 +34,9 @@ const commonPageData = {
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
 
-// define routes as async
-// note that some routes here are normal (non-async) ...
-async function routes (fastify, options) {
+// define routes but no async at outer level
+// note that some routes here are normal (non-async) but others are async ...
+function routes (fastify, options = {}) {
   // define the root route
   fastify.get('/', (request, reply) => {
     // utils.logRoute(request)
@@ -59,16 +59,14 @@ async function routes (fastify, options) {
     )
     return { timestamp: timestamp }
   })
-  // example route to return a page from a template, in async way
-  fastify.get('/template', async (request, reply) => {
+  // example route to return a page from a template, but no async here
+  fastify.get('/template', (request, reply) => {
     // publish a message in the queue, as a sample
     publish(fastify.nats, k.queueName, k.queueDisabled,
       `Ask for a template page at '${k.hostname}'`
     )
     reply.view('index', { ...commonPageData, title: 'Template' })
   })
-
-  // next()  // no with async routes
 }
 
 module.exports = routes
