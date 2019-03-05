@@ -2,17 +2,12 @@
 
 ## TODO
 
-* [x] general: check if the warning "Promise may not be fulfilled with 'undefined' when statusCode is not 204" (since Fastify 1.13.4) is related to the 'ejs' templating engine ... wip
-
-* [x] general: update all dependencies, mainly to latest 'fastify-cloudevents' release '0.3.0' or later ... wip
-* [x] general: change all callbacks to the new (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... wip
-* [x] general: update info in the README and CHANGELOG ... wip
-* [x] general: tag sources as '0.14.0' ...
-
-* [ ] general: use new features exposed by 'cloudevent' (if possible wrapped by 'fastify-cloudevents', otherwise using 'cloudevent' directly) to build CloudEvent instances from Error, etc ...
-
-* [ ] general: update to Fastify v2 (when released), and add here the same additional lint command (via TypeScript and related plugins) ... wip
-* [ ] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ...
+* [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
+* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
+* [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
+* [x] general: check if remove some Fastify plugins not really used at the moment ... wip
+* [x] content: expose a route that always raise an error ... wip
+* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
@@ -136,6 +131,11 @@
 * [x] general: check how to pass to the Docker container all environment variables used here (called 'feature flags', and maybe even others); see [Builder - Docker Docs](https://docs.docker.com/engine/reference/builder/#arg); and the same for env vars; note that ARG variables (set via the '--build-arg' flag to 'docker build' command) are not persisted into the built image, but ENV variables (set via the '--env' flag in 'docker run/exec' commands) yes; and ENV variables have priority over ARG variables, so a good trick is to set ARG and then ENV to refer to it but with a default value; maybe then check if use even for specify a user for running the node process in the container, andthe production mode (or not) for npm install, etc ... ok, but maybe later
 * [x] general: improve Docker image generated here using some tricks seen [here](https://blog.bitsrc.io/manage-your-node-app-using-docker-like-a-pro-6266f6516cf), like multi-stage image, etc ... maybe later, not really needed here at the moment (no package generation via WebPack or other similar)
 * [x] general: improve the flow and data transformation paths using CQRS and Event Sourcing (ES), for example as seen [here](https://blog.bitsrc.io/building-a-cqrs-es-app-with-resolve-41f839362ffd) ... maybe later, not really needed here now
+* [x] general: check if the warning "Promise may not be fulfilled with 'undefined' when statusCode is not 204" (since Fastify 1.13.4) is related to the 'ejs' templating engine ... ok, it was related to exposing routes as an async function, and even the '/template' route was defined with an async function but without return value, so for now I fixed all by moving back to normal (non-async) functions; let's improve later
+* [x] general: update all dependencies, mainly to latest 'fastify-cloudevents' release '0.3.0' or later ... ok, all works good as before
+* [x] general: change all callbacks to the (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... no, it doesn't worth the effort because at the moment I'm not using so much async functions here, and normal callbacks are good enough at the moment
+* [x] general: update info in the README and CHANGELOG ... ok
+* [x] general: tag sources as '0.14.0' ... ok
 
 
 ---------------

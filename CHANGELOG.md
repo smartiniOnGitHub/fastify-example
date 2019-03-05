@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.14.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.14.0) (2019-03-05)
+- Updated all dependencies to latest release
+- Update all plugins to latest release for Fastify 1.x
+- Ensure that all works as before with 'fastify-cloudevents' new release '0.3.0'
+- Fix the warning for exposing template routes async, by exposing as normal (non async) functions
+
 ## [0.13.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.13.0) (2019-01-12)
 - Updated all dependencies to latest release
 - Simplify and generalize paths, and improve templates
