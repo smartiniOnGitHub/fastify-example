@@ -2,19 +2,24 @@
 
 ## TODO
 
-* [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
-* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
-* [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
-* [x] general: check if remove some Fastify plugins not really used at the moment ... wip
+* [x] general: bump release ... wip
+* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here ... wip
 * [x] content: expose a route that always raise an error ... wip
 * [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
+
+* [x] general: bump release at least going to '0.2.x' ... wip
+* [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
+* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in the Docker image ... wip
+* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
+* [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
+* [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
+* [x] content: check if provide a client-side UI via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/) ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
 * [ ] content: add error handlers ...
 * [ ] content cleanup/update to latest standards my custom styles ...
 * [ ] content: remove my custom styles from pages and change with some good default style, for example starting from latest [Bootstrap](https://getbootstrap.com/), then update licenses ...
-* [ ] content: check if/how to use [lit-html](https://lit-html.polymer-project.org/guide) and [lit-element](https://lit-element.polymer-project.org/guide) as templating/view engine; but note that at the moment there is not plugin (nor support in 'point-of-view') ... wip
 * [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
 * [ ] content: implement a full-stack webapp, with a modern front-end (Angular or React or Vue.js or other) ...
 
@@ -136,6 +141,7 @@
 * [x] general: change all callbacks to the (standard) arguments format like 'function callback (err, data) { }', could call the callback with (err, null) or with (null, data) ... no, it doesn't worth the effort because at the moment I'm not using so much async functions here, and normal callbacks are good enough at the moment
 * [x] general: update info in the README and CHANGELOG ... ok
 * [x] general: tag sources as '0.14.0' ... ok
+* [x] content: check if/how to use [lit-html](https://lit-html.polymer-project.org/guide) and [lit-element](https://lit-element.polymer-project.org/guide) as templating/view engine; but note that at the moment there is not plugin (nor support in 'point-of-view') ... no, it's too early now and related Server-Side Rendering (SSR) is provided only by a third party library (otherwise those modules works only at client side); but maybe later
 
 
 ---------------
