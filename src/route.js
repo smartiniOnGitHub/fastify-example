@@ -52,12 +52,16 @@ function routes (fastify, options = {}) {
   })
   // example route to return current timestamp, in async way
   fastify.get('/time', async (request, reply) => {
-    const timestamp = Math.floor(Date.now())
+    const now = new Date()
+    const timestamp = now.getTime()
     // publish a message in the queue, as a sample
     publish(fastify.nats, k.queueName, k.queueDisabled,
-      `Ask for server timestamp: ${timestamp} at '${k.hostname}'`
+      `Ask for server time: timestamp is ${timestamp} at '${k.hostname}'`
     )
-    return { timestamp: timestamp }
+    return {
+      timestamp,
+      time: now.toISOString()
+    }
   })
   // example route to return a page from a template, but no async here
   fastify.get('/template', (request, reply) => {
