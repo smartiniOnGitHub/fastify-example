@@ -3,6 +3,8 @@
 ## TODO
 
 * [x] general: bump release ... wip
+* [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc ... wip
+* [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... wip
 * [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here ... wip
 * [x] content: expose a route that always raise an error ... wip
 * [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
