@@ -2,20 +2,24 @@
 
 ## TODO
 
-* [x] general: bump release ... wip
+* [x] general: update all dependencies and all my plugins to latest, for example 'fastify-cloudevents' ... ok
+* [x] content: remove some inline definition/behavior and use instead those exposed by the new release of 'fastify-cloudevents' ... wip
+* [x] general: bump release ... no, because here I keep the same release (at least for now on '1.0.0') and I tag sources at the end of any minimal and continuous release
 * [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc ... wip
 * [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... wip
 * [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here ... wip
 * [x] content: expose a route that always raise an error ... wip
 * [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
+* [x] general: tag sources ... wip
 
-* [x] general: bump release at least going to '0.2.x' ... wip
+* [x] general: bump release to '2.0.0' ...
 * [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in the Docker image ... wip
 * [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
 * [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
 * [x] content: check if provide a client-side UI via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/) ... wip
+* [x] general: tag sources, at least going to '0.2.x' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
