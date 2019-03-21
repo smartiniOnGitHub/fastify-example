@@ -3,11 +3,12 @@
 ## TODO
 
 * [x] general: update all dependencies and all my plugins to latest, for example 'fastify-cloudevents' ... ok
-* [x] content: remove some inline definition/behavior and use instead those exposed by the new release of 'fastify-cloudevents' ... wip
+* [x] content: remove some inline definition/behavior and use instead those exposed by the new release of 'fastify-cloudevents' ... ok
 * [x] general: bump release ... no, because here I keep the same release (at least for now on '1.0.0') and I tag sources at the end of any minimal and continuous release
-* [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc ... wip
+* [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc; if possible the same statement but multi-line ... wip
 * [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... wip
-* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here ... wip
+* [x] general: Docker image, in the 'Dockerfile', group all ENV statements in a single one but multi-line (one key/value per line), if possible ... wip
+* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here; and maybe add another Dockerfile for the other base image (not based on alpine, so the current one) ... wip
 * [x] content: expose a route that always raise an error ... wip
 * [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
 * [x] general: tag sources ... wip
