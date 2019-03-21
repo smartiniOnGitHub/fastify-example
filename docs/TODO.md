@@ -19,7 +19,8 @@
 * [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
 * [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
-* [x] content: check if provide a client-side UI via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/) ... wip
+* [x] content: check if provide a client-side UI via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
+* [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] general: tag sources, at least going to '0.2.x' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
