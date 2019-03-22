@@ -71,6 +71,19 @@ function routes (fastify, options = {}) {
     )
     reply.view('index', { ...commonPageData, title: 'Template' })
   })
+  // example route, to always generate an error
+  fastify.get('/error', async (req, reply) => {
+    reply.code(500)
+    const err = new Error()
+    err.message = 'Error Message'
+    err.statusCode = reply.code
+    err.description = 'Verbose Error description...'
+    // publish a message in the queue, as a sample
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Ask for error page at '${k.hostname}'`
+    )
+    return err
+  })
 }
 
 module.exports = routes

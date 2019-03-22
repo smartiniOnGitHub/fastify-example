@@ -8,8 +8,8 @@
 * [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc; if possible the same statement but multi-line ... wip
 * [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... wip
 * [x] general: Docker image, in the 'Dockerfile', group all ENV statements in a single one but multi-line (one key/value per line), if possible ... wip
-* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here; and maybe add another Dockerfile for the other base image (not based on alpine, so the current one) ... wip
-* [x] content: expose a route that always raise an error ... wip
+* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here; and maybe add another Dockerfile for the other base image (not based on alpine, so the current one); but check if it would be possible to run for example the npm custom task 'healthcheck-manual', otherwise keep this as a secondary Docker image ... wip
+* [x] content: expose a route that always raise an error ... ok
 * [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
 * [x] general: tag sources ... wip
 
