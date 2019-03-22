@@ -5,23 +5,30 @@
 * [x] general: update all dependencies and all my plugins to latest, for example 'fastify-cloudevents' ... ok
 * [x] content: remove some inline definition/behavior and use instead those exposed by the new release of 'fastify-cloudevents' ... ok
 * [x] general: bump release ... no, because here I keep the same release (at least for now on '1.0.0') and I tag sources at the end of any minimal and continuous release
-* [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc; if possible the same statement but multi-line ... wip
-* [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... wip
-* [x] general: Docker image, in the 'Dockerfile', group all ENV statements in a single one but multi-line (one key/value per line), if possible ... wip
-* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here; and maybe add another Dockerfile for the other base image (not based on alpine, so the current one); but check if it would be possible to run for example the npm custom task 'healthcheck-manual', otherwise keep this as a secondary Docker image ... wip
+* [x] general: Docker image, in the 'Dockerfile', add some LABEL statements to add more info on Node.js version, Fastify version, etc; if possible the same statement but multi-line ... maybe later
+* [x] general: Docker image, in the 'Dockerfile', add an argument (ARG), and its override from environment (ENV) for specifying if install production only dependencies or not (all dependencies, even for dev) ... ok, but keep 'development' as default
+* [x] general: Docker image, in the 'Dockerfile', group all ENV statements in a single one but multi-line (one key/value per line), should be possible ... maybe later
+* [x] general: Docker image, in the 'Dockerfile', do some small tweaks and improvements, using official [Node.js Docker image](https://hub.docker.com/_/node/) by defaule based on Debian ... ok; created even a group and user to run the webapp (in a safer way, instead of the default root in Docker containers) and related file system permissions in its folders, as seen [here](https://www.digitalocean.com/community/tutorials/how-to-build-a-node-js-application-with-docker) for example
+* [x] general: Docker image, check using the alpine version, so 'node:8-alpine' (much smaller, instead of the normal node image, like 'node:8'), if it's good enough for all commands used here; and maybe add another Dockerfile for the other base image (not based on alpine, so the current one), like 'Dockerfile.dev'; but check if it would be possible to run for example the npm custom task 'healthcheck-manual', otherwise keep the alpine version as a secondary Docker image ... at least start by creating a dedicated 'Dockerfile.alpine' for production but not referenced in npm custom commands (maybe in a command like 'docker:build:prod') ... wip
 * [x] content: expose a route that always raise an error ... ok
-* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
+* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... maybe later, because I need related hook (since Fastify v2)
+* [x] general: update changelog ... wip
 * [x] general: tag sources ... wip
 
 * [x] general: bump release to '2.0.0' ...
 * [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
-* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in the Docker image ... wip
+* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
 * [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
 * [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
-* [x] content: check if provide a client-side UI via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
+* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
+* [x] content cleanup/update to latest standards my custom styles ... wip
+* [x] general: tag sources, at least going to '2.x.y' ... wip
+
+* [x] general: bump release (maintenance) ... wip
+* [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
-* [x] general: tag sources, at least going to '0.2.x' ... wip
+* [x] general: tag sources, at least going to '2.1.x' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
