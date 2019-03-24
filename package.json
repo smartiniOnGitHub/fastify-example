@@ -16,8 +16,10 @@
     "dependency:log": "npm list > ./temp/dependencies.log",
     "docs": "npx esdoc",
     "docker:build": "docker build -t fastify-example .",
+    "docker:build:alpine": "docker build -t fastify-example -f Dockerfile.alpine .",
     "docker:run": "docker run --rm --name fastify-example -d -p 8000:8000 -t fastify-example",
     "docker:inspect": "docker exec -it fastify-example bash",
+    "docker:inspect:alpine": "docker exec -it fastify-example ash",
     "docker:log": "docker logs --follow --tail=1000 fastify-example",
     "docker:process": "docker ps --filter name=fastify-example",
     "docker:status": "docker inspect --format '{{ json .State.Health }}' fastify-example",
@@ -56,7 +58,7 @@
     "fastify-webhook": "^0.3.2",
     "fast-json-stringify": "^1.11.4",
     "is-docker": "^1.1.0",
-    "make-promises-safe": "^4.0.0",
+    "make-promises-safe": "^5.0.0",
     "point-of-view": "^2.3.0"
   },
   "devDependencies": {
@@ -69,7 +71,7 @@
     "semver": "^5.6.0",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
-    "tap": "^12.6.0"
+    "tap": "^12.6.1"
   },
   "peerDependencies": {},
   "engines": {
