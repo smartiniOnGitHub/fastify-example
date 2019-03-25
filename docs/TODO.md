@@ -2,6 +2,11 @@
 
 ## TODO
 
+* [x] general: update all my other plugins to '1.0.0' (for Fastify v1) when available: 'fastify-nats-client', 'fastify-webhook', and maybe others ... wip
+* [x] general: update changelog ... wip
+* [x] general: tag sources as '0.16.0' and then maybe even as '1.0.0' ... wip
+* [x] general: after the '1.0.0' release, create a maintenance branch '1.x' ... wip
+
 * [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... wip
 * [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
