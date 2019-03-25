@@ -18,6 +18,8 @@ temp/
 coverage/
 .nyc_output
 
+.clinic
+
 scripts/
 src/
 test/

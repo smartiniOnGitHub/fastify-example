@@ -55,6 +55,9 @@ coverage
 # nyc test coverage
 .nyc_output
 
+# Clinic analysis/results
+.clinic
+
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
