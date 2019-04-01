@@ -68,6 +68,8 @@ function features (fastify, options = {}) {
     fastify.register(webhookPlugin, {
       url: k.mappings.webhookMapping,
       handler: webhookHandlers.echo,
+      // disableWebhook: false, // same as default
+      enableGetPlaceholder: true, // as a sample
       secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
     })
     fastify.log.info(`Webhook registered with custom options`)
