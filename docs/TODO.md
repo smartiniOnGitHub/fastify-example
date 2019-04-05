@@ -2,10 +2,10 @@
 
 ## TODO
 
-* [x] general: update all my other plugins to '1.0.0' (for Fastify v1) when available: 'fastify-nats-client', 'fastify-webhook', and maybe others ... wip
+* [x] general: update all my other plugins to '1.0.0' (for Fastify v1) when available: 'fastify-nats-client', 'fastify-webhook', and maybe others ... ok
 * [x] general: use new features of my plugins (new releases) ... ok
-* [x] general: update changelog ... wip
-* [x] general: tag sources as '0.16.0' and then maybe even as '1.0.0' ... wip
+* [x] general: update changelog ... ok
+* [x] general: tag sources as '0.16.0' and then maybe even as '1.0.0' ... ok
 * [x] general: after the '1.0.0' release, create a maintenance branch '1.x' ... wip
 
 * [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... wip
