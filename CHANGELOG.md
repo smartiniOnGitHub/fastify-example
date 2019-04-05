@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/1.0.0) (2019-04-05)
+Summary Changelog:
+- Same as '0.16.0'
+
 ## [0.16.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/0.16.0) (2019-04-05)
 Summary Changelog:
 - Updated all dependencies to latest release
