@@ -2,20 +2,31 @@
 
 ## TODO
 
-* [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... wip
-* [x] general: update to Fastify v2, but in a branch (at the beginning); then create a maintenance branch for Fastify 1.x called 'fastify_v1' ... wip
-* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
-* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
+* [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... ok, all updated now (mine and all others)
+* [x] general: unsure all works with latest Node.js 8.x ... then ensure that publishing to NATS queues works good (on-line and even in the Docker version) ... ok
+* [x] general: update to Fastify v2, but in a branch (at the beginning, until it works); then merge with a PR (but merge with squash) ... ok
+* [x] general: update my code to use new/updated features of my plugins, and fix all breaking changes ... ok
+* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... ok
 * [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
-* [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
-* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... wip
-* [x] content cleanup/update to latest standards my custom styles ... wip
-* [x] general: tag sources, at least going to '2.x.y' ... wip
+* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
+* [x] general: update readme ... ok
+* [x] general: update changelog ... wip
+* [x] general: tag sources ... wip
+* [x] general: after the '2.0.0' release, create a maintenance branch '2.0.x' ... wip
 
-* [x] general: bump release (maintenance) ... wip
+* [x] general: bump release to '2.1.0' ... wip
+* [x] general: remove dependencies (and dev dependencies) not really used here ... wip
+* [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
+* [x] general: add a feature flag to disable Fastify logging ... wip
+* [x] general: add a feature flag to change the callback for CloudEvents, to save them in a file (like a '.log.json' file, is possible with log files rotation) ... wip
+* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
+* [x] content cleanup/update to latest standards my custom styles ... wip
+* [x] general: tag sources, at least going to '2.1.0' ... wip
+
+* [x] general: bump release to '2.2.0' ... wip
 * [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
-* [x] general: tag sources, at least going to '2.1.x' ... wip
+* [x] general: tag sources, at least going to '2.2.0' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...

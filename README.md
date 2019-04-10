@@ -43,7 +43,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify 1.13.4 or later, Node.js 8.15.0 or later.
+Fastify ^2.1.0 , Node.js 8.15.x or later.
 
 
 ## Note
@@ -69,7 +69,8 @@ if not specified default behavior will be applied.
 
 As a sample, by default (unless disabled) some messages will be sent to a NATS queue, 
 when the web application has started and when a client ask for a page.
-NATS server by default (in related plugin) is a public one, [demo.nats.io](nats://demo.nats.io:4222).
+NATS server by default (in related plugin) is a public one, 
+[demo.nats.io](nats://demo.nats.io:4222).
 
 
 ## License
