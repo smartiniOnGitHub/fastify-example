@@ -1,5 +1,12 @@
 # Change Log
 
+## [2.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.0.0) (2019-04-10)
+[Full Changelog](https://github.com/smartiniOnGitHub/fastify-example/compare/1.0.0...2.0.0)
+Summary Changelog:
+- Update requirements to Fastify v2, and related plugins
+- Update all dependencies
+- Same features as '1.0.0'
+
 ## [1.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/1.0.0) (2019-04-05)
 Summary Changelog:
 - Same as '0.16.0'
