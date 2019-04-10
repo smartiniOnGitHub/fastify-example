@@ -2,18 +2,6 @@
 
 ## TODO
 
-* [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... ok, all updated now (mine and all others)
-* [x] general: unsure all works with latest Node.js 8.x ... then ensure that publishing to NATS queues works good (on-line and even in the Docker version) ... ok
-* [x] general: update to Fastify v2, but in a branch (at the beginning, until it works); then merge with a PR (but merge with squash) ... ok
-* [x] general: update my code to use new/updated features of my plugins, and fix all breaking changes ... ok
-* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... ok
-* [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
-* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
-* [x] general: update readme ... ok
-* [x] general: update changelog ... wip
-* [x] general: tag sources ... wip
-* [x] general: after the '2.0.0' release, create a maintenance branch '2.0.x' ... wip
-
 * [x] general: bump release to '2.1.0' ... wip
 * [x] general: remove dependencies (and dev dependencies) not really used here ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
@@ -173,6 +161,18 @@
 * [x] general: update changelog ... ok
 * [x] general: tag sources as '0.16.0' and then maybe even as '1.0.0' ... ok
 * [x] general: after the '1.0.0' release, create a maintenance branch '1.x' ... ok
+
+* [x] general: bump release to '2.0.0' ... but only when my plugin 'fastify-cloudevents' will be compatible to Fastify v2 ... ok, all updated now (mine and all others)
+* [x] general: unsure all works with latest Node.js 8.x ... then ensure that publishing to NATS queues works good (on-line and even in the Docker version) ... ok
+* [x] general: update to Fastify v2, but in a branch (at the beginning, until it works); then merge with a PR (but merge with squash) ... ok
+* [x] general: update my code to use new/updated features of my plugins, and fix all breaking changes ... ok
+* [x] general: use new features exposed by 'cloudevent' (wrapped by 'fastify-cloudevents') to build CloudEvent instances from Error, etc ... ok
+* [x] general: check if use [fastify-sensible - Fastify](https://github.com/fastify/fastify-sensible), to add some standard and useful defaults ... maybe later
+* [x] general: add here the same additional lint command (via TypeScript and related plugins, and maybe even with TSLint) ... no, not really needed here because all code is JavaScript, but maybe later
+* [x] general: update readme ... ok
+* [x] general: update changelog ... ok
+* [x] general: tag sources ... ok
+* [x] general: after the '2.0.0' release, create a maintenance branch '2.0.x' ... ok
 
 
 ---------------
