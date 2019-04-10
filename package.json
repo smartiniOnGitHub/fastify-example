@@ -1,6 +1,6 @@
 {
   "name": "fastify-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
@@ -46,20 +46,20 @@
   "dependencies": {
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
-    "fastify": "^1.14.4",
-    "fastify-cloudevents": "^1.0.0",
+    "fastify": "^2.2.0",
+    "fastify-cloudevents": "^2.0.0",
     "fastify-compress": "^0.8.1",
-    "fastify-cookie": "^2.1.7",
-    "fastify-favicon": "^1.0.0",
-    "fastify-healthcheck": "^1.0.0",
-    "fastify-nats-client": "^1.0.0",
-    "fastify-session": "^1.2.1",
-    "fastify-static": "^1.1.0",
-    "fastify-webhook": "^1.0.0",
+    "fastify-cookie": "^3.0.2",
+    "fastify-favicon": "^2.0.0",
+    "fastify-healthcheck": "^2.0.0",
+    "fastify-nats-client": "^2.0.0",
+    "fastify-session": "^2.0.0",
+    "fastify-static": "^2.4.0",
+    "fastify-webhook": "^2.0.0",
     "fast-json-stringify": "^1.14.0",
     "is-docker": "^1.1.0",
     "make-promises-safe": "^5.0.0",
-    "point-of-view": "^2.3.0"
+    "point-of-view": "^3.1.1"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
@@ -67,7 +67,7 @@
     "esdoc-standard-plugin": "^1.0.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
     "esdoc-node": "^1.0.4",
-    "nodemon": "^1.18.10",
+    "nodemon": "^1.18.11",
     "semver": "^6.0.0",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
