@@ -21,7 +21,7 @@
 /* eslint callback-return: "off" */
 /* eslint no-inner-declarations: "off" */
 
-// load environment specific variables (if any) from process.env ...
+// load environment specific variables from '.env' file (if any) into process.env ...
 const dotenv = require('dotenv')
 dotenv.config()
 
