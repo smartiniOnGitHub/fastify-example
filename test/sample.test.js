@@ -23,14 +23,17 @@
 // note that this is not neccessarily the main/entry point file, unless specified/called directly ...
 console.log(`Sample JavaScript Test file using TAP ...`)
 
+const assert = require('assert')
+const test = require('tap').test
 const tap = require('tap')
-const test = tap.test
-const sget = require('simple-get').concat
-const fs = require('fs')
-const path = require('path')
-const resolve = require('path').resolve
+// const test = tap.test
+// const sget = require('simple-get').concat
+// const fs = require('fs')
+// const path = require('path')
+// const resolve = require('path').resolve
 
 // test zero, just to ensure that test framework works
+assert(tap !== null)
 tap.pass('this is an empty test, but test frameworks works')
 
 // load the module/s to test
