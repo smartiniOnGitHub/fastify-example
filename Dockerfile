@@ -1,6 +1,6 @@
-FROM node:8 as builder
+FROM node:10 as builder
 
-LABEL version="1.0.0"
+LABEL version="2.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
 LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 
