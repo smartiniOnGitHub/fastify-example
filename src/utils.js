@@ -23,7 +23,7 @@
 /* eslint no-eval: "off" */
 
 // define a general object, and assign functions to it ...
-const utils = {}
+// const utils = {}
 
 // some generic utility functions
 module.exports.clearConsole = function () {
@@ -412,6 +412,16 @@ module.exports.featureIsEnabled = function (trueIsDisabled = false, booleanStrin
   return (trueIsDisabled === true)
     ? !this.parseStringToBoolean(booleanStringName, defaultBooleanValue)
     : this.parseStringToBoolean(booleanStringName, defaultBooleanValue)
+}
+
+// sort string properties of objects,
+// given 'key' (string property name), 'order' ('asc' or 'desc')
+module.exports.compareProperties = function (key, order = 'asc') {
+  return function (a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0
+    let comparison = a[key].localeCompare(b[key])
+    return (order === 'asc') ? comparison : (comparison * -1)
+  }
 }
 
 // export main object
