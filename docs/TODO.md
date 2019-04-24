@@ -2,6 +2,8 @@
 
 ## TODO
 
+* [x] general: update requirements to Node.js 10.x, at least in Docker files ... ok
+* [x] general: update utils functions ... ok
 * [x] general: bump release to '2.1.0' ... wip
 * [x] general: remove dependencies (and dev dependencies) not really used here ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
