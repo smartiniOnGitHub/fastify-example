@@ -4,10 +4,13 @@
 
 * [x] general: update requirements to Node.js 10.x, at least in Docker files ... ok
 * [x] general: update utils functions ... ok
-* [x] general: bump release to '2.1.0' ... wip
+* [x] general: bump release to '2.1.0' ... ok
+* [x] general: update dependencies ... ok
 * [x] general: remove dependencies (and dev dependencies) not really used here ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
 * [x] general: add a feature flag to disable Fastify logging ... wip
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec (when the plugin will be available); and update all accordingly (even add packageName and packageVersion to event 'type', and major release to 'schemaurl' where used) ... wip
+* [x] general: update dependencies ... wip
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a file (like a '.log.json' file, is possible with log files rotation) ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
 * [x] content cleanup/update to latest standards my custom styles ... wip
