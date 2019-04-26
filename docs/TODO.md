@@ -7,8 +7,7 @@
 * [x] general: bump release to '2.1.0' ... ok
 * [x] general: update dependencies ... ok
 * [x] general: add a feature flag to disable Fastify logging ... ok, with the env var FASTIFY_OPTIONS, otherwise by default Fastify logger will be enabled from the 'info' level
-* [x] general: remove dependencies (and dev dependencies) not really used here ... wip
-* [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
+* [x] general: remove dependencies (and dev dependencies) not really used here ... ok
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a file (like a '.log.json' file, is possible with log files rotation) ... wip
 * [x] content: cleanup/update to latest standards my custom styles ... wip
 * [x] content: update home page with a link to a samples page (with a statically defined sorted list to all published routes, with related description) ... wip
@@ -19,6 +18,7 @@
 
 * [x] general: bump release to '2.2.0' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it) ... in Docker images it has already been done ... wip
+* [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
 * [x] general: update Tap (Nod-Tap) to latest (from '^12.6.5' to '^13.0.3') ... note that new Tap now complaints on a not existing nested path for test sources, so maybe I'll need to update npm custom command to remove 'test/*/*.test.js'; and (currently) it seems to complaint on the `'use strict'` statement and on eslint comments, on top of test sources, and even on anything not inside tests; check better what happens ... wip
 * [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
