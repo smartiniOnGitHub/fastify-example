@@ -6,17 +6,19 @@
 * [x] general: update utils functions ... ok
 * [x] general: bump release to '2.1.0' ... ok
 * [x] general: update dependencies ... ok
+* [x] general: add a feature flag to disable Fastify logging ... ok, with the env var FASTIFY_OPTIONS, otherwise by default Fastify logger will be enabled from the 'info' level
 * [x] general: remove dependencies (and dev dependencies) not really used here ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
-* [x] general: add a feature flag to disable Fastify logging ... wip
-* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec (when the plugin will be available); and update all accordingly (even add packageName and packageVersion to event 'type', and major release to 'schemaurl' where used) ... wip
-* [x] general: update dependencies ... wip
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a file (like a '.log.json' file, is possible with log files rotation) ... wip
-* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it), even in Docker images ... wip
-* [x] content cleanup/update to latest standards my custom styles ... wip
+* [x] content: cleanup/update to latest standards my custom styles ... wip
+* [x] content: update home page with a link to a samples page (with a statically defined sorted list to all published routes, with related description) ... wip
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec (when the plugin will be available); and update all accordingly (even add packageName and packageVersion to event 'type' base value, and major release to 'schemaurl' where used like '/v1/') ... wip
+* [x] content: check if publish lifecycle events in a different queue, and error events in another; for example use current queue name (composed of packageName and packageVersion) as base, and add '.lifecycle', '.error', and '.app' for specific messages generated inside routes, etc; then (as a sample) subscribe to all those queues, but print queue name or at least its short name (if possible) just before the message received from it ... wip
+* [x] general: update dependencies ... wip
 * [x] general: tag sources, at least going to '2.1.0' ... wip
 
 * [x] general: bump release to '2.2.0' ... wip
+* [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it) ... in Docker images it has already been done ... wip
 * [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
