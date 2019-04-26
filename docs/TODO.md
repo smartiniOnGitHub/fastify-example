@@ -19,6 +19,7 @@
 
 * [x] general: bump release to '2.2.0' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it) ... in Docker images it has already been done ... wip
+* [x] general: update Tap (Nod-Tap) to latest (from '^12.6.5' to '^13.0.3') ... note that new Tap now complaints on a not existing nested path for test sources, so maybe I'll need to update npm custom command to remove 'test/*/*.test.js'; and (currently) it seems to complaint on the `'use strict'` statement and on eslint comments, on top of test sources, and even on anything not inside tests; check better what happens ... wip
 * [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
