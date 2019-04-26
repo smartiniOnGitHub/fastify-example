@@ -113,6 +113,7 @@ function features (fastify, options = {}) {
       // idGenerator: gen,
       onRequestCallback: loggingCallback,
       onResponseCallback: loggingCallback,
+      onErrorCallback: loggingCallback,
       cloudEventOptions: k.cloudEventOptions
     })
   }
