@@ -20,9 +20,6 @@
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
 
-// note that this is not neccessarily the main/entry point file, unless specified/called directly ...
-console.log(`Sample JavaScript Test file using TAP ...`)
-
 const assert = require('assert')
 const test = require('tap').test
 const tap = require('tap')
@@ -35,6 +32,9 @@ const tap = require('tap')
 // test zero, just to ensure that test framework works
 assert(tap !== null)
 tap.pass('this is an empty test, but test frameworks works')
+
+// note that this is not neccessarily the main/entry point file, unless specified/called directly ...
+tap.comment(`Sample JavaScript Test file using TAP ...`)
 
 // load the module/s to test
 const utilModule = require('../src/utils')
