@@ -33,12 +33,10 @@
 
 /*#region General styles */
 html {
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 *, *:before, *:after {
-	-webkit-box-sizing: inherit;
-	        box-sizing: inherit;
+	box-sizing: inherit;
 }
 * {
 	margin: 0;
@@ -179,30 +177,18 @@ footer p, .footer p {
 }
 
 .flexBoxContainer {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-flow: row wrap;
-	    -webkit-box-orient: horizontal;
-	    -webkit-box-direction: normal;
-	        flex-flow: row wrap;
-	-webkit-box-pack: justify;
-	    -ms-flex-pack: justify;
-	        justify-content: space-between;
-	-ms-flex-line-pack: center;
-	    align-content: center;
-	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-content: center;
+	align-items: center;
 	margin: 0;
 }
 .flexBoxContainer > div {
 	padding: 0.5em;
 }
 .flexBoxContainer > .flexBox {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 1 auto;
-	        flex: 1 1 auto;
+	flex: 1 1 auto;
 	text-overflow: ellipsis;
 }
 
@@ -256,8 +242,7 @@ hr {
 
 /* To avoid the 300 ms delay on  mobile devices */
 a[href], button {
-	-ms-touch-action: manipulation;
-	    touch-action: manipulation;
+	touch-action: manipulation;
 }
 
 /* input[type=text] { */
@@ -357,7 +342,6 @@ input.ng-dirty {
 }
 .grow {
 	max-width: 100%;
-	-webkit-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
 .grow:hover {
