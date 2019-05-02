@@ -48,7 +48,7 @@ const k = {
     webhookMapping: '/custom-webhook'
   },
   serverUrlMode: 'pluginAndRequestSimplified', // same behavior as default value, but in this way set in CloudEvent extension object
-  baseNamespace: 'com.github.smartiniOnGitHub.fastify-example.server',
+  // baseNamespace: 'com.github.smartiniOnGitHub.fastify-example',
   cloudEventOptions: {
     strict: true // enable strict mode in generated CloudEvents, optional
   },
@@ -62,6 +62,7 @@ k.imagesFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, p
 if (!process.env.HTTP_ADDRESS) {
   k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
 }
+k.baseNamespace = `com.github.smartiniOnGitHub.${k.packageName}-v${k.packageVersion}`
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
 k.source = k.serverUrl
 k.queueName = `${k.packageName}-${k.packageVersion}`

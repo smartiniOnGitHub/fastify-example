@@ -110,8 +110,10 @@ function features (fastify, options = {}) {
     fastify.register(require('fastify-cloudevents'), {
       serverUrl: k.serverUrl,
       serverUrlMode: k.serverUrlMode,
+      baseNamespace: k.baseNamespace,
       // idGenerator: gen,
       onRequestCallback: loggingCallback,
+      // onSendCallback: loggingCallback,
       onResponseCallback: loggingCallback,
       onErrorCallback: loggingCallback,
       cloudEventOptions: k.cloudEventOptions
