@@ -33,10 +33,12 @@
 
 /*#region General styles */
 html {
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 *, *:before, *:after {
-	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
 }
 * {
 	margin: 0;
@@ -181,7 +183,9 @@ footer p, .footer p {
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-flow: row wrap;
-	    flex-flow: row wrap;
+	    -webkit-box-orient: horizontal;
+	    -webkit-box-direction: normal;
+	        flex-flow: row wrap;
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between;
@@ -313,9 +317,11 @@ tr.selected {
 input.ng-invalid {
 	background-color: var(--invalid-color) !important;
 }
+/*
 input.ng-valid {
-	/* background-color: var(--confirmed-color) !important; */
+	/ * background-color: var(--confirmed-color) !important; * /
 }
+ */
 input.ng-dirty {
 	border: var(--invalid-color) 1px solid !important;
 }
