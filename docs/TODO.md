@@ -34,7 +34,6 @@
 * [ ] content cleanup/update to latest standards my custom styles ...
 * [ ] content: remove my custom styles from pages and change with some good default style, for example starting from latest [Bootstrap](https://getbootstrap.com/), then update licenses ...
 * [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
-* [ ] content: implement a full-stack webapp, with a modern front-end (Angular or React or Vue.js or other) ...
 
 
 ---------------
@@ -185,6 +184,8 @@
 * [x] general: update changelog ... ok
 * [x] general: tag sources ... ok
 * [x] general: after the '2.0.0' release, create a maintenance branch '2.0.x' ... ok
+
+* [x] content: implement a full-stack webapp, with a modern front-end (Angular or React or Vue.js or other); use even some modern css framework like Bootstrap (but without jQuery etc); for example see [React Bootstrap Tutorial - LogRocket](https://blog.logrocket.com/how-to-use-bootstrap-with-react-a354715d1121) and then use [reactstrap - npmjs](https://www.npmjs.com/package/reactstrap) or [react-bootstrap - npmjs](https://www.npmjs.com/package/react-bootstrap) and WebPack to bundle all ... maybe later because this need a change in the structure of all the repo (to become a monorepo), to be managed in a different way, as seen in [Why one big repo - Rush](https://rushjs.io/pages/intro/why_mono/)
 
 
 ---------------
