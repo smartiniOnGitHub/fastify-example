@@ -28,11 +28,21 @@ const commonPageData = {
   project: k.packageName,
   environment: utils.currentEnv(),
   assets: k.mappings.staticAssetsMapping,
-  welcome: 'Hello from EJS Templates'
+  welcome: 'Hello from EJS Templates',
+  samples: null
 }
 
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
+
+// manually define the list of some exposed routes, with some description
+const samples = [
+  { link: 'time', url: '/time', description: 'Sample API call that returns the current server time, as timestamp and in ISO format (async)' },
+  { link: 'error', url: '/error', description: 'Sample route that always returns an error (async)' },
+  { link: 'template', url: '/template', description: 'Sample EJS template page' },
+  { link: 'static', url: '/static/', description: `Serve static resources, sample (by default 'index.html' will be served` }
+  // ].sort((a, b) => a.link.localeCompare(b.link))
+].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 
 // define routes but no async at outer level
 // note that some routes here are normal (non-async) but others are async ...
@@ -43,7 +53,8 @@ function routes (fastify, options = {}) {
     reply.view('index', {
       ...commonPageData,
       title: 'Home',
-      welcome: 'Welcome to the Home Page'
+      welcome: 'Welcome to the Home Page',
+      samples
     })
     // publish a message in the queue, as a sample
     publish(fastify.nats, k.queueName, k.queueDisabled,
@@ -69,7 +80,10 @@ function routes (fastify, options = {}) {
     publish(fastify.nats, k.queueName, k.queueDisabled,
       `Ask for a template page at '${k.hostname}'`
     )
-    reply.view('index', { ...commonPageData, title: 'Template' })
+    reply.view('index', {
+      ...commonPageData,
+      title: 'Template'
+    })
   })
   // example route, to always generate an error
   fastify.get('/error', async (req, reply) => {
