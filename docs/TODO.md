@@ -2,22 +2,6 @@
 
 ## TODO
 
-* [x] general: update requirements to Node.js 10.x, at least in Docker files ... ok
-* [x] general: update utils functions ... ok
-* [x] general: bump release to '2.1.0' ... ok
-* [x] general: update dependencies ... ok
-* [x] general: add a feature flag to disable Fastify logging ... ok, with the env var FASTIFY_OPTIONS, otherwise by default Fastify logger will be enabled from the 'info' level
-* [x] general: remove dependencies (and dev dependencies) not really used here ... ok
-* [x] general: for a more Functional Programming (FP) approach, use [ramda - npm](https://www.npmjs.com/package/ramda) instead of usual [LoDash - npm](https://www.npmjs.com/package/lodash) or [Underscore - npm](https://www.npmjs.com/package/underscore) ... ok, but maybe later
-* [x] general: add a feature flag to change the callback for CloudEvents, to send to a webhook (of course via HTTP POST) ... maybe later
-* [x] general: check if restructure the whole project to become a monorepo (with multiple interdependent packages inside it, for example using [lerna - npmjs](https://www.npmjs.com/package/lerna) or [rush - npmjs](https://www.npmjs.com/package/@microsoft/rush), like: server, common, client, docs, etc ... maybe later
-* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec (when the plugin will be available); and update all accordingly (even add packageName and packageVersion to event 'type' base value, and major release to 'schemaurl' where used like '/v1/') ... ok
-* [x] content: cleanup/update to latest standards my custom styles, using [autoprefixer - npmjs](https://www.npmjs.com/package/autoprefixer) and [postcss - npmjs](https://www.npmjs.com/package/postcss), and keep only last 2 versions of most common browsers ... use the online version for example at [autoprefixer - github](https://autoprefixer.github.io/) ... ok, but now to target only 1 last version of most common browsers
-* [x] content: update home page with a link to a samples page (with a statically defined sorted list to all published routes, with related description) ... ok
-* [x] content: check if publish lifecycle events in a different queue, and error events in another; for example use current queue name (composed of packageName and packageVersion) as base, and add '.lifecycle', '.error', and '.app' for specific messages generated inside routes, etc; then (as a sample) subscribe to all those queues, but print queue name or at least its short name (if possible) just before the message received from it ... maybe later
-* [x] general: update dependencies ... wip
-* [x] general: tag sources, at least going to '2.1.0' ... wip
-
 * [x] general: bump release to '2.2.0' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it) ... in Docker images it has already been done ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
@@ -186,6 +170,25 @@
 * [x] general: after the '2.0.0' release, create a maintenance branch '2.0.x' ... ok
 
 * [x] content: implement a full-stack webapp, with a modern front-end (Angular or React or Vue.js or other); use even some modern css framework like Bootstrap (but without jQuery etc); for example see [React Bootstrap Tutorial - LogRocket](https://blog.logrocket.com/how-to-use-bootstrap-with-react-a354715d1121) and then use [reactstrap - npmjs](https://www.npmjs.com/package/reactstrap) or [react-bootstrap - npmjs](https://www.npmjs.com/package/react-bootstrap) and WebPack to bundle all ... maybe later because this need a change in the structure of all the repo (to become a monorepo), to be managed in a different way, as seen in [Why one big repo - Rush](https://rushjs.io/pages/intro/why_mono/)
+
+* [x] general: update requirements to Node.js 10.x, at least in Docker files ... ok
+* [x] general: update utils functions ... ok
+* [x] general: bump release to '2.1.0' ... ok
+* [x] general: update dependencies ... ok
+* [x] general: add a feature flag to disable Fastify logging ... ok, with the env var FASTIFY_OPTIONS, otherwise by default Fastify logger will be enabled from the 'info' level
+* [x] general: remove dependencies (and dev dependencies) not really used here ... ok
+* [x] general: for a more Functional Programming (FP) approach, use [ramda - npm](https://www.npmjs.com/package/ramda) instead of usual [LoDash - npm](https://www.npmjs.com/package/lodash) or [Underscore - npm](https://www.npmjs.com/package/underscore) ... ok, but maybe later
+* [x] general: add a feature flag to change the callback for CloudEvents, to send to a webhook (of course via HTTP POST) ... maybe later
+* [x] general: check if restructure the whole project to become a monorepo (with multiple interdependent packages inside it, for example using [lerna - npmjs](https://www.npmjs.com/package/lerna) or [rush - npmjs](https://www.npmjs.com/package/@microsoft/rush), like: server, common, client, docs, etc ... maybe later
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec (when the plugin will be available); and update all accordingly (even add packageName and packageVersion to event 'type' base value, and major release to 'schemaurl' where used like '/v1/') ... ok
+* [x] content: cleanup/update to latest standards my custom styles, using [autoprefixer - npmjs](https://www.npmjs.com/package/autoprefixer) and [postcss - npmjs](https://www.npmjs.com/package/postcss), and keep only last 2 versions of most common browsers ... use the online version for example at [autoprefixer - github](https://autoprefixer.github.io/) ... ok, but now to target only 1 last version of most common browsers
+* [x] content: update home page with a link to a samples page (with a statically defined sorted list to all published routes, with related description) ... ok
+* [x] content: check if publish lifecycle events in a different queue, and error events in another; for example use current queue name (composed of packageName and packageVersion) as base, and add '.lifecycle', '.error', and '.app' for specific messages generated inside routes, etc; then (as a sample) subscribe to all those queues, but print queue name or at least its short name (if possible) just before the message received from it ... maybe later
+* [x] general: to simplify automatic changes for releases, follow the guidelines at [
+Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/184553141742/easy-automatic-npm-publishes), so follow [Conventional Commits](https://www.conventionalcommits.org/) and check if use [standard-version - npmjs](https://www.npmjs.com/package/standard-version) for automatic changelog redaction ... maybe later
+* [x] general: update dependencies ... ok
+* [x] general: update changelog ... ok
+* [x] general: tag sources, at least going to '2.1.0' ... ok
 
 
 ---------------

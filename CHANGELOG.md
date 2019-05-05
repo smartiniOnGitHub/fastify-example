@@ -1,5 +1,17 @@
 # Change Log
 
+## [2.1.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.1.0) (2019-05-05)
+Summary Changelog:
+- Update all dependencies
+- Update Node.js to latest 10.x, but for now only in Docker images
+- Update docs
+- Update Home Page to add links to published routes and some description
+- Update/cleanup to latest standards css styles, 
+  to target only 1 last version of most common browsers
+- Use the new release of 'fastify-cloudevents' aligned with v0.2 of the spec, 
+  and update code to align with its breaking changes
+- Small other improvements
+
 ## [2.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.0.0) (2019-04-10)
 [Full Changelog](https://github.com/smartiniOnGitHub/fastify-example/compare/1.0.0...2.0.0)
 Summary Changelog:
