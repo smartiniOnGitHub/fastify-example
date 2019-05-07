@@ -10,7 +10,7 @@
 	--gray-dark-color: #565B5C;
 	--reddish-color: #ff0000;
 	--greenish-color: #4D8618;
-	--orangish-color: #db4800;
+	--orangish-color: #db4900d2;
 	--yellowish-color: #FFDE00;
 	--sugar-paper-color:  #56C2C2;
 	--reddish-alternate-color: #aa0000;
@@ -79,14 +79,15 @@ aside, .primary, .secondary {
 }
 
 header, .header {
-	/* background-color:var(--main-bg-color); */
+	background-color:var(--blueish-alternate-color);
 	font-weight:400;
 	font-size:1em;
 	padding: 0 0 0.4em 0;
 }
 
 footer, .footer {
-	background-color:var(--gray-mid-color);
+	background-color:var(--orangish-color);
+	/* color:var(--neutral-light-color); */
 	text-transform: capitalize;
 	font-weight:100;
 	font-size:0.8em;
@@ -100,8 +101,8 @@ nav, .navigation,
 	z-index:100000;
 	top:0;
 	left:0;
-	padding: 0 1em 0.5em 1em;
-	margin: 0 0 0.5em 0;
+	padding: 0 1em 0 1em;
+	margin: 0 0 0.25em 0;
 	text-align: center;
 }
 nav ul, .navigation ul 
@@ -157,7 +158,7 @@ footer a, footer a:link, footer ul li a:visited,
 	display: inline-block;
 	text-decoration:none;
 	opacity:0.8;
-	color:var(--neutral-light-color);
+	color:var(--main-bg-color);
 }
 footer a, .footer a, 
 footer ul li, .footer ul li {
@@ -472,7 +473,7 @@ input.ng-dirty {
 /*#region Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 	* {
-		padding: 0.2em;
+		padding: 0.25em;
 	}
 }
 
