@@ -292,7 +292,7 @@ module.exports.logDebugMessage = function (message) {
   console.debug(msg)
 }
 module.exports.noop = function () {
-  // do nothing and exit immediately ...
+  // do nothing ...
 }
 
 module.exports.userBrowser = function () {
@@ -331,8 +331,15 @@ module.exports.isEnvProduction = function () {
 }
 // tell if the current Node.js environment is not production
 module.exports.isEnvNotProduction = function () {
-  // return (process.env.NODE_ENV !== 'production')
   return !this.isEnvProduction()
+}
+// returns the current Node.js version
+module.exports.runtimeVersion = function () {
+  return process.version || 'unknown'
+}
+// returns the current Platform/OS name
+module.exports.platformName = function () {
+  return process.platform || 'unknown'
 }
 
 // log to console

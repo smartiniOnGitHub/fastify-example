@@ -29,6 +29,8 @@ dotenv.config()
 const k = require('./constants')
 const utils = require('./utils')
 
+utils.logToConsole(`Server starting for ${k.packageName}-v${k.packageVersion} ...`)
+
 // startup configuration constants
 const fastifyOptions = JSON.parse(k.fastifyOptionsString)
 const fastify = require('fastify')(fastifyOptions)

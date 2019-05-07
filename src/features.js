@@ -28,6 +28,7 @@ const utils = require('./utils')
 
 // configuration for enabled/disabled features
 const featuresEnabled = {
+  platformInfo: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_PLATFORM_INFO_DISABLE'), false),
   favicon: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_FAVICON_DISABLE'), false),
   webhook: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_WEBHOOK_DISABLE'), false),
   healthcheck: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
@@ -48,7 +49,15 @@ function features (fastify, options = {}) {
 
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
-  fastify.log.info(featuresEnabledMsg)
+
+  if (featuresEnabled.platformInfo) {
+    // log some platform info
+    fastify.log.info(`Node.js ${utils.runtimeVersion()}, running on OS: ${utils.platformName()}`)
+    // log some package and framework info
+    fastify.log.info(`Webapp ${k.packageName}-v${k.packageVersion}, running on Fastify-v${k.fastifyVersion}`)
+    // log enabled features of the webapp
+    fastify.log.info(featuresEnabledMsg)
+  }
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options

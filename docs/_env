@@ -13,6 +13,7 @@ ENVIRONMENT=dev-local
 # WEBHOOK_SECRET_KEY=my example Secret Key
 
 # feature flags, uncomment to disable related feature
+# FEATURE_PLATFORM_INFO_DISABLE=true
 # FEATURE_FAVICON_DISABLE=true
 # FEATURE_WEBHOOK_DISABLE=true
 # FEATURE_HEALTHCHECK_DISABLE=true

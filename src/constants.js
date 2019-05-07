@@ -29,6 +29,7 @@ const isDocker = require('is-docker')
 const k = {
   packageName: require('../package.json').name,
   packageVersion: require('../package.json').version,
+  fastifyVersion: require('fastify/package.json').version,
   projectFolderFromScript: path.normalize(path.join(__dirname, path.sep, '..', path.sep)),
   fastifyOptionsString: process.env.FASTIFY_OPTIONS || '{ "logger": { "level": "info" } }',
   hostname,
