@@ -25,23 +25,31 @@ const utils = require('./utils')
 
 // sample data for pages and responses
 const commonPageData = {
-  project: k.packageName,
+  projectName: k.packageName,
+  projectVersion: k.packageVersion,
   environment: utils.currentEnv(),
   assets: k.mappings.staticAssetsMapping,
   welcome: 'Hello from EJS Templates',
-  samples: null
+  sampleRoutes: null,
+  pluginRoutes: null
 }
 
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
 
 // manually define the list of some exposed routes, with some description
-const samples = [
+const sampleRoutes = [
   { link: 'time', url: '/time', description: 'Sample API call that returns the current server time, as timestamp and in ISO format (async)' },
   { link: 'error', url: '/error', description: 'Sample route that always returns an error (async)' },
-  { link: 'template', url: '/template', description: 'Sample EJS template page' },
-  { link: 'static', url: '/static/', description: `Serve static resources, sample (by default 'index.html' will be served` }
+  { link: 'template', url: '/template', description: 'Sample EJS template page' }
   // ].sort((a, b) => a.link.localeCompare(b.link))
+].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
+// manually define the list of some routes exposed by some loaded plugins
+const pluginRoutes = [
+  { link: 'static', url: '/static/', description: `Serve static resources, sample (by default 'index.html' will be served, by 'fastify-static' plugin` },
+  { link: 'favicon', url: '/favicon.ico', description: `Serve the favicon, by 'fastify-favicon' plugin` },
+  { link: 'custom-webhook', url: '/custom-webhook', description: `Expose a sample webhook (via HTTP POST), by 'fastify-webhook' plugin` },
+  { link: 'healthcheck', url: '/health', description: `Expose an healthcheck, by 'fastify-healthcheck' plugin` }
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 
 // define routes but no async at outer level
@@ -53,8 +61,9 @@ function routes (fastify, options = {}) {
     reply.view('index', {
       ...commonPageData,
       title: 'Home',
-      welcome: 'Welcome to the Home Page',
-      samples
+      welcome: 'Work-In-Progress/Prototype webapp',
+      sampleRoutes,
+      pluginRoutes
     })
     // publish a message in the queue, as a sample
     publish(fastify.nats, k.queueName, k.queueDisabled,

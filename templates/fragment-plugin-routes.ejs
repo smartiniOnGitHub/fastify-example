@@ -1,0 +1,10 @@
+<% if (pluginRoutes !== null) { %>
+<div>
+    <h3>Some routes published by loaded plugins</h3>
+    <ul>
+    <% for (const i of pluginRoutes) { %>
+        <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
+    <% } %>
+    </ul>
+</div>
+<% } %>

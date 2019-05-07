@@ -1,8 +1,8 @@
-<% if (samples !== null) { %>
+<% if (sampleRoutes !== null) { %>
 <div>
     <h3>Sample pages and routes to call</h3>
     <ul>
-    <% for (const i of samples) { %>
+    <% for (const i of sampleRoutes) { %>
         <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
     <% } %>
     </ul>
