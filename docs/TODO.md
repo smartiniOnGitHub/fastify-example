@@ -4,11 +4,15 @@
 
 * [x] general: bump release to '2.2.0' ... wip
 * [x] general: update all requirements to Node.js 10.x (more modern, even if not strictly required here, but just to start using it) ... in Docker images it has already been done ... wip
-* [x] general: at server startup, get some environment info (like Node.js version with `process.version`, OS name/type, OS release, OS platform with the old `process.platform`, etc) and print to log; implement them in the 'utils' source (but not Node.js specific code there); and maybe implement even similar features but for a Browser environment; some info in [os - Node.js](https://nodejs.org/api/os.html), and [here](https://coderwall.com/p/qgsnbq/check-node-js-version-in-code), [here](https://www.w3schools.com/js/js_window_navigator.asp), [here](https://stackoverflow.com/questions/8683895/how-do-i-determine-the-current-operating-system-with-node-js), etc ... wip
+* [x] general: at server startup, get some environment info (like Node.js version with `process.version`, OS name/type, OS release, OS platform with the old `process.platform`, etc) and print to log; implement them in the 'utils' source (but not Node.js specific code there); and maybe implement even similar features but for a Browser environment; some info in [os - Node.js](https://nodejs.org/api/os.html), and [here](https://coderwall.com/p/qgsnbq/check-node-js-version-in-code), [here](https://www.w3schools.com/js/js_window_navigator.asp), [here](https://stackoverflow.com/questions/8683895/how-do-i-determine-the-current-operating-system-with-node-js), etc ... for now, add some function related to `process` Node.js data structure (as some is already present, similar), but not others that require Node.js specific import; and implement Browser specific features maybe later ... wip
 * [x] general: check if remove some Fastify plugins not really used at the moment, but keep 'fastify-static' (even if for a real deployment probably static assets will be delivered via NGINX or another Web Server)... wip
 * [x] general: update Tap (Node-Tap) to latest (from '^12.7.0' to '^13.0.3' or later) ... note that new Tap now complaints on a not existing nested path for test sources, so maybe I'll need to update npm custom command to remove 'test/*/*.test.js'; and (currently) it seems to complaint on the `'use strict'` statement and on eslint comments, on top of test sources, and even on anything not inside tests; check better what happens ... wip
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a file (like a '.log.json' file, is possible with log files rotation) ... wip
 * [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route ... wip
+* [x] content: to improve navigation of samples routes, rename 'samples' in 'sampleRoutes' (with all routes published by my code), and add another section with 'pluginRoutes' with a (manual defined) sorted list of routes published by plugins loaded; and mark related area/div with a border; check later if move all them in a navigation section/div ... wip
+* [x] content: update header and footer with better colors, and better info, like: in header a link to Home, in footer info on framework release, webapp release, etc ... wip
+* [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... wip
+* [x] content: move all features to expose a uri ('/info') for an api that returns some info on the current process in its own Fastify plugin, then use here and cleanup old code ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
@@ -190,6 +194,9 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: update dependencies ... ok
 * [x] general: update changelog ... ok
 * [x] general: tag sources, at least going to '2.1.0' ... ok
+
+* [x] content: restructure/align my css with the [abvcss](https://abvcss.github.io/abvcss-website/) methodolgy ... maybe later
+* [x] content: improve Promise and async/await usage in my code, as seen for example in [Deeply Understanding JavaScript Async and Await with Examples - Bits and Pieces](https://blog.bitsrc.io/understanding-javascript-async-and-await-with-examples-a010b03926ea) ... yes, but maybe later
 
 
 ---------------
