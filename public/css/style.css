@@ -5,20 +5,28 @@
 	--neutral-dark-color: #000000;
 	--invalid-color: pink;
 	--confirmed-color: lightgreen;
-	--gray-light-color: #efefef;
-	--gray-mid-color: #888888;
+	--gray-light-color: #F6F6F6;
+	--gray-mid-color: #F6F6F6;
 	--gray-dark-color: #565B5C;
-	--reddish-color: #ff0000;
+	--blueish-color: #007ACC;
+	--reddish-color: #FF0000;
 	--greenish-color: #4D8618;
-	--orangish-color: #db4900d2;
+	--orangish-color: #F15D2A;
 	--yellowish-color: #FFDE00;
+	--purpleish-color: #3F0E40;
 	--sugar-paper-color:  #56C2C2;
-	--reddish-alternate-color: #aa0000;
+	--reddish-alternate-color: #CD2553;
 	--greenish-alternate-color: #56C25C;
-	--blueish-alternate-color: #5571C2;
+	--blueish-alternate-color: #1064A3;
 	--blueish-light-alternate-color: #DCEDF5;
 	--yellowish-alternate-color: #C2BE55;
 	--yellowish-light-alternate-color: #F5F4DC;
+	--blueish-pale-color: #595A7B;
+	--blueish-dark-pale-color: #3B3C5B;
+	--blueish-light-pale-color: #8283AC;
+	--greenish-pale-color: #CAE8DE;
+	--grayish-pale-color: #FBFAFB;
+	--yellowish-pale-color: #EFE3C4;
 
 	--main-fg-color: var(--neutral-dark-color);
 	--main-bg-color: var(--sugar-paper-color);
@@ -45,6 +53,7 @@ html {
 }
 html, body {
 	background-color:var(--neutral-light-color);
+	/* background-color:var(--grayish-pale-color); */
 	color:var(--main-fg-color);
 	padding:0;
 	margin:0;
@@ -80,6 +89,7 @@ aside, .primary, .secondary {
 
 header, .header {
 	background-color:var(--blueish-alternate-color);
+	/* background-color:var(--blueish-pale-color); */
 	font-weight:400;
 	font-size:1em;
 	padding: 0 0 0.4em 0;
@@ -87,7 +97,10 @@ header, .header {
 
 footer, .footer {
 	background-color:var(--orangish-color);
-	/* color:var(--neutral-light-color); */
+	/* 
+	background-color:var(--blueish-dark-pale-color);
+	color:var(--neutral-light-color);
+	 */
 	text-transform: capitalize;
 	font-weight:100;
 	font-size:0.8em;
