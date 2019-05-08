@@ -67,7 +67,7 @@
   },
   "peerDependencies": {},
   "engines": {
-    "node": ">=8.16.0"
+    "node": ">=10.15.3"
   },
   "repository": {
     "type": "git",

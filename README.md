@@ -43,7 +43,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^2.1.0 , Node.js 8.16.x or later.
+Fastify ^2.3.0 , Node.js 10.5.x or later.
 
 
 ## Note
