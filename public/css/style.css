@@ -53,7 +53,6 @@ html {
 }
 html, body {
 	background-color:var(--neutral-light-color);
-	/* background-color:var(--grayish-pale-color); */
 	color:var(--main-fg-color);
 	padding:0;
 	margin:0;
@@ -89,7 +88,6 @@ aside, .primary, .secondary {
 
 header, .header {
 	background-color:var(--blueish-alternate-color);
-	/* background-color:var(--blueish-pale-color); */
 	font-weight:400;
 	font-size:1em;
 	padding: 0 0 0.4em 0;
@@ -97,10 +95,6 @@ header, .header {
 
 footer, .footer {
 	background-color:var(--orangish-color);
-	/* 
-	background-color:var(--blueish-dark-pale-color);
-	color:var(--neutral-light-color);
-	 */
 	text-transform: capitalize;
 	font-weight:100;
 	font-size:0.8em;
