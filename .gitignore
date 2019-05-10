@@ -4,7 +4,7 @@
 .metadata
 .settings
 .vscode
-*.log
+# *.log
 *.iws
 .idea/
 *.iml
@@ -35,7 +35,7 @@ jspm_packages
 
 # Logs
 logs
-*.log
+*.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -49,7 +49,7 @@ jsdoc-conf.*
 jenkins.sh
 tslint.json
 
-*.log
+*.log*
 
 TODO.*
 BUILD.md
