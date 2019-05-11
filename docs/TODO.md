@@ -3,7 +3,7 @@
 ## TODO
 
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events ... wip
-* [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route; but check if this is possible without specific build phase for it ... wip
+* [x] content: check if provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); at least as a Single-Page-Application (SPA) in a dedicated route; but check if this is possible without specific build phase for it ... as a (complete) sample, look at [fastify-example-twitter](https://github.com/fastify/fastify-example-twitter) even if a little outdated now, but the general structure is good ... wip
 * [x] general: update changelog for the upcoming release ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
 
