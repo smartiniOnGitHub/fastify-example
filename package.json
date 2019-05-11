@@ -37,9 +37,9 @@
     "pretest": "",
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",
-    "test:unit": "tap -J --comments --no-esm test/*.test.js",
+    "test:unit": "tap -J --comments --no-esm --strict test/*.test.js",
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
-    "test:unit:debug": "tap -T --node-arg=--inspect-brk --comments --no-esm test/*.test.js",
+    "test:unit:debug": "tap -T --node-arg=--inspect-brk --comments --no-esm --strict test/*.test.js",
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
@@ -63,7 +63,7 @@
     "semver": "^6.0.0",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
-    "tap": "^13.1.6"
+    "tap": "^13.1.8"
   },
   "peerDependencies": {},
   "engines": {
