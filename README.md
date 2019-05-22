@@ -43,7 +43,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^2.3.0 , Node.js 10.5.x or later.
+Fastify ^2.3.0 , Node.js 10.13.0 or later.
 
 
 ## Note
@@ -64,6 +64,10 @@ Supported variables:
 - `FEATURE_HEALTHCHECK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin
 - `FEATURE_CLOUDEVENTS_STRICT_DISABLE`, to disable strict mode in generated CloudEvents (if/when related plugin is enabled)
+- `FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE`, to disable CloudEvent serialization to console
+- `FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE`, to disable CloudEvent serialization to console, by default true (so disabled); 
+  note that when enabled a new log file will be created at any run of the server, 
+  and the previous is renamed (if present) so nothing is lost, and any new run is fresh
 - `FEATURE_NATS_DISABLE`, to disable (not load) related plugin
 if not specified default behavior will be applied.
 

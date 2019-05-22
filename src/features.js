@@ -34,6 +34,8 @@ const featuresEnabled = {
   healthcheck: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
   cloudevents: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_DISABLE'), false),
   cloudeventsStrictMode: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false),
+  cloudeventsLogConsole: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE'), false),
+  cloudeventsLogFile: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE'), true),
   nats: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
 }
 
@@ -109,12 +111,23 @@ function features (fastify, options = {}) {
       // const ser = fastify.CloudEvent.serializeEvent(ce)
       // const ser = ce.serialize()
       const ser = fastify.cloudEventSerializeFast(ce)
-      utils.logToConsole(`CloudEvent serialized, ${ser}`)
+      if (featuresEnabled.cloudeventsLogConsole) {
+        utils.logToConsole(`CloudEvent serialized, ${ser}`)
+      }
+      if (featuresEnabled.cloudeventsLogFile) {
+        // TODO: implement ... wip
+        // utils.logToConsole(`CloudEvent serialized to file`)
+      }
       publish(fastify.nats, k.queueName, k.queueDisabled, ser)
     }
     // override cloudEventOptions strict mode with a feature flag,
     // so in this way I don't need to add a dependency from constants to utils
     k.cloudEventOptions.strict = utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false)
+    // create the log file
+    if (featuresEnabled.cloudeventsLogFile) {
+      // TODO: implement ... wip
+    }
+    // TODO: check how to close the file/stream at server/plugin close ... wip
     // fastify-cloudevents, example with only some most-common options
     fastify.register(require('fastify-cloudevents'), {
       serverUrl: k.serverUrl,
