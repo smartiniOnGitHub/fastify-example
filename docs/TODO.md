@@ -2,11 +2,12 @@
 
 ## TODO
 
-* [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events ... wip
+* [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events; if log file is found at start, rename it with its timestamp at the end (so nothing will be deleted, and any run has its own log file) ... for simplicity reuse the same callback, but with two new feature flags: FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE, FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE ... wip
 * [x] general: update changelog for the upcoming release ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
 
 * [x] general: bump release to '2.3.0' ... wip
+* [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
