@@ -2,14 +2,19 @@
 
 ## TODO
 
+* [x] general: for writing rows into the log file ein an efficient way, use Node.js Streams; see [Stream - Node.js API](https://nodejs.org/api/stream.html), and even [Node.js Streams - freeCodeCamp](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93), etc ... ok
+* [x] general: add some useful functions using ES6 Proxy, similar to those seen in [A practical guide to Javascript Proxy - Bits and Pieces](https://blog.bitsrc.io/a-practical-guide-to-es6-proxy-229079c3c2f0) ... maybe later
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events; if log file is found at start, rename it with its timestamp at the end (so nothing will be deleted, and any run has its own log file) ... for simplicity reuse the same callback, but with two new feature flags: FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE, FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE ... wip
 * [x] general: update changelog for the upcoming release ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
 
 * [x] general: bump release to '2.3.0' ... wip
 * [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
+* [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) when available (soon); for example throw error if current Node.js version if not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
+* [x] content: as a sample, add customizations to current styles with a theme css file (one or more), and more in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) ... wip
+* [x] content: check if use [Stencil - npmjs](https://www.npmjs.com/package/@stencil/core) for Web Components as client side UI, at least in a new SPA here ... wip
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
