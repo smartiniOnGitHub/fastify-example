@@ -27,6 +27,17 @@
 	--greenish-pale-color: #CAE8DE;
 	--grayish-pale-color: #FBFAFB;
 	--yellowish-pale-color: #EFE3C4;
+	--blue-ocean-color: #4A8FE2;
+	--green-ocean-color: #58A700;
+	--red-ocean-color: #C4000A;
+	--yellow-ocean-color: #F59700;
+	--blue-ocean-light-color: #4C9BD5;
+	--green-ocean-light-color: #8EBF63;
+	--red-ocean-light-color: #D95F5C;
+	--yellow-ocean-light-color: #F6B44A;
+	--black-ocean-color: #404040;
+	--gray-ocean-color: #979797;
+	--white-ocean-color: #FFFFFF;
 
 	--main-fg-color: var(--neutral-dark-color);
 	--main-bg-color: var(--sugar-paper-color);
@@ -95,6 +106,7 @@ header, .header {
 
 footer, .footer {
 	background-color:var(--orangish-color);
+	color:var(--neutral-light-color);
 	text-transform: capitalize;
 	font-weight:100;
 	font-size:0.8em;
