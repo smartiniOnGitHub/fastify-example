@@ -118,7 +118,6 @@ function features (fastify, options = {}) {
       }
       if (featuresEnabled.cloudeventsLogFile) {
         ceLogFile.write(ser + '\n')
-        // utils.logToConsole(`CloudEvent added to CloudEvents log file`)
       }
       publish(fastify.nats, k.queueName, k.queueDisabled, ser)
     }
@@ -127,16 +126,11 @@ function features (fastify, options = {}) {
     k.cloudEventOptions.strict = utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false)
     // create the log file
     if (featuresEnabled.cloudeventsLogFile) {
-      // TODO: implement, then cleanup ... wip
       const fs = require('fs')
-      // TODO: if file exist, rename it and start with a new one ... maybe later
-      // const ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
       ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
-      // ceLogFile.write(`test1: ${new Date()}\n`)
-      // ceLogFile.write(`test2: ${new Date()}\n`)
       utils.logToConsole(`CloudEvents log file Created`)
       // handle log file close when the webapp will be closed
-      // TODO: verify that this works, even with <CTRL>C ... wip
+      // TODO: verify that this works at webapp close, if possible even with <CTRL>C ... wip
       fastify.addHook('onClose', (instance, done) => {
         ceLogFile.end()
         utils.logToConsole(`CloudEvents log file Closed`)
