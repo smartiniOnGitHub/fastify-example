@@ -1,5 +1,30 @@
 # Change Log
 
+## [2.2.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.2.0) (2019-05-26)
+Summary Changelog:
+- Update all dependencies
+- Content (Home Page): split content and routes in: 
+  samples, and routes provided by plugins
+- Content (page structure): update header and footer with better/more colors, 
+  and better info; improve navigation bar
+- Features: add a feature flag, so that at server startup some environment info 
+  (like Node.js version, OS name/type, OS release, OS platform, etc) 
+  will be written into log
+- Features: add a feature flag to disable CloudEvents log to console
+- Features: add a feature flag to disable CloudEvents log to file, 
+  a structured log file ('fastify-example.json.log') in the 'logs' folder, 
+  with 1 CloudEvent serialized per line
+- Remove some Fastify plugins not really used at the moment, 
+  but keep 'fastify-static'
+- Remove dependency on ESDoc and related plugins, not really used here
+- Update requirements to Node.js 10.x LTS ('>=10.13.0'), 
+  even if not strictly needed; but note that if run with a previous version 
+  (like Node.js 8.16.0) no error is thrown (it will be enforced later 
+  with a dedicated plugin)
+- Update Tap (Node-Tap) to latest (14.x); 
+  force the flag '--no-esm', and re-add the flag '--strict'
+- Update requirements to Fastify ('^2.3.0'), even if not strictly needed
+
 ## [2.1.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.1.0) (2019-05-05)
 Summary Changelog:
 - Update all dependencies
