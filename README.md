@@ -27,8 +27,11 @@ then point your browser to [localhost:8000](http://localhost:8000)
 
 ## Setup and run with Docker
 
-Note that it's possible to let Docker do all inside a container, because all is described in a Dockerfile; see [Dockerfile-usage](./docs/Dockerfile-usage.md) for related commands.
-Of course you need a local installation of Docker (recent, if possible latest), but nothing other.
+Note that it's possible to let Docker do all inside a container, because 
+all is described in a Dockerfile; see [Dockerfile-usage](./docs/Dockerfile-usage.md) 
+for related commands.
+Of course you need a local installation of Docker (recent, if possible latest), 
+but nothing other.
 
 
 ## Others
@@ -63,11 +66,14 @@ Supported variables:
 - `FEATURE_WEBHOOK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_HEALTHCHECK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin
-- `FEATURE_CLOUDEVENTS_STRICT_DISABLE`, to disable strict mode in generated CloudEvents (if/when related plugin is enabled)
+- `FEATURE_CLOUDEVENTS_STRICT_DISABLE`, to disable strict mode in generated CloudEvents 
+  (if/when related plugin is enabled)
 - `FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE`, to disable CloudEvent serialization to console
-- `FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE`, to disable CloudEvent serialization to console, by default true (so disabled); 
+- `FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE`, to disable CloudEvent serialization to console, 
+  by default true (so disabled); 
   note that when enabled a new log file will be created at any run of the server, 
-  and the previous is renamed (if present) so nothing is lost, and any new run is fresh
+  but previous (if present) will be overwritten, 
+  so any new run is fresh and old logs will be discarded
 - `FEATURE_NATS_DISABLE`, to disable (not load) related plugin
 if not specified default behavior will be applied.
 

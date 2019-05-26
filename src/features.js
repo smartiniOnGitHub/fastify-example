@@ -52,6 +52,8 @@ function features (fastify, options = {}) {
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
 
+  let ceLogFile = null // defined here because I need it visible is two unrelated code blocks
+
   if (featuresEnabled.platformInfo) {
     // log some platform info
     fastify.log.info(`Node.js ${utils.runtimeVersion()}, running on OS: ${utils.platformName()}`)
@@ -115,8 +117,8 @@ function features (fastify, options = {}) {
         utils.logToConsole(`CloudEvent serialized, ${ser}`)
       }
       if (featuresEnabled.cloudeventsLogFile) {
-        // TODO: implement ... wip
-        // utils.logToConsole(`CloudEvent serialized to file`)
+        ceLogFile.write(ser + '\n')
+        // utils.logToConsole(`CloudEvent added to CloudEvents log file`)
       }
       publish(fastify.nats, k.queueName, k.queueDisabled, ser)
     }
@@ -125,9 +127,22 @@ function features (fastify, options = {}) {
     k.cloudEventOptions.strict = utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CLOUDEVENTS_STRICT_DISABLE'), false)
     // create the log file
     if (featuresEnabled.cloudeventsLogFile) {
-      // TODO: implement ... wip
+      // TODO: implement, then cleanup ... wip
+      const fs = require('fs')
+      // TODO: if file exist, rename it and start with a new one ... maybe later
+      // const ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
+      ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
+      // ceLogFile.write(`test1: ${new Date()}\n`)
+      // ceLogFile.write(`test2: ${new Date()}\n`)
+      utils.logToConsole(`CloudEvents log file Created`)
+      // handle log file close when the webapp will be closed
+      // TODO: verify that this works, even with <CTRL>C ... wip
+      fastify.addHook('onClose', (instance, done) => {
+        ceLogFile.end()
+        utils.logToConsole(`CloudEvents log file Closed`)
+        done()
+      })
     }
-    // TODO: check how to close the file/stream at server/plugin close ... wip
     // fastify-cloudevents, example with only some most-common options
     fastify.register(require('fastify-cloudevents'), {
       serverUrl: k.serverUrl,

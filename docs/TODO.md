@@ -2,9 +2,11 @@
 
 ## TODO
 
-* [x] general: for writing rows into the log file ein an efficient way, use Node.js Streams; see [Stream - Node.js API](https://nodejs.org/api/stream.html), and even [Node.js Streams - freeCodeCamp](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93), etc ... ok
+* [x] general: for writing rows into the log file in an efficient way, use Node.js Streams; see [Stream - Node.js API](https://nodejs.org/api/stream.html), and even [Node.js Streams - freeCodeCamp](https://medium.freecodecamp.org/node-js-streams-everything-you-need-to-know-c9141306be93), etc ... ok
 * [x] general: add some useful functions using ES6 Proxy, similar to those seen in [A practical guide to Javascript Proxy - Bits and Pieces](https://blog.bitsrc.io/a-practical-guide-to-es6-proxy-229079c3c2f0) ... maybe later
-* [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events; if log file is found at start, rename it with its timestamp at the end (so nothing will be deleted, and any run has its own log file) ... for simplicity reuse the same callback, but with two new feature flags: FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE, FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE ... wip
+* [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events; if log file is found at start, rename it with its timestamp at the end (so nothing will be deleted, and any run has its own log file) ... for simplicity reuse the same callback, but with two new feature flags: FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE, FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE ... ok
+* [x] general: improvement of CloudEvents log file: when the webapp starts, if a log file already exist, it will be renamed (appending the timmestamp if its last write, or the current one) so nothing is lost ... maybe later, bacause this could lead to fill disks (without un upper limit), so maybe could be implemented later with a new feature flag
+* [x] general: improvement of CloudEvents log file: check why the hook 'onClose' is not triggered ... wip
 * [x] general: update changelog for the upcoming release ... wip
 * [x] general: tag sources, at least going to '2.2.0' ... wip
 
