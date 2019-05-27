@@ -130,7 +130,7 @@ function features (fastify, options = {}) {
       ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
       utils.logToConsole(`CloudEvents log file Created`)
       // handle log file close when the webapp will be closed
-      // TODO: verify that this works at webapp close, if possible even with <CTRL>C ... wip
+      // triggered when `fastify.close()` is invoked to stop the server, but not with <CTRL>C or webapp server stop
       fastify.addHook('onClose', (instance, done) => {
         ceLogFile.end()
         utils.logToConsole(`CloudEvents log file Closed`)
