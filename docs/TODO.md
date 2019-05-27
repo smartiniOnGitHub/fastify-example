@@ -2,10 +2,6 @@
 
 ## TODO
 
-* [x] general: improvement of CloudEvents log file: check why the hook 'onClose' is not triggered ... wip
-* [x] general: update changelog for the upcoming release ... draft written, check then update release date ... wip
-* [x] general: tag sources, at least going to '2.2.0' ... wip
-
 * [x] general: bump release to '2.3.0' ... wip
 * [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) when available (soon); for example throw error if current Node.js version if not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... wip
@@ -220,6 +216,9 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: add some useful functions using ES6 Proxy, similar to those seen in [A practical guide to Javascript Proxy - Bits and Pieces](https://blog.bitsrc.io/a-practical-guide-to-es6-proxy-229079c3c2f0) ... maybe later
 * [x] general: add a feature flag to change the callback for CloudEvents, to save them in a structured log file ('.json.log', or '.jsonl') in the 'logs' folder (already added to all ignore files) ... for a performance point of view, try to write to the file as a stream (in async way if possible), and handle the file open/close by attaching to Fastify events; if log file is found at start, rename it with its timestamp at the end (so nothing will be deleted, and any run has its own log file) ... for simplicity reuse the same callback, but with two new feature flags: FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE, FEATURE_CLOUDEVENTS_LOG_FILE_DISABLE ... ok
 * [x] general: improvement of CloudEvents log file: when the webapp starts, if a log file already exist, it will be renamed (appending the timmestamp if its last write, or the current one) so nothing is lost ... maybe later, bacause this could lead to fill disks (without un upper limit), so maybe could be implemented later with a new feature flag
+* [x] general: improvement of CloudEvents log file: check why the hook 'onClose' is not triggered ... ok, is not triggered because that hook is triggered when `fastify.close()` is invoked to stop the server, see [Hooks - Fastify](https://github.com/fastify/fastify/blob/master/docs/Hooks.md), mainly per providing a 'shutdown' event to plugins; otherwise I should use the plugin [fastify-graceful-shutdown - npmjs](https://www.npmjs.com/package/fastify-graceful-shutdown) but maybe later
+* [x] general: update changelog for the upcoming release ... draft written, check then update release date ... ok, updated to today
+* [x] general: tag sources, at least going to '2.2.0' ... ok
 
 
 ---------------

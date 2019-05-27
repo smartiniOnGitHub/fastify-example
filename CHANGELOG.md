@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.2.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.2.0) (2019-05-26)
+## [2.2.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.2.0) (2019-05-27)
 Summary Changelog:
 - Update all dependencies
 - Content (Home Page): split content and routes in: 
