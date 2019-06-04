@@ -2,6 +2,8 @@
 
 ## TODO
 
+* [x] general: publish current image to DockerHub, and tag there accordingly ... wip
+
 * [x] general: bump release to '2.3.0' ... wip
 * [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) when available (soon); for example throw error if current Node.js version if not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... wip
@@ -13,6 +15,7 @@
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
 * [x] general: update changelog for the upcoming release ... wip
+* [x] general: publish current image to DockerHub, and tag there accordingly ... wip
 * [x] general: tag sources, at least going to '2.3.0' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
