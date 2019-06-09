@@ -2,9 +2,8 @@
 
 ## TODO
 
-* [x] general: publish current image to DockerHub, and tag there accordingly ... wip
-
 * [x] general: bump release to '2.3.0' ... wip
+* [x] general: create 'docs/Docker-publish.md' with detailed info on how to publish images to DockerHub ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env); for example throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... and remove dependency from 'semver' (used by that plugin, so masked here and safe to remove) ... wip
@@ -229,6 +228,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: at the beginning of executable scripts (like my examples or main scripts), check if add an hashbang statement: `#!/usr/bin/env node` but it must be put in the (absolute) first line of a script, so check if there are problems with license (usually put at the beginning of a source file) ... maybe later, to avoid unneeded problems (even when running those scripts in Windows where all should work the same); anyway note that now these statements are standard, see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Hashbang_comments), at this [article](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e), etc
 * [x] general: to publish Docker images to be run in production, use multistage images: use first stage as builder (to build content), and the second for example to publish all static content of the webapp via an HTTP Server, and/or a reverse proxy for the whole webapp; for more info look at this [article](https://itnext.io/building-docker-images-from-private-git-repositories-using-ssh-login-433edf5a18f2
 ) ... maybe later, because this is mainly suited for client-only apps (with only static content is deployed), so could be a good improvement, but later
+* [x] general: publish current image to DockerHub, and tag there accordingly ... ok, created repository and published normal image (with tag '2.2.0' and even with default tag 'latest') and even the variant (tag '2.2.0-alpine' and 'latest-alpine'); all is at [fastify-example - smartiniatdocker09 - docker](https://cloud.docker.com/repository/docker/smartiniatdocker09/fastify-example/general); a dedicated file 'docs/Docker-publish.md' will follow with detailed info
 
 
 ---------------
