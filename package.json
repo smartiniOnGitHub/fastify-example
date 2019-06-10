@@ -1,6 +1,6 @@
 {
   "name": "fastify-example",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
@@ -45,25 +45,26 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
-    "fastify": "^2.3.0",
+    "fastify": "^2.4.1",
+    "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.2.0",
     "fastify-favicon": "^2.0.0",
     "fastify-healthcheck": "^2.1.0",
-    "fastify-nats-client": "^2.0.0",
+    "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.4.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^1.15.2",
+    "fast-json-stringify": "^1.15.3",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.0.0",
-    "point-of-view": "^3.3.0"
+    "point-of-view": "^3.5.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.0",
-    "nodemon": "^1.19.0",
-    "semver": "^6.0.0",
+    "nodemon": "^1.19.1",
+    "semver": "^6.1.1",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
-    "tap": "^13.1.8"
+    "tap": "^14.2.2"
   },
   "peerDependencies": {},
   "engines": {
