@@ -6,6 +6,8 @@
 * [x] general: update all dependencies to latest ... ok
 * [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... ok
 * [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) ... ok
+* [x] general: add a badge even for license, like: `[![license - APACHE-2.0](https://img.shields.io/npm/l/fastify-example.svg)](http://opensource.org/licenses/APACHE-2.0)` ... not here because there is no package published at npm for this repo, but for others do it
+* [x] general: at DockerHub, update autobuild rules to trigger even the push of git tags, to build (and tag) related images; one for usual 'Dockerfile', and another for 'Dockerfile.alpine' with suffix '-alpine' ... ok
 * [x] general: remove badges (at the top of README) for latest release at npm and number of downloads (because this is not published there, it's not a library/framework), and even the code coverage ... wip
 * [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... and remove dependency from 'semver' (used by that plugin, so masked here and safe to remove) ... wip
 * [x] general: add badges (at the top of README) for Docker images (latest releases) if possible ... wip
