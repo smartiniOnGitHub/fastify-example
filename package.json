@@ -61,7 +61,6 @@
   "devDependencies": {
     "cross-env": "^5.2.0",
     "nodemon": "^1.19.1",
-    "semver": "^6.1.1",
     "standard": "^12.0.1",
     "simple-get": "^3.0.3",
     "tap": "^14.2.2"
