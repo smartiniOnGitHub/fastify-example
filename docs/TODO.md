@@ -2,18 +2,7 @@
 
 ## TODO
 
-* [x] general: bump release to '2.3.0' ... ok
-* [x] general: update all dependencies to latest ... ok
-* [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... ok
-* [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) ... ok
-* [x] general: add a badge even for license, like: `[![license - APACHE-2.0](https://img.shields.io/npm/l/fastify-example.svg)](http://opensource.org/licenses/APACHE-2.0)` ... not here because there is no package published at npm for this repo, but for others do it
-* [x] general: at DockerHub, update autobuild rules to trigger even the push of git tags, to build (and tag) related images; one for usual 'Dockerfile', and another for 'Dockerfile.alpine' with suffix '-alpine' ... ok
-* [x] general: remove badges (at the top of README) for latest release at npm and number of downloads (because this is not published there, it's not a library/framework), and even the code coverage ... ok
-* [x] general: add badges (at the top of README) for the number of pulls of Docker images ... ok, but add only one badge for it at the moment (not sure it's possible to add many related to different 'latest' tags I set)
-* [x] general: add badges (at the top of README) for Docker images (latest releases) if possible ... maybe later
 * [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... and remove dependency from 'semver' (used by that plugin, so masked here and safe to remove) ... wip
-* [x] general: check if add all feature flags to both Dockerfiles, as ENV statements ... maybe later, they are overridable the same from the command-line, so it would be more a documentation iprovements
-* [x] general: create 'docs/Docker-publish.md' with detailed info on how to publish images to DockerHub ... wip
 * [x] general: update README clarifying usage of Docker images published at DockerHub at [smartiniatdocker09/fastify-example - DockerHub](https://hub.docker.com/r/smartiniatdocker09/fastify-example); and explain that there are two: the normal (even with DEV dependencies, bash shell, etc), and another minimal based on Alpine (and with setting for Production environment only) ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
@@ -239,6 +228,19 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: to publish Docker images to be run in production, use multistage images: use first stage as builder (to build content), and the second for example to publish all static content of the webapp via an HTTP Server, and/or a reverse proxy for the whole webapp; for more info look at this [article](https://itnext.io/building-docker-images-from-private-git-repositories-using-ssh-login-433edf5a18f2
 ) ... maybe later, because this is mainly suited for client-only apps (with only static content is deployed), so could be a good improvement, but later
 * [x] general: publish current image to DockerHub, and tag there accordingly ... ok, created repository and published normal image (with tag '2.2.0' and even with default tag 'latest') and even the variant (tag '2.2.0-alpine' and 'latest-alpine'); all is at [fastify-example - smartiniatdocker09 - docker](https://cloud.docker.com/repository/docker/smartiniatdocker09/fastify-example/general); a dedicated file 'docs/Docker-publish.md' will follow with detailed info
+
+* [x] general: bump release to '2.3.0' ... ok
+* [x] general: update all dependencies to latest ... ok
+* [x] general: update requirements to latest Fastify release ('^2.4.1' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... ok
+* [x] general: add my new plugin for checking some environmental properties at runtime, see [fastify-check-runtime-env - npmjs](https://www.npmjs.com/package/fastify-check-runtime-env) ... ok
+* [x] general: add a badge even for license, like: `[![license - APACHE-2.0](https://img.shields.io/npm/l/fastify-example.svg)](http://opensource.org/licenses/APACHE-2.0)` ... not here because there is no package published at npm for this repo, but for others do it
+* [x] general: at DockerHub, update autobuild rules to trigger even the push of git tags, to build (and tag) related images; one for usual 'Dockerfile', and another for 'Dockerfile.alpine' with suffix '-alpine' ... ok
+* [x] general: remove badges (at the top of README) for latest release at npm and number of downloads (because this is not published there, it's not a library/framework), and even the code coverage ... ok
+* [x] general: add badges (at the top of README) for the number of pulls of Docker images ... ok, but add only one badge for it at the moment (not sure it's possible to add many related to different 'latest' tags I set)
+* [x] general: add badges (at the top of README) for Docker images (latest releases) if possible ... maybe later
+* [x] general: check if use [node-fetch - npmjs](https://www.npmjs.com/package/node-fetch) to get content via HTTP/HTTPS, in a similar way to Browsers; for example look at this [article](https://humanwhocodes.com/snippets/2019/01/nodejs-medium-api-fetch/) ... maybe later
+* [x] general: check if add all feature flags to both Dockerfiles, as ENV statements ... maybe later, they are overridable the same from the command-line, so this would be more a documentation improvement
+* [x] general: create 'docs/Docker-publish.md' with detailed info on how to publish images to DockerHub ... ok
 
 
 ---------------
