@@ -1,5 +1,23 @@
 # Change Log
 
+## [2.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.3.0) (2019-06-17)
+Summary Changelog:
+- Update all dependencies
+- Update requirements to latest Fastify release ('^2.4.1' or later)
+- Features: add my plugin 'fastify-check-runtime-env' 
+  for checking some environmental properties at runtime 
+  (like Node.js version, and if not satisfied throw an exception), 
+  and add a feature flag to disable it
+- Features: add documentation for how to use published Docker images, 
+  and a reference to publish and tag them
+- Features: cleanup unnecessary badges in the README, 
+  and add a badge for for Docker images download
+- Features: remove dependency from 'semver', not really used directly
+- Publish (automatically) Docker images at DockerHub, for:
+  'latest', 'latest-alpine', and source code tags 
+  (like '2.3.0' and '2.3.0-alpine')
+- etc
+
 ## [2.2.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.2.0) (2019-05-27)
 Summary Changelog:
 - Update all dependencies
@@ -24,6 +42,9 @@ Summary Changelog:
 - Update Tap (Node-Tap) to latest (14.x); 
   force the flag '--no-esm', and re-add the flag '--strict'
 - Update requirements to Fastify ('^2.3.0'), even if not strictly needed
+- Publish (manually) Docker images at DockerHub, for:
+  'latest', 'latest-alpine', and source code tags 
+  (like '2.2.0' and '2.2.0-alpine')
 
 ## [2.1.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.1.0) (2019-05-05)
 Summary Changelog:

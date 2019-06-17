@@ -2,13 +2,8 @@
 
 ## TODO
 
-* [x] general: update changelog for the upcoming release ... wip
-* [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... wip
-* [x] general: tag sources, at least going to '2.3.0' ... wip
-* [x] general: publish current image to DockerHub, and tag there accordingly ... note that with automatic builds defined (on push and on tags, this maybe is no more needed) ... wip
-
 * [x] general: bump release to '2.4.0' ... wip
-* [x] general: update requirements to Fastify '^2.5.0', even if not strictly needed ... wip
+* [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
@@ -245,6 +240,10 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: update README clarifying usage of Docker images published at DockerHub at [smartiniatdocker09/fastify-example - DockerHub](https://hub.docker.com/r/smartiniatdocker09/fastify-example); and explain that there are two: the normal (even with DEV dependencies, bash shell, etc), and another minimal based on Alpine (and with setting for Production environment only) ... ok
 * [x] general: remove dependency from 'semver', not really used directly, and now used by my plugin 'fastify-check-runtime-env' (so safe to remove) ... ok
 * [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... ok, but for simplicity use only a single feature flag now 'FEATURE_CHECK_RUNTIME_ENV_DISABLE' to throw an exception if needed; and update README with some info on it
+* [x] general: update changelog for the upcoming release ... ok
+* [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... ok
+* [x] general: tag sources, at least going to '2.3.0' ... ok
+* [x] general: publish current image to DockerHub, and tag there accordingly ... note that with automatic builds defined (on push and on tags, this maybe is no more needed) ... ok
 
 
 ---------------
