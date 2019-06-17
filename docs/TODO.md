@@ -3,7 +3,14 @@
 ## TODO
 
 * [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... and remove dependency from 'semver' (used by that plugin, so masked here and safe to remove) ... wip
-* [x] general: update README clarifying usage of Docker images published at DockerHub at [smartiniatdocker09/fastify-example - DockerHub](https://hub.docker.com/r/smartiniatdocker09/fastify-example); and explain that there are two: the normal (even with DEV dependencies, bash shell, etc), and another minimal based on Alpine (and with setting for Production environment only) ... wip
+* [x] general: update changelog for the upcoming release ... wip
+* [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... wip
+* [x] general: tag sources, at least going to '2.3.0' ... wip
+* [x] general: publish current image to DockerHub, and tag there accordingly ... note that with automatic builds defined (on push and on tags, this maybe is no more needed) ... wip
+
+* [x] general: bump release to '2.4.0' ... wip
+* [x] general: update requirements to Fastify '^2.5.0', even if not strictly needed ... wip
+* [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
@@ -11,11 +18,6 @@
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
-* [x] general: update all dependencies to latest ... wip
-* [x] general: update changelog for the upcoming release ... wip
-* [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... wip
-* [x] general: publish current image to DockerHub, and tag there accordingly ... wip
-* [x] general: tag sources, at least going to '2.3.0' ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
@@ -241,6 +243,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: check if use [node-fetch - npmjs](https://www.npmjs.com/package/node-fetch) to get content via HTTP/HTTPS, in a similar way to Browsers; for example look at this [article](https://humanwhocodes.com/snippets/2019/01/nodejs-medium-api-fetch/) ... maybe later
 * [x] general: check if add all feature flags to both Dockerfiles, as ENV statements ... maybe later, they are overridable the same from the command-line, so this would be more a documentation improvement
 * [x] general: create 'docs/Docker-publish.md' with detailed info on how to publish images to DockerHub ... ok
+* [x] general: update README clarifying usage of Docker images published at DockerHub at [smartiniatdocker09/fastify-example - DockerHub](https://hub.docker.com/r/smartiniatdocker09/fastify-example); and explain that there are two: the normal (even with DEV dependencies, bash shell, etc), and another minimal based on Alpine (and with setting for Production environment only) ... ok
 
 
 ---------------

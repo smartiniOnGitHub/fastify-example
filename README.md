@@ -28,6 +28,29 @@ then point your browser to [localhost:8000](http://localhost:8000)
 Note that it's possible to let Docker do all inside a container, because 
 all is described in a Dockerfile; see [Dockerfile-usage](./docs/Dockerfile-usage.md) 
 for related commands.
+
+Of course you need a local installation of Docker (recent, if possible latest), 
+but nothing other.
+
+
+## Setup and run with Docker images at DockerHub
+
+A simpler way to run the webapp is by using published images at DockerHub: 
+[smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/).
+Default images are based on default Node.js Docker image and contains 
+development dependencies too (to reload content, run tests, etc), BASH shell, etc; 
+there is even a variant one based on Node.js Alpine Linux image 
+which is minimal (smaller, a lot) and is tailored for running in Production 
+(dedicated user for running the webapp, no dev dependencies, no reload, etc).
+
+For example, you can run directly with:
+`docker run -d -p 8000:8000 -t smartiniatdocker09/fastify-example:latest-alpine`
+and browse to [localhost:8000](http://localhost:8000).
+Published Docker tags are 'latest' / 'latest-alpine', 
+and starting from source code tag '2.2.0' there is:
+the same tag, and even the '2.2.0-alpine' variant.
+For more info look at [tags - smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/tags).
+
 Of course you need a local installation of Docker (recent, if possible latest), 
 but nothing other.
 
