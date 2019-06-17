@@ -29,6 +29,7 @@ const utils = require('./utils')
 // configuration for enabled/disabled features
 const featuresEnabled = {
   platformInfo: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_PLATFORM_INFO_DISABLE'), false),
+  checkRuntimeEnv: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_CHECK_RUNTIME_ENV_DISABLE'), false),
   favicon: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_FAVICON_DISABLE'), false),
   webhook: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_WEBHOOK_DISABLE'), false),
   healthcheck: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_HEALTHCHECK_DISABLE'), false),
@@ -61,6 +62,17 @@ function features (fastify, options = {}) {
     fastify.log.info(`Webapp ${k.packageName}-v${k.packageVersion}, running on Fastify-v${k.fastifyVersion}`)
     // log enabled features of the webapp
     fastify.log.info(featuresEnabledMsg)
+  }
+
+  if (featuresEnabled.checkRuntimeEnv) {
+    // check if current Node.js runtime env is compatible
+    // with requirements in 'package.json', or an exception will the thrown
+    const engines = require('../package.json').engines
+    fastify.register(require('fastify-check-runtime-env'), {
+      nodeVersionCheckAtStartup: true,
+      nodeVersionExpected: engines.node
+    // onNodeVersionMismatch: 'exception' // throw an exception // same as default
+    })
   }
 
   if (featuresEnabled.favicon) {

@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... and remove dependency from 'semver' (used by that plugin, so masked here and safe to remove) ... wip
 * [x] general: update changelog for the upcoming release ... wip
 * [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... wip
 * [x] general: tag sources, at least going to '2.3.0' ... wip
@@ -244,6 +243,8 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: check if add all feature flags to both Dockerfiles, as ENV statements ... maybe later, they are overridable the same from the command-line, so this would be more a documentation improvement
 * [x] general: create 'docs/Docker-publish.md' with detailed info on how to publish images to DockerHub ... ok
 * [x] general: update README clarifying usage of Docker images published at DockerHub at [smartiniatdocker09/fastify-example - DockerHub](https://hub.docker.com/r/smartiniatdocker09/fastify-example); and explain that there are two: the normal (even with DEV dependencies, bash shell, etc), and another minimal based on Alpine (and with setting for Production environment only) ... ok
+* [x] general: remove dependency from 'semver', not really used directly, and now used by my plugin 'fastify-check-runtime-env' (so safe to remove) ... ok
+* [x] general: configure my plugin 'fastify-check-runtime-env' to throw error if current Node.js version is not compatible with the one set in 'package.json'; handle with a feature flag if log a warning, or if throw an error (by default) ... ok, but for simplicity use only a single feature flag now 'FEATURE_CHECK_RUNTIME_ENV_DISABLE' to throw an exception if needed; and update README with some info on it
 
 
 ---------------

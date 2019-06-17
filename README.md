@@ -83,10 +83,19 @@ Supported variables:
 - `HTTP_ADDRESS`, set default HTTP address for the server
 - `NATS_SERVER_URL`, set the URL for the NATS server (if enabled), or plugin default
 - `WEBHOOK_SECRET_KEY`, set the secret key to require by exposed webhook
+- `FEATURE_PLATFORM_INFO_DISABLE`, to disable the logging of some info
+  related to the current runtime platform like:
+  Node.js version, OS name, Fastify version, Webapp version, etc ...
+- `FEATURE_CHECK_RUNTIME_ENV_DISABLE`, to disable (not load) related plugin; 
+  if enabled and current Node.js environment is not compatible with the one 
+  set in 'package.json' by default it will throw an exception, 
+  so the webapp will crash (to avoid running the webapp in a not compliant env)
 - `FEATURE_FAVICON_DISABLE`, to disable (not load) related plugin
 - `FEATURE_WEBHOOK_DISABLE`, to disable (not load) related plugin
 - `FEATURE_HEALTHCHECK_DISABLE`, to disable (not load) related plugin
-- `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin
+- `FEATURE_CLOUDEVENTS_DISABLE`, to disable (not load) related plugin; 
+  note that this by default uses a public NATS server so disable it 
+  if not needed or if that server is not reachable for corporate firewall policies
 - `FEATURE_CLOUDEVENTS_STRICT_DISABLE`, to disable strict mode in generated CloudEvents 
   (if/when related plugin is enabled)
 - `FEATURE_CLOUDEVENTS_LOG_CONSOLE_DISABLE`, to disable CloudEvent serialization to console
