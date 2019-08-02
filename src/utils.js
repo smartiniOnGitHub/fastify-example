@@ -21,6 +21,7 @@
 /* eslint callback-return: "off" */
 /* eslint no-process-env: "off" */
 /* eslint no-eval: "off" */
+/* eslint no-prototype-builtins: "off" */
 
 // define a general object, and assign functions to it ...
 // const utils = {}
@@ -426,7 +427,7 @@ module.exports.featureIsEnabled = function (trueIsDisabled = false, booleanStrin
 module.exports.compareProperties = function (key, order = 'asc') {
   return function (a, b) {
     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0
-    let comparison = a[key].localeCompare(b[key])
+    const comparison = a[key].localeCompare(b[key])
     return (order === 'asc') ? comparison : (comparison * -1)
   }
 }
