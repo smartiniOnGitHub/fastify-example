@@ -2,7 +2,9 @@
 
 ## TODO
 
-* [x] general: bump release to '2.4.0' ... wip
+* [x] general: bump release to '2.4.0' ... ok
+* [x] general: update dev dependencies to latest ... ok
+* [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
@@ -12,6 +14,8 @@
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
+
+* [ ] general: update requirements to Node.js 12 when LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ...
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
@@ -219,6 +223,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: tag sources, at least going to '2.2.0' ... ok
 
 * [x] general: in 'utils', check if implement features similar to those seen in the [article](https://medium.com/front-end-weekly/error-handling-in-node-javascript-suck-unless-you-know-this-2018-aa0a14cfdd9d) ... maybe later
+* [x] general: implement something like [this](https://www.freecodecamp.org/news/javascript-inheritance-vs-composition-ec8ca848b6/) ... maybe later
 * [x] general: for acting here even as an api server that replies even to long elaborations, check if/how to implement delayed replies: via status uri and token, via streaming, web socket, etc ... maybe later
 * [x] general: at the beginning of executable scripts (like my examples or main scripts), check if add an hashbang statement: `#!/usr/bin/env node` but it must be put in the (absolute) first line of a script, so check if there are problems with license (usually put at the beginning of a source file) ... maybe later, to avoid unneeded problems (even when running those scripts in Windows where all should work the same); anyway note that now these statements are standard, see [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Hashbang_comments), at this [article](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e), etc
 * [x] general: to publish Docker images to be run in production, use multistage images: use first stage as builder (to build content), and the second for example to publish all static content of the webapp via an HTTP Server, and/or a reverse proxy for the whole webapp; for more info look at this [article](https://itnext.io/building-docker-images-from-private-git-repositories-using-ssh-login-433edf5a18f2
