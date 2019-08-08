@@ -3,7 +3,7 @@
   [![Docker Pulls](https://img.shields.io/docker/pulls/smartiniatdocker09/fastify-example.svg)](https://hub.docker.com/r/smartiniatdocker09/fastify-example/)
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
   [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
-  [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
+  [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/smartiniOnGitHub/fastify-example.svg)](https://greenkeeper.io/)
 
 Example webapp with Fastify
 
