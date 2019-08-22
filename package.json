@@ -6,6 +6,7 @@
   "scripts": {
     "prestart": "",
     "start": "node ./src/server",
+    "start:debug": "node --inspect-brk ./src/server",
     "start:dev": "nodemon --watch src ./src/server",
     "start:simple": "node ./src/server-simple",
     "postinstall": "",
@@ -40,20 +41,21 @@
     "test:unit": "tap -J --comments --no-esm --strict test/*.test.js",
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
     "test:unit:debug": "tap -T --node-arg=--inspect-brk --comments --no-esm --strict test/*.test.js",
+    "test:unit:dev": "tap -J --comments --no-esm --strict --watch test/*.test.js",
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "dotenv": "^8.0.0",
-    "ejs": "^2.6.1",
-    "fastify": "^2.4.1",
+    "dotenv": "^8.1.0",
+    "ejs": "^2.6.2",
+    "fastify": "^2.7.1",
     "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.2.0",
     "fastify-favicon": "^2.0.0",
     "fastify-healthcheck": "^2.1.0",
     "fastify-nats-client": "^2.1.0",
-    "fastify-static": "^2.4.0",
+    "fastify-static": "^2.5.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^1.15.3",
+    "fast-json-stringify": "^1.15.4",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.0.0",
     "point-of-view": "^3.5.0"
@@ -61,9 +63,9 @@
   "devDependencies": {
     "cross-env": "^5.2.0",
     "nodemon": "^1.19.1",
-    "standard": "^13.1.0",
+    "standard": "^14.0.0",
     "simple-get": "^3.0.3",
-    "tap": "^14.5.0"
+    "tap": "^14.6.1"
   },
   "peerDependencies": {},
   "engines": {
