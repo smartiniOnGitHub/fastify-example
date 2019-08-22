@@ -35,7 +35,7 @@ utils.logToConsole(`Server starting for ${k.packageName}-v${k.packageVersion} ..
 const fastifyOptions = JSON.parse(k.fastifyOptionsString)
 const fastify = require('fastify')(fastifyOptions)
 
-// const assert = require('assert')
+// const assert = require('assert').strict
 const path = require('path')
 
 const templateEngine = require('ejs')

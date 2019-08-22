@@ -20,7 +20,7 @@
 /* eslint no-unused-vars: "off" */
 /* eslint callback-return: "off" */
 
-const assert = require('assert')
+const assert = require('assert').strict
 
 const utils = require('./utils')
 // const hostname = require('os').hostname()

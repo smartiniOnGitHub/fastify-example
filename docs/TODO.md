@@ -4,6 +4,7 @@
 
 * [x] general: bump release to '2.4.0' ... ok
 * [x] general: update dev dependencies to latest ... ok, updated even standard from 13.x ('13.1.0' to 14.x ('14.0.0')
+* [x] general: use Node.js assertions but in strict mode now, as seen in [Assert - API - latest - Node.js](https://nodejs.org/dist/latest/docs/api/assert.html#assert_strict_mode); do it with `const assert = require('assert').strict` instead of the usual `const assert = require('assert')` ... doc say added in Node.js 9.9.0 but with 8.16.1 is available; but it's not available in Node.js 8 LTS (8.9.0) ... ok, because here I'm already requiring Node.js 10 LTS as minimum version, so it's good to apply this change now
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip

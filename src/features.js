@@ -21,7 +21,7 @@
 /* eslint callback-return: "off" */
 /* eslint no-inner-declarations: "off" */
 
-// const assert = require('assert')
+// const assert = require('assert').strict
 
 const k = require('./constants')
 const utils = require('./utils')
