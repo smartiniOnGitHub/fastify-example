@@ -99,6 +99,6 @@ fastify.ready(() => {
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
-fastify.log.info(`Server Startup script successfully executed`)
+fastify.log.info('Server Startup script successfully executed')
 
 // module.exports = fastify

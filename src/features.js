@@ -97,7 +97,7 @@ function features (fastify, options = {}) {
       enableGetPlaceholder: true, // as a sample
       secretKey: process.env.WEBHOOK_SECRET_KEY // optional: || '' , or || null
     })
-    fastify.log.info(`Webhook registered with custom options`)
+    fastify.log.info('Webhook registered with custom options')
   }
 
   if (featuresEnabled.healthcheck) {
@@ -140,12 +140,12 @@ function features (fastify, options = {}) {
     if (featuresEnabled.cloudeventsLogFile) {
       const fs = require('fs')
       ceLogFile = fs.createWriteStream(`./logs/${k.packageName}.json.log`)
-      utils.logToConsole(`CloudEvents log file Created`)
+      utils.logToConsole('CloudEvents log file Created')
       // handle log file close when the webapp will be closed
       // triggered when `fastify.close()` is invoked to stop the server, but not with <CTRL>C or webapp server stop
       fastify.addHook('onClose', (instance, done) => {
         ceLogFile.end()
-        utils.logToConsole(`CloudEvents log file Closed`)
+        utils.logToConsole('CloudEvents log file Closed')
         done()
       })
     }
@@ -177,7 +177,7 @@ function features (fastify, options = {}) {
     })
   }
 
-  fastify.log.info(`Webapp features loaded`)
+  fastify.log.info('Webapp features loaded')
 }
 
 module.exports = features

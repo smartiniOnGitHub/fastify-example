@@ -29,12 +29,6 @@ const templateEngine = require('ejs')
 const resolve = require('path').resolve
 const templatesFolder = 'templates'
 const pubFolder = '../public'
-const data = { text: 'text' }
-
-const opts = {
-  hello: 'world',
-  something: true
-}
 
 fastify.register(require('point-of-view'), {
   engine: {
@@ -55,9 +49,14 @@ fastify.register(require('fastify-static'), {
 
 fastify.get('/', (req, reply) => {
   reply.view('index', {
+    projectName: 'Simple Server',
+    projectVersion: '1.0.0',
     environment: 'development',
+    assets: '/static/',
     title: 'Home',
-    welcome: 'Welcome to the Home Page'
+    welcome: 'Welcome to the Home Page',
+    sampleRoutes: null,
+    pluginRoutes: null
   })
 })
 
@@ -68,10 +67,12 @@ fastify.listen(8000, '0.0.0.0', (err, address) => {
     process.exit(1)
     // throw err
   }
-  fastify.log.info(`Server listening on '${address}' ...`)
+  const msg = `Server listening on '${address}' ...`
+  console.log(msg)
+  fastify.log.info(msg)
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
-fastify.log.info(`Server Startup script successfully executed`)
+fastify.log.info('Server Startup script successfully executed')
 
 // module.exports = fastify

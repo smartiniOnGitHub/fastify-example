@@ -362,7 +362,7 @@ module.exports.logRequest = function (req) {
 
 // register in the app the given module
 module.exports.registerLoadedModule = function (app, loadedModule, opts, uri) {
-  if (this.isUndefinedOrNullArrayItem([app, loadedModule])) { throw new Error(`Missing mandatory argument (undefined or null)`) }
+  if (this.isUndefinedOrNullArrayItem([app, loadedModule])) { throw new Error('Missing mandatory argument (undefined or null)') }
   app.log.info(`Registering the app module from URI '${uri}' ...`)
   app.register(loadedModule, function (err) {
     if (err) { throw err }

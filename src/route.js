@@ -46,10 +46,10 @@ const sampleRoutes = [
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 // manually define the list of some routes exposed by some loaded plugins
 const pluginRoutes = [
-  { link: 'static', url: '/static/', description: `Serve static resources, sample (by default 'index.html' will be served, by 'fastify-static' plugin` },
-  { link: 'favicon', url: '/favicon.ico', description: `Serve the favicon, by 'fastify-favicon' plugin` },
-  { link: 'custom-webhook', url: '/custom-webhook', description: `Expose a sample webhook (via HTTP POST), by 'fastify-webhook' plugin` },
-  { link: 'healthcheck', url: '/health', description: `Expose an healthcheck, by 'fastify-healthcheck' plugin` }
+  { link: 'static', url: '/static/', description: "Serve static resources, sample (by default 'index.html' will be served, by 'fastify-static' plugin" },
+  { link: 'favicon', url: '/favicon.ico', description: "Serve the favicon, by 'fastify-favicon' plugin" },
+  { link: 'custom-webhook', url: '/custom-webhook', description: "Expose a sample webhook (via HTTP POST), by 'fastify-webhook' plugin" },
+  { link: 'healthcheck', url: '/health', description: "Expose an healthcheck, by 'fastify-healthcheck' plugin" }
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 
 // define routes but no async at outer level

@@ -3,9 +3,9 @@
 ## TODO
 
 * [x] general: bump release to '2.4.0' ... ok
-* [x] general: update dev dependencies to latest ... ok
+* [x] general: update dev dependencies to latest ... ok, updated even standard from 13.x ('13.1.0' to 14.x ('14.0.0')
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
-* [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... wip
+* [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
