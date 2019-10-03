@@ -2,8 +2,6 @@
 
 ## TODO
 
-* [x] general: updated all dependencies (minor release for ejs etc, and even major releases for some dependency), so ensure all works as before ... ejs fragments/templates seems to not work anymore, fix it asap; then test/fix others before committing changes ... it seems in the new release of [mde_ejs](https://github.com/mde/ejs) somethings has changed (but in a better way), so `includes either have to be an absolute path, or, if not, are assumed as relative to the template with the include call`, and it seems there isn't a general settings for it ... ok, fixed now, and even 'server-simple.js' script
-* [x] general: ejs templates/fragments, check if it's possible now (in its include directive) to not use anymore the preprocessor syntax (`include fragment-head`), but use the runtime inclusion (`include(fragment-head)`) instead ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update requirements to latest Fastify release ('^2.9.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip
@@ -256,6 +254,8 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: update dev dependencies to latest ... ok, updated even standard from 13.x ('13.1.0' to 14.x ('14.0.0')
 * [x] general: use Node.js assertions but in strict mode now, as seen in [Assert - API - latest - Node.js](https://nodejs.org/dist/latest/docs/api/assert.html#assert_strict_mode); do it with `const assert = require('assert').strict` instead of the usual `const assert = require('assert')` ... doc say added in Node.js 9.9.0 but with 8.16.1 is available; but it's not available in Node.js 8 LTS (8.9.0) ... ok, because here I'm already requiring Node.js 10 LTS as minimum version, so it's good to apply this change now
 * [x] general: check if use a trick like exporting all required modules in a specific source even here, as seen [here](https://school.geekwall.in/p/SkXDyiODV/managing-npm-functions-in-node) ... maybe later
+* [x] general: updated all dependencies (minor release for ejs etc, and even major releases for some dependency), so ensure all works as before ... ejs fragments/templates seems to not work anymore, fix it asap; then test/fix others before committing changes ... it seems in the new release of [mde_ejs](https://github.com/mde/ejs) somethings has changed (but in a better way), so `includes either have to be an absolute path, or, if not, are assumed as relative to the template with the include call`, and it seems there isn't a general settings for it ... ok, fixed now, and even 'server-simple.js' script
+* [x] general: ejs templates/fragments, in the include directive, don't use anymore the (old) preprocessor syntax (`include fragment-head`), but use the newer runtime inclusion (`include('fragment-head')` or `include('fragment-head', local_variables_for_fragment)`) instead; for more info look at [Syntax - ejs](https://github.com/mde/ejs/blob/master/docs/syntax.md) ... no, at least not for now it seems doesn't really work well here, check later
 
 
 ---------------
