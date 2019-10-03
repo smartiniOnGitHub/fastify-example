@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "dotenv": "^8.1.0",
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.1",
     "fastify": "^2.7.1",
     "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.2.0",
@@ -57,15 +57,15 @@
     "fastify-webhook": "^2.0.0",
     "fast-json-stringify": "^1.15.4",
     "is-docker": "^2.0.0",
-    "make-promises-safe": "^5.0.0",
-    "point-of-view": "^3.5.0"
+    "make-promises-safe": "^5.1.0",
+    "point-of-view": "^3.5.1"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0",
-    "nodemon": "^1.19.1",
-    "standard": "^14.0.0",
-    "simple-get": "^3.0.3",
-    "tap": "^14.6.1"
+    "cross-env": "^6.0.3",
+    "nodemon": "^1.19.3",
+    "standard": "^14.3.1",
+    "simple-get": "^3.1.0",
+    "tap": "^14.6.9"
   },
   "peerDependencies": {},
   "engines": {
