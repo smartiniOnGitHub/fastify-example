@@ -2,12 +2,10 @@
 
 ## TODO
 
-* [x] general: bump release to '2.4.0' ... ok
-* [x] general: update dev dependencies to latest ... ok, updated even standard from 13.x ('13.1.0' to 14.x ('14.0.0')
-* [x] general: use Node.js assertions but in strict mode now, as seen in [Assert - API - latest - Node.js](https://nodejs.org/dist/latest/docs/api/assert.html#assert_strict_mode); do it with `const assert = require('assert').strict` instead of the usual `const assert = require('assert')` ... doc say added in Node.js 9.9.0 but with 8.16.1 is available; but it's not available in Node.js 8 LTS (8.9.0) ... ok, because here I'm already requiring Node.js 10 LTS as minimum version, so it's good to apply this change now
-* [x] general: check if use a trick like exporting all required modules in a specific source even here, as seen [here](https://school.geekwall.in/p/SkXDyiODV/managing-npm-functions-in-node) ... maybe later
+* [x] general: updated all dependencies (minor release for ejs etc, and even major releases for some dependency), so ensure all works as before ... ejs fragments/templates seems to not work anymore, fix it asap; then test/fix others before committing changes ... it seems in the new release of [mde_ejs](https://github.com/mde/ejs) somethings has changed (but in a better way), so `includes either have to be an absolute path, or, if not, are assumed as relative to the template with the include call`, and it seems there isn't a general settings for it ... ok, fixed now, and even 'server-simple.js' script
+* [x] general: ejs templates/fragments, check if it's possible now (in its include directive) to not use anymore the preprocessor syntax (`include fragment-head`), but use the runtime inclusion (`include(fragment-head)`) instead ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
-* [x] general: update requirements to latest Fastify release ('^2.5.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
+* [x] general: update requirements to latest Fastify release ('^2.9.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
@@ -16,6 +14,8 @@
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
+
+* [ ] general: setup [GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions) as a build (CI) environment, for example by using [setup-node - actions](https://github.com/actions/setup-node); when available; some info even in this [article](https://itnext.io/simplify-your-npm-publish-workflow-using-github-actions-691249bc7e59) ...
 
 * [ ] general: update requirements to Node.js 12 when LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ...
 
@@ -251,6 +251,11 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: in changelog add even references to images published at DockerHub, with related tags: 'latest' and '2.3.0' for the normal image, and 'latest-alpine' and '2.3.0-alpine' for the other based on Alpine Linux ... add a similar reference even in changelog for (previous) release '2.2.0' ... ok
 * [x] general: tag sources, at least going to '2.3.0' ... ok
 * [x] general: publish current image to DockerHub, and tag there accordingly ... note that with automatic builds defined (on push and on tags, this maybe is no more needed) ... ok
+
+* [x] general: bump release to '2.4.0' ... ok
+* [x] general: update dev dependencies to latest ... ok, updated even standard from 13.x ('13.1.0' to 14.x ('14.0.0')
+* [x] general: use Node.js assertions but in strict mode now, as seen in [Assert - API - latest - Node.js](https://nodejs.org/dist/latest/docs/api/assert.html#assert_strict_mode); do it with `const assert = require('assert').strict` instead of the usual `const assert = require('assert')` ... doc say added in Node.js 9.9.0 but with 8.16.1 is available; but it's not available in Node.js 8 LTS (8.9.0) ... ok, because here I'm already requiring Node.js 10 LTS as minimum version, so it's good to apply this change now
+* [x] general: check if use a trick like exporting all required modules in a specific source even here, as seen [here](https://school.geekwall.in/p/SkXDyiODV/managing-npm-functions-in-node) ... maybe later
 
 
 ---------------

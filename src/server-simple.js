@@ -47,17 +47,21 @@ fastify.register(require('fastify-static'), {
   prefix: '/public/' // optional: default '/'
 })
 
-fastify.get('/', (req, reply) => {
+fastify.get('/', (request, reply) => {
   reply.view('index', {
     projectName: 'Simple Server',
     projectVersion: '1.0.0',
     environment: 'development',
-    assets: '/static/',
+    assets: '/public/',
     title: 'Home',
     welcome: 'Welcome to the Home Page',
     sampleRoutes: null,
     pluginRoutes: null
   })
+})
+
+fastify.get('/favicon.ico', (request, reply) => {
+  reply.type('image/x-icon').sendFile('img' + '/favicon.ico')
 })
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
