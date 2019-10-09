@@ -2,6 +2,7 @@
 
 ## TODO
 
+* [x] general: add badge for vulnerabilities via [snyk](https://snyk.io), as for https://github.com/mde/ejs which references https://snyk.io/test/npm/ejs ...  so something like this should be added: `[![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg?targetFile=package.json)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)` ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update requirements to latest Fastify release ('^2.9.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip
