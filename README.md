@@ -4,6 +4,7 @@
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
   [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
   [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
+  [![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg?targetFile=package.json)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
 
 Example webapp with Fastify
 
@@ -67,7 +68,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^2.7.1 , Node.js 10.13.0 or later.
+Fastify ^2.7.1 , Node.js 10 LTS (10.13.0) or later.
 
 
 ## Note
