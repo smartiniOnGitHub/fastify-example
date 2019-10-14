@@ -3,8 +3,8 @@
 ## TODO
 
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
-* [x] general: update requirements to latest Fastify release ('^2.10.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... updated to latest ('2.7.1' at the moment) ... wip
 * [x] general: update all dependencies to latest ... wip
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.3 of the spec (when the plugin will be available); and update all accordingly ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
@@ -257,6 +257,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: updated all dependencies (minor release for ejs etc, and even major releases for some dependency), so ensure all works as before ... ejs fragments/templates seems to not work anymore, fix it asap; then test/fix others before committing changes ... it seems in the new release of [mde_ejs](https://github.com/mde/ejs) somethings has changed (but in a better way), so `includes either have to be an absolute path, or, if not, are assumed as relative to the template with the include call`, and it seems there isn't a general settings for it ... ok, fixed now, and even 'server-simple.js' script
 * [x] general: ejs templates/fragments, in the include directive, don't use anymore the (old) preprocessor syntax (`include fragment-head`), but use the newer runtime inclusion (`include('fragment-head')` or `include('fragment-head', local_variables_for_fragment)`) instead; for more info look at [Syntax - ejs](https://github.com/mde/ejs/blob/master/docs/syntax.md) ... no, at least not for now it seems doesn't really work well here, check later
 * [x] general: add badge for vulnerabilities via [snyk](https://snyk.io), as for https://github.com/mde/ejs which references https://snyk.io/test/npm/ejs ...  so something like this should be added: `[![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg?targetFile=package.json)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)` ... ok
+* [x] general: update requirements to latest Fastify release ('^2.10.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... ok, updated to latest; even to latest plugin 'point-of-view' with some fixes in docs for ejs templates
 
 
 ---------------
