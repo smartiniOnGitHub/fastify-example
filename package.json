@@ -45,27 +45,27 @@
     "test": "npm run lint && npm run test:unit"
   },
   "dependencies": {
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
-    "fastify": "^2.9.0",
+    "fastify": "^2.10.0",
     "fastify-check-runtime-env": "^0.1.0",
-    "fastify-cloudevents": "^2.2.0",
+    "fastify-cloudevents": "^2.2.1",
     "fastify-favicon": "^2.0.0",
     "fastify-healthcheck": "^2.1.0",
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.5.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^1.15.5",
+    "fast-json-stringify": "^1.15.6",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.6.0"
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "nodemon": "^1.19.3",
+    "nodemon": "^1.19.4",
     "standard": "^14.3.1",
     "simple-get": "^3.1.0",
-    "tap": "^14.7.0"
+    "tap": "^14.8.2"
   },
   "peerDependencies": {},
   "engines": {
