@@ -4,6 +4,10 @@ LABEL version="2.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
 LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 
+# update packages, to reduce risk of vulnerabilities
+RUN apk update && apk upgrade
+# RUN apk cache clean
+
 # set a non privileged user to use when running this image
 RUN addgroup -S nodejs && adduser -S nodejs -G nodejs
 USER nodejs
