@@ -171,7 +171,9 @@ function features (fastify, options = {}) {
     fastify.after((err) => {
       if (err) console.log(err)
       // assert(fastify.nats !== null) // example
-      if (fastify.nats !== null && fastify.nats.currentServer !== null) {
+      if (fastify.nats !== undefined && fastify.nats !== null &&
+        fastify.nats.currentServer !== null
+      ) {
         utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
       }
     })
