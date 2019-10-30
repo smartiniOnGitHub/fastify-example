@@ -17,7 +17,7 @@
     "dependency:log": "npm list > ./temp/dependencies.log",
     "docker:build": "docker build -t fastify-example .",
     "docker:build:alpine": "docker build -t fastify-example -f Dockerfile.alpine .",
-    "docker:run": "docker run --rm --name fastify-example -d -p 8000:8000 -t fastify-example",
+    "docker:run": "docker run --init --rm --name fastify-example -d -p 8000:8000 -t fastify-example",
     "docker:inspect": "docker exec -it fastify-example bash",
     "docker:inspect:alpine": "docker exec -it fastify-example ash",
     "docker:log": "docker logs --follow --tail=1000 fastify-example",

@@ -77,7 +77,7 @@
 * [x] general: update to latest Fastify (1.7.0), and update diagnostic code on the listening address and port using the new syntax ... ok
 * [x] general: change all references to js sources by removing its '.js' explicit extension, to be more future proof for using Node.js modules ('.mjs') since Node.js 10 ... ok, done in 'package.json' commands and even when using 'handlers' from 'fastify-webhook' for example
 
-* [x] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) and [here](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md) ... maybe later
+* [x] general: update sample docker-related files with some best practices, as seen [here](https://nodesource.com/blog/containerizing-node-js-applications-with-docker/) and [here](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md) ... ok, mostly implemented, but for some (secondary)maybe later; note that standard image is big and not optimized for size (and I dediced even to install there npm packages for dev/non-production), but in the alpine based image not (it's much smaller and only npm packages for production environment are installed)
 * [x] general: add some example route to use the async/await syntax, as seen in [Fastify goes LTS with 1.0.0 - Medium](https://medium.com/@fastifyjs/fastify-goes-lts-with-1-0-0-911112c64752) ... maybe later
 
 * [x] example: use the 'fastify-cloudevents' plugin, to test it (configure it for a common usage scenario, and add a /time route) ... but for now don't add specific unit tests here ... ok, even if 'loggingCallback' does some noise (additional output for the dump of related Cloudevents) in the console
