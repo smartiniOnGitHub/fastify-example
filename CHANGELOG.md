@@ -1,5 +1,18 @@
 # Change Log
 
+## [2.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.4.0) (2019-11-08)
+Summary Changelog:
+- Update all dependencies
+- Update requirements to latest Fastify release ('^2.10.0' or later)
+- Features: update to latest version of my plugin 'fastify-cloudevents' 
+  aligned with v0.3 of the spec
+- Features: update Dockerfile of both images 
+  so that installed packages will be updated, to reduce risk of vulnerabilities
+- Fix: update EJS templates to use its newer runtime inclusion, 
+  available since '^2.7.1'
+- Use Node.js assertions but in strict mode now
+- etc
+
 ## [2.3.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.3.0) (2019-06-17)
 Summary Changelog:
 - Update all dependencies

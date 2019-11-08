@@ -2,16 +2,14 @@
 
 ## TODO
 
+* [x] general: bump release to '2.5.0' ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update all dependencies to latest ... wip
-* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.3 of the spec (when the plugin will be available); and update all accordingly ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc ... do it but by using related plugin (when available) ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
-* [x] content: check if use [Stencil - npmjs](https://www.npmjs.com/package/@stencil/core) for Web Components as client side UI, at least in a new SPA here ... wip
-* [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and Babel usage, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
+* [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and without depending on Babel, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... wip
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... wip
-* [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... wip
 
 * [ ] general: setup [GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions) as a build (CI) environment, for example by using [setup-node - actions](https://github.com/actions/setup-node); when available; some info even in this [article](https://itnext.io/simplify-your-npm-publish-workflow-using-github-actions-691249bc7e59) ...
 
@@ -258,6 +256,11 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: ejs templates/fragments, in the include directive, don't use anymore the (old) preprocessor syntax (`include fragment-head`), but use the newer runtime inclusion (`include('fragment-head')` or `include('fragment-head', local_variables_for_fragment)`) instead; for more info look at [Syntax - ejs](https://github.com/mde/ejs/blob/master/docs/syntax.md) ... no, at least not for now it seems doesn't really work well here, check later
 * [x] general: add badge for vulnerabilities via [snyk](https://snyk.io), as for https://github.com/mde/ejs which references https://snyk.io/test/npm/ejs ...  so something like this should be added: `[![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg?targetFile=package.json)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)` ... ok
 * [x] general: update requirements to latest Fastify release ('^2.10.0' or later), as seen in [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases), even in README ... ok, updated to latest; even to latest plugin 'point-of-view' with some fixes in docs for ejs templates
+* [x] general: update Dockerfile of both images, so that installed packages will be updated, to reduce risk of vulnerabilities ... ok
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v0.3 of the spec (when the plugin will be available); and update all accordingly ... ok, updated to '^2.3.0' (just released)
+* [x] general: update all dependencies to latest ... ok
+* [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... maybe later
+* [x] content: check if use [Stencil - npmjs](https://www.npmjs.com/package/@stencil/core) for Web Components as client side UI, at least in a new SPA here ... no
 
 
 ---------------
