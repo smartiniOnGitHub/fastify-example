@@ -3,6 +3,7 @@
 ## TODO
 
 * [x] general: bump release to '2.5.0' ... wip
+* [x] content: update [EJS](https://github.com/mde/ejs) to latest 3.x (at the moment 3.0.1) and ensure all works ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update all dependencies to latest ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc) ... do it but by using related plugin (when available) ... wip
