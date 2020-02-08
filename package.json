@@ -52,6 +52,7 @@
     "fastify-cloudevents": "^2.3.0",
     "fastify-favicon": "^2.0.0",
     "fastify-healthcheck": "^2.1.0",
+    "fastify-jwt": "^1.2.1",
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.6.0",
     "fastify-webhook": "^2.0.0",
