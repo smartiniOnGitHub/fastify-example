@@ -4,6 +4,8 @@
 
 * [x] general: bump release to '2.5.0' ... wip
 * [x] general: check if use here even plugin [fastify-jwt - npmjs](https://www.npmjs.com/package/fastify-jwt), even if not strictly required now ... wip
+* [x] content: cleanup/update to latest standards my custom styles, using [autoprefixer - npmjs](https://www.npmjs.com/package/autoprefixer) and [postcss - npmjs](https://www.npmjs.com/package/postcss), and keep only last 2 versions of most common browsers ... use the online version for example at [autoprefixer - github](https://autoprefixer.github.io/) ... check if be more aggressive, and instead target only 1 last version of most common browsers; note that this task sometimes has to be repeated (like this time) ... wip
+* [x] content: simplify my sample css with some new features seen [here](https://web.dev/next-gen-css-2019/) ... wip
 * [x] content: update [EJS](https://github.com/mde/ejs) to latest 3.x (at the moment 3.0.1) and ensure all works ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update all dependencies to latest ... wip
@@ -265,6 +267,9 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] content: use [ramda - npmjs](https://www.npmjs.com/package/ramda) to do some processing operations on data ... maybe later
 * [x] content: check if use [Stencil - npmjs](https://www.npmjs.com/package/@stencil/core) for Web Components as client side UI, at least in a new SPA here ... no
 * [x] content: as a sample, provide a route to serve SPA (all client-side UI) via [Preact - npmjs](https://www.npmjs.com/package/preact) (like React but without transpillation of code and without depending on Babel, so simpler), doing something like described in the article [Fastify and Preact for quick web app prototyping - Loige](https://loige.co/fastify-and-preact-for-quick-web-app-prototyping/); but as a Single-Page-Application (SPA) in a dedicated route; for the implementation follow the analysis already done here ... maybe later, but using a better approach, using the http proxy plugin so to proxy another (separate) client app
+* [x] general: for Functional Testing, try to use [puppeteer - GitHub](https://github.com/puppeteer/puppeteer) as Headless Chrome Node.js API ... sure, but maybe later
+* [x] content: check if add some semantic tags/attributes into pages/templates, as seen in [Getting Started - Schema.org](https://schema.org/docs/gs.html); see even [JSON for Linked Data - JSON-LD](https://json-ld.org/) ... maybe later
+* [x] content: check if this online tool could be useful to perform a modern setup of my css sample layout: [CSS Grid](https://grid.layoutit.com/) ... sure, but maybe later
 
 
 ---------------
