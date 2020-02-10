@@ -52,8 +52,7 @@ fastify.register(require('point-of-view'), {
   options: {
     filename: resolve(k.folders.templatesFolderName),
     views: [publicFolderFromScript]
-  } // ,
-  // production: true // force production mode
+  }
 })
 
 fastify.register(require('fastify-static'), {
