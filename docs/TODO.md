@@ -3,7 +3,7 @@
 ## TODO
 
 * [x] general: bump release to '2.5.0' ... wip
-* [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp statup) ... wip
+* [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp statup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
 * [x] content: cleanup/update to latest standards my custom styles, using [autoprefixer - npmjs](https://www.npmjs.com/package/autoprefixer) and [postcss - npmjs](https://www.npmjs.com/package/postcss), and keep only last 2 versions of most common browsers ... use the online version for example at [autoprefixer - github](https://autoprefixer.github.io/) ... check if be more aggressive, and instead target only 1 last version of most common browsers; note that this task sometimes has to be repeated (like this time) ... wip
 * [x] content: simplify my sample css with some new features seen [here](https://web.dev/next-gen-css-2019/) ... wip
 * [x] content: update [EJS](https://github.com/mde/ejs) to latest 3.x (at the moment 3.0.1) and ensure all works ... but note that at the moment I get an error, probably there is something to fix/update in Fastify plugin (point-of-view), the error is: "you may want to try EJS-Lint:\nhttps://github.com/RyanZim/EJS-Lint\nOr, if you meant to create an async function, pass `async: true` as an option.\n    at new Function (<anonymous>)\n    at Template.compile (/home/sandro/work/prove/fastify-example/node_modules/ejs/lib/ejs.js:626:12)\n etc"; check if Fastify guys for a fix, but maybe for next major release of point-of-view plugin ... wip
@@ -272,6 +272,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] content: check if this online tool could be useful to perform a modern setup of my css sample layout: [CSS Grid](https://grid.layoutit.com/) ... sure, but maybe later
 * [x] general: check if use here even plugin [fastify-jwt - npmjs](https://www.npmjs.com/package/fastify-jwt) ... ok, plugin added in dependencies, even if not strictly required now
 * [x] general: check if use even this plugin for authentication: [fastify-esso - npmjs](https://www.npmjs.com/package/fastify-esso); similar to JWT but more complete; very interesting the approach to simplify multi microseervices authentication with and without a Central Authentication Server (CAS) for example made with a dedicated microservice ... interesting, but maybe later (if/when it will have more support and rela world usage too)
+* [x] general: add plugin [fastify-formbody - npmjs](https://www.npmjs.com/package/fastify-formbody) to manage in a simple way form url-encoded data (MIME Type application/x-www-form-urlencoded, but not multipart/form-data) ... ok
 
 
 ---------------
