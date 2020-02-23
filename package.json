@@ -57,7 +57,7 @@
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.6.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^1.16.3",
+    "fast-json-stringify": "^1.16.4",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.7.1"
