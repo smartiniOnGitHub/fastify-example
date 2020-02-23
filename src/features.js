@@ -70,8 +70,9 @@ function features (fastify, options = {}) {
     const engines = require('../package.json').engines
     fastify.register(require('fastify-check-runtime-env'), {
       nodeVersionCheckAtStartup: true,
-      nodeVersionExpected: engines.node
-    // onNodeVersionMismatch: 'exception' // throw an exception // same as default
+      nodeVersionExpected: engines.node,
+      onNodeVersionMismatch: 'warning' // log a message
+      // onNodeVersionMismatch: 'exception' // throw an exception // same as default
     })
   }
 
