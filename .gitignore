@@ -9,7 +9,7 @@
 .idea/
 *.iml
 *.md5
-*.sha1
+*.sha*
 *~*
 *.bak
 Thumbs.db
