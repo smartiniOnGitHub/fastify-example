@@ -24,6 +24,7 @@
 * [ ] general: setup [GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions) as a build (CI) environment, for example by using [setup-node - actions](https://github.com/actions/setup-node); when available; some info even in this [article](https://itnext.io/simplify-your-npm-publish-workflow-using-github-actions-691249bc7e59) ...
 
 * [ ] general: update requirements to Node.js 12 when LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ...
+* [ ] general: after upgrading to Node.js 12.x LTS, update to expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places; but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
@@ -285,6 +286,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] content: simplify my sample css with some new features seen [here](https://web.dev/next-gen-css-2019/) ... maybe later
 * [x] content: check if provide an SPA (maybe a new one) even as a Progressive Web-App (PWA), for example as seen [here](https://blog.heroku.com/how-to-make-progressive-web-app) ... maybe later
 * [x] general: log a warning if current Node.js release is different (for example lower) than expected, currently min Node.js 10 LTS (10.13.0) is required ... ok
+* [x] general: update requirements to latest Fastify ^2.13.0 ... ok
 
 
 ---------------
