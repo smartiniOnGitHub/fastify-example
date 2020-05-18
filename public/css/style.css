@@ -7,7 +7,7 @@
 	--confirmed-color: lightgreen;
 	--gray-light-color: #F6F6F6;
 	--gray-mid-color: #F6F6F6;
-	--gray-dark-color: #565B5C;
+	--gray-dark-color: #252627;
 	--blueish-color: #007ACC;
 	--reddish-color: #FF0000;
 	--greenish-color: #4D8618;
@@ -108,7 +108,7 @@ header, .header {
 
 footer, .footer {
 	background-color:var(--orangish-color);
-	color:var(--neutral-light-color);
+	color:var(--gray-dark-color);
 	text-transform: capitalize;
 	font-weight:100;
 	font-size:0.8em;
@@ -207,7 +207,6 @@ footer p, .footer p {
 
 .stickyTop {
 	position: fixed;
-	/* background-color: var(--black-ocean-color); */
 	top: 0;
 	width: 100%;
 }
