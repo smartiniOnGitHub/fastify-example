@@ -198,6 +198,23 @@ footer p, .footer p {
 	max-height: 1.4em;
 }
 
+.fixedTop > header, .fixedTop > nav {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.stickyTop {
+	position: fixed;
+	/* background-color: var(--black-ocean-color); */
+	top: 0;
+	width: 100%;
+}
+.stickyTop + .content {
+	padding-top: 0.2em;
+}
+
 .flexBoxContainer {
 	display: -webkit-box;
 	display: -ms-flexbox;
