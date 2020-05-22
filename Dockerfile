@@ -1,4 +1,4 @@
-FROM node:10 as builder
+FROM node:lts as builder
 
 LABEL version="2.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
