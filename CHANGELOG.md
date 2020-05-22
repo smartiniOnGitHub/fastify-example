@@ -1,5 +1,17 @@
 # Change Log
 
+## [2.5.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.5.0) (unreleased)
+Summary Changelog:
+- Update all dependencies
+- Update requirements to latest Fastify release ('^2.14.0' or later)
+- Features: update Dockerfile of both images 
+  to use latest Node.js LTS version (which in general is better), 
+  so at the moment is 12.x
+- Fix: keep EJS templates to use latest 2.x release (so '^2.7.4' at the moment), 
+  because 3.x does not seem compatible
+- etc
+
+
 ## [2.4.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.4.0) (2019-11-08)
 Summary Changelog:
 - Update all dependencies
