@@ -1,10 +1,15 @@
-<% if (pluginRoutes !== null) { %>
 <div class="marker">
     <h3>Some routes published by loaded plugins</h3>
+    <br/>
+
+    <% if (pluginRoutes !== null) { %>
     <ul>
     <% for (const i of pluginRoutes) { %>
         <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
     <% } %>
     </ul>
+    <% } else { %>
+        <p>no data</p>
+    <% } %>
+
 </div>
-<% } %>

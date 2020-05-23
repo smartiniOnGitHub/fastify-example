@@ -1,10 +1,15 @@
-<% if (sampleRoutes !== null) { %>
 <div class="marker">
     <h3>Sample pages and routes to call</h3>
+    <br/>
+
+<% if (sampleRoutes !== null) { %>
     <ul>
     <% for (const i of sampleRoutes) { %>
         <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
     <% } %>
     </ul>
-</div>
+<% } else { %>
+    <p>no data</p>
 <% } %>
+
+</div>
