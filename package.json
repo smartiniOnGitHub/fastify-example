@@ -63,7 +63,7 @@
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.316.2"
+    "snyk": "^1.329.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",

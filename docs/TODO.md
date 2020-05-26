@@ -311,6 +311,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: update Node.js image in both Dockerfile/s to use latest LTS (at the moment 12.x), more standard ... ok
 * [x] general: check why in templates page, fragments doesn't add content into the page ... ok, it was by design: add sample data only in home page (mapped to '/') but not in the template page ('/template'), to see the different behavior; but update related fragments to display something when related data in not present (better user experience)
 * [x] general: use new version of my plugin 'fastify-healthcheck' to show even process uptime etc, as soon as its new version will be available ... ok, but instead of '2.2.0', use directly the newer '2.3.0', and enable (as a sample) the flag to expose process uptime (good the same here)
+* [x] general: accept [PR#5](https://github.com/smartiniOnGitHub/fastify-example/pull/5) from Snyk, to fix vulnerabilities ... ok, note that now (thanks to the PR) it's available a new npm custom command: `"prepublish": "npm run snyk-protect"` that I can run even manually
 
 
 ---------------
