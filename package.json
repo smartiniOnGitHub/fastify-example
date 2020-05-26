@@ -42,7 +42,9 @@
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
     "test:unit:debug": "tap -T --node-arg=--inspect-brk --comments --no-esm --strict test/*.test.js",
     "test:unit:dev": "tap -J --comments --no-esm --strict --watch test/*.test.js",
-    "test": "npm run lint && npm run test:unit"
+    "test": "npm run lint && npm run test:unit",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
@@ -60,7 +62,8 @@
     "fast-json-stringify": "^2.0.0",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
-    "point-of-view": "^3.8.0"
+    "point-of-view": "^3.8.0",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
@@ -87,5 +90,6 @@
     "es8"
   ],
   "author": "Sandro Martini <sandro.martini@gmail.com>",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "snyk": true
 }
