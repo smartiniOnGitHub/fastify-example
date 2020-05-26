@@ -103,7 +103,11 @@ function features (fastify, options = {}) {
 
   if (featuresEnabled.healthcheck) {
     // fastify-healthcheck, example with null or empty options, using only plugin default options
-    fastify.register(require('fastify-healthcheck'))
+    // fastify.register(require('fastify-healthcheck'))
+    // enable only the option to expose even process uptime, as a sample
+    fastify.register(require('fastify-healthcheck'), {
+      exposeUptime: true
+    })
   }
 
   if (featuresEnabled.cloudevents) {

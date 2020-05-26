@@ -4,7 +4,6 @@
 
 * [x] general: check if add an npm custom command to perform even `npm audit fix` or variants; for more info look at [npm audit - docs - npmjs](https://docs.npmjs.com/cli/audit); of course even in Dockerfiles ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
-* [x] general: use new version of my plugin 'fastify-healthcheck' to show even process uptime etc, as soon as its new rversion will be available ... wip
 * [x] general: update docs (README; CHANGELOG, etc) ... wip
 * [x] general: finalize release ... wip
 
@@ -311,6 +310,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] content: update my CSS style to use [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Typical_Use_Cases_of_Flexbox) or the newer [Grid layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids); then tweak/update other parts of styles too, and update templates accordingly ... ok, but fix later styles for 'fixedTop' and 'stickyTop' for the header (fat the moment use normal header style from my css)
 * [x] general: update Node.js image in both Dockerfile/s to use latest LTS (at the moment 12.x), more standard ... ok
 * [x] general: check why in templates page, fragments doesn't add content into the page ... ok, it was by design: add sample data only in home page (mapped to '/') but not in the template page ('/template'), to see the different behavior; but update related fragments to display something when related data in not present (better user experience)
+* [x] general: use new version of my plugin 'fastify-healthcheck' to show even process uptime etc, as soon as its new version will be available ... ok, but instead of '2.2.0', use directly the newer '2.3.0', and enable (as a sample) the flag to expose process uptime (good the same here)
 
 
 ---------------
