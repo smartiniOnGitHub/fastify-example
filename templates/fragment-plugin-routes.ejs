@@ -1,15 +1,20 @@
-<div class="marker">
-    <h3>Some routes published by loaded plugins</h3>
-    <br/>
+<section class="coloredBackground_gray">
+    <div class="marker">
+        <h3>Some routes published by loaded plugins</h3>
+        <br/>
 
-    <% if (pluginRoutes !== null) { %>
-    <ul>
-    <% for (const i of pluginRoutes) { %>
-        <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
-    <% } %>
-    </ul>
-    <% } else { %>
-        <p>no data</p>
-    <% } %>
+        <% if (pluginRoutes !== null) { %>
+        <ul class="dashList">
+        <% for (const i of pluginRoutes) { %>
+            <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
+        <% } %>
+        </ul>
+        <% } else { %>
+            <p>no data</p>
 
-</div>
+            <div class="marker">
+                nested div
+            </div>
+        <% } %>
+    </div>
+</section>

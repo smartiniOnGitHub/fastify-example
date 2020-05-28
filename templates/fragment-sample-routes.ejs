@@ -1,15 +1,17 @@
+<section class="coloredBackground_warning">
 <div class="marker">
-    <h3>Sample pages and routes to call</h3>
-    <br/>
+        <h3>Sample pages and routes to call</h3>
+        <br/>
 
 <% if (sampleRoutes !== null) { %>
-    <ul>
-    <% for (const i of sampleRoutes) { %>
-        <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
+        <ul class="dashList">
+                <% for (const i of sampleRoutes) { %>
+            <li><a href="<%= i.url %>"><%= i.link %></a> - <%= i.description %></li>
     <% } %>
-    </ul>
+        </ul>
 <% } else { %>
-    <p>no data</p>
+        <p>no data</p>
 <% } %>
 
-</div>
+    </div>
+</section>

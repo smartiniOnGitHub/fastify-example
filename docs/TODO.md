@@ -2,18 +2,26 @@
 
 ## TODO
 
+* [x] general: when running Docker builds at DockerHub (and only there), fix the error: 
+```
+> snyk protect
+Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
+```, weird because locally doesn't happen; see [fastify-example - DockerHub](https://hub.docker.com/repository/registry-1.docker.io/smartiniatdocker09/fastify-example/) ... some info [here](https://support.snyk.io/hc/en-us/articles/360003851357-Manage-vulnerability-results-with-the-Snyk-CLI-wizard), [CLI reference - snyk](https://support.snyk.io/hc/en-us/articles/360003812578-CLI-reference), etc ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update docs (README; CHANGELOG, etc) ... wip
 * [x] general: finalize release ... wip
 
 * [x] general: bump release to '2.6.0' ... wip
 * [x] general: throw if current Node.js version is lower than the expected (minimal) one: Node.js 10 LTS (10.13.0); note that Node.js 8 LTS is out of support now (and of course all previous versions) ... wip
+* [x] content: fix css style for header to be really fixed on top ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now) ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, process uptime, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc); of course this would expose important info, so in a real world app at least protect this with authentication (and an high profile role to show those info) ... do it with all code here (to move when stable in a new plugin) with a feature flag by default enabled; then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env' ... better: expose only to authenticate users, so could be mapped to '/private/info' or similar ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc (from git if available, otherwise from a given local file if available); of course this would expose important info, so in a real world app at least protect this with authentication (and an high profile role) to show those info ... do it with all code here (to move when stable in a new plugin) with a feature flag by default enabled; then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env' ... better: expose only to authenticate users, so could be mapped to '/private/info' or similar ... wip
 * [x] general: use the new release of 'fastify-cloudevents' aligned with v1.0 of the spec (when the plugin will be available); and update all accordingly ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp statup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
 * [x] general: check if use [Swagger](https://swagger.io/) via the plugin [fastify-swagger - npmjs](https://www.npmjs.com/package/fastify-swagger), to define API schemas, and to browse them; as a sample look at this sample: [JamesSingleton/my-apartment-server - GitHub](https://github.com/JamesSingleton/my-apartment-server) ... but note that in general, it would be better to use a neutral API definition not tied to a specific product, maybe based on a binary wire format, so that to interact with those API must be used some specific code generator for API clients (specific for the client language used), so developers can't perform changes or tricks there; for example look [Protocol Buffers - Googlee](https://developers.google.com/protocol-buffers), with client libraries for most languages ... wip
+* [x] general: try to setup some End-to-End (E2E) tests for testing navigation and page interaction, for example with [Cucumber.js - npmjs](https://www.npmjs.com/package/cucumber) and its Gherkin syntax, for info see [Cucumber for JavaScript](https://cucumber.io/docs/installation/javascript/), [Gherkin Reference](https://cucumber.io/docs/gherkin/reference/); and test with [TestCafe - GitHub](https://devexpress.github.io/testcafe/); see even [Getting Started - TestCafe](https://devexpress.github.io/testcafe/documentation/getting-started/), [How to Debug Tests - testCafe](https://devexpress.github.io/testcafe/media/team-blog/how-to-debug-tests-in-testcafe-quick-guide.html), etc; otherwise check if use classical tools like [Selenium](https://www.selenium.dev/) and related products, etc; anyway anything could be installed in a dedicated Docker container, and copy (or mount inside it) tests into it ... wip
+
 * [x] general: update all dependencies to latest ... wip
 * [x] content: cleanup code related to the uri ('/info') by moving in a related plugin, and use it from here in the simple way ... wip
 * [x] content: cleanup code related to the uri ('/version') by moving in a related plugin, and use it from here in the simple way ... wip
@@ -312,6 +320,11 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] general: use new version of my plugin 'fastify-healthcheck' to show even process uptime etc, as soon as its new version will be available ... ok, but instead of '2.2.0', use directly the newer '2.3.0', and enable (as a sample) the flag to expose process uptime (good the same here)
 * [x] general: accept [PR#5](https://github.com/smartiniOnGitHub/fastify-example/pull/5) from Snyk, to fix vulnerabilities ... ok, note that now (thanks to the PR) it's available a new npm custom command: `"prepublish": "npm run snyk-protect"` that I can run even manually
 * [x] general: add an npm custom command to perform even `npm audit fix` or variants; for more info look at [npm audit - docs - npmjs](https://docs.npmjs.com/cli/audit); of course even in Dockerfiles ... ok, added in both Dockerfile/s, but not in npm custom commands (it's standard enough to write directly if/when needed)
+* [x] content: update templates page (and maybe even the static page, but before add some more content to it) with colored sections (maybe with each section using HTML tag 'section') ... ok, but used a section (as a semantic marker for similar content) and add a background color to it, just as a sample
+* [x] content: update css styles for lists (ul and li elements), now are much better ... ok, and note that the Firefox Developer Console for this is a great help
+* [x] content: update css for section tags to have some more padding, at least on top and bottom; similar to what already done for ul elements ... ok, and tweaked a little even colors and some styles
+* [x] content: update footer with a link to Top of the page (an anchor into page header), instead of a link to Home (unnecessary there) ... ok, and added two samples: one with the anchor (with name="top") defined, and another with the trick that link to '#top' in modern browsers works even if related anchor is not present
+* [x] content: update the static html page to display similar (but static) content of the template (dynanic) page ... ok
 
 
 ---------------

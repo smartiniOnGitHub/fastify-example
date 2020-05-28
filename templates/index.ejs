@@ -8,19 +8,14 @@
 <body>
     <% include fragment-header %>
 
-<main>
-    <div id="content">
-        <h2>
-            <%= welcome %>
-        </h2>
-    
-        <% include fragment-sample-routes %>
-        <% include fragment-spacer %>
-        <% include fragment-plugin-routes %>
-    </div>
-    <br/>
+<main id="content">
+    <% include fragment-welcome %>
+
+    <% include fragment-sample-routes %>
+    <%# include fragment-spacer %>
+    <% include fragment-plugin-routes %>
 </main>
-    
+
     <% include fragment-footer %>
 </body>
 
