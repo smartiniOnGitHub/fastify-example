@@ -6,7 +6,7 @@
 	--invalid-color:pink;
 	--confirmed-color:lightgreen;
 	--gray-light-color:#F6F6F6;
-	--gray-mid-color:#F6F6F6;
+	--gray-mid-color:#EEEEEE;
 	--gray-dark-color:#252627;
 	--blueish-color:#007ACC;
 	--reddish-color:#FF0000;
@@ -15,11 +15,11 @@
 	--yellowish-color:#FFDE00;
 	--purpleish-color:#3F0E40;
 	--sugar-paper-color:#56C2C2;
-	--reddish-alternate-color:#CD2553;
-	--greenish-alternate-color:#56C25C;
+	--reddish-alternate-color:#cd0c12;
+	--greenish-alternate-color:#57ad0a;
 	--blueish-alternate-color:#297CA3;
 	--blueish-light-alternate-color:#DCEDF5;
-	--yellowish-alternate-color:#C2BE55;
+	--yellowish-alternate-color:#ffee00;
 	--yellowish-light-alternate-color:#F5F4DC;
 	--blueish-pale-color:#595A7B;
 	--blueish-dark-pale-color:#3B3C5B;
@@ -181,7 +181,7 @@ nav a:hover, nav ul li a:hover {
 	background-color:var(--orangish-color);
 	color:var(--neutral-light-color);
 	 */
-	mix-blend-mode: difference;
+	mix-blend-mode:difference;
 }
 
 footer ul li, .footer ul li {
@@ -206,7 +206,7 @@ footer ul li, .footer ul li {
 footer a:hover, footer ul li a:hover {
 	opacity:1;
 	color:var(--neutral-light-color);
-	/* mix-blend-mode: difference; */
+	/* mix-blend-mode:difference; */
 }
 footer ul li:after, .footer ul li:after {
 	content:"~";
@@ -216,10 +216,22 @@ footer p, .footer p {
 	text-align:center;
 }
 
+section {
+	padding:1em 0 1em 0;
+}
+section div {
+	/* max-width:80%; */
+	margin:0 auto;
+}
+
 #logo img {
 	min-height:1em;
 	max-height:1.4em;
 	display:inline-block;
+}
+
+#content, #page-content {
+	padding:0;
 }
 
 .fixedTop > header, .fixedTop > nav {
@@ -314,6 +326,10 @@ hr {
 	margin:0.2em 0 0.2em 0;
 }
 
+ul {
+	margin:0 1em 0 1em;
+}
+
 /* To avoid the 300 ms delay on  mobile devices */
 a[href], button {
 	touch-action:manipulation;
@@ -328,7 +344,7 @@ table {
 	width:100%;
 }
 th {
-	background-color:var(--gray-light-color);
+	background-color:var(--gray-mid-color);
 	text-align:center;
 }
 table, tr, td, th {
@@ -430,23 +446,30 @@ input.ng-dirty {
 .noBorder {
 	border:0 !important;
 }
-.noDash ul, .noDash {
-	list-style-type:none;
-}
-.noDash li, .noDash {
-	word-break:break-all;
-}
 .noMargin {
 	margin:0;
+}
+
+ul.noDash, .noDash {
+	list-style-type:none;
+}
+li.noDash, .noDash {
+	word-break:break-all;
+}
+ul.noList {
+	list-style:none
+}
+ul.dashList {
+	list-style-type:'-';
+}
+ul.decimalList {
+	list-style-type:decimal;
 }
 
 /*#endregion*/
 
 
 /*#region Colors */
-.red {
-	background-color:var(--reddish-color);
-}
 .coloredBackground {
 	background-color:var(--main-bg-color);
 }
@@ -457,7 +480,16 @@ input.ng-dirty {
 	background-color:var(--main-light-bg-color);
 }
 .coloredBackground_gray {
-	background-color:var(--gray-light-color);
+	background-color:var(--gray-mid-color);
+}
+.coloredBackground_warning {
+	background-color:var(--yellowish-light-alternate-color);
+}
+.coloredBackground_ok {
+	background-color:var(--greenish-alternate-color);
+}
+.coloredBackground_ko {
+	background-color:var(--reddish-alternate-color);
 }
 .coloredForeground {
 	color:var(--main-bg-color);
@@ -506,21 +538,31 @@ input.ng-dirty {
 	* {
 		padding:0;
 	}
+	section div {
+		max-width:100%;
+	}
 	aside, .primary, .secondary {
 		font-size:0.6em;
 		min-width:25%;
 		/* max-width:33%; */
 		display:block;
 	}
-	#page-content, .main, .content {
+	#wrapper, #content, #page-content, 
+	.main, .content {
 		min-width:50%;
 	}
 	header, .header {
 		font-size:1.2em;
 	}
+	section {
+		padding:1em 0 1em 0;
+	}
 	hr {
 		margin:1em 0 1em 0;
 		padding:0;
+	}
+	ul {
+		margin:0 1em 0 1em;
 	}
 }
 
@@ -530,6 +572,9 @@ input.ng-dirty {
 @media screen and (min-width:768px) {
 	* {
 		padding:0.1em;
+	}
+	section div {
+		max-width:90%;
 	}
 	.homeController, .summaryController, .menuController, .detailController, .errorController {
 		border:0;
@@ -552,6 +597,9 @@ input.ng-dirty {
 	* {
 		padding:0.2em;
 	}	
+	section div {
+		max-width:80%;
+	}
 }
 
 /*#endregion*/
