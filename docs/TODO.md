@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] content: disable the link for Login (keep it in page but grayed and without the ability to click on it if possible without JavaScript) ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update docs (README; CHANGELOG, etc) ... wip
 * [x] general: finalize release ... wip
@@ -10,7 +9,7 @@
 * [x] general: bump release to '2.6.0' ... wip
 * [x] general: throw if current Node.js version is lower than the expected (minimal) one: Node.js 10 LTS (10.13.0); note that Node.js 8 LTS is out of support now (and of course all previous versions) ... wip
 * [x] content: fix css style for header to be really fixed on top ... wip
-* [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now) ... wip
+* [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] content: expose a uri ('/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, process uptime, etc), OS (name, release, etc), frameworks (release, list of plugins loaded if available, etc); of course this would expose important info, so in a real world app at least protect this with authentication (and an high profile role to show those info) ... do it with all code here (to move when stable in a new plugin) with a feature flag by default enabled; then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env' ... better: expose only to authenticate users, so could be mapped to '/private/info' or similar ... wip
 * [x] content: expose a uri (‘/version’) for an api that returns some release related info, like: package name, package version, git hash/tag/branch, etc (from git if available, otherwise from a given local file if available); of course this would expose important info, so in a real world app at least protect this with authentication (and an high profile role) to show those info ... do it with all code here (to move when stable in a new plugin) with a feature flag by default enabled; then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env' ... better: expose only to authenticate users, so could be mapped to '/private/info' or similar ... wip
 * [x] general: use the new release of 'fastify-cloudevents' aligned with v1.0 of the spec (when the plugin will be available); and update all accordingly ... wip
@@ -329,6 +328,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 ```, weird because locally doesn't happen; see [fastify-example - DockerHub](https://hub.docker.com/repository/registry-1.docker.io/smartiniatdocker09/fastify-example/) ... some info [here](https://support.snyk.io/hc/en-us/articles/360003851357-Manage-vulnerability-results-with-the-Snyk-CLI-wizard), [CLI reference - snyk](https://support.snyk.io/hc/en-us/articles/360003812578-CLI-reference), etc ... note that synk policy file is in sources ('.snyk'), but maybe is not copied in the Docker image during the buid, check this ... ok, the problem was snyk policy file ('.snyk') not copied before 'npm install' etc, so in the 'prepublish' (postinstall) phase, snyk still hadn't that file; now all is fine
 * [x] content: fix footer links (now in a vertical sequence) ... ok, updated css and perform a small cleanup on it
+* [x] content: disable the link for Login (keep it in page but grayed and without the ability to click on it if possible without JavaScript); some info [here](https://css-tricks.com/how-to-disable-links/) ... ok, add custom style and removed the href attribute to its anchor tag; all this even if it's not a recommended practice for links
 
 
 ---------------
