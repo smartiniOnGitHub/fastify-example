@@ -328,6 +328,7 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 > snyk protect
 Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 ```, weird because locally doesn't happen; see [fastify-example - DockerHub](https://hub.docker.com/repository/registry-1.docker.io/smartiniatdocker09/fastify-example/) ... some info [here](https://support.snyk.io/hc/en-us/articles/360003851357-Manage-vulnerability-results-with-the-Snyk-CLI-wizard), [CLI reference - snyk](https://support.snyk.io/hc/en-us/articles/360003812578-CLI-reference), etc ... note that synk policy file is in sources ('.snyk'), but maybe is not copied in the Docker image during the buid, check this ... ok, the problem was snyk policy file ('.snyk') not copied before 'npm install' etc, so in the 'prepublish' (postinstall) phase, snyk still hadn't that file; now all is fine
+* [x] content: fix footer links (now in a vertical sequence) ... ok, updated css and perform a small cleanup on it
 
 
 ---------------
