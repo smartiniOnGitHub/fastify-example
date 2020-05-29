@@ -26,6 +26,9 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 # copy project definition/dependencies files, for better reuse of layers
 COPY package*.json ./
 
+# copy stuff required by prepublish (postinstall)
+COPY .snyk ./
+
 # install dependencies here, for better reuse of layers
 RUN npm install && npm audit fix && npm cache clean --force
 
