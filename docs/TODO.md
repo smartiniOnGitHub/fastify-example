@@ -2,11 +2,12 @@
 
 ## TODO
 
+* [x] content: disable the link for Login (keep it in page but grayed and without the ability to click on it if possible without JavaScript) ... wip
 * [x] general: when running Docker builds at DockerHub (and only there), fix the error: 
 ```
 > snyk protect
 Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
-```, weird because locally doesn't happen; see [fastify-example - DockerHub](https://hub.docker.com/repository/registry-1.docker.io/smartiniatdocker09/fastify-example/) ... some info [here](https://support.snyk.io/hc/en-us/articles/360003851357-Manage-vulnerability-results-with-the-Snyk-CLI-wizard), [CLI reference - snyk](https://support.snyk.io/hc/en-us/articles/360003812578-CLI-reference), etc ... wip
+```, weird because locally doesn't happen; see [fastify-example - DockerHub](https://hub.docker.com/repository/registry-1.docker.io/smartiniatdocker09/fastify-example/) ... some info [here](https://support.snyk.io/hc/en-us/articles/360003851357-Manage-vulnerability-results-with-the-Snyk-CLI-wizard), [CLI reference - snyk](https://support.snyk.io/hc/en-us/articles/360003812578-CLI-reference), etc ... note that synk policy file is in sources ('.snyk'), but maybe is not copied in the Docker image during the buid, check this ... wip
 * [x] general: remove the rule that disables lint rule "eslint no-prototype-builtins" (just added as a workaround after the update to latest 'standard') ... wip
 * [x] general: update docs (README; CHANGELOG, etc) ... wip
 * [x] general: finalize release ... wip
@@ -325,6 +326,8 @@ Easy Automatic npm Publishes - The npm Blog](https://blog.npmjs.org/post/1845531
 * [x] content: update css for section tags to have some more padding, at least on top and bottom; similar to what already done for ul elements ... ok, and tweaked a little even colors and some styles
 * [x] content: update footer with a link to Top of the page (an anchor into page header), instead of a link to Home (unnecessary there) ... ok, and added two samples: one with the anchor (with name="top") defined, and another with the trick that link to '#top' in modern browsers works even if related anchor is not present
 * [x] content: update the static html page to display similar (but static) content of the template (dynanic) page ... ok
+* [x] content: update css to update the styles rule 'nav a:hover, nav ul li a:hover' and 'footer a:hover, footer ul li a:hover' to show more visible links when the cursor is on top of them ... ok, added the style 'text-decoration: underline;' and not 'font-weight:bold;' (because otherwise links will shift a little in the page during the hover)
+* [x] content: in top menu bar, add a link to GitHub sources, at [fastify-example - GitHub](https://github.com/smartiniOnGitHub/fastify-example); see [GitHub Logo usage - GitHub](https://github.com/logos) ... so now update css styles for a better vertical alignment of navigation bar links; see [here](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container), [here](https://css-tricks.com/snippets/css/a-guide-to-flexbox/), etc ... ok
 
 
 ---------------

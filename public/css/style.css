@@ -130,29 +130,28 @@ footer, .footer {
 
 nav, .navigation, 
 .navbar {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+	justify-content:center;
 	flex-wrap:wrap;
 	text-transform:capitalize;
 	font-weight:400;
 	z-index:100000;
-	top:0;
-	left:0;
 	padding:0 1em 0 1em;
 	margin:0 0 0.25em 0;
 	text-align:center;
 }
 nav ul, .navigation ul, 
 footer ul, .footer ul {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
 	list-style:none;
-	text-align:center;
 	margin-bottom:0;
 }
-nav li, .navigation li {
+nav ul li, .navigation ul li {
+	display:inline-block;
+	vertical-align:middle;
 	letter-spacing:normal;
 	min-width:3em;
-	vertical-align:middle;
 }
 nav a, nav a:link, nav a:visited, 
 nav ul li a, nav ul li a:visited,
@@ -182,8 +181,12 @@ nav a:hover, nav ul li a:hover {
 	color:var(--neutral-light-color);
 	 */
 	mix-blend-mode:difference;
+	text-decoration:underline;
 }
-
+nav span, nav img {
+	display:inline-block;
+	vertical-align:middle;
+}
 footer ul li, .footer ul li {
 	padding:1px;
 	min-width:1em;
@@ -207,6 +210,7 @@ footer a:hover, footer ul li a:hover {
 	opacity:1;
 	color:var(--neutral-light-color);
 	/* mix-blend-mode:difference; */
+	text-decoration:underline;
 }
 footer ul li:after, .footer ul li:after {
 	content:"~";
