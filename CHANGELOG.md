@@ -1,14 +1,30 @@
 # Change Log
 
-## [2.5.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.5.0) (unreleased)
+## [2.5.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.5.0) (2020-05-29)
 Summary Changelog:
-- Update all dependencies
-- Update requirements to latest Fastify release ('^2.14.0' or later)
-- Features: update Dockerfile of both images 
+- General: update all dependencies
+- General: update requirements to latest Fastify release ('^2.14.1' or later)
+- General: add plugins 'fastify-formbody', 'fastify-jwt' to manage in a simple way 
+  form url-encoded data and JWT tokens, for future use
+- General: update my plugin 'fastify-healthcheck' to latest version, 
+  and configure it to show even process uptime (as a sample, not really critical here)
+- Feature: update Dockerfile of both images 
   to use latest Node.js LTS version (which in general is better), 
   so at the moment is 12.x
+- Feature: log a warning if current Node.js release is lower than the expected one 
+  (for example that written in 'package.json'), with related feature flag to disable that check
+- Feature: many visual improvements in css styles (for a more modern layout, look and colors); 
+  and update template pages/fragments and even static page (as a sample)
+- Feature: add link to project source code at GitHub
+- Feature: add link (disabled for now) to a Login page (not present at the moment)
 - Fix: keep EJS templates to use latest 2.x release (so '^2.7.4' at the moment), 
   because 3.x does not seem compatible
+- Improvement: update/cleanup some old code and some old styles
+- Security: let npm and snyk update dependencies, depending on auditing problems; 
+  this is visible for example in security auditing on generated Docker image 
+  (based on normal Node.js image)
+- Doc: added a lot of comments, suggestions, etc in TODO: 
+  some implemented, some not, some for the future, some never
 - etc
 
 
