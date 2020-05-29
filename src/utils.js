@@ -21,7 +21,6 @@
 /* eslint callback-return: "off" */
 /* eslint no-process-env: "off" */
 /* eslint no-eval: "off" */
-/* eslint no-prototype-builtins: "off" */
 
 // define a general object, and assign functions to it ...
 // const utils = {}
@@ -52,8 +51,7 @@ module.exports.has = function (obj, key) {
   return key in obj
 }
 module.exports.hasLocalOrInPrototype = function (obj, key, searchInPrototype) {
-  if (!searchInPrototype) { return obj.hasOwnProperty(key) } else {
-    // return Object.prototype.hasOwnProperty.call(obj, key)  // doesn't seems to work
+  if (!searchInPrototype) { return Object.prototype.hasOwnProperty.call(obj, key) } else {
     return key in obj
   }
 }
@@ -148,7 +146,7 @@ module.exports.objectOwnPropertiesList = function (obj) {
   // return all own properties of the given object, as a list (array)
   const values = []
   for (const prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       // console.debug('obj.' + prop + ' = ' + obj[prop])
       values.push(prop)
     }
@@ -192,7 +190,7 @@ module.exports.formatObjectToString = function (o, onlyOwnProperties) {
   let oop = false
   if (typeof onlyOwnProperties === 'undefined') { oop = true }
   for (const prop in o) {
-    if (oop === false || o.hasOwnProperty(prop)) {
+    if (oop === false || Object.prototype.hasOwnProperty.call(o, prop)) {
       dump = dump + prop + ': ' + o[prop] + ', '
     }
   }
@@ -426,7 +424,7 @@ module.exports.featureIsEnabled = function (trueIsDisabled = false, booleanStrin
 // given 'key' (string property name), 'order' ('asc' or 'desc')
 module.exports.compareProperties = function (key, order = 'asc') {
   return function (a, b) {
-    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0
+    if (!Object.prototype.hasOwnProperty.call(a, key) || !Object.prototype.hasOwnProperty.call(b, key)) return 0
     const comparison = a[key].localeCompare(b[key])
     return (order === 'asc') ? comparison : (comparison * -1)
   }
