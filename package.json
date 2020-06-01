@@ -52,9 +52,9 @@
     "fastify": "^2.14.1",
     "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.3.0",
-    "fastify-favicon": "^2.0.0",
+    "fastify-favicon": "^2.1.0",
     "fastify-formbody": "^3.2.0",
-    "fastify-healthcheck": "^2.3.0",
+    "fastify-healthcheck": "^2.3.1",
     "fastify-jwt": "^1.4.0",
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.7.0",
@@ -63,7 +63,7 @@
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.329.0"
+    "snyk": "^1.334.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
