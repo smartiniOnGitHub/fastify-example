@@ -2,7 +2,8 @@
 
 ## TODO
 
-* [x] general: bump release to '2.6.0' ... wip
+* [x] general: bump release to '2.6.0' ... ok
+* [x] general: fix badges in README: dependencies/devdependencies, vulnerabilities (snyk), add license, etc ... ok, but for now keep dependencies/devDependencies at [david-dm](https://david-dm.org/), check later if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc)
 * [x] general: throw if current Node.js version is lower than the expected (minimal) one: Node.js 10 LTS (10.13.0); note that Node.js 8 LTS is out of support now (and of course all previous versions) ... wip
 * [x] general: add Fastify plugin [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit), and use it (with different, lower values) for some of new routes implemented in this release; disable it with a dedicated feature flag (and ensure when disbled that all works as before) ... wip
 * [x] content: fix css style for header to be really fixed on top ... wip
