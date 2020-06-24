@@ -12,6 +12,7 @@
     "postinstall": "",
     "cache:cleanup": "npm cache clean --force",
     "cache:verify": "npm cache verify",
+    "clean:install": "rm -rf ./package-lock.json ./node_modules/",
     "debug": "node --inspect ./src/server",
     "debug:dev": "nodemon --debug --watch src ./src/server",
     "dependency:log": "npm list > ./temp/dependencies.log",
@@ -49,7 +50,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
-    "fastify": "^2.14.1",
+    "fastify": "^2.15.0",
     "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.3.0",
     "fastify-favicon": "^2.1.0",
@@ -59,11 +60,11 @@
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.7.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^2.0.0",
+    "fast-json-stringify": "^2.2.0",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.334.0"
+    "snyk": "^1.348.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
