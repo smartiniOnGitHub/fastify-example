@@ -2,7 +2,8 @@
 
 ## TODO
 
-* [x] general: throw if current Node.js version is lower than the expected (minimal) one: Node.js 10 LTS (10.13.0); note that Node.js 8 LTS is out of support now (and of course all previous versions) ... wip
+* [x] general: throw if current Node.js version is lower than the expected (minimal) one: Node.js 10 LTS (10.13.0); note that Node.js 8 LTS is out of support now (and of course all previous versions); if possible add another check: if current Node.js version is less than 12 LTS (12.13.0) but raise a warning in this case ... wip
+* [x] general: add another Dockerfile to make some experiments even with [distroless - Node.js images - GitHub](https://github.com/GoogleContainerTools/distroless/blob/master/examples/nodejs/Dockerfile) base container images (without shell, package managers etc inside, so safer but harder to debug); for some info look [here](https://learnk8s.io/blog/smaller-docker-images); last, check if move existing Dockerfile/s to a multi-stage image (at least for the Alpine one) ... wip
 * [x] general: add Fastify plugin [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit), and use it (with different, lower values) for some of new routes implemented in this release; disable it with a dedicated feature flag (and ensure when disbled that all works as before) ... wip
 * [x] general: perform an analysis of performances and vitality on the webapp, as seen for example [here](https://web.dev/vitals-tools/); for more info see [Web Vitals](https://web.dev/vitals/) ... wip
 * [x] content: fix css style for header to be really fixed on top ... wip
@@ -25,8 +26,10 @@
 
 * [ ] general: setup [GitHub Actions](https://help.github.com/en/categories/automating-your-workflow-with-github-actions) as a build (CI) environment, for example by using [setup-node - actions](https://github.com/actions/setup-node); when available; some info even in this [article](https://itnext.io/simplify-your-npm-publish-workflow-using-github-actions-691249bc7e59) ...
 
-* [ ] general: update requirements to Node.js 12 when LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ... better, do it when previous LTS (10) goes out of active support; in the meantime update Docker images to use that newer version (better suited for usage in containers) ...
+* [ ] general: update requirements to Node.js 12 LTS (12.13.0), to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ... better, do it when previous LTS (10) goes out of active support; in the meantime update Docker images to use that newer version (better suited for usage in containers) ... see [The Difference Between Node.js 10 LTS and Node.js 12 LTS - Node.js Blog](https://nodejs.org/en/blog/uncategorized/10-lts-to-12-lts/) for relevant changes ...
 * [ ] general: after upgrading to Node.js 12.x LTS, update to expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places; but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ... wip
+
+* [ ] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
