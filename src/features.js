@@ -71,8 +71,9 @@ function features (fastify, options = {}) {
     fastify.register(require('fastify-check-runtime-env'), {
       nodeVersionCheckAtStartup: true,
       nodeVersionExpected: engines.node,
-      onNodeVersionMismatch: 'warning' // log a message
+      // onNodeVersionMismatch: 'warning' // log a message
       // onNodeVersionMismatch: 'exception' // throw an exception // same as default
+      onNodeVersionMismatch: 'exit' // exit from current process with an error code
     })
   }
 
