@@ -50,7 +50,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^2.7.4",
-    "fastify": "^2.15.0",
+    "fastify": "^2.15.2",
     "fastify-check-runtime-env": "^0.1.0",
     "fastify-cloudevents": "^2.3.0",
     "fastify-favicon": "^2.1.0",
@@ -60,18 +60,18 @@
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.7.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^2.2.0",
+    "fast-json-stringify": "^2.2.3",
     "is-docker": "^2.0.0",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.348.1"
+    "snyk": "^1.366.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
     "nodemon": "^2.0.4",
     "standard": "^14.3.4",
     "simple-get": "^4.0.0",
-    "tap": "^14.10.7"
+    "tap": "^14.10.8"
   },
   "peerDependencies": {},
   "engines": {
