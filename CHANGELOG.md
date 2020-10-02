@@ -1,10 +1,13 @@
 # Change Log
 
-## [2.6.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.0) (unreleased)
+## [2.6.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.0) (2020-10-02)
 Summary Changelog:
 - General: update all dependencies
 - General: update requirements to latest Fastify release ('^2.15.0' or later)
 - Feature: some css visual improvements
+- Use the new release of 'fastify-cloudevents' aligned with v1.0 of the spec, 
+  but no need to update code to use this new version
+- Small other improvements
 
 ## [2.5.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.5.0) (2020-05-29)
 Summary Changelog:
