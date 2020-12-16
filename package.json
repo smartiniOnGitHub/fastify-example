@@ -1,6 +1,6 @@
 {
   "name": "fastify-example",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
@@ -60,18 +60,18 @@
     "fastify-nats-client": "^2.1.0",
     "fastify-static": "^2.7.0",
     "fastify-webhook": "^2.0.0",
-    "fast-json-stringify": "^2.2.7",
+    "fast-json-stringify": "^2.2.10",
     "is-docker": "^2.1.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.406.0"
+    "snyk": "^1.437.2"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "nodemon": "^2.0.4",
-    "standard": "^14.3.4",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.6",
+    "standard": "^16.0.3",
     "simple-get": "^4.0.0",
-    "tap": "^14.10.8"
+    "tap": "^14.11.0"
   },
   "peerDependencies": {},
   "engines": {
