@@ -4,7 +4,7 @@
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
   [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
   [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
-  [![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg?targetFile=package.json)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
+  [![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
   [![Apache 2.0 License](https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat)](./LICENSE)
 
 Example webapp with Fastify
