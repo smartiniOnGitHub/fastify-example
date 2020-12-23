@@ -1,5 +1,14 @@
 # Change Log
 
+## [2.6.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.1) (unreleased)
+Summary Changelog:
+- General: update all dependencies
+- General: update requirements to latest Fastify 2.x release ('^2.15.3' or later)
+- Feature: add sample Dockerfile to use distroless images, 
+  but had to remove HEALTHCHECK directive inside the Dockerfile 
+  (container orchestrators do health checks without a specific script/executable inside images)
+- Feature: add some useful npm custom command in 'package.json' 
+
 ## [2.6.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.0) (2020-10-02)
 Summary Changelog:
 - General: update all dependencies
