@@ -7,7 +7,6 @@ LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 WORKDIR /app
 
 # set default node env
-# to be able to run tests (for example in CI), do not set production as environment
 ENV NODE_ENV=production
 ENV NPM_CONFIG_LOGLEVEL=warn
 
@@ -18,7 +17,6 @@ COPY package*.json ./
 COPY .snyk ./
 
 # install dependencies here, for better reuse of layers
-# RUN npm install && npm audit fix && npm cache clean --force
 RUN npm install && npm audit fix
 
 # copy all sources in the container (exclusions in .dockerignore file)
@@ -32,12 +30,4 @@ WORKDIR /app
 
 EXPOSE 8000
 
-# add an healthcheck, useful
-# healthcheck by calling the additional script exposed by the plugin
-# HEALTHCHECK --interval=30s --timeout=10s --start-period=5s CMD [ "npm", "run", "healthcheck-manual" ]
-# HEALTHCHECK --interval=30s --timeout=10s --start-period=5s CMD [ "./node_modules/fastify-healthcheck/src/healthcheck", "http://localhost:8000/health" ]
-# no executable for node found, maybe later try to speficy in the HEALTHCHECK directive as first CMD argument ...
-
-# CMD [ "npm", "start" ]
-# CMD [ "node", "./src/server" ]
 CMD [ "./src/server" ]
