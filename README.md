@@ -41,9 +41,16 @@ A simpler way to run the webapp is by using published images at DockerHub:
 [smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/).
 Default images are based on default Node.js Docker image and contains 
 development dependencies too (to reload content, run tests, etc), BASH shell, etc; 
-there is even a variant one based on Node.js Alpine Linux image 
-which is minimal (smaller, a lot) and is tailored for running in Production 
-(dedicated user for running the webapp, no dev dependencies, no reload, etc).
+there are even others:
+- a variant one based on official Node.js Alpine Linux image, 
+  which is minimal (smaller, a lot) and is tailored for running in Production 
+  (dedicated user for running the webapp, no dev dependencies, no reload, etc)
+- another based on official Distroless images for Node.js (from Google), 
+  small (but bigger than those based on Alpine Linux) and without a lot of stuff inside 
+  (there is no shell for example), so not so simple to debug but good for production environments
+Note that "normal" images are not so small (approx. 900 / 1000 MB) and could contain some vulnerability 
+in some packages already installed in the OS, so pay attention 
+if/when using them in production environments.
 
 For example, you can run directly with:
 `docker run -d -p 8000:8000 -t smartiniatdocker09/fastify-example:latest-alpine`
