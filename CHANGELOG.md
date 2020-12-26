@@ -1,6 +1,6 @@
 # Change Log
 
-## [2.6.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.1) (unreleased)
+## [2.6.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.1) (2020-12-26)
 Summary Changelog:
 - General: update all dependencies
 - General: update requirements to latest Fastify 2.x release ('^2.15.3' or later)
