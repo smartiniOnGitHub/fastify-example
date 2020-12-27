@@ -430,5 +430,30 @@ module.exports.compareProperties = function (key, order = 'asc') {
   }
 }
 
+// const exec = util.promisify(require('child_process').exec) // provided by Node.js
+const execFile = util.promisify(require('child_process').execFile) // provided by Node.js
+
+module.exports.gitVersion = async function () {
+  const { stdout, stderr } = await execFile('git', ['version'])
+    // .catch(e => console.error('Error: ', e.message)) // log some error info here
+    // otherwise, do the same in callers (a catch for each promise, or wrap in a try/catch block) ...
+  return stdout.replace('\n', '')
+}
+
+module.exports.gitBranch = async function () {
+  const { stdout, stderr } = await execFile('git', ['branch'])
+  return stdout.substring(2).replace('\n', '')
+}
+
+module.exports.gitHashFull = async function () {
+  const { stdout, stderr } = await execFile('git', ['rev-parse', 'HEAD'])
+  return stdout.replace('\n', '')
+}
+
+module.exports.gitHashShort = async function () {
+  const { stdout, stderr } = await execFile('git', ['rev-parse', '--short', 'HEAD'])
+  return stdout.replace('\n', '')
+}
+
 // export main object
 // module.exports.utils = utils
