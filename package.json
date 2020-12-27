@@ -1,6 +1,6 @@
 {
   "name": "fastify-example",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
