@@ -42,7 +42,8 @@ const sampleRoutes = [
   { link: 'time', url: '/time', description: 'Sample API call that returns the current server time, as timestamp and in ISO format (async)' },
   { link: 'error', url: '/error', description: 'Sample route that always returns an error (async)' },
   { link: 'template', url: '/template', description: 'Sample EJS template page' },
-  { link: 'version', url: '/version', description: 'Show some info about package version etc (async)' }
+  { link: 'app', url: '/info/app', description: 'Show some info about application package version etc (async)' },
+  { link: 'scm', url: '/info/scm', description: 'Show some info about source control system (if any): branch, commit hash, version, etc (async)' }
   // ].sort((a, b) => a.link.localeCompare(b.link))
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 // manually define the list of some routes exposed by some loaded plugins
@@ -109,32 +110,36 @@ function routes (fastify, options = {}) {
     return err
   })
   // example route to return some info on current package/version, in async way
-  fastify.get('/version', async (request, reply) => {
-    // check git related data by executing it
-    let scm = {}
-    try { // simpler, catch errors from all promises via try/catch in callers ...
-      // scm.description = await utils.gitVersion().catch(e => fastify.log.error('Error: ', e.message)), // sample catch for error in a single promise
-      scm.description = await utils.gitVersion(),
-      scm.branch = await utils.gitBranch(),
-      scm.hashShort = await utils.gitHashShort(),
-      scm.hashFull = await utils.gitHashFull()
-    } catch(e) {
-      fastify.log.error(e)
-      scm = undefined // empty scm object, to remove from returned values
-    }
-
+  fastify.get('/info/app', async (request, reply) => {
     return {
       app: {
         env: utils.fromEnv('ENVIRONMENT'),
         frameworkVersion: k.fastifyVersion,
         name: k.packageName,
-        version: k.packageVersion,
-      }, 
-      scm, 
+        version: k.packageVersion
+      },
       runtime: {
         mode: utils.currentEnv()
       }
     }
+  })
+  // example route to return some info on current scm (if available), in async way
+  fastify.get('/info/scm', async (request, reply) => {
+    // check git related data by executing it
+    const scm = {}
+    try { // simpler, catch errors from all promises via try/catch in callers ...
+      // scm.description = await utils.gitVersion().catch(e => fastify.log.error('Error: ', e.message)), // sample catch for error in a single promise
+      scm.description = await utils.gitVersion()
+      scm.branch = await utils.gitBranch()
+      scm.hashShort = await utils.gitHashShort()
+      scm.hashFull = await utils.gitHashFull()
+    } catch (e) {
+      fastify.log.error(e)
+      // scm = undefined // empty scm object, to remove from returned values
+      // async functions must always return a result, pay attention ...
+    }
+
+    return scm
   })
 }
 

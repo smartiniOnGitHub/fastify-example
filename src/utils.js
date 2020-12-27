@@ -435,8 +435,8 @@ const execFile = util.promisify(require('child_process').execFile) // provided b
 
 module.exports.gitVersion = async function () {
   const { stdout, stderr } = await execFile('git', ['version'])
-    // .catch(e => console.error('Error: ', e.message)) // log some error info here
-    // otherwise, do the same in callers (a catch for each promise, or wrap in a try/catch block) ...
+  // const { stdout, stderr } = await execFile('git', ['version']).catch(e => console.error('Error: ', e.message)) // log some error info here
+  // otherwise, do the same in callers (a catch for each promise, or wrap in a try/catch block) ...
   return stdout.replace('\n', '')
 }
 

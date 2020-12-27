@@ -1,5 +1,11 @@
 # Change Log
 
+## [2.7.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.7.0) (unreleased)
+Summary Changelog:
+- General: update all dependencies
+- Feature: add sample route to show some application info at '/info/app'
+- Feature: add sample route to show some source control management system info (if any) at '/info/scm'
+
 ## [2.6.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.1) (2020-12-26)
 Summary Changelog:
 - General: update all dependencies
