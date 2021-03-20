@@ -31,7 +31,9 @@
     "docker:stop": "docker kill fastify-example",
     "docker:clean": "docker rmi fastify-example",
     "healthcheck-manual": "node node_modules/fastify-healthcheck/src/healthcheck http://localhost:8000/health",
-    "lint": "standard \"./src/**/*.js\" \"./test/**/*.test.js\"",
+    "lint": "npm run lint:standard",
+    "lint:fix": "standard --fix",
+    "lint:standard": "standard --verbose",
     "lint:log": "npm run lint > ./temp/lint-standard.log",
     "license-check": "npx legally",
     "license-check:log": "npx legally | tee ./temp/license-check.log",
@@ -40,6 +42,7 @@
     "license-checker-check-allowed": "npx license-checker --production --onlyAllow='Apache-2.0;BSD-2-Clause;BSD-3-Clause;MIT;ISC;Artistic-2.0'",
     "license-checker-check-allowed:log": "npm run license-checker-check-allowed | tee ./temp/license-checker-check-allowed.log",
     "pretest": "",
+    "test:clean": "rm -rf .nyc_output/* ./coverage/*",
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",
     "test:unit": "tap -J --comments --no-esm --strict test/*.test.js",
@@ -67,7 +70,7 @@
     "is-docker": "^2.1.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.439.3"
+    "snyk": "^1.502.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
