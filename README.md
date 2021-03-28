@@ -79,6 +79,15 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 Fastify ^2.15.3, Node.js 10 LTS (10.13.0) or later.
 
 
+## Sources
+
+Source code is all inside main repo:
+[fastify-example](https://github.com/smartiniOnGitHub/fastify-example).
+
+Documentation generated from source code (API):
+[here](https://smartiniongithub.github.io/fastify-example/).
+
+
 ## Note
 
 Some features can be configured via environment variables; 

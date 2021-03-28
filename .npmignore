@@ -4,6 +4,7 @@
 .cache
 .metadata
 .settings
+.idea
 
 _old/
 build/
@@ -18,12 +19,10 @@ temp/
 coverage/
 .nyc_output
 
-.clinic
-
 scripts/
 src/
 test/
-example/
+# example/
 
 *.zip
 *.tar
@@ -33,11 +32,14 @@ example/
 .env
 .envrc
 .babelrc
+.clinic
+.dependabot
 .eslintignore
 .eslintrc*
 .eslintcache
 .esdoc.json
 .yarn-integrity
+.taprc
 
 .editorconfig
 .gitattributes
@@ -45,11 +47,12 @@ example/
 
 gulpfile.*
 jsdoc-conf.*
+.jsdoc.json
 
 jenkins.sh
 tslint.json
 
-*.log*
+*.log
 
 TODO.*
 BUILD.md
