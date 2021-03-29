@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: use the new release of 'fastify-cloudevents' aligned with v1.0.1 of the spec, and aligned with latest changes of Fastify 2.15.3 or higher (but 2.x); and update all accordingly ... test all now (without and with NATS client enabled) ... wip
 * [x] content: expose a uri '/info/general' (or at least '/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, process uptime, Node.js environment, etc), OS (name, release, env vars, etc), frameworks (release, list of plugins loaded if available, etc); of course this would expose important info, so in a real world app at least protect this with authentication (and an high profile role to show those info) ... do it with all code here (to move when stable in a new plugin) with a feature flag by default enabled; then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env' ... and later expose only to authenticate users, so could be mapped to '/private/info' or similar ... wip
 * [x] general: add Fastify plugin [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit), and use it (with different, lower values) for some of new routes implemented in this release; disable it with a dedicated feature flag (and ensure when disabled that all works as before) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
@@ -371,6 +370,7 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] general: add TAP config file ('.taprc') and simplify related npm custom commands ... ok
 * [x] general: check if remove 'simple-get' and use 'undici' instead ... maybe later
 * [x] general: generate sources documentation with JSDoc, then add npm custom command to generate docs, but here not in the folder 'docs/' (already existing and with other content, but in the 'out/' folder (already excluded from version control) ... removed ESDoc config file (no more useful), '.esdoc.json' and added the one for JSDoc, '.jsdoc.json' ... ok, all done
+* [x] general: use the new release of 'fastify-cloudevents' aligned with v1.0.1 of the spec, and aligned with latest changes of Fastify 2.15.3 or higher (but 2.x); and update all accordingly ... test all now (without and with NATS client enabled) ... ok, all works as before
 
 
 ---------------
