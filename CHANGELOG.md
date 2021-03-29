@@ -5,6 +5,8 @@ Summary Changelog:
 - General: update all dependencies
 - Feature: add sample route to show some application info at '/info/app'
 - Feature: add sample route to show some source control management system info (if any) at '/info/scm'
+- Use the new release of 'fastify-cloudevents' aligned with v1.0.1 of the spec
+- Small other improvements
 
 ## [2.6.1](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.6.1) (2020-12-26)
 Summary Changelog:
