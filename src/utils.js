@@ -341,6 +341,11 @@ module.exports.platformName = function () {
   return process.platform || 'unknown'
 }
 
+// returns the current process uptime (in sec)
+module.exports.uptime = function () {
+  return process.uptime() || 'unknown'
+}
+
 // log to console
 module.exports.logToConsole = function (msg) {
   console.log(msg)
@@ -403,7 +408,7 @@ module.exports.dumpObject = function (obj, opts) {
   return val
 }
 
-// TODO: add a specific function to log dumpObject using app logger ... wip
+// later add a specific function to log dumpObject using app logger
 
 // resolve the given value (generic, by default 0), after the number of given seconds (by default 1), returning a Promise
 // use it with the async / await syntax (recommended)
