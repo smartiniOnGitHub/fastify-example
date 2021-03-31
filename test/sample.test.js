@@ -49,8 +49,8 @@ test('util, string empty or not', (t) => {
   // const util = require('../src/utils.js')  // forbidden by my ESLint rules (at the moment), and best practice
   const util = utilModule
 
-  t.strictEqual(utilModule.isStringEmpty('not empty'), false)
-  t.strictEqual(utilModule.isStringEmpty(''), true)
+  t.equal(utilModule.isStringEmpty('not empty'), false)
+  t.equal(utilModule.isStringEmpty(''), true)
 })
 
 // etc ...

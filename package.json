@@ -73,7 +73,7 @@
     "is-docker": "^2.1.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.511.0"
+    "snyk": "^1.520.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -81,7 +81,7 @@
     "nodemon": "^2.0.7",
     "standard": "^16.0.3",
     "simple-get": "^4.0.0",
-    "tap": "^14.11.0"
+    "tap": "^15.0.0"
   },
   "peerDependencies": {},
   "engines": {

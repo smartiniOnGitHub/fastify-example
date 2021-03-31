@@ -131,7 +131,7 @@ function routes (fastify, options = {}) {
   // this exposes sensitive information (for security), in a real app protect it
   fastify.get('/info/scm', async (request, reply) => {
     // check git related data by executing it
-  const scm = {}
+    const scm = {}
     try {
       // scm.description = await utils.gitVersion().catch(e => fastify.log.error('Error: ', e.message)), // sample catch for error in a single promise
       // simpler, catch errors from all promises via try/catch in callers ...
