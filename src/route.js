@@ -117,13 +117,18 @@ function routes (fastify, options = {}) {
   fastify.get('/info/app', async (request, reply) => {
     return {
       app: {
-        env: utils.fromEnv('ENVIRONMENT'),
+        environment: utils.fromEnv('ENVIRONMENT'),
         frameworkVersion: k.fastifyVersion,
         name: k.packageName,
         version: k.packageVersion
       },
       runtime: {
-        mode: utils.currentEnv()
+        platform: utils.platformName(),
+        nodejs: utils.runtimeVersion(),
+        mode: utils.currentEnv(),
+        pid: utils.pid(),
+        uptime: utils.uptimeProcess(),
+        memory_free: utils.osMemoryFree()
       }
     }
   })
@@ -151,10 +156,14 @@ function routes (fastify, options = {}) {
   fastify.get('/info/os', async (request, reply) => {
     const os = {}
     try {
-      os.os = utils.platformName()
-      os.nodejs = utils.runtimeVersion()
-      os.uptime = utils.uptime()
-      // TODO: check if add even all environment variables ... wip
+      os.platform = utils.osPlatform()
+      os.version = utils.osVersion()
+      os.arch = utils.osArch()
+      os.cpu_cores = utils.osCPU().length
+      os.memory = utils.osMemoryTotal()
+      os.host = utils.osHost()
+      os.uptime = utils.osUptime()
+      // os.env = utils.envVars() // too many sensitive info here, enable if/when needed
     } catch (e) {
       fastify.log.error(e)
     }

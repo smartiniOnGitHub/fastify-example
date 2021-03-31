@@ -311,10 +311,11 @@ module.exports.userLocale = function () {
   if (window && window.navigator && window.navigator.languages) { return window.navigator.languages[0] } else { return null }
 }
 
-const NODE_ENV = process.env
+// const process = require('process') // provided by Node.js // implicitly available
+
 // returns the given variable name from the Node.js environment
 module.exports.fromEnv = function (varName) {
-  return NODE_ENV[varName]
+  return process.env[varName]
 }
 // returns the current Node.js environment
 module.exports.currentEnv = function () {
@@ -336,14 +337,66 @@ module.exports.isEnvNotProduction = function () {
 module.exports.runtimeVersion = function () {
   return process.version || 'unknown'
 }
-// returns the current Platform/OS name
+// returns the current Platform name for the process
 module.exports.platformName = function () {
   return process.platform || 'unknown'
 }
 
 // returns the current process uptime (in sec)
-module.exports.uptime = function () {
-  return process.uptime() || 'unknown'
+module.exports.uptimeProcess = function () {
+  return process.uptime() || 0.0
+}
+
+// returns the current process id (pid)
+module.exports.pid = function () {
+  return process.pid || 0
+}
+
+// returns the current environment variables
+module.exports.envVars = function () {
+  return process.env || {}
+}
+
+const os = require('os') // provided by Node.js
+
+// returns the current host uptime (in sec)
+module.exports.osUptime = function () {
+  return os.uptime() || 0
+}
+
+// returns the Platform name of the OS
+module.exports.osPlatform = function () {
+  return os.platform() || 'unknown'
+}
+
+// returns the Architecture name of the OS
+module.exports.osArch = function () {
+  return os.arch() || 'unknown'
+}
+
+// returns detailed CPU info (about core/s) from the OS
+module.exports.osCPU = function () {
+  return os.cpus() || []
+}
+
+// returns the Version of the OS
+module.exports.osVersion = function () {
+  return os.release() || 'unknown'
+}
+
+// returns the Host name, from the OS
+module.exports.osHost = function () {
+  return os.hostname() || 'unknown'
+}
+
+// returns the total memory available, from the OS
+module.exports.osMemoryTotal = function () {
+  return os.totalmem() || 0
+}
+
+// returns the free memory available, from the OS
+module.exports.osMemoryFree = function () {
+  return os.freemem() || 0
 }
 
 // log to console
