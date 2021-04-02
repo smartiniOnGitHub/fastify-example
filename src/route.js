@@ -41,12 +41,8 @@ const { publish, subscribe } = require('./pubsub')
 const sampleRoutes = [
   { link: 'time', url: '/time', description: 'Sample API call that returns the current server time, as timestamp and in ISO format (async)' },
   { link: 'error', url: '/error', description: 'Sample route that always returns an error (async)' },
-  { link: 'template', url: '/template', description: 'Sample EJS template page' },
-  { link: 'info:app', url: '/info/app', description: 'Show some info about application package version etc (async)' },
-  { link: 'info:scm', url: '/info/scm', description: 'Show some info about source control system (if any): branch, commit hash, version, etc (async)' },
-  { link: 'info:os', url: '/info/os', description: 'Show some info about operating system (async)' },
-  { link: 'info:all', url: '/info/all', description: 'Show all info (async)' }
-// ].sort((a, b) => a.link.localeCompare(b.link))
+  { link: 'template', url: '/template', description: 'Sample EJS template page' }
+  // ].sort((a, b) => a.link.localeCompare(b.link))
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 // manually define the list of some routes exposed by some loaded plugins
 const pluginRoutes = [
@@ -111,65 +107,9 @@ function routes (fastify, options = {}) {
     )
     return err
   })
-  // example route to return some info on current package/version, in async way
-  // this exposes even framework version, which is a sensitive information (for security),
-  // so in a real app protect it or remove from here, or send when related config flag is not disabled
-  fastify.get('/info/app', async (request, reply) => {
-    return {
-      app: {
-        environment: utils.fromEnv('ENVIRONMENT'),
-        frameworkVersion: k.fastifyVersion,
-        name: k.packageName,
-        version: k.packageVersion
-      },
-      runtime: {
-        platform: utils.platformName(),
-        nodejs: utils.runtimeVersion(),
-        mode: utils.currentEnv(),
-        pid: utils.pid(),
-        uptime: utils.uptimeProcess(),
-        memory_free: utils.osMemoryFree()
-      }
-    }
-  })
-  // example route to return some info on current scm (if available), in async way
-  // this exposes sensitive information (for security), in a real app protect it
-  fastify.get('/info/scm', async (request, reply) => {
-    // check git related data by executing it
-    const scm = {}
-    try {
-      // scm.description = await utils.gitVersion().catch(e => fastify.log.error('Error: ', e.message)), // sample catch for error in a single promise
-      // simpler, catch errors from all promises via try/catch in callers ...
-      scm.description = await utils.gitVersion()
-      scm.branch = await utils.gitBranch()
-      scm.hashShort = await utils.gitHashShort()
-      scm.hashFull = await utils.gitHashFull()
-    } catch (e) {
-      fastify.log.error(e)
-      // scm = undefined // empty scm object, to remove from returned values
-      // async functions must always return a result, pay attention ...
-    }
-    return scm
-  })
-  // example route to return some info on the operating system (os), in async way
-  // this exposes sensitive information (for security), in a real app protect it
-  fastify.get('/info/os', async (request, reply) => {
-    const os = {}
-    try {
-      os.platform = utils.osPlatform()
-      os.version = utils.osVersion()
-      os.arch = utils.osArch()
-      os.cpu_cores = utils.osCPU().length
-      os.memory = utils.osMemoryTotal()
-      os.host = utils.osHost()
-      os.uptime = utils.osUptime()
-      // os.env = utils.envVars() // too many sensitive info here, enable if/when needed
-    } catch (e) {
-      fastify.log.error(e)
-    }
-    return os
-  })
-  // TODO: add a route handler for '/info/all' and call same logic (to refactor in a dedicated source) ... wip
+
+  // add other (related) routes from a dedicated source, as a sample
+  require('./route-info')(fastify, { routesList: sampleRoutes })
 }
 
 module.exports = routes
