@@ -85,7 +85,7 @@ fastify.ready(() => {
   if (utils.isEnvProduction()) {
     fastify.log.info(`${msgPrintRoutesStart}, disabled in a production environment`)
   } else {
-    const routes = fastify.printRoutes()
+    const routes = fastify.printRoutes({ commonPrefix: false })
     const msgPrintRoutesFull = `${msgPrintRoutesStart}, only for non production environments\n${routes}`
     fastify.log.info(msgPrintRoutesFull)
     // note that in this case it would be better to log to console (for a better formatting), for example with:

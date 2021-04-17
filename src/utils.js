@@ -30,7 +30,6 @@ module.exports.clearConsole = function () {
   if (console.clear) { console.clear() }
 }
 module.exports.normalizeData = function (data, asArray) {
-  // console.debug('normalizeData' + ': data is not null: ' + (data != null))
   if (data != null) { return data } else {
     if (data instanceof Array || asArray) { return [] } else { return {} }
   }
@@ -63,7 +62,6 @@ module.exports.isUndefined = function (o) {
 }
 module.exports.isNull = function (o) {
   return (o === null)
-  // return (o !== undefined && o === null)
 }
 module.exports.isNotNull = function (o) {
   return (o !== null)
@@ -85,11 +83,9 @@ module.exports.isUndefinedOrNullArrayItem = function (a) {
   }
 }
 module.exports.isFunction = function (f) {
-  // return (f !== undefined && typeof f === 'function')
   return (typeof f === 'function')
 }
 module.exports.isArray = function (o) {
-  // return o instanceof Array
   return (Array.isArray(o))
 }
 module.exports.isBoolean = function (o) {
@@ -100,19 +96,12 @@ module.exports.isNumber = function (o) {
 }
 module.exports.isDate = function (o) {
   return (typeof o === 'object' || o instanceof Date)
-  // return (o instanceof Date)
-  // return (this.getTypeFromPrototype(o) === 'Date')
-  // return (this.getTypeFromConstructor(o) === 'Date')
 }
 
 module.exports.isValidDate = function (d) {
   return (this.isDate(d) && !isNaN(d))
 }
-module.exports.isValidDateFromString = function (str) {
-  return (this.createDateFromString(str) != null)
-}
 module.exports.isString = function (o) {
-  // return (typeof(o) === 'string' || o instanceof String)
   return (typeof (o) === 'string')
 }
 module.exports.isNullOrEmpty = function (o) {
@@ -120,7 +109,6 @@ module.exports.isNullOrEmpty = function (o) {
 }
 module.exports.isRegExp = function (o) {
   return (typeof o === 'object' && o instanceof RegExp)
-  // return (o && typeof o === 'object' && o.constructor === RegExp)
 }
 module.exports.isMap = function (o) { // ES6 Maps
   return (o instanceof Map || o instanceof WeakMap)
@@ -133,9 +121,8 @@ module.exports.isSymbol = function (o) { // ES6 Symbols
 }
 module.exports.isObject = function (o) {
   return (typeof o === 'object')
-  // return (o && typeof o === 'object' && o.constructor === Object)
 }
-module.isError = function (o) {
+module.exports.isError = function (o) {
   return (o instanceof Error && typeof o.message !== 'undefined')
 }
 module.exports.objectOwnPropertiesNames = function (obj) {
@@ -147,7 +134,6 @@ module.exports.objectOwnPropertiesList = function (obj) {
   const values = []
   for (const prop in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-      // console.debug('obj.' + prop + ' = ' + obj[prop])
       values.push(prop)
     }
   }
@@ -169,7 +155,8 @@ module.exports.isEmpty = function (obj) {
   if (this.isUndefinedOrNull(obj)) { return true }
   if (this.isArray(obj) || this.isString(obj)) { return obj.length === 0 }
   if (this.isMap(obj) || this.isSet(obj)) { return obj.size === 0 }
-  if (this.isObject(obj)) { return this.isObjectEmpty(obj) }
+  if (this.isObject(obj)) { return this.objectOwnPropertiesNames(obj).length === 0 }
+  return false
 }
 module.exports.isStringFalse = function (obj) {
   return (this.isString(obj) && ['false', 'f', 'no', 'n', '0'].indexOf(obj.toLowerCase()) > -1)
@@ -275,7 +262,6 @@ module.exports.isErrorAvailable = function () {
 }
 
 module.exports.throwError = function (msg) { // note that msg could be a string or an Error, or another Object ...
-  // throw new Error(msg)
   if (this.isErrorAvailable()) { throw new Error(msg) } else { throw msg } // fallback
 }
 module.exports.errorNotImplemented = function () {
@@ -285,7 +271,7 @@ module.exports.errorNotCallable = function () {
   this.throwError('Not Callable (abstract, implement it in childs)')
 }
 module.exports.logDebugMessage = function (message) {
-  if (!this.isEnvironmentDevelopment) { return }
+  if (!this.isEnvDevelopment) { return }
   // else ...
   const msg = this.name + ': ' + ((message != null) ? message : '')
   console.debug(msg)
@@ -313,7 +299,7 @@ module.exports.userLocale = function () {
 
 // const process = require('process') // provided by Node.js // implicitly available
 
-// returns the given variable name from the Node.js environment
+// returns the value of the given variable name from the Node.js environment
 module.exports.fromEnv = function (varName) {
   return process.env[varName]
 }
