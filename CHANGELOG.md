@@ -3,6 +3,7 @@
 ## [2.7.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.7.0) (unreleased)
 Summary Changelog:
 - General: update all dependencies
+- General: update my plugins to latest version
 - Feature: add sample route to show some application info at '/info/app'
 - Feature: add sample route to show some source control management system info (if any) at '/info/scm'
 - Use the new release of 'fastify-cloudevents' aligned with v1.0.1 of the spec

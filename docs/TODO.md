@@ -8,6 +8,7 @@
 * [x] general: update CHANGELOG, tag sources, and publish current release ... ok
 
 * [x] general: update all dependencies to latest ... wip
+* [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
 
@@ -18,6 +19,7 @@
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
 
 * [ ] general: update requirements to Node.js 12 LTS (12.13.0), to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ... better, do it when previous LTS (10) goes out of active support; in the meantime update Docker images to use that newer version (better suited for usage in containers) ... see [The Difference Between Node.js 10 LTS and Node.js 12 LTS - Node.js Blog](https://nodejs.org/en/blog/uncategorized/10-lts-to-12-lts/) for relevant changes ...
+* [ ] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ...
 * [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/); otherwise wait and use Node.js 14 LTS ...
 * [ ] general: after upgrading to Node.js 12.x LTS, check if expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places; but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ...
 
