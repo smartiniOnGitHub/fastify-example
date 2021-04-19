@@ -35,31 +35,20 @@ function routes (fastify, { routesList = [] } = {}) {
   // the code called function inside the helper function is wrapped in a try/catch
   fastify.get('/info/app', async (request, reply) => {
     const app = infoAPP() || {}
-    if (app.err !== undefined && app.err !== null) {
-      return app.err
-    } else {
-      return app.data || {}
-    }
+    // return utils.getFromEither(app, { throwOnError: true, value: {} })
+    return utils.getFromEither(app)
   })
   // example route to return some info on current scm (if available), in async way
   // this exposes sensitive information (for security), in a real app protect it
   fastify.get('/info/scm', async (request, reply) => {
     const scm = await infoSCM() || {}
-    if (scm.err !== undefined && scm.err !== null) {
-      return scm.err
-    } else {
-      return scm.data || {}
-    }
+    return utils.getFromEither(scm)
   })
   // example route to return some info on the operating system (os), in async way
   // this exposes sensitive information (for security), in a real app protect it
   fastify.get('/info/os', async (request, reply) => {
     const os = infoOS() || {}
-    if (os.err !== undefined && os.err !== null) {
-      return os.err
-    } else {
-      return os.data || {}
-    }
+    return utils.getFromEither(os)
   })
   // example route to return some info (gruping other info results), in async way
   // this exposes sensitive information (for security), in a real app protect it

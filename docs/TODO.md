@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] content: refactor 'route-info' source to simplify the usage of the either return value from helper functions, and related creation and data extraction; but do not create a class for Either here (maybe later) ... wip
 * [x] content: update source docs, then re-generate it ... wip
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip
 * [x] general: update CHANGELOG, tag sources, and publish current release ... ok
@@ -381,6 +380,7 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] general: add Fastify plugin [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit), and use it (with different, lower values) for some of new routes implemented in this release; disable it with a dedicated feature flag (and ensure when disabled that all works as before) ... maybe later
 * [x] content: expose a uri '/info/all' (or '/info/general', or at least '/info') for an api that returns some info on the current process grouped by type, like: process (pid, hostname, Node.js version, process uptime, Node.js environment, etc), OS (name, release, host uptime, maybe even env vars, etc), frameworks (release, list of plugins loaded if available, etc); of course this would expose important info, so in a real app at least protect this with authentication/token and maybe a filter on source CIDR (IP/mask) and an high profile role to show those info ... do it with all code here (to move later in a new plugin, with a feature flag by default enabled); then check if/what move into my library 'check-runtime-env' and related plugin 'fastify-check-runtime-env'; later expose only to authenticate users, so could be mapped to '/private/info' or similar ... ok, moved all related to info routes in its own source ('route-info')
 * [x] content: refactor the logic used by all info routes, to simplify reuse ... ok, performed a refactor of logic in private helper functions; then, to ensure async routes always return a value, I wrapped the code inside helper functions in a try/catch block, and decided to return an object, as either: `{ err , data }` where only the first or the second item is not null
+* [x] content: refactor 'route-info' source to simplify the usage of the either return value from helper functions, and related creation and data extraction; but do not create a class for Either here (maybe later) ... ok, created an utility function 'getFromEither' in the 'utils' source
 
 
 ---------------
