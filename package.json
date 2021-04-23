@@ -48,6 +48,7 @@
     "test:clean": "rm -rf .nyc_output/* ./coverage/*",
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",
+    "test:dev": "npm run test:clean && npm run test:unit:dev",
     "test:unit": "tap -J test/*.test.js",
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
     "test:unit:debug": "tap -T --node-arg=--inspect-brk test/*.test.js",
@@ -73,7 +74,7 @@
     "is-docker": "^2.2.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.550.0"
+    "snyk": "^1.563.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -81,7 +82,7 @@
     "nodemon": "^2.0.7",
     "standard": "^16.0.3",
     "simple-get": "^4.0.0",
-    "tap": "^15.0.2"
+    "tap": "^15.0.4"
   },
   "peerDependencies": {},
   "engines": {
