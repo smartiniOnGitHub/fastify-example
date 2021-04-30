@@ -2,8 +2,10 @@
 
 ## TODO
 
-* [x] general: bump new release (just started) ... wip
-* [x] general: update all dependencies to latest ... wip
+* [x] general: bump new release (just started) ... ok
+* [x] general: check if use [Prisma](https://www.prisma.io/) to manage persistence to/from databases ... maybe later (even if it seems very interesting), but mainly to keep this example self-contained and simple
+* [x] general: check if implement some best practices to secure code execution here, as seen [here](https://snyk.io/blog/5-ways-to-prevent-code-injection-in-javascript-and-node-js/), even by using [eslint-plugin-security-node - npmjs](https://www.npmjs.com/package/eslint-plugin-security-node) ... maybe later, because here I'm using StandardJS and not ESLint directly
+* [x] general: update all dependencies to latest ... ok
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... wip
 * [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... wip
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip

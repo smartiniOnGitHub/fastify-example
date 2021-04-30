@@ -1,6 +1,6 @@
 {
   "name": "fastify-example",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
@@ -74,7 +74,7 @@
     "is-docker": "^2.2.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.563.0"
+    "snyk": "^1.574.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -82,7 +82,7 @@
     "nodemon": "^2.0.7",
     "standard": "^16.0.3",
     "simple-get": "^4.0.0",
-    "tap": "^15.0.4"
+    "tap": "^15.0.6"
   },
   "peerDependencies": {},
   "engines": {

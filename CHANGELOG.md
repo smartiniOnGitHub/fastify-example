@@ -1,5 +1,9 @@
 # Change Log
 
+## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (unreleased)
+Summary Changelog:
+- General: update all dependencies
+
 ## [2.7.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.7.0) (2021-04-19)
 Summary Changelog:
 - General: update all dependencies
