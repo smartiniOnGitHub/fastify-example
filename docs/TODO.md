@@ -2,10 +2,6 @@
 
 ## TODO
 
-* [x] general: bump new release (just started) ... ok
-* [x] general: check if use [Prisma](https://www.prisma.io/) to manage persistence to/from databases ... maybe later (even if it seems very interesting), but mainly to keep this example self-contained and simple
-* [x] general: check if implement some best practices to secure code execution here, as seen [here](https://snyk.io/blog/5-ways-to-prevent-code-injection-in-javascript-and-node-js/), even by using [eslint-plugin-security-node - npmjs](https://www.npmjs.com/package/eslint-plugin-security-node) ... maybe later, because here I'm using StandardJS and not ESLint directly
-* [x] general: update all dependencies to latest ... ok
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... wip
 * [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... wip
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip
@@ -19,10 +15,9 @@
 * [x] content: cleanup code related to the info uri ('/info/all', '/info/app', '/info/scm', '/info/os') by moving in a related plugin, and use it from here in the simple way; but add a feature flag to enable them ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
 
-* [ ] general: update requirements to Node.js 12 LTS (12.13.0), to be able to use all the new (great) stuff like Class properties (public and private) etc; note that since 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ... better, do it when previous LTS (10) goes out of active support; in the meantime update Docker images to use that newer version (better suited for usage in containers) ... see [The Difference Between Node.js 10 LTS and Node.js 12 LTS - Node.js Blog](https://nodejs.org/en/blog/uncategorized/10-lts-to-12-lts/) for relevant changes ...
+* [ ] general: update syntax to Node.js 12 LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc ...
 * [ ] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ...
-* [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/); otherwise wait and use Node.js 14 LTS ...
-* [ ] general: after upgrading to Node.js 12.x LTS, check if expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places; but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ...
+* [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/); otherwise (bertter) wait and use Node.js 14 LTS ...
 
 * [ ] general: create a maintenance branch '2.x' for Fastify 2.x ...
 * [ ] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
@@ -33,7 +28,9 @@
 * [ ] content cleanup/update to latest standards my custom styles ...
 * [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
 
-* [ ] general: update requirements to Node.js 14 LTS (14.15.0), to be able to use all the new (great) stuff like ES Modules directly, etc; and change all the code accordingly ... as a sample take this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ...
+* [ ] general: later update to Node.js 14 LTS (14.15.0) and so output ES2020/ES11 or ES2021/ES12 ...
+* [ ] general: update requirements to Node.js 14 LTS, to be able to use all the new (great) stuff like ES Modules directly, etc; and change all the code accordingly ... as a sample take this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ...
+* [ ] general: after upgrading to Node.js 14.x LTS, check if expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places, like this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101); but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ...
 
 
 ---------------
@@ -385,6 +382,13 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] content: refactor 'route-info' source to simplify the usage of the either return value from helper functions, and related creation and data extraction; but do not create a class for Either here (maybe later) ... ok, created an utility function 'getFromEither' in the 'utils' source
 * [x] content: update source docs, then re-generate it ... ok but here it doesn't generate so much docs (too few comments in sources currently)
 * [x] general: update CHANGELOG, tag sources, and publish current release ... ok
+
+* [x] general: bump new release (just started) ... ok
+* [x] general: check if use [Prisma](https://www.prisma.io/) to manage persistence to/from databases ... maybe later (even if it seems very interesting), but mainly to keep this example self-contained and simple
+* [x] general: check if implement some best practices to secure code execution here, as seen [here](https://snyk.io/blog/5-ways-to-prevent-code-injection-in-javascript-and-node-js/), even by using [eslint-plugin-security-node - npmjs](https://www.npmjs.com/package/eslint-plugin-security-node) ... maybe later, because here I'm using StandardJS and not ESLint directly
+* [x] general: update all dependencies to latest ... ok
+* [x] general: since Node.js 12.7.0 it's possible to let it be aware of resource limit when running inside a Container ... better, do it when previous LTS (10) goes out of active support; in the meantime update Docker images to use that newer version (better suited for usage in containers) ... see [The Difference Between Node.js 10 LTS and Node.js 12 LTS - Node.js Blog](https://nodejs.org/en/blog/uncategorized/10-lts-to-12-lts/) for relevant changes ... ok
+* [x] general: since 01 May 2021, Node.js 10 is in End-of-Life (EoL), so now update requirements to Node.js 12 LTS (12.13.0) and so output ES2019/ES10 or ES2020/ES11 ... ok; as a reference, if/when using TypeScript here, as seen at [Recommended Node TSConfig settings - TypeScript wiki](https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping), [here](https://stackoverflow.com/questions/59787574/typescript-tsconfig-settings-for-node-js-12), etc, set target output to ES2019 and target library as ES2020 because not syntax but many functions of it are already implemented since that version; for now keep commonjs modules
 
 
 ---------------

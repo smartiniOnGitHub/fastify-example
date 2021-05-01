@@ -3,6 +3,9 @@
 ## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (unreleased)
 Summary Changelog:
 - General: update all dependencies
+- General: Node.js 10 now is in End-of-Life (EoL), 
+  so update requirements to Node.js 12 LTS (12.13.0) 
+  to use ES2019/ES10 and some stuff even from ES2020/ES11 (but not as syntax)
 
 ## [2.7.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.7.0) (2021-04-19)
 Summary Changelog:
