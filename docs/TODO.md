@@ -8,6 +8,7 @@
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
+* [x] general: to improve interaction with ES Modules (ESM), look even [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) ... wip
 
 * [x] general: update all dependencies to latest ... wip
 * [x] general: define json schema for all exposed endpoints here, as seen in [Validation-and-Serialization - Fastify](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md), useful even to improve performances ... wip
