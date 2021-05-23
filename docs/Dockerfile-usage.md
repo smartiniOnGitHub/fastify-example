@@ -11,7 +11,7 @@ Note that by default no user is able to run Docker commands without 'sudo', unle
 
 ### Build
 
-- to build the image: `docker build -t test-webapp`.
+- to build the image: `docker build -t test-webapp .`
 - to inspect image (for check contents, etc): `docker exec -it test-webapp /bin/bash`
 - to install dependencies (if not already installed during the build): `docker run -t test-webapp npm install`
 - to install dependencies (if not already installed during the build) for production environment: `docker run -t test-webapp npm install --only=production`
