@@ -2,6 +2,7 @@
 
 ## TODO
 
+* [x] general: add on 'Open in VS Code' badge in the README, as seen [here](https://code.visualstudio.com/updates/v1_58#_open-in-vs-code-badge) ... wip
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... wip
 * [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... wip
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip
@@ -392,6 +393,8 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] general: since 01 May 2021, Node.js 10 is in End-of-Life (EoL), so now update requirements to Node.js 12 LTS (12.13.0) and so output ES2019/ES10 or ES2020/ES11 ... ok; as a reference, if/when using TypeScript here, as seen at [Recommended Node TSConfig settings - TypeScript wiki](https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping), [here](https://stackoverflow.com/questions/59787574/typescript-tsconfig-settings-for-node-js-12), etc, set target output to ES2019 and target library as ES2020 because not syntax but many functions of it are already implemented since that version; for now keep commonjs modules
 * [x] general: for some general info and examples about JWT, JWT Authentication using Node.js (so at server side), look even: [here](https://www.youtube.com/watch?v=7Q17ubqLfaM), [here](https://www.youtube.com/watch?v=mbsmsi7l3r4) with related repo [here](https://github.com/WebDevSimplified/JWT-Authentication), [here](https://www.youtube.com/watch?v=Ud5xKCYQTjM), etc ... ok; for info about how to manage user roles in Node.js (so at server side), look even [here](https://www.youtube.com/watch?v=jI4K7L-LI58), etc
 * [x] general: to simplify manual use/debug of API in the DEV environment, if using Visual Studio Code (VSCode), install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension, and write API calls in one or more files '.http' or '.rest', then execute related callas directly from that file (open in the editor) and maybe save results, use/convert in cURL format, etc ... ok, very useful; see an example usage even [here](https://blog.bitsrc.io/vs-codes-rest-client-plugin-is-all-you-need-to-make-api-calls-e9e95fcfd85a); of course related files should be added to version control, but excluded from packaging
+* [x] general: check if publish this app at [Heroku](https://www.heroku.com/) but using Docker containers, some info even [here](https://dev.to/analythium/deploying-shiny-apps-to-heroku-with-docker-and-github-actions-2687); then add a bagde in README to point to it ... maybe later
 
 
 ---------------
+
