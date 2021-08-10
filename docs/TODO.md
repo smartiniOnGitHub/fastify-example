@@ -2,8 +2,8 @@
 
 ## TODO
 
-* [x] general: add on 'Open in VS Code' badge in the README, as seen [here](https://code.visualstudio.com/updates/v1_58#_open-in-vs-code-badge) ... wip
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... wip
+* [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... wip
 * [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... wip
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
@@ -394,6 +394,8 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] general: for some general info and examples about JWT, JWT Authentication using Node.js (so at server side), look even: [here](https://www.youtube.com/watch?v=7Q17ubqLfaM), [here](https://www.youtube.com/watch?v=mbsmsi7l3r4) with related repo [here](https://github.com/WebDevSimplified/JWT-Authentication), [here](https://www.youtube.com/watch?v=Ud5xKCYQTjM), etc ... ok; for info about how to manage user roles in Node.js (so at server side), look even [here](https://www.youtube.com/watch?v=jI4K7L-LI58), etc
 * [x] general: to simplify manual use/debug of API in the DEV environment, if using Visual Studio Code (VSCode), install the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension, and write API calls in one or more files '.http' or '.rest', then execute related callas directly from that file (open in the editor) and maybe save results, use/convert in cURL format, etc ... ok, very useful; see an example usage even [here](https://blog.bitsrc.io/vs-codes-rest-client-plugin-is-all-you-need-to-make-api-calls-e9e95fcfd85a); of course related files should be added to version control, but excluded from packaging
 * [x] general: check if publish this app at [Heroku](https://www.heroku.com/) but using Docker containers, some info even [here](https://dev.to/analythium/deploying-shiny-apps-to-heroku-with-docker-and-github-actions-2687); then add a bagde in README to point to it ... maybe later
+* [x] general: add on 'Open in VS Code' badge in the README, as seen [here](https://code.visualstudio.com/updates/v1_58#_open-in-vs-code-badge) ... maybe later
+* [x] general: update Dockerfile to use the lts-slim image (so 'node:lts-slim') instead of the usual lts (bigger) ... ok, then perform a scan to search for (less) vulnerabilities (maybe zero if possible); for more info look at [Node.js - DockerHub](https://hub.docker.com/_/node)
 
 
 ---------------

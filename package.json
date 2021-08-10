@@ -58,7 +58,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "dotenv": "^10.0.0",
     "ejs": "^2.7.4",
     "fastify": "^2.15.3",
     "fastify-check-runtime-env": "^0.1.0",
@@ -74,12 +74,12 @@
     "is-docker": "^2.2.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.618.0"
+    "snyk": "^1.677.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "jsdoc": "^3.6.7",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.12",
     "standard": "^16.0.3",
     "simple-get": "^4.0.0",
     "tap": "^15.0.9"
