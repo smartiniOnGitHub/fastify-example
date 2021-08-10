@@ -1,11 +1,11 @@
-FROM node:lts as builder
+FROM node:lts-slim as builder
 
 LABEL version="2.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
 LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 
 # update packages, to reduce risk of vulnerabilities
-RUN apt-get update && apt-get upgrade -y && apt-get autoclean && apt-get autoremove
+RUN apt-get update && apt-get upgrade -y && apt-get autoclean -y && apt-get autoremove -y
 
 # set a non privileged user to use when running this image
 RUN groupadd -r nodejs && useradd -g nodejs -s /bin/bash -d /home/nodejs -m nodejs
@@ -35,13 +35,13 @@ RUN npm install && npm audit fix && npm cache clean --force
 # copy all sources in the container (exclusions in .dockerignore file)
 COPY --chown=nodejs:nodejs . .
 
-# build/pack binaries from sources ...
-
+# build/pack binaries from sources
 
 # This results in a single layer image
-# FROM scratch AS release
+# FROM node:lts-alpine AS release
 # COPY --from=builder /dist /dist
 
+# exposed port/s
 EXPOSE 8000
 
 # add an healthcheck, useful
@@ -50,7 +50,7 @@ EXPOSE 8000
 # healthcheck by calling the additional script exposed by the plugin
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s CMD npm run healthcheck-manual
 
-# ENTRYPOINT [ "npm" ]
+# ENTRYPOINT [ "node" ]
 # CMD [ "npm", "start" ]
 CMD [ "node", "./src/server" ]
 
