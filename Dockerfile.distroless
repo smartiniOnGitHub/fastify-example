@@ -1,4 +1,4 @@
-FROM node:12 as builder
+FROM node:14 as builder
 
 LABEL version="2.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
@@ -24,7 +24,7 @@ COPY . .
 
 
 # release layer (the only one in the final image)
-FROM gcr.io/distroless/nodejs:12 AS release
+FROM gcr.io/distroless/nodejs:14 AS release
 COPY --from=builder /app /app
 WORKDIR /app
 
