@@ -68,7 +68,7 @@
     "fastify-healthcheck": "^2.3.1",
     "fastify-jwt": "^1.4.0",
     "fastify-nats-client": "^2.2.0",
-    "fastify-static": "^2.7.0",
+    "fastify-static": "^4.2.4",
     "fastify-webhook": "^2.1.0",
     "fast-json-stringify": "^2.7.6",
     "is-docker": "^2.2.1",
