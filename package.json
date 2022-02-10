@@ -58,7 +58,7 @@
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.0",
     "ejs": "^2.7.4",
     "fastify": "^2.15.3",
     "fastify-check-runtime-env": "^0.1.0",
@@ -66,27 +66,27 @@
     "fastify-favicon": "^2.1.0",
     "fastify-formbody": "^3.2.0",
     "fastify-healthcheck": "^2.3.1",
-    "fastify-jwt": "^1.4.0",
+    "fastify-jwt": "^1.5.0",
     "fastify-nats-client": "^2.2.0",
     "fastify-static": "^2.7.0",
     "fastify-webhook": "^2.1.0",
-    "fast-json-stringify": "^2.7.6",
+    "fast-json-stringify": "^2.7.13",
     "is-docker": "^2.2.1",
     "make-promises-safe": "^5.1.0",
     "point-of-view": "^3.8.0",
-    "snyk": "^1.677.0"
+    "snyk": "^1.851.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "jsdoc": "^3.6.7",
-    "nodemon": "^2.0.12",
-    "standard": "^16.0.3",
-    "simple-get": "^4.0.0",
-    "tap": "^15.0.9"
+    "jsdoc": "^3.6.10",
+    "nodemon": "^2.0.15",
+    "standard": "^16.0.4",
+    "simple-get": "^4.0.1",
+    "tap": "^15.1.6"
   },
   "peerDependencies": {},
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=12.13.0"
   },
   "repository": {
     "type": "git",

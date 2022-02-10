@@ -4,9 +4,11 @@
 
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... wip
 * [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... wip
-* [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... wip
-* [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... wip
-* [x] content: update favicon to moder practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
+
+* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
+* [x] general: create a maintenance branch '2.x' for Fastify 2.x ... wip
+
+* [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
@@ -19,22 +21,16 @@
 * [x] content: cleanup code related to the info uri ('/info/all', '/info/app', '/info/scm', '/info/os') by moving in a related plugin, and use it from here in the simple way; but add a feature flag to enable them ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
 
-* [ ] general: update syntax to Node.js 12 LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc ...
+* [ ] general: update syntax to Node.js 12 LTS or better to 14 LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc ...
 * [ ] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ...
-* [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/); otherwise (bertter) wait and use Node.js 14 LTS ...
-
-* [ ] general: create a maintenance branch '2.x' for Fastify 2.x ...
-* [ ] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
+* [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/) ... better, wait and use Node.js 14 LTS, but at the moment don't switch to ESM modules (do it later) ...
+* [ ] general: update code like this great example using ESM: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ... trick: let Fastify optimize request prototype object by decarating the request with a `null` object to represent the user (and the same for other properties in this case), so something like: `fastify.decorateRequest('user', null)` ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
 * [ ] content: add error handlers ...
 * [ ] content cleanup/update to latest standards my custom styles ...
 * [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
-
-* [ ] general: later update to Node.js 14 LTS (14.15.0) and so output ES2020/ES11 or ES2021/ES12 (but partial support for it) ...
-* [ ] general: update requirements to Node.js 14 LTS, to be able to use all the new (great) stuff like ES Modules directly, etc; and change all the code accordingly ... as a sample take this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ...
-* [ ] general: after upgrading to Node.js 14.x LTS, check if expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places, like this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101); but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ...
 
 * [ ] general: later update to Node.js 16 LTS (16.13.0) and so output ES2022/ES13 or at least ES2021/ES12; ensure to expose all only as ES Modules (ESM), no more CommonJS ...
 
@@ -400,6 +396,20 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 * [x] general: check if publish this app at [Heroku](https://www.heroku.com/) but using Docker containers, some info even [here](https://dev.to/analythium/deploying-shiny-apps-to-heroku-with-docker-and-github-actions-2687); then add a bagde in README to point to it ... maybe later
 * [x] general: add on 'Open in VS Code' badge in the README, as seen [here](https://code.visualstudio.com/updates/v1_58#_open-in-vs-code-badge) ... maybe later
 * [x] general: update Dockerfile to use the lts-slim image (so 'node:lts-slim') instead of the usual lts (bigger) ... ok, then perform a scan to search for (less) vulnerabilities (maybe zero if possible); for more info look at [Node.js - DockerHub](https://hub.docker.com/_/node)
+* [x] general: later update to Node.js 14 LTS (14.15.0) and so output ES2020/ES11 or ES2021/ES12 (but partial support for it) ... maybe later
+* [x] general: after upgrading to Node.js 14.x LTS, check if expose sources as ES Modules (ESM), by default (so in 'package.json' add: `"type": "module"`, and rename non-esm sources from '.js' to '.cjs'); as a sample look [here](https://github.com/lmammino/univ), and in many other places, like this great example: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101); but first ensure all Fastify ecosystem is compatible (and my plugins), TAP tests are compatible, etc ... maybe later
+* [x] general: after the update of requirements to Node.js 14 LTS (or 16 LTS, or at least 12 LTS), migrate to ESM modules, so: update 'package.json' with `"type": "module",` and related settings, then update TypeScript output to be 'es2020' with support for ES Modules (esm), and update all import statements using esm syntax, for example:
+```
+// import assert from 'node:assert'
+import { strict as assert } from 'node:assert'
+import tap, { Test } from 'tap'
+```
+and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all other imports using Node.js require statement, rename tap tests from 'test' to 'tap.test', import tap type for Test, to be able to update '(t)' to '(t: Test)', etc ... maybe later
+* [x] general: after the update to Node.js 14 LTS (14.15.0), and so output ES2020/ES11, export all as native ES Modules (ESM), important; for better TypeScript settings with ESM and CommonJS look even [here](https://stackoverflow.com/questions/61305578/what-typescript-configuration-produces-output-closest-to-node-js-14-capabilities/61305579#61305579), etc ... maybe later
+* [x] general: tests made in TypeScript: use the Fastify server configured in its own source, and ensure routes defined works in the right way (via injection) ... maybe later
+* [x] general: pay attention to the vulnerability found in current 'ejs' version; need to upgrade to latest version ... maybe later, because related plugin ('point-of-view') requires Fastify 3.x, sorry for that; anyway for a sample application like this is not a big problem
+* [x] general: update dependencies to latest packages compatible with current Node.js version (and no ES Modules, for now) and Fastify 2.x ... ok
+* [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... maybe later
 
 
 ---------------
