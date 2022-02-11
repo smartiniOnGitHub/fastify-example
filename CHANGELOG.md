@@ -1,11 +1,13 @@
 # Change Log
 
-## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (unreleased)
+## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (2022-02-11)
 Summary Changelog:
 - General: update all dependencies
-- General: Node.js 10 now is in End-of-Life (EoL), 
-  so update requirements to Node.js 12 LTS (12.13.0) 
-  to use ES2019/ES10 and some stuff even from ES2020/ES11 (but not yet as syntax)
+- General: update requirements to Node.js 12 LTS (12.13.0) 
+  because Node.js 10 now is in End-of-Life (EoL); 
+  then use ES2019/ES10 and some stuff even from ES2020/ES11 
+  (but not yet as syntax)
+- General: start to use some modern JavaScript features like async/await
 - Feature: split server (the general part) from the web application part 
   (specific of this app), to better reuse it inside tests, etc
 
