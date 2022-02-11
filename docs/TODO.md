@@ -4,8 +4,7 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: bump release (in package.json, README, CHANGELOG and maybe in other places) ... wip
-* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x; remember to empty the section on Security in the README as soon as no known vulnerabilities are found (with this new version) ... wip
+* [x] general: make all work again with Fastify 3.x (but no ES Modules for now); for related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); for now, disable some of my plugins not yest compatible (like:  'fastify-check-runtime-env', 'fastify-cloudevents', 'fastify-nats-client', 'fastify-webhook') and re-add later ... overall it seems to work, but EJS templates not and breaking changes still to verify (and update code if/where needed) ... wip
 * [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
@@ -417,6 +416,9 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: add a Security section in the README, because current release of the application has some vulnerabilities; with Fastify 2.x the template engine uses an old version of 'ejs' (via related Fastify plugin) but it's updated/fixed only in Fastify 3.x ... ok, section added
 * [x] general: to improve interaction with ES Modules (ESM), look even [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) ... maybe later
 * [x] general: create a maintenance branch '2.x' for Fastify 2.x ... ok
+
+* [x] general: bump release (in package.json, README, CHANGELOG and maybe in other places) ... ok, bump to '3.0.0' in the new branch 'update-to-fastify-3', to merge later into 'master'
+* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x; remember to empty the section on Security in the README as soon as no known vulnerabilities are found (with this new version) ... ok, work started in the new branch 'update-to-fastify-3', to merge later into 'master'
 
 
 ---------------

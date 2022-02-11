@@ -1,7 +1,9 @@
 # Change Log
 
-## [x.x.x](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/x.x.x) (unreleased)
+## [3.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/3.0.0) (unreleased)
 Summary Changelog:
+- General: update requirements to latest Fastify 3.x release ('^3.0.0' or later) 
+  and related plugins
 - General: update all dependencies
 - General: automated/manual builds at Docker Hub now are no more available, 
   so removed references to it; sorry to have there only outdated images

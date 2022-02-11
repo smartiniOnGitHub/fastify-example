@@ -53,7 +53,8 @@ function features (fastify, options = {}) {
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
 
-  let ceLogFile = null // defined here because I need it visible is two unrelated code blocks
+  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
+  // let ceLogFile = null // defined here because I need it visible in two unrelated code blocks
 
   if (featuresEnabled.platformInfo) {
     // log some platform info
@@ -64,6 +65,8 @@ function features (fastify, options = {}) {
     fastify.log.info(featuresEnabledMsg)
   }
 
+  /*
+  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.checkRuntimeEnv) {
     // check if current Node.js runtime env is compatible
     // with requirements in 'package.json', or an exception will the thrown
@@ -76,6 +79,7 @@ function features (fastify, options = {}) {
       onNodeVersionMismatch: 'exit' // exit from current process with an error code
     })
   }
+   */
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options
@@ -86,6 +90,8 @@ function features (fastify, options = {}) {
     })
   }
 
+  /*
+  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.webhook) {
     // fastify-webhook, example with null or empty options, using only plugin default options
     // fastify.register(require('fastify-webhook'))
@@ -101,6 +107,7 @@ function features (fastify, options = {}) {
     })
     fastify.log.info('Webhook registered with custom options')
   }
+   */
 
   if (featuresEnabled.healthcheck) {
     // fastify-healthcheck, example with null or empty options, using only plugin default options
@@ -111,6 +118,8 @@ function features (fastify, options = {}) {
     })
   }
 
+  /*
+  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.cloudevents) {
     // example usage of fastify-cloudevents plugin
     // define a sample id generator here
@@ -168,7 +177,10 @@ function features (fastify, options = {}) {
       cloudEventOptions: k.cloudEventOptions
     })
   }
+   */
 
+  /*
+  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.nats) {
     // example to connect to a nats queue using related plugin
     // temporarily disable standard plugin, and use my temporary one ... ok
@@ -184,6 +196,7 @@ function features (fastify, options = {}) {
       }
     })
   }
+   */
 
   fastify.log.info('Webapp features loaded')
 }
