@@ -2,7 +2,7 @@
 
 ## TODO
 
-* [x] general: add some tests after the split of Fastify server and the App ... wip
+* [x] general: prepare to publish the release (update CHANGELOG and release date, README if needed, etc) ... wip
 * [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... wip
 
 * [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
@@ -411,6 +411,7 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: update dependencies to latest packages compatible with current Node.js version (and no ES Modules, for now) and Fastify 2.x ... ok
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... maybe later
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... ok, done even by following the example [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101), but in this case without ESM and without async
+* [x] general: add some tests after the split of Fastify server and the App ... ok, and replicated some optional additions even in test source, like: load settings from environment, load settings from constants, etc
 
 
 ---------------
