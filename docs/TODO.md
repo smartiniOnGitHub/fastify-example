@@ -4,14 +4,14 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
+* [x] general: bump release (in package.json, README, CHANGELOG and maybe in other places) ... wip
+* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x; remember to empty the section on Security in the README as soon as no known vulnerabilities are found (with this new version) ... wip
+* [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
-* [x] general: to improve interaction with ES Modules (ESM), look even [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) ... wip
-* [x] general: tag new release; then manually rebuild Docker images for tags at Docker Hub, then check if even for normal builds ... wip
 
 * [x] general: update all dependencies to latest ... wip
 * [x] general: define json schema for all exposed endpoints here, as seen in [Validation-and-Serialization - Fastify](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md), useful even to improve performances ... wip
@@ -331,7 +331,7 @@ Could not load policy. Try running `snyk wizard` to define a Snyk protect policy
 
 * [x] general: bump release to '2.6.0' ... ok
 * [x] general: fix badges in README: dependencies/devdependencies, vulnerabilities (snyk), add license, etc ... ok, but for now keep dependencies/devDependencies at [david-dm](https://david-dm.org/), check later if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc)
-* [x] general: check if/how to protect webappp resources using Fetch Metadata, for example as seen [here](https://web.dev/fetch-metadata/) ... maybe later, and probably best in a real web server (usually as a reverse proxy in front of webapps/api published); but check if something could be done even here with a dedicated plugin
+* [x] general: check if/how to protect webapp resources using Fetch Metadata, for example as seen [here](https://web.dev/fetch-metadata/) ... maybe later, and probably best in a real web server (usually as a reverse proxy in front of webapps/api published); but check if something could be done even here with a dedicated plugin
 * [x] general: instead of CommonJS modules (typical for Node.js dependencies, using 'require'), try to use ES Modules (or 'ESM'); see [here](https://web.dev/commonjs-larger-bundles/) for more info ... maybe later (minimum with Node.js 14 when LTS) because at the moment many dependencies are not bundled as ESM; use [is-esm - npmjs](https://www.npmjs.com/package/is-esm) to check if a dependency is bundles as ESM, for example try with `npx is-esm fastify`; anyway note that this is more relevant for client side code, and to be optimized it's required a bundler like Snowpack, Rollup, Webpack or other
 * [x] content: check if move header to another location (depending on user preferences), like left/right (in vertical); and add a link to expand/contract it (always visible, like the link to Home Page) ... maybe later, interesting but too related to visual appearance
 * [x] content: remove my custom styles from pages and change with some good default style, for example [Bulma css](https://bulma.io), see [Getting Started - Bulma](https://bulma.io/documentation/overview/start/), [bulma - npmjs](https://www.npmjs.com/package/bulma), etc; note that it used SASS for CSS compilation/optimization and doesn't use JavaScript ... maybe later
@@ -413,7 +413,9 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: prepare to publish the release (update CHANGELOG and release date, README if needed, etc) ... ok
 
 * [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... no, it's no more possible neither to trigger builds manually at Docker Hub; so I deleted all previous images and keep only 'latest' and related variants, and last one from a tag (but not today tag, only the previous one), it's really time to change; sorry to keep there only outdated images (maybe later remove them)
+* [x] general: tag new release; then manually rebuild Docker images for tags at Docker Hub, then check if even for normal builds ... no
 * [x] general: add a Security section in the README, because current release of the application has some vulnerabilities; with Fastify 2.x the template engine uses an old version of 'ejs' (via related Fastify plugin) but it's updated/fixed only in Fastify 3.x ... ok, section added
+* [x] general: to improve interaction with ES Modules (ESM), look even [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) ... maybe later
 * [x] general: create a maintenance branch '2.x' for Fastify 2.x ... ok
 
 
