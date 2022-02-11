@@ -75,30 +75,14 @@ function app (fastify, options = {}, next) {
   const features = require('./features')(fastify, null)
 
   // load some publish/subscribe utility functions
-  const { publish, subscribe } = require('./pubsub')
+  // const { publish, subscribe } = require('./pubsub')
 
   // define some routes
   const routes = require('./route')(fastify, null)
 
   // define some callback logic, called when the application has successfully initialized
-  // fastify.ready(() => { ... }) // to move in main server source, more useful than here
-  fastify.ready(() => {
-    const msgPrintRoutesStart = `Printing Routes (env '${utils.currentEnv()}')`
-    if (utils.isEnvProduction()) {
-      fastify.log.info(`${msgPrintRoutesStart}, disabled in a production environment`)
-    } else {
-      const routes = fastify.printRoutes({ commonPrefix: false })
-      const msgPrintRoutesFull = `${msgPrintRoutesStart}, only for non production environments\n${routes}`
-      fastify.log.info(msgPrintRoutesFull)
-      // note that in this case it would be better to log to console (for a better formatting), for example with:
-      utils.logToConsole(msgPrintRoutesFull)
-    }
-
-    // subscribe and publish a message to the queue, as a sample
-    // assert(fastify.nats !== null)
-    subscribe(fastify.nats, k.queueName, k.queueDisabled)
-    publish(fastify.nats, k.queueName, k.queueDisabled, k.message)
-  })
+  // moved in main server source, more useful than in app (no needed in tests, etc)
+  // fastify.ready(() => { ... })
 
   // continue on next middleware
   next()
