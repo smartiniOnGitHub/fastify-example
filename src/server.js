@@ -21,6 +21,8 @@
 /* eslint callback-return: "off" */
 /* eslint no-inner-declarations: "off" */
 
+// main entry point for instancing and starting the server
+
 // load environment specific variables from '.env' file (if any) into process.env ...
 const dotenv = require('dotenv')
 dotenv.config()
@@ -32,43 +34,15 @@ const utils = require('./utils')
 utils.logToConsole(`Server starting for ${k.packageName}-v${k.packageVersion} ...`)
 
 // startup configuration constants
+const Fastify = require('fastify')
 const fastifyOptions = JSON.parse(k.fastifyOptionsString)
-const fastify = require('fastify')(fastifyOptions)
+const fastify = Fastify(fastifyOptions)
 
-// const assert = require('assert').strict
-const path = require('path')
+// get the web application and instance/register as a plugin
+const App = require('./app')
+fastify.register(App, fastifyOptions)
 
-const templateEngine = require('ejs')
-const resolve = path.resolve
-
-const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
-
-fastify.register(require('point-of-view'), {
-  engine: {
-    ejs: templateEngine
-  },
-  includeViewExtension: true,
-  templates: k.folders.templatesFolderName,
-  options: {
-    filename: resolve(k.folders.templatesFolderName),
-    views: [publicFolderFromScript]
-  }
-})
-
-fastify.register(require('fastify-static'), {
-  root: publicFolderFromScript,
-  prefix: k.mappings.staticAssetsMapping // optional: default '/'
-})
-
-// load all webapp features that are enabled: need to pass fastify instance and maybe some options
-const features = require('./features')(fastify, null)
-
-// load some publish/subscribe utility functions
-const { publish, subscribe } = require('./pubsub')
-
-// define some routes
-const routes = require('./route')(fastify, null)
-
+// start the web application
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 fastify.listen(k.port, k.address, (err, address) => {
   if (err) {
@@ -80,25 +54,5 @@ fastify.listen(k.port, k.address, (err, address) => {
   // fastify.log.info(`Server listening on '${address}' ...`)
 })
 
-fastify.ready(() => {
-  const msgPrintRoutesStart = `Printing Routes (env '${utils.currentEnv()}')`
-  if (utils.isEnvProduction()) {
-    fastify.log.info(`${msgPrintRoutesStart}, disabled in a production environment`)
-  } else {
-    const routes = fastify.printRoutes({ commonPrefix: false })
-    const msgPrintRoutesFull = `${msgPrintRoutesStart}, only for non production environments\n${routes}`
-    fastify.log.info(msgPrintRoutesFull)
-    // note that in this case it would be better to log to console (for a better formatting), for example with:
-    utils.logToConsole(msgPrintRoutesFull)
-  }
-
-  // subscribe and publish a message to the queue, as a sample
-  // assert(fastify.nats !== null)
-  subscribe(fastify.nats, k.queueName, k.queueDisabled)
-  publish(fastify.nats, k.queueName, k.queueDisabled, k.message)
-})
-
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
 fastify.log.info('Server Startup script successfully executed')
-
-// module.exports = fastify

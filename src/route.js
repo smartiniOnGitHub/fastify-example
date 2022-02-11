@@ -55,6 +55,10 @@ const pluginRoutes = [
 // define routes but no async at outer level
 // note that some routes here are normal (non-async) but others are async ...
 function routes (fastify, options = {}) {
+  if (!fastify) {
+    throw new Error('Fastify instance must have a value')
+  }
+
   // define the root route
   fastify.get('/', (request, reply) => {
     // utils.logRoute(request)
