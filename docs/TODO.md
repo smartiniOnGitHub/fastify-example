@@ -2,11 +2,9 @@
 
 ## TODO
 
-* [x] general: prepare to publish the release (update CHANGELOG and release date, README if needed, etc) ... wip
-* [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... wip
+* [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
 * [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x ... wip
-* [x] general: create a maintenance branch '2.x' for Fastify 2.x ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
@@ -412,6 +410,11 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] content: instead of do a rate limiting of some routes (like all the info ones), check if use a cache (but simple: in memory or in a file, to not introduce other dependencies) and refresh every n seconds (configurable via a specific env var); otherwise check for a Fastify plugin for a cache ... maybe later
 * [x] general: split Fastify server configuration in its own source ('build-server' or similar), to be able to reuse it even in unit tests ... ok, done even by following the example [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101), but in this case without ESM and without async
 * [x] general: add some tests after the split of Fastify server and the App ... ok, and replicated some optional additions even in test source, like: load settings from environment, load settings from constants, etc
+* [x] general: prepare to publish the release (update CHANGELOG and release date, README if needed, etc) ... ok
+
+* [x] general: after publishing a release (and tag sources), manually trigger related Docker images at DockerHub, if still possible in the free plan ... no, it's no more possible neither to trigger builds manually at Docker Hub; so I deleted all previous images and keep only 'latest' and related variants, and last one from a tag (but not today tag, only the previous one), it's really time to change; sorry to keep there only outdated images (maybe later remove them)
+* [x] general: add a Security section in the README, because current release of the application has some vulnerabilities; with Fastify 2.x the template engine uses an old version of 'ejs' (via related Fastify plugin) but it's updated/fixed only in Fastify 3.x ... ok, section added
+* [x] general: create a maintenance branch '2.x' for Fastify 2.x ... ok
 
 
 ---------------

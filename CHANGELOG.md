@@ -1,5 +1,13 @@
 # Change Log
 
+## [x.x.x](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/x.x.x) (unreleased)
+Summary Changelog:
+- General: update all dependencies
+- General: automated/manual builds at Docker Hub now are no more available, 
+  so removed references to it; sorry to have there only outdated images
+  (up to 2021-04 approx., later I'll remove even them); 
+  I'll setup automated builds at GitHub and publish new images only there
+
 ## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (2022-02-11)
 Summary Changelog:
 - General: update all dependencies

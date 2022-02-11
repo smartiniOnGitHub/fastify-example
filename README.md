@@ -1,6 +1,5 @@
 # fastify-example
 
-  [![Docker Pulls](https://img.shields.io/docker/pulls/smartiniatdocker09/fastify-example.svg)](https://hub.docker.com/r/smartiniatdocker09/fastify-example/)
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
   [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
   [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
@@ -37,8 +36,10 @@ but nothing other.
 
 ## Setup and run with Docker images at DockerHub
 
-A simpler way to run the webapp is by using published images at DockerHub: 
-[smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/).
+Published images for this project at DockerHub are at 
+[smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/), 
+but *pay attention because they are all outdated* (last push was approx. at 2021-04).
+
 Default images are based on default Node.js Docker image and contains 
 development dependencies too (to reload content, run tests, etc), BASH shell, etc; 
 there are even others:
@@ -55,9 +56,9 @@ if/when using them in production environments.
 For example, you can run directly with:
 `docker run -d -p 8000:8000 -t smartiniatdocker09/fastify-example:latest-alpine`
 and browse to [localhost:8000](http://localhost:8000).
-Published Docker tags are 'latest' / 'latest-alpine', 
-and starting from source code tag '2.2.0' there is:
-the same tag, and even the '2.2.0-alpine' variant.
+Published Docker tags are 'latest', 'latest-alpine', 'latest-distroless', 
+and starting from source code tag '2.7.0' there is:
+the same tag, and even the '2.7.0-alpine' and '2.7.0-distroless' variants.
 For more info look at [tags - smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/tags).
 
 Of course you need a local installation of Docker (recent, if possible latest), 
@@ -77,6 +78,16 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 ## Requirements
 
 Fastify ^2.15.3, Node.js 12 LTS (12.13.0) or later.
+
+
+## Security
+
+There are some vulnerabilities that depends on the version of 'ejs' used here, 
+but fixes exists only in related plugin for Fastify 3.x; 
+so pay attention with current release.
+
+I'm upgrading the whole application to latest Fastify and related plugins 
+and dependencies, but it will take some time, sorry for that.
 
 
 ## Sources
