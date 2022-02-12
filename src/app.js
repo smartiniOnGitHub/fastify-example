@@ -48,8 +48,9 @@ const templateEngine = require('ejs')
 const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
 // function that wraps the web application and related content
-// note: to export as async, remove the next argument
-function app (fastify, options = {}, next) {
+// note: when defined as async, remove the done argument
+// function app (fastify, options = {}, done) {
+async function app (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
@@ -85,7 +86,7 @@ function app (fastify, options = {}, next) {
   // fastify.ready(() => { ... })
 
   // continue on next middleware
-  next()
+  // done() // not need with async definition of current function
 }
 
 module.exports = app
