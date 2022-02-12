@@ -73,13 +73,17 @@ async function app (fastify, options = {}) {
   })
 
   // load all webapp features that are enabled: need to pass fastify instance and maybe some options
-  const features = require('./features')(fastify, null)
+  // const features = require('./features')(fastify, null)
+  // new, load it as a plugin
+  fastify.register(require('./features'))
 
   // load some publish/subscribe utility functions
   // const { publish, subscribe } = require('./pubsub')
 
   // define some routes
-  const routes = require('./route')(fastify, null)
+  // const routes = require('./route')(fastify, null)
+  // new, load it as a plugin
+  fastify.register(require('./route'))
 
   // define some callback logic, called when the application has successfully initialized
   // moved in main server source, more useful than in app (no needed in tests, etc)

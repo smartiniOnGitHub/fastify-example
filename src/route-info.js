@@ -23,9 +23,9 @@
 const k = require('./constants')
 const utils = require('./utils')
 
-// define routes but no async at outer level
+// define some routes for general information
 // note that some routes here are normal (non-async) but others are async ...
-function routes (fastify, { routesList = [] } = {}) {
+async function routes (fastify, { routesList = [] } = {}) {
   // add some routes
 
   // example route to return some info on current package/version, in async way

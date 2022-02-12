@@ -52,9 +52,9 @@ const pluginRoutes = [
   { link: 'healthcheck', url: '/health', description: "Expose an healthcheck, by 'fastify-healthcheck' plugin" }
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 
-// define routes but no async at outer level
+// define some routes
 // note that some routes here are normal (non-async) but others are async ...
-function routes (fastify, options = {}) {
+async function routes (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
@@ -113,7 +113,9 @@ function routes (fastify, options = {}) {
   })
 
   // add other (related) routes from a dedicated source, as a sample
-  require('./route-info')(fastify, { routesList: sampleRoutes })
+  // require('./route-info')(fastify, { routesList: sampleRoutes })
+  // new, load it as a plugin
+  fastify.register(require('./route-info'), { routesList: sampleRoutes })
 }
 
 module.exports = routes

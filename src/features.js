@@ -45,7 +45,7 @@ const { publish, subscribe } = require('./pubsub')
 
 // features is a function because I need to pass fastify instance, and some configuration options
 // otherwise implement as a class and pass those arguments in its constructor)
-function features (fastify, options = {}) {
+async function features (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
