@@ -4,6 +4,8 @@
 Summary Changelog:
 - General: update requirements to latest Fastify 3.x release ('^3.0.0' or later) 
   and related plugins
+- General: make EJS pages/emplates work with latest EJS ('^3.1.6' or later); 
+  note that a global layout has been set, so pages have been updated accordingly
 - General: update all dependencies
 - General: automated/manual builds at Docker Hub now are no more available, 
   so removed references to it; sorry to have there only outdated images
