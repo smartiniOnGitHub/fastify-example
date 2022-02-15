@@ -43,8 +43,6 @@ const fastify = require('fastify')(fastifyOptions)
 const path = require('path')
 const resolve = path.resolve
 
-const templateEngine = require('ejs')
-
 const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
 // function that wraps the web application and related content
@@ -57,11 +55,14 @@ async function app (fastify, options = {}) {
 
   fastify.register(require('point-of-view'), {
     engine: {
-      ejs: templateEngine
+      ejs: require('ejs')
     },
     includeViewExtension: true,
     templates: k.folders.templatesFolderName,
+    layout: 'layout', // global layout, used in all ejs pages
+    viewExt: 'ejs',
     options: {
+      // async: true, // check later if useful here, and how to use ...
       filename: resolve(k.folders.templatesFolderName),
       views: [publicFolderFromScript]
     }

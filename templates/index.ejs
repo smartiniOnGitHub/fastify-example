@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- keep this page full, to use even as a complete ejs template when no layout is set //-->
 <head>
-    <% include fragment-head %>
+    <%- include('fragment-head') -%>
 </head>
 
 <body>
-    <% include fragment-header %>
+    <%- include('fragment-header') -%>
 
 <main id="content">
-    <% include fragment-welcome %>
+    <%- include('fragment-welcome') -%>
 
-    <% include fragment-sample-routes %>
-    <%# include fragment-spacer %>
-    <% include fragment-plugin-routes %>
+    <%- include('fragment-sample-routes') -%>
+    <%# - include('fragment-spacer') -%>
+    <%- include('fragment-plugin-routes') -%>
 </main>
 
-    <% include fragment-footer %>
+    <%- include('fragment-footer') -%>
 </body>
 
 </html>
