@@ -39,9 +39,11 @@ const { publish, subscribe } = require('./pubsub')
 
 // manually define the list of some exposed routes, with some description
 const sampleRoutes = [
+  { link: '/', url: '/', description: 'Home page (async)' },
   { link: 'time', url: '/time', description: 'Sample API call that returns the current server time, as timestamp and in ISO format (async)' },
   { link: 'error', url: '/error', description: 'Sample route that always returns an error (async)' },
-  { link: 'template', url: '/template', description: 'Sample EJS template page' }
+  { link: 'simple', url: '/simple', description: 'Sample EJS simple template page (async)' },
+  { link: 'template', url: '/template', description: 'Sample EJS template page using the same template of root page (async)' }
   // ].sort((a, b) => a.link.localeCompare(b.link))
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 // manually define the list of some routes exposed by some loaded plugins
@@ -52,27 +54,30 @@ const pluginRoutes = [
   { link: 'healthcheck', url: '/health', description: "Expose an healthcheck, by 'fastify-healthcheck' plugin" }
 ].sort(utils.compareProperties('link')) // opt. add sort order, 'asc' (by default) or 'desc'
 
-// define routes but no async at outer level
+// define some routes
 // note that some routes here are normal (non-async) but others are async ...
-function routes (fastify, options = {}) {
+async function routes (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
 
-  // define the root route
-  fastify.get('/', (request, reply) => {
+  // define the root route, async (but normal is good the same)
+  fastify.get('/', async (request, reply) => {
     // utils.logRoute(request)
-    reply.view('index', {
+    // publish a message in the queue, as a sample
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Hello World, from the root page of a Fastify web application at '${k.hostname}'!`
+    )
+    // with a layout set it's better to use a partial template here, to avoid duplication of tags ...
+    // return reply.view('index', { // full index page no more used at the moment, but keep for reference/example ...
+    return reply.view('fragment-index', {
       ...commonPageData,
       title: 'Home',
       welcome: 'Work-In-Progress/Prototype webapp',
       sampleRoutes,
       pluginRoutes
     })
-    // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
-      `Hello World, from the root page of a Fastify web application at '${k.hostname}'!`
-    )
+    // ensure to return something at the end of an async function
   })
   // example route to return current timestamp, in async way
   fastify.get('/time', async (request, reply) => {
@@ -87,15 +92,28 @@ function routes (fastify, options = {}) {
       time: now.toISOString()
     }
   })
-  // example route to return a page from a template, but no async here
-  fastify.get('/template', (request, reply) => {
+  // example route to return a page from a template, async (but normal is good the same)
+  fastify.get('/simple', async (request, reply) => {
     // publish a message in the queue, as a sample
     publish(fastify.nats, k.queueName, k.queueDisabled,
       `Ask for a template page at '${k.hostname}'`
     )
-    reply.view('index', {
+    return reply.view('simple', {
       ...commonPageData,
-      title: 'Template'
+      title: 'Simple but full Template'
+    })
+  })
+  // example route to return a page from a template, async (but normal is good the same)
+  // note that same this uses the same template of the root page, but with less template variables
+  fastify.get('/template', async (request, reply) => {
+    // publish a message in the queue, as a sample
+    publish(fastify.nats, k.queueName, k.queueDisabled,
+      `Ask for a template page at '${k.hostname}'`
+    )
+    // with a layout set it's better to use a partial template here, to avoid duplication of tags ...
+    return reply.view('fragment-template', {
+      ...commonPageData,
+      title: 'Home page from a template'
     })
   })
   // example route, to always generate an error
@@ -113,7 +131,9 @@ function routes (fastify, options = {}) {
   })
 
   // add other (related) routes from a dedicated source, as a sample
-  require('./route-info')(fastify, { routesList: sampleRoutes })
+  // require('./route-info')(fastify, { routesList: sampleRoutes })
+  // new, load it as a plugin
+  fastify.register(require('./route-info'), { routesList: sampleRoutes })
 }
 
 module.exports = routes

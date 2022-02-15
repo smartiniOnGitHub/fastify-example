@@ -4,9 +4,9 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: bump release (in package.json, README, CHANGELOG and maybe in other places) ... wip
-* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x; remember to empty the section on Security in the README as soon as no known vulnerabilities are found (with this new version) ... wip
+* [x] general: continue the work for first release compatible with Fastify 3.x, now merged into the master branch ... wip
 * [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... wip
+* [x] general: re-enable my plugins once compatible with fastify 3.x (like:  'fastify-check-runtime-env', 'fastify-cloudevents', 'fastify-nats-client', 'fastify-webhook') ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
@@ -27,8 +27,8 @@
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ... trick: let Fastify optimize request prototype object by decarating the request with a `null` object to represent the user (and the same for other properties in this case), so something like: `fastify.decorateRequest('user', null)` ...
 * [ ] content: add other routes, but in a dedicated source (or folder) ...
 * [ ] content: add error handlers ...
-* [ ] content cleanup/update to latest standards my custom styles ...
-* [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs) ...
+* [ ] content: cleanup/update to latest standards my custom styles ...
+* [ ] content: start to use [marko](https://markojs.com/), but in a branch (to merge later info master, and before it, create a maintanance branch for ejs); note that the new plugin '@marko/fastify' must be used, and remove 'point-of-view' (no more useful at that point); see [@marko/fastify - npmjs](https://www.npmjs.com/package/@marko/fastify) ...
 
 * [ ] general: later update to Node.js 16 LTS (16.13.0) and so output ES2022/ES13 or at least ES2021/ES12; ensure to expose all only as ES Modules (ESM), no more CommonJS ...
 
@@ -417,6 +417,13 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: add a Security section in the README, because current release of the application has some vulnerabilities; with Fastify 2.x the template engine uses an old version of 'ejs' (via related Fastify plugin) but it's updated/fixed only in Fastify 3.x ... ok, section added
 * [x] general: to improve interaction with ES Modules (ESM), look even [here](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c) ... maybe later
 * [x] general: create a maintenance branch '2.x' for Fastify 2.x ... ok
+
+* [x] general: bump release (in package.json, README, CHANGELOG and maybe in other places) ... ok, bump to '3.0.0' in the new branch 'update-to-fastify-3', to merge later into 'master'
+* [x] general: update to Fastify 3.x (released 2020-07-07) and related (compatible) plugins; but a lot of changes will be needed, so start it in a feature branch; see [Fastify - Releases - GitHub](https://github.com/fastify/fastify/releases) and related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); maybe in first release stay with '3.0.0' and then update to a later 3.x; remember to empty the section on Security in the README as soon as no known vulnerabilities are found (with this new version) ... ok, work started in the new branch 'update-to-fastify-3', to merge later into 'master'
+* [x] general: make all work again with Fastify 3.x (but no ES Modules for now); for related breaking changes from v2 [here](https://github.com/fastify/fastify/releases/tag/v3.0.0); for now, disable some of my plugins not yet compatible (like:  'fastify-check-runtime-env', 'fastify-cloudevents', 'fastify-nats-client', 'fastify-webhook') and re-add later ... ok, overall it seems to work, but EJS templates not and breaking changes still to verify (and update code if/where needed); fix in another point (and wait for merge at least until that)
+* [x] general: fix EJS templates working; for info look at [EJS - Home](https://ejs.co/), and even [How to use EJS to template your Node.js application - LogRocket Blog](https://blog.logrocket.com/how-to-use-ejs-template-node-js-application/), [How To Use EJS to Template Your Node Application | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application), [NodeJs Express EJS Layouts and Partials - Raddy](https://www.raddy.dev/blog/nodejs-express-layouts-and-partials/), etc ... ok, but note that EJS layout is set in plugin registration, so unless more instances will be registered (it could be done if needed), all EJS pages will have that layout; later check if it could be set at route level instead; so for now most EJS pages have been moved to be fragments (and not a full page) just to avoid tags duplication in final output page, but some are kept as full page, if useful as an example; note that to relead the server when started in DEV mode (`npm run start:dev`) a JavaScript source must be saved (ejs pages for example aren't considered for this)
+* [x] general: update CHANGELOG to add compatibility to latest EJS (currently 3.1.6) and rework its pages, and use a general layout so that each ejs page will use it, but so pay attention to simplify each other ejs page to be a fragment (and not a complete page) to not duplicate tags in final output page ... ok
+* [x] general: merge this branch into master, with a PR ... ok, is will be done ASAP
 
 
 ---------------

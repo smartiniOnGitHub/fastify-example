@@ -43,24 +43,26 @@ const fastify = require('fastify')(fastifyOptions)
 const path = require('path')
 const resolve = path.resolve
 
-const templateEngine = require('ejs')
-
 const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
 // function that wraps the web application and related content
-// note: to export as async, remove the next argument
-function app (fastify, options = {}, next) {
+// note: when defined as async, remove the done argument
+// function app (fastify, options = {}, done) {
+async function app (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
 
   fastify.register(require('point-of-view'), {
     engine: {
-      ejs: templateEngine
+      ejs: require('ejs')
     },
     includeViewExtension: true,
     templates: k.folders.templatesFolderName,
+    layout: 'layout', // global layout, used in all ejs pages
+    viewExt: 'ejs',
     options: {
+      // async: true, // check later if useful here, and how to use ...
       filename: resolve(k.folders.templatesFolderName),
       views: [publicFolderFromScript]
     }
@@ -72,20 +74,24 @@ function app (fastify, options = {}, next) {
   })
 
   // load all webapp features that are enabled: need to pass fastify instance and maybe some options
-  const features = require('./features')(fastify, null)
+  // const features = require('./features')(fastify, null)
+  // new, load it as a plugin
+  fastify.register(require('./features'))
 
   // load some publish/subscribe utility functions
   // const { publish, subscribe } = require('./pubsub')
 
   // define some routes
-  const routes = require('./route')(fastify, null)
+  // const routes = require('./route')(fastify, null)
+  // new, load it as a plugin
+  fastify.register(require('./route'))
 
   // define some callback logic, called when the application has successfully initialized
   // moved in main server source, more useful than in app (no needed in tests, etc)
   // fastify.ready(() => { ... })
 
   // continue on next middleware
-  next()
+  // done() // not need with async definition of current function
 }
 
 module.exports = app

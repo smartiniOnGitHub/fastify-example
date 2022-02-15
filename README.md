@@ -36,6 +36,8 @@ but nothing other.
 
 ## Setup and run with Docker images at DockerHub
 
+**DEPRECATED**
+
 Published images for this project at DockerHub are at 
 [smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/), 
 but *pay attention because they are all outdated* (last push was approx. at 2021-04).
@@ -77,17 +79,12 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^2.15.3, Node.js 12 LTS (12.13.0) or later.
+Fastify ^3.0.0, Node.js 12 LTS (12.13.0) or later.
 
 
 ## Security
 
-There are some vulnerabilities that depends on the version of 'ejs' used here, 
-but fixes exists only in related plugin for Fastify 3.x; 
-so pay attention with current release.
-
-I'm upgrading the whole application to latest Fastify and related plugins 
-and dependencies, but it will take some time, sorry for that.
+Nothing known.
 
 
 ## Sources

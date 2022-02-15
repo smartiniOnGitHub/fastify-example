@@ -23,9 +23,9 @@
 const k = require('./constants')
 const utils = require('./utils')
 
-// define routes but no async at outer level
+// define some routes for general information
 // note that some routes here are normal (non-async) but others are async ...
-function routes (fastify, { routesList = [] } = {}) {
+async function routes (fastify, { routesList = [] } = {}) {
   // add some routes
 
   // example route to return some info on current package/version, in async way
@@ -66,10 +66,10 @@ function routes (fastify, { routesList = [] } = {}) {
 
   // add routes to a convenience list of routes, to generate content/links in the home page
   routesList.push(
-    { link: 'info:app', url: '/info/app', description: 'Show some info about application package version etc (async)' },
-    { link: 'info:scm', url: '/info/scm', description: 'Show some info about source control system (if any): branch, commit hash, version, etc (async)' },
-    { link: 'info:os', url: '/info/os', description: 'Show some info about operating system (async)' },
-    { link: 'info:all', url: '/info/all', description: 'Show all info (async)' }
+    { link: 'info:app', url: '/info/app', description: 'Sample API to show some info about application package version etc (async)' },
+    { link: 'info:scm', url: '/info/scm', description: 'Sample API to show some info about source control system (if any): branch, commit hash, version, etc (async)' },
+    { link: 'info:os', url: '/info/os', description: 'Sample API to show some info about operating system (async)' },
+    { link: 'info:all', url: '/info/all', description: 'Sample API to show all info (async)' }
   )
   routesList.sort()
 }
