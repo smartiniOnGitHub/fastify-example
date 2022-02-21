@@ -4,7 +4,12 @@ check-coverage: false
 comments: true
 # coverage: false
 # jsx: true
+node-arg: --allow-natives-syntax
 # snapshot: true
 strict: true
 # timeout: 60
 # ts: true
+
+files:
+  # - 'test/**/*.test.js'
+  - 'test/*.test.js'

@@ -49,10 +49,10 @@
     "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
     "test:coverage:all": "npm run test:unit --  --cov",
     "test:dev": "npm run test:clean && npm run test:unit:dev",
-    "test:unit": "tap -J test/*.test.js",
+    "test:unit": "tap",
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
-    "test:unit:debug": "tap -T --node-arg=--inspect-brk test/*.test.js",
-    "test:unit:dev": "tap -J --watch test/*.test.js",
+    "test:unit:debug": "tap -T --node-arg=--inspect-brk",
+    "test:unit:dev": "tap --watch",
     "test": "npm run lint && npm run test:unit",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
