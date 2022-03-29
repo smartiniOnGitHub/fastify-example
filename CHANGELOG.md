@@ -2,8 +2,8 @@
 
 ## [3.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/3.0.0) (unreleased)
 Summary Changelog:
-- General: update requirements to latest Fastify 3.x release ('^3.0.0' or later) 
-  and related plugins
+- General: update requirements to latest Fastify 3.x release ('^3.3.0' or later) 
+  and related plugins and Node.js 12 LTS (min. Node.js 10 LTS for Fastify 3.x)
 - General: make EJS pages/emplates work with latest EJS ('^3.1.6' or later); 
   note that a global layout has been set, so pages have been updated accordingly
 - General: update all dependencies
@@ -11,6 +11,10 @@ Summary Changelog:
   so removed references to it; sorry to have there only outdated images
   (up to 2021-04 approx., later I'll remove even them); 
   I'll setup automated builds at GitHub and publish new images only there
+- General: removed outdated badges on dependencies 
+  because that site seems no longer available
+- Feature: update and re-enable features dependent from my plugins, 
+  as soon as they are compatible with Fastify 3.x
 
 ## [2.8.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/2.8.0) (2022-02-11)
 Summary Changelog:
