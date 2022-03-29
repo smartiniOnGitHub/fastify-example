@@ -1,8 +1,6 @@
 # fastify-example
 
   [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
-  [![dependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example)
-  [![devDependencies Status](https://david-dm.org/smartiniOnGitHub/fastify-example/dev-status.svg)](https://david-dm.org/smartiniOnGitHub/fastify-example?type=dev)
   [![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
   [![Apache 2.0 License](https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat)](./LICENSE)
 
@@ -79,7 +77,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^3.0.0, Node.js 12 LTS (12.13.0) or later.
+Fastify ^3.3.0, Node.js 12 LTS (12.13.0) or later.
 
 
 ## Security

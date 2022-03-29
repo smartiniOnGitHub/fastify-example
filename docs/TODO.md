@@ -4,9 +4,9 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: continue the work for first release compatible with Fastify 3.x, now merged into the master branch ... wip
-* [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... wip
-* [x] general: re-enable my plugins once compatible with fastify 3.x (like:  'fastify-check-runtime-env', 'fastify-cloudevents', 'fastify-nats-client', 'fastify-webhook') ... wip
+* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents', 'fastify-nats-client' ... wip
+* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect) ... wip
+* [x] general: other improvements for first release compatible with Fastify 3.x ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
@@ -424,6 +424,9 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: fix EJS templates working; for info look at [EJS - Home](https://ejs.co/), and even [How to use EJS to template your Node.js application - LogRocket Blog](https://blog.logrocket.com/how-to-use-ejs-template-node-js-application/), [How To Use EJS to Template Your Node Application | DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application), [NodeJs Express EJS Layouts and Partials - Raddy](https://www.raddy.dev/blog/nodejs-express-layouts-and-partials/), etc ... ok, but note that EJS layout is set in plugin registration, so unless more instances will be registered (it could be done if needed), all EJS pages will have that layout; later check if it could be set at route level instead; so for now most EJS pages have been moved to be fragments (and not a full page) just to avoid tags duplication in final output page, but some are kept as full page, if useful as an example; note that to relead the server when started in DEV mode (`npm run start:dev`) a JavaScript source must be saved (ejs pages for example aren't considered for this)
 * [x] general: update CHANGELOG to add compatibility to latest EJS (currently 3.1.6) and rework its pages, and use a general layout so that each ejs page will use it, but so pay attention to simplify each other ejs page to be a fragment (and not a complete page) to not duplicate tags in final output page ... ok
 * [x] general: merge this branch into master, with a PR ... ok, is will be done ASAP
+* [x] general: continue the work for first release compatible with Fastify 3.x (a little better: '^3.3.0') and Node.js 12 LTS, now merged into the master branch ... ok
+* [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... no, it's simpler to remove them (related site seems no more working and alternatives are too complex to setup and use)
+* [x] general: re-enable my plugins once compatible with fastify 3.x ... ok, re-enabled 'fastify-check-runtime-env', 'fastify-webhook'), others later
 
 
 ---------------

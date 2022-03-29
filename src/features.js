@@ -65,21 +65,19 @@ async function features (fastify, options = {}) {
     fastify.log.info(featuresEnabledMsg)
   }
 
-  /*
-  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.checkRuntimeEnv) {
     // check if current Node.js runtime env is compatible
     // with requirements in 'package.json', or an exception will the thrown
     const engines = require('../package.json').engines
     fastify.register(require('fastify-check-runtime-env'), {
       nodeVersionCheckAtStartup: true,
+      // nodeVersionExpected: '<=10.13.0 >=200.0.0', // sample, to raise error
       nodeVersionExpected: engines.node,
-      // onNodeVersionMismatch: 'warning' // log a message
-      // onNodeVersionMismatch: 'exception' // throw an exception // same as default
-      onNodeVersionMismatch: 'exit' // exit from current process with an error code
+      // onCheckMismatch: 'warning' // log a message
+      // onCheckMismatch: 'exception' // throw an exception // same as default
+      onCheckMismatch: 'exit' // exit from current process with an error code
     })
   }
-   */
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options
@@ -90,8 +88,6 @@ async function features (fastify, options = {}) {
     })
   }
 
-  /*
-  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.webhook) {
     // fastify-webhook, example with null or empty options, using only plugin default options
     // fastify.register(require('fastify-webhook'))
@@ -107,7 +103,6 @@ async function features (fastify, options = {}) {
     })
     fastify.log.info('Webhook registered with custom options')
   }
-   */
 
   if (featuresEnabled.healthcheck) {
     // fastify-healthcheck, example with null or empty options, using only plugin default options
