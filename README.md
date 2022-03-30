@@ -32,39 +32,6 @@ Of course you need a local installation of Docker (recent, if possible latest),
 but nothing other.
 
 
-## Setup and run with Docker images at DockerHub
-
-**DEPRECATED**
-
-Published images for this project at DockerHub are at 
-[smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/), 
-but *pay attention because they are all outdated* (last push was approx. at 2021-04).
-
-Default images are based on default Node.js Docker image and contains 
-development dependencies too (to reload content, run tests, etc), BASH shell, etc; 
-there are even others:
-- a variant one based on official Node.js Alpine Linux image, 
-  which is minimal (smaller, a lot) and is tailored for running in Production 
-  (dedicated user for running the webapp, no dev dependencies, no reload, etc)
-- another based on official Distroless images for Node.js (from Google), 
-  small (but bigger than those based on Alpine Linux) and without a lot of stuff inside 
-  (there is no shell for example), so not so simple to debug but good for production environments
-Note that "normal" images are not so small (approx. 900 / 1000 MB) and could contain some vulnerability 
-in some packages already installed in the OS, so pay attention 
-if/when using them in production environments.
-
-For example, you can run directly with:
-`docker run -d -p 8000:8000 -t smartiniatdocker09/fastify-example:latest-alpine`
-and browse to [localhost:8000](http://localhost:8000).
-Published Docker tags are 'latest', 'latest-alpine', 'latest-distroless', 
-and starting from source code tag '2.7.0' there is:
-the same tag, and even the '2.7.0-alpine' and '2.7.0-distroless' variants.
-For more info look at [tags - smartiniatdocker09/fastify-example](https://hub.docker.com/r/smartiniatdocker09/fastify-example/tags).
-
-Of course you need a local installation of Docker (recent, if possible latest), 
-but nothing other.
-
-
 ## Others
 
 To run a development server (with hot reload enabled) instead execute this:

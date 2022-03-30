@@ -427,6 +427,7 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: continue the work for first release compatible with Fastify 3.x (a little better: '^3.3.0') and Node.js 12 LTS, now merged into the master branch ... ok
 * [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... no, it's simpler to remove them (related site seems no more working and alternatives are too complex to setup and use)
 * [x] general: re-enable my plugins once compatible with fastify 3.x ... ok, re-enabled 'fastify-check-runtime-env', 'fastify-webhook'), others later
+* [x] general: delete related project at DockerHub (so all, even images, tags, build automation, etc) because now is outdated (without a Pro subscription), with security vulnerabilities inside, etc ... ok, and updated related doc file 'docs/Docker-publish.md'
 
 
 ---------------

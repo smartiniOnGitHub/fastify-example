@@ -13,6 +13,7 @@ Summary Changelog:
   I'll setup automated builds at GitHub and publish new images only there
 - General: removed outdated badges on dependencies 
   because that site seems no longer available
+- General: removed outdated project/images at DockerHub
 - Feature: update and re-enable features dependent from my plugins, 
   as soon as they are compatible with Fastify 3.x
 
