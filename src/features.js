@@ -174,8 +174,6 @@ async function features (fastify, options = {}) {
   }
    */
 
-  /*
-  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.nats) {
     // example to connect to a nats queue using related plugin
     // temporarily disable standard plugin, and use my temporary one ... ok
@@ -191,7 +189,6 @@ async function features (fastify, options = {}) {
       }
     })
   }
-   */
 
   fastify.log.info('Webapp features loaded')
 }

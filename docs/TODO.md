@@ -4,7 +4,8 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents', 'fastify-nats-client' ... wip
+* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-nats-client' ... done (and re-enabled related feature in my local '.env' file, to disable after all this stuff will work again), but related code (references to NTS items exposed by the plugin, connection options, etc) and publish/subscribe functions defined here must be updated to support NATS 2.x features (encode/decode, all async, etc) ... wip
+* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... wip
 * [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect) ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
 
