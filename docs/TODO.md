@@ -6,7 +6,7 @@
 
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-nats-client' ... done (and re-enabled related feature in my local '.env' file, to disable after all this stuff will work again), but related code (references to NTS items exposed by the plugin, connection options, etc) and publish/subscribe functions defined here must be updated to support NATS 2.x features (encode/decode, all async, etc) ... wip
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... wip
-* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect) ... wip
+* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
