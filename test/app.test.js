@@ -41,6 +41,7 @@ const fastifyOptions = JSON.parse(k.fastifyOptionsString)
 test('Basic', async t => {
   const fastify = Fastify()
   await fastify.register(App)
+  t.teardown(() => { fastify.close() })
 
   const response = await fastify.inject({
     method: 'GET',
@@ -52,12 +53,15 @@ test('Basic', async t => {
   t.equal(r.statusCode, 200)
   t.equal(r.status, 'ok')
   // other fields in it like uptime, so no other assertions (it would be too complex to compare)
+
+  t.end()
 })
 
 // some basic test, but using the async/await syntax
 test('Basic with options', async t => {
   const fastify = Fastify(fastifyOptions)
   await fastify.register(App, fastifyOptions)
+  t.teardown(() => { fastify.close() })
 
   const response = await fastify.inject({
     method: 'GET',
@@ -69,6 +73,8 @@ test('Basic with options', async t => {
   t.equal(r.statusCode, 200)
   t.equal(r.status, 'ok')
   // other fields in it like uptime, so no other assertions (it would be too complex to compare)
+
+  t.end()
 })
 
 // etc ...

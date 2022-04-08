@@ -4,9 +4,11 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-nats-client' ... done (and re-enabled related feature in my local '.env' file, to disable after all this stuff will work again), but related code (references to NTS items exposed by the plugin, connection options, etc) and publish/subscribe functions defined here must be updated to support NATS 2.x features (encode/decode, all async, etc) ... wip
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), make it work again completely ... wip
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to reuse StringCodec as default, without having to pass as argument to publish/subscribe functions ... wip
+
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... wip
-* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc ... wip
+* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
@@ -429,6 +431,8 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: fix badges in README: dependencies/devdependencies, check if use [shields.io](https://shields.io/); last, check later if define variables at the end of README for badge related variables (URLs, etc) ... no, it's simpler to remove them (related site seems no more working and alternatives are too complex to setup and use)
 * [x] general: re-enable my plugins once compatible with fastify 3.x ... ok, re-enabled 'fastify-check-runtime-env', 'fastify-webhook'), others later
 * [x] general: delete related project at DockerHub (so all, even images, tags, build automation, etc) because now is outdated (without a Pro subscription), with security vulnerabilities inside, etc ... ok, and updated related doc file 'docs/Docker-publish.md'
+* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-nats-client' ... done (and re-enabled related feature in my local '.env' file, to disable after all this stuff will work again), but related code (references to NATS items exposed by the plugin, connection options, etc) and publish/subscribe functions defined here must be updated to support NATS 2.x features (encode/decode, all async, etc) ... ok but still something is not fully working, fix ASAP, see related point here
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), update related methods here as async, and maybe even to use NATS JSONCodec (as a sample, but useful) ... ok, for more info look at Node.js client for NATS: [nats.js - nats-io - GitHub](https://github.com/nats-io/nats.js); later find a better way to reuse StringCodec as default, without having to pass as argument to publish/subscribe functions
 
 
 ---------------
