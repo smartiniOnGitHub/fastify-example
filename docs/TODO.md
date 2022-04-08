@@ -4,12 +4,16 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), make it work again completely ... wip
-* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to reuse StringCodec as default, without having to pass as argument to publish/subscribe functions ... wip
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin ... wip
 
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... wip
 * [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
+
+* [x] general: create a maintenance branch '3.x' ... wip
+* [x] general: bump release (major), to support Fastify v4 and Node.js 14 LTS (14.15.0) then update requirements even in README and in CHANGELOG; see [Migration Guide: V3 to V4 - Fastify - GitHub](https://github.com/fastify/fastify/blob/main/docs/Migration-Guide-V4.md) ... wip
+* [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
+* [x] general: ensure all works even here ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
@@ -22,9 +26,6 @@
 * [x] content: cleanup code related to the info uri ('/info/all', '/info/app', '/info/scm', '/info/os') by moving in a related plugin, and use it from here in the simple way; but add a feature flag to enable them ... wip
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
 
-* [ ] general: update syntax to Node.js 12 LTS or better to 14 LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc ...
-* [ ] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ...
-* [ ] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/) ... better, wait and use Node.js 14 LTS, but at the moment don't switch to ESM modules (do it later) ...
 * [ ] general: update code like this great example using ESM: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ... wip
 
 * [ ] content: add something protected by authentication; maybe here start with something really simple, with some fixed user/group/role, but defined via env ('fastify-env'), not hardcoded in code ... trick: let Fastify optimize request prototype object by decarating the request with a `null` object to represent the user (and the same for other properties in this case), so something like: `fastify.decorateRequest('user', null)` ...
@@ -433,6 +434,10 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: delete related project at DockerHub (so all, even images, tags, build automation, etc) because now is outdated (without a Pro subscription), with security vulnerabilities inside, etc ... ok, and updated related doc file 'docs/Docker-publish.md'
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-nats-client' ... done (and re-enabled related feature in my local '.env' file, to disable after all this stuff will work again), but related code (references to NATS items exposed by the plugin, connection options, etc) and publish/subscribe functions defined here must be updated to support NATS 2.x features (encode/decode, all async, etc) ... ok but still something is not fully working, fix ASAP, see related point here
 * [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), update related methods here as async, and maybe even to use NATS JSONCodec (as a sample, but useful) ... ok, for more info look at Node.js client for NATS: [nats.js - nats-io - GitHub](https://github.com/nats-io/nats.js); later find a better way to reuse StringCodec as default, without having to pass as argument to publish/subscribe functions
+* [x] general: update syntax to Node.js 12 LTS or better to 14 LTS, to be able to use all the new (great) stuff like Class properties (public and private) etc ... maybe later
+* [x] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ... ok, already done but following other examples, from Fastify team
+* [x] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/) ... better, wait and use Node.js 14 LTS, but at the moment don't switch to ESM modules (do it later) ... maybe later
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), make it work again completely; for a better use (in my code) of async fuinctions, look at: Fastify docuemntation for async code (and the same in Fastify plugins), [async function - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), [How to return the result of an asynchronous function in JavaScript - flaviocopes](https://flaviocopes.com/how-to-return-result-asynchronous-function/), [Node.js Async Function Best Practices | Gergely Nemeth](https://nemethgergely.com/blog/async-function-best-practices), etc ... note that probably I need to change the loading of features, because Fastify plugins (loaded using 'register') can't return a value; further analyze ... ok, now it works but I had to directly refer to NATS.js library and do other trick; later check if/how to improve; note that in other examples (but simpler) all these tricks weren't necessary
 
 
 ---------------

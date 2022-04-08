@@ -22,6 +22,9 @@
 
 const assert = require('assert').strict
 
+// TODO: later try to use fastify.NATS instead (published by my plugin) ... wip
+const NATS = require('nats')
+
 const utils = require('./utils')
 // const hostname = require('os').hostname()
 
@@ -30,36 +33,47 @@ function logReceivedMessage (err, msg) {
   if (err) {
     console.error(err.message)
   } else {
-    // TODO: find a good way to inject here NATS StringCodec, or use from an external variable ... wip
-    const sc = fastify.NATS.StringCodec() // codec for a string message
+    // later find a good way to inject here NATS StringCodec,
+    // or use it directly from an external variable ...
+    const sc = NATS.StringCodec() // codec for a string message
     utils.logToConsole(`Message received, decoded: '${sc.decode(msg.data)}'`)
   }
 }
 
 // sample subscriber function for the NATS queue specified in constants
-async function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage, dec) {
+async function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage, dec = NATS.StringCodec()) {
   if (!nats || disabled === true) {
     return
   }
   utils.logToConsole(`Subscribe to messages from the queue '${queueName}'`)
 
-  // simple subscriber with a callback
-  nats.subscribe(queueName, { callback: cb }, {
-    // max: 1 // after 1 message, auto-unsubscribe from the subject
-  })
-
-  // TODO: if cb is not defined used the new recommended way: async iterator ...
+  if (utils.isDefinedAndNotNull(cb)) {
+    // simple subscriber with a callback
+    nats.subscribe(queueName, { callback: cb }, {
+      // max: 1 // after 1 message, auto-unsubscribe from the subject
+    })
+  } else {
+    // use the recommended way, async iterator
+    // example iterator subscription
+    const sub = nats.subscribe(queueName, {
+      // max: 1 // after 1 message, auto-unsubscribe from the subject
+    })
+    for await (const m of sub) {
+      const decoded = dec.decode(m.data)
+      utils.logToConsole(`Message received from async iterator, decoded: '${decoded}'`)
+    }
+  }
 }
 
 // sample publish function for the NATS queue specified in constants
-async function publish (nats, queueName, disabled = false, msg = '', enc) {
+async function publish (nats, queueName, disabled = false, msg = '', enc = NATS.StringCodec()) {
   if (!nats || disabled === true) {
     return
   }
   utils.logToConsole(`Publish message in the queue '${queueName}'`)
 
   // simple publisher
-  nats.publish(queueName, msg, enc.encode(msg))
+  nats.publish(queueName, enc.encode(msg))
 }
 
 module.exports = {

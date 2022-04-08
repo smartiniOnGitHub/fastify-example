@@ -23,7 +23,10 @@
 
 // main entry point for instancing and starting the server
 
-const assert = require('assert').strict
+// const assert = require('assert').strict
+
+// TODO: later try to use fastify.NATS instead (published by my plugin) ... wip
+const NATS = require('nats')
 
 // load environment specific variables from '.env' file (if any) into process.env ...
 const dotenv = require('dotenv')
@@ -42,7 +45,13 @@ const fastify = Fastify(fastifyOptions)
 
 // get the web application and instance/register as a plugin
 const App = require('./app')
-fastify.register(App, fastifyOptions)
+// fastify.register(App, fastifyOptions)
+// new, load as normal function, to be able to get its return value (discarded otherwise)
+// later call directly with await (requires top-level await)
+const app = App(fastify, fastifyOptions)
+  .then((res) => {
+    fastify.log.debug(`Return values from app: ${JSON.stringify(res)}`)
+  })
 
 // start the web application
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
@@ -58,7 +67,6 @@ fastify.listen(k.port, k.address, (err, address) => {
 
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
-let natsStringCodec
 
 // define some callback logic, called when the application has successfully initialized
 // moved in main server source, more useful than in app (no needed in tests, etc)
@@ -76,9 +84,10 @@ fastify.ready((err) => {
   }
 
   // subscribe and publish a message to the queue, as a sample
-  assert(utils.isDefinedAndNotNull(fastify.NATS))
-  assert(utils.isDefinedAndNotNull(fastify.nc))
-  natsStringCodec = fastify.NATS.StringCodec()
+  // assert(utils.isDefinedAndNotNull(fastify.NATS))
+  // assert(utils.isDefinedAndNotNull(fastify.nc))
+  const natsStringCodec = NATS.StringCodec()
+  // const natsStringCodec = fastify.NATS.StringCodec()
   subscribe(fastify.nc, k.queueName, k.queueDisabled, null, natsStringCodec)
   publish(fastify.nc, k.queueName, k.queueDisabled, k.message, natsStringCodec)
   // later find a better way to reuse StringCodec as default, without having to pass as argument ...

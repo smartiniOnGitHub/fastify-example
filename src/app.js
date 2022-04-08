@@ -22,6 +22,8 @@
 /* eslint no-inner-declarations: "off" */
 
 // application wrap, configure and export Fastify definitions for the current application
+// loaded as a Fastify plugin can't return value (it's discarded by the caller, even if assigned as return value),
+// so it seems better to load it in a normal way, but async now
 
 // load/init webapp constants and general utilities
 const k = require('./constants')
@@ -46,12 +48,13 @@ const resolve = path.resolve
 const publicFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, 'public', path.sep))
 
 // function that wraps the web application and related content
-// note: when defined as async, remove the done argument
-// function app (fastify, options = {}, done) {
 async function app (fastify, options = {}) {
   if (!fastify) {
     throw new Error('Fastify instance must have a value')
   }
+
+  // define an object to return, it could contain useful data/references, depending on needs
+  let app = {}
 
   fastify.register(require('point-of-view'), {
     engine: {
@@ -75,8 +78,12 @@ async function app (fastify, options = {}) {
 
   // load all webapp features that are enabled: need to pass fastify instance and maybe some options
   // const features = require('./features')(fastify, null)
-  // new, load it as a plugin
-  fastify.register(require('./features'))
+  // load it as a plugin
+  // await fastify.register(require('./features'))
+  // new, load as normal function, to be able to get its return value (discarded otherwise)
+  const features = await require('./features')(fastify, null)
+  // note that JSON conversion will discard some object types (functions, etc)
+  fastify.log.debug(`Return values from features: ${JSON.stringify(features)}`)
 
   // load some publish/subscribe utility functions
   // const { publish, subscribe } = require('./pubsub')
@@ -84,14 +91,18 @@ async function app (fastify, options = {}) {
   // define some routes
   // const routes = require('./route')(fastify, null)
   // new, load it as a plugin
-  fastify.register(require('./route'))
+  await fastify.register(require('./route'))
 
   // define some callback logic, called when the application has successfully initialized
   // moved in main server source, more useful than in app (no needed in tests, etc)
   // fastify.ready(() => { ... })
 
-  // continue on next middleware
-  // done() // not need with async definition of current function
+  // return some values
+  app = {
+    results: true,
+    features
+  }
+  return app
 }
 
 module.exports = app

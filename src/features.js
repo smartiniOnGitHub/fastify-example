@@ -21,6 +21,10 @@
 /* eslint callback-return: "off" */
 /* eslint no-inner-declarations: "off" */
 
+// features wrap: depending on enabled feature flags, load and configure each one
+// loaded as a Fastify plugin can't return value (it's discarded by the caller, even if assigned as return value),
+// so it seems better to load it in a normal way, but async now
+
 // const assert = require('assert').strict
 
 const k = require('./constants')
@@ -50,6 +54,9 @@ async function features (fastify, options = {}) {
     throw new Error('Fastify instance must have a value')
   }
 
+  // define an object to return, it could contain useful data/references, depending on features enabled
+  const features = {}
+
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
 
@@ -57,10 +64,16 @@ async function features (fastify, options = {}) {
   // let ceLogFile = null // defined here because I need it visible in two unrelated code blocks
 
   if (featuresEnabled.platformInfo) {
+    features.platformInfo = { // sample to return some feature data
+      nodejs: utils.runtimeVersion(),
+      os: utils.platformName(),
+      webappName: `${k.packageName}-v${k.packageVersion}`,
+      framework: `Fastify-v${k.fastifyVersion}`
+    }
     // log some platform info
-    fastify.log.info(`Node.js ${utils.runtimeVersion()}, running on OS: ${utils.platformName()}`)
+    fastify.log.info(`Node.js ${features.platformInfo.nodejs}, running on OS: ${features.platformInfo.os}`)
     // log some package and framework info
-    fastify.log.info(`Webapp ${k.packageName}-v${k.packageVersion}, running on Fastify-v${k.fastifyVersion}`)
+    fastify.log.info(`Webapp ${features.platformInfo.webappName}, running on ${features.platformInfo.framework}`)
     // log enabled features of the webapp
     fastify.log.info(featuresEnabledMsg)
   }
@@ -77,10 +90,12 @@ async function features (fastify, options = {}) {
       // onCheckMismatch: 'exception' // throw an exception // same as default
       onCheckMismatch: 'exit' // exit from current process with an error code
     })
+    // features.checkRuntimeEnv = {} // sample
   }
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options
+    // features.favicon = {} // sample
     // fastify.register(require('fastify-favicon'))
     // example with custom path, usually relative to project root (without or with the final '/' char), but could be absolute
     fastify.register(require('fastify-favicon'), {
@@ -91,7 +106,7 @@ async function features (fastify, options = {}) {
   if (featuresEnabled.webhook) {
     // fastify-webhook, example with null or empty options, using only plugin default options
     // fastify.register(require('fastify-webhook'))
-    // enable later and comment the previous example ... ok
+    // features.webhook = {} // sample
     const webhookHandlers = require('fastify-webhook/src/handlers') // get plugin handlers (optional)
     const webhookPlugin = require('fastify-webhook')
     fastify.register(webhookPlugin, {
@@ -106,7 +121,7 @@ async function features (fastify, options = {}) {
 
   if (featuresEnabled.healthcheck) {
     // fastify-healthcheck, example with null or empty options, using only plugin default options
-    // fastify.register(require('fastify-healthcheck'))
+    // features.healthcheck = {} // sample
     // enable only the option to expose even process uptime, as a sample
     fastify.register(require('fastify-healthcheck'), {
       exposeUptime: true
@@ -115,29 +130,35 @@ async function features (fastify, options = {}) {
 
   if (featuresEnabled.nats) {
     // example to connect to a nats queue using related plugin
-    fastify.register(require('fastify-nats-client'), {
+    features.nats = {} // put all values of this feature inside a specific object
+    await fastify.register(require('fastify-nats-client'), {
       enableDefaultNATSServer: true, // sample, to connect by default to public demo server
       drainOnClose: true, // sample, to drain last messages at plugin close
       natsOptions: k.natsQueueOptions
     })
-    fastify.after((err) => {
-      if (err) {
-        console.log(err)
-      }
-      // assert(utils.isDefinedAndNotNull(fastify.NATS))
-      // assert(utils.isDefinedAndNotNull(fastify.nc))
-      if (fastify.nc !== undefined && fastify.nc !== null &&
-        fastify.nc.currentServer !== null
-      ) {
-        utils.logToConsole(`Connected to the queue server at: '${fastify.nc.getServer()}'`)
-      }
-    })
+    // after, perform some checks
+    // assert(utils.isDefinedAndNotNull(fastify.NATS))
+    // assert(utils.isDefinedAndNotNull(fastify.nc))
+    if (utils.isDefinedAndNotNull(fastify.nc) && utils.isNotNull(fastify.nc.currentServer)) {
+      utils.logToConsole(`Connected to the queue server at: '${fastify.nc.getServer()}'`)
+    }
+    // check later if useful (once working) ...
+    // features.nats.library = fastify.NATS
+    // features.nats.connection = fastify.nc
+    if (utils.isDefinedAndNotNull(fastify.nc)) {
+      features.nats.currentServer = fastify.nc.getServer()
+    }
+    if (utils.isDefinedAndNotNull(fastify.NATS)) {
+      features.nats.stringCodec = fastify.NATS.StringCodec()
+      features.nats.jsonCodec = fastify.NATS.JSONCodec()
+    }
   }
 
   /*
   // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.cloudevents) {
     // example usage of fastify-cloudevents plugin
+    // features.cloudevents = {} // put all values of this feature inside a specific object
     // define a sample id generator here
     // const pid = require('process').pid
     function * idCounterExample () {
@@ -196,6 +217,9 @@ async function features (fastify, options = {}) {
    */
 
   fastify.log.info('Webapp features loaded')
+
+  // return some values
+  return features
 }
 
 module.exports = features
