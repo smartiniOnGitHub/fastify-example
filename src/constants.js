@@ -54,7 +54,7 @@ const k = {
     strict: true // enable strict mode in generated CloudEvents, optional
   },
   natsQueueOptions: {
-    url: process.env.NATS_SERVER_URL // use the specified one, or plugin default
+    servers: process.env.NATS_SERVER_URL // use from env var, or use NATS demo if plugin option is enabled
   },
   queueDisabled: false // always try to send messages to the queue, as a sample
 }

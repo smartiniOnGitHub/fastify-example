@@ -113,6 +113,27 @@ async function features (fastify, options = {}) {
     })
   }
 
+  if (featuresEnabled.nats) {
+    // example to connect to a nats queue using related plugin
+    fastify.register(require('fastify-nats-client'), {
+      enableDefaultNATSServer: true, // sample, to connect by default to public demo server
+      drainOnClose: true, // sample, to drain last messages at plugin close
+      natsOptions: k.natsQueueOptions
+    })
+    fastify.after((err) => {
+      if (err) {
+        console.log(err)
+      }
+      // assert(utils.isDefinedAndNotNull(fastify.NATS))
+      // assert(utils.isDefinedAndNotNull(fastify.nc))
+      if (fastify.nc !== undefined && fastify.nc !== null &&
+        fastify.nc.currentServer !== null
+      ) {
+        utils.logToConsole(`Connected to the queue server at: '${fastify.nc.getServer()}'`)
+      }
+    })
+  }
+
   /*
   // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.cloudevents) {
@@ -141,7 +162,7 @@ async function features (fastify, options = {}) {
       if (featuresEnabled.cloudeventsLogFile) {
         ceLogFile.write(ser + '\n')
       }
-      publish(fastify.nats, k.queueName, k.queueDisabled, ser)
+      publish(fastify.nc, k.queueName, k.queueDisabled, ser)
     }
     // override cloudEventOptions strict mode with a feature flag,
     // so in this way I don't need to add a dependency from constants to utils
@@ -173,22 +194,6 @@ async function features (fastify, options = {}) {
     })
   }
    */
-
-  if (featuresEnabled.nats) {
-    // example to connect to a nats queue using related plugin
-    // temporarily disable standard plugin, and use my temporary one ... ok
-    // fastify.register(require('fastify-nats'), k.natsQueueOptions)
-    fastify.register(require('fastify-nats-client'), k.natsQueueOptions)
-    fastify.after((err) => {
-      if (err) console.log(err)
-      // assert(fastify.nats !== null) // example
-      if (fastify.nats !== undefined && fastify.nats !== null &&
-        fastify.nats.currentServer !== null
-      ) {
-        utils.logToConsole(`Connected to the queue server at: '${fastify.nats.currentServer.url.href}'`)
-      }
-    })
-  }
 
   fastify.log.info('Webapp features loaded')
 }

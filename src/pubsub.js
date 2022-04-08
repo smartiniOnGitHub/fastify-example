@@ -25,30 +25,41 @@ const assert = require('assert').strict
 const utils = require('./utils')
 // const hostname = require('os').hostname()
 
-function logReceivedMessage (msg) {
-  utils.logToConsole(`Received message: ${msg}`)
+function logReceivedMessage (err, msg) {
+  utils.logToConsole(`Received message: (${err}, ${msg})`)
+  if (err) {
+    console.error(err.message)
+  } else {
+    // TODO: find a good way to inject here NATS StringCodec, or use from an external variable ... wip
+    const sc = fastify.NATS.StringCodec() // codec for a string message
+    utils.logToConsole(`Message received, decoded: '${sc.decode(msg.data)}'`)
+  }
 }
 
 // sample subscriber function for the NATS queue specified in constants
-function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage) {
+async function subscribe (nats, queueName, disabled = false, cb = logReceivedMessage, dec) {
   if (!nats || disabled === true) {
     return
   }
   utils.logToConsole(`Subscribe to messages from the queue '${queueName}'`)
 
-  // simple subscriber
-  nats.subscribe(queueName, cb)
+  // simple subscriber with a callback
+  nats.subscribe(queueName, { callback: cb }, {
+    // max: 1 // after 1 message, auto-unsubscribe from the subject
+  })
+
+  // TODO: if cb is not defined used the new recommended way: async iterator ...
 }
 
 // sample publish function for the NATS queue specified in constants
-function publish (nats, queueName, disabled = false, msg = '') {
+async function publish (nats, queueName, disabled = false, msg = '', enc) {
   if (!nats || disabled === true) {
     return
   }
   utils.logToConsole(`Publish message in the queue '${queueName}'`)
 
   // simple publisher
-  nats.publish(queueName, msg)
+  nats.publish(queueName, msg, enc.encode(msg))
 }
 
 module.exports = {

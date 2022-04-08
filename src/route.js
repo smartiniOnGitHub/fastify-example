@@ -65,7 +65,7 @@ async function routes (fastify, options = {}) {
   fastify.get('/', async (request, reply) => {
     // utils.logRoute(request)
     // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
+    publish(fastify.nc, k.queueName, k.queueDisabled,
       `Hello World, from the root page of a Fastify web application at '${k.hostname}'!`
     )
     // with a layout set it's better to use a partial template here, to avoid duplication of tags ...
@@ -84,7 +84,7 @@ async function routes (fastify, options = {}) {
     const now = new Date()
     const timestamp = now.getTime()
     // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
+    publish(fastify.nc, k.queueName, k.queueDisabled,
       `Ask for server time: timestamp is ${timestamp} at '${k.hostname}'`
     )
     return {
@@ -95,7 +95,7 @@ async function routes (fastify, options = {}) {
   // example route to return a page from a template, async (but normal is good the same)
   fastify.get('/simple', async (request, reply) => {
     // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
+    publish(fastify.nc, k.queueName, k.queueDisabled,
       `Ask for a template page at '${k.hostname}'`
     )
     return reply.view('simple', {
@@ -107,7 +107,7 @@ async function routes (fastify, options = {}) {
   // note that same this uses the same template of the root page, but with less template variables
   fastify.get('/template', async (request, reply) => {
     // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
+    publish(fastify.nc, k.queueName, k.queueDisabled,
       `Ask for a template page at '${k.hostname}'`
     )
     // with a layout set it's better to use a partial template here, to avoid duplication of tags ...
@@ -124,7 +124,7 @@ async function routes (fastify, options = {}) {
     err.statusCode = reply.code
     err.description = 'Verbose Error description...'
     // publish a message in the queue, as a sample
-    publish(fastify.nats, k.queueName, k.queueDisabled,
+    publish(fastify.nc, k.queueName, k.queueDisabled,
       `Ask for error page at '${k.hostname}'`
     )
     return err

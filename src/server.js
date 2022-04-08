@@ -23,6 +23,8 @@
 
 // main entry point for instancing and starting the server
 
+const assert = require('assert').strict
+
 // load environment specific variables from '.env' file (if any) into process.env ...
 const dotenv = require('dotenv')
 dotenv.config()
@@ -56,10 +58,12 @@ fastify.listen(k.port, k.address, (err, address) => {
 
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
+let natsStringCodec
 
 // define some callback logic, called when the application has successfully initialized
 // moved in main server source, more useful than in app (no needed in tests, etc)
-fastify.ready(() => {
+fastify.ready((err) => {
+  if (err) throw err
   const msgPrintRoutesStart = `Printing Routes (env '${utils.currentEnv()}')`
   if (utils.isEnvProduction()) {
     fastify.log.info(`${msgPrintRoutesStart}, disabled in a production environment`)
@@ -72,9 +76,12 @@ fastify.ready(() => {
   }
 
   // subscribe and publish a message to the queue, as a sample
-  // assert(fastify.nats !== null)
-  subscribe(fastify.nats, k.queueName, k.queueDisabled)
-  publish(fastify.nats, k.queueName, k.queueDisabled, k.message)
+  assert(utils.isDefinedAndNotNull(fastify.NATS))
+  assert(utils.isDefinedAndNotNull(fastify.nc))
+  natsStringCodec = fastify.NATS.StringCodec()
+  subscribe(fastify.nc, k.queueName, k.queueDisabled, null, natsStringCodec)
+  publish(fastify.nc, k.queueName, k.queueDisabled, k.message, natsStringCodec)
+  // later find a better way to reuse StringCodec as default, without having to pass as argument ...
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
