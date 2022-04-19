@@ -4,15 +4,16 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin ... wip
-
-* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... wip
-* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... wip
+* [x] general: re-enable NATS (in my local '.env' file), then complete tests on latest release of my plugin 'fastify-cloudevents' ... wip
+* [x] general: check if/how to fix the high security warning on 'async' package, used by 'ejs > jake > async', see its [advisory](https://github.com/advisories/GHSA-fwr7-v2mv-hh25 ) ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
+* [x] general: update CHANGELOG (release date, etc), then tag release ... wip
 
 * [x] general: create a maintenance branch '3.x' ... wip
 * [x] general: bump release (major), to support Fastify v4 and Node.js 14 LTS (14.15.0) then update requirements even in README and in CHANGELOG; see [Migration Guide: V3 to V4 - Fastify - GitHub](https://github.com/fastify/fastify/blob/main/docs/Migration-Guide-V4.md) ... wip
+* [x] general: update dependencies on 'fast-json-stringify' to latest (currently) '^3.1.0' (requires Node.js 14 or later) ... wip
 * [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin; but first remember to re-enable that feature (in local file '.env', by commenting the line with: `FEATURE_NATS_DISABLE=true`) ... wip
 * [x] general: ensure all works even here ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
@@ -438,6 +439,9 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: check if split main server in: server creation and server start, to be able to reuse server creation even in tests and inject calls in it; for example see 'fastify-starter' at [CodeSandbox](https://codesandbox.io) ... ok, already done but following other examples, from Fastify team
 * [x] general: check if use modules since Node.js 12 LTS but from 12.22.0, as seen [here](https://nodejs.org/en/blog/release/v12.22.0/) ... better, wait and use Node.js 14 LTS, but at the moment don't switch to ESM modules (do it later) ... maybe later
 * [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), make it work again completely; for a better use (in my code) of async fuinctions, look at: Fastify docuemntation for async code (and the same in Fastify plugins), [async function - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function), [How to return the result of an asynchronous function in JavaScript - flaviocopes](https://flaviocopes.com/how-to-return-result-asynchronous-function/), [Node.js Async Function Best Practices | Gergely Nemeth](https://nemethgergely.com/blog/async-function-best-practices), etc ... note that probably I need to change the loading of features, because Fastify plugins (loaded using 'register') can't return a value; further analyze ... ok, now it works but I had to directly refer to NATS.js library and do other trick; later check if/how to improve; note that in other examples (but simpler) all these tricks weren't necessary
+* [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... ok, just updated to latest '^3.0.0', then re-enale related features
+* [x] general: revert dependencies on 'fast-json-stringify' from '^3.0.0' to latest 2.x (currently) '^2.7.13', because since '3.0.0' it requires Node.js 14 or later (so let's update later) ... wip
+* [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... ok, remove it, it's good the same here and check later to add the new one
 
 
 ---------------

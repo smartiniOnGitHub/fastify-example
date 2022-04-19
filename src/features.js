@@ -60,8 +60,7 @@ async function features (fastify, options = {}) {
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
 
-  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
-  // let ceLogFile = null // defined here because I need it visible in two unrelated code blocks
+  let ceLogFile = null // defined here because I need it visible in two unrelated code blocks
 
   if (featuresEnabled.platformInfo) {
     features.platformInfo = { // sample to return some feature data
@@ -154,8 +153,6 @@ async function features (fastify, options = {}) {
     }
   }
 
-  /*
-  // TODO: re-enable when the plugin will be compatible with the new major release of Fastify ... wip
   if (featuresEnabled.cloudevents) {
     // example usage of fastify-cloudevents plugin
     // features.cloudevents = {} // put all values of this feature inside a specific object
@@ -214,7 +211,6 @@ async function features (fastify, options = {}) {
       cloudEventOptions: k.cloudEventOptions
     })
   }
-   */
 
   fastify.log.info('Webapp features loaded')
 

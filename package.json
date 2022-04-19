@@ -39,10 +39,9 @@
     "lint:standard": "standard --verbose",
     "lint": "npm run lint:standard",
     "postinstall": "",
-    "prepublish": "npm run snyk-protect",
+    "prepublish": "",
     "prestart": "",
     "pretest": "",
-    "snyk-protect": "snyk protect",
     "start:debug": "node --inspect-brk ./src/server",
     "start:dev": "nodemon --watch src ./src/server",
     "start:simple": "node ./src/server-simple",
@@ -60,8 +59,9 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
-    "fast-json-stringify": "^3.0.3",
+    "fast-json-stringify": "^2.7.13",
     "fastify-check-runtime-env": "^3.0.0",
+    "fastify-cloudevents": "^3.0.0",
     "fastify-favicon": "^3.1.0",
     "fastify-formbody": "^5.2.0",
     "fastify-healthcheck": "^3.1.0",
@@ -72,8 +72,7 @@
     "fastify": "^3.3.0",
     "is-docker": "^2.2.1",
     "make-promises-safe": "^5.1.0",
-    "point-of-view": "^5.2.0",
-    "snyk": "^1.896.0"
+    "point-of-view": "^5.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
@@ -100,6 +99,5 @@
     "es2019"
   ],
   "author": "Sandro Martini <sandro.martini@gmail.com>",
-  "license": "Apache-2.0",
-  "snyk": true
+  "license": "Apache-2.0"
 }
