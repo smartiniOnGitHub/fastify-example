@@ -4,8 +4,7 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: check if/how to fix the high security warning on 'async' package, used by 'ejs > jake > async', see its [advisory](https://github.com/advisories/GHSA-fwr7-v2mv-hh25 ) ... wip
-* [x] general: other improvements for first release compatible with Fastify 3.x ... wip
+* [x] general: check if/how to fix the high security warning on 'async' package, used by 'ejs > jake > async', see its [advisory](https://github.com/advisories/GHSA-fwr7-v2mv-hh25 ) ... unable to fix with `npm audit fix`, manual fix must be done (if feasible), more info at [ejs - vulnerabilities - snyk](https://snyk.io/test/npm/ejs?tab=issues), [issue#659 - ejs - mde - GitHub](https://github.com/mde/ejs/issues/659), etc; hope it will be fixed ASAP ... wip
 * [x] general: update CHANGELOG (release date, etc), then tag release ... wip
 
 * [x] general: create a maintenance branch '3.x' ... wip
@@ -14,8 +13,9 @@
 * [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
 * [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin; but first remember to re-enable that feature (in local file '.env', by commenting the line with: `FEATURE_NATS_DISABLE=true`) ... wip
 * [x] general: ensure all works even here ... wip
+* [x] general: other improvements for first release compatible with Fastify 4.x ... wip
 
-* [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); sor example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
+* [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); for example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
