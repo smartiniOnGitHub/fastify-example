@@ -4,7 +4,6 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: re-enable NATS (in my local '.env' file), then complete tests on latest release of my plugin 'fastify-cloudevents' ... wip
 * [x] general: check if/how to fix the high security warning on 'async' package, used by 'ejs > jake > async', see its [advisory](https://github.com/advisories/GHSA-fwr7-v2mv-hh25 ) ... wip
 * [x] general: other improvements for first release compatible with Fastify 3.x ... wip
 * [x] general: update CHANGELOG (release date, etc), then tag release ... wip
@@ -442,6 +441,7 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: re-enable my plugins once compatible with fastify 3.x: 'fastify-cloudevents' ... ok, just updated to latest '^3.0.0', then re-enale related features
 * [x] general: revert dependencies on 'fast-json-stringify' from '^3.0.0' to latest 2.x (currently) '^2.7.13', because since '3.0.0' it requires Node.js 14 or later (so let's update later) ... wip
 * [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... ok, remove it, it's good the same here and check later to add the new one
+* [x] general: re-enable NATS (in my local '.env' file), then complete tests on latest release of my plugin 'fastify-cloudevents' ... ok, all good
 
 
 ---------------
