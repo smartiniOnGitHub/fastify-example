@@ -4,10 +4,8 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: update 'standard' to latest release (17.x, so a major release change), check if compatible with current requirements (it's based on ESLint 8.x); see [Changelog - StandardJS](https://standardjs.com/changelog.html) ... as seen in [Change Log - standard-engine - standard - GitHub](https://github.com/standard/standard-engine/blob/master/CHANGELOG.md#1500-0-2021-11-30) it seems compatible with current requirements (minimum Node.js 12 LTS, from '^12.20.0' or later) ... wip
-* [x] general: update CHANGELOG (release date, etc), then tag release ... wip
-
 * [x] general: create a maintenance branch '3.x' ... wip
+
 * [x] general: bump release (major), to support Fastify v4 and Node.js 14 LTS (14.15.0) then update requirements even in README and in CHANGELOG; see [Migration Guide: V3 to V4 - Fastify - GitHub](https://github.com/fastify/fastify/blob/main/docs/Migration-Guide-V4.md) ... wip
 * [x] general: update dependencies on 'fast-json-stringify' to latest (currently) '^3.1.0' (requires Node.js 14 or later) ... wip
 * [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
@@ -443,6 +441,8 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
 * [x] general: update 'snky' package (and related npm custom commands) to the new one, see: [@snyk/protect - npmjs](https://www.npmjs.com/package/@snyk/protect), [snyk wizard and snyk protect removal - snyk](https://updates.snyk.io/snyk-wizard-and-snyk-protect-removal-224137), etc; or remove it ... ok, remove it, it's good the same here and check later to add the new one
 * [x] general: re-enable NATS (in my local '.env' file), then complete tests on latest release of my plugin 'fastify-cloudevents' ... ok, all good
 * [x] general: check if/how to fix the high security warning on 'async' package, used by 'ejs > jake > async', see its [advisory](https://github.com/advisories/GHSA-fwr7-v2mv-hh25 ) ... unable to fix with `npm audit fix`, manual fix must be done (if feasible), more info at [ejs - vulnerabilities - snyk](https://snyk.io/test/npm/ejs?tab=issues), [issue#659 - ejs - mde - GitHub](https://github.com/mde/ejs/issues/659), etc; hope it will be fixed ASAP ... it has just been fixed today (2022-04-21) in release '3.1.7', see [ejs - npmjs](https://www.npmjs.com/package/ejs), [ejs - mde - GitHub](https://github.com/mde/ejs) now ... ok, no more security issues
+* [x] general: update 'standard' to latest release (17.x, so a major release change), check if compatible with current requirements (it's based on ESLint 8.x); see [Changelog - StandardJS](https://standardjs.com/changelog.html) ... as seen in [Change Log - standard-engine - standard - GitHub](https://github.com/standard/standard-engine/blob/master/CHANGELOG.md#1500-0-2021-11-30) it seems compatible with current requirements (minimum Node.js 12 LTS, from '^12.20.0' or later) ... ok, updated and all is fine
+* [x] general: update CHANGELOG (release date, etc), then tag release ... ok, set release date to today (2022-04-21) and tagged
 
 
 ---------------

@@ -1,12 +1,14 @@
 # Change Log
 
-## [3.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/3.0.0) (unreleased)
+## [3.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/3.0.0) (2022-04-21)
 Summary Changelog:
 - General: update requirements to latest Fastify 3.x release ('^3.3.0' or later) 
   and related plugins and Node.js 12 LTS (min. Node.js 10 LTS for Fastify 3.x)
 - General: make EJS pages/emplates work with latest EJS ('^3.1.6' or later); 
   note that a global layout has been set, so pages have been updated accordingly
-- General: update all dependencies
+- General: update all dependencies; 
+  note that 'standard' has been update to latest 17.x (so ESLint 8.x) 
+  and 'ejs' has been updated to latest '3.1.7' to fix a vunlerability in a dependency
 - General: automated/manual builds at Docker Hub now are no more available, 
   so removed references to it; sorry to have there only outdated images
   (up to 2021-04 approx., later I'll remove even them); 
