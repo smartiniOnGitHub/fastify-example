@@ -1,5 +1,12 @@
 # Change Log
 
+## [4.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/4.0.0) (unreleased)
+Summary Changelog:
+- General: update requirements to latest Fastify 4.x release ('^4.0.0' or later) 
+  and related plugins and Node.js 14 LTS (14.15.0 or later)
+- Feature: update and re-enable features dependent from my plugins, 
+  as soon as they are compatible with Fastify 4.x
+
 ## [3.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/3.0.0) (2022-04-21)
 Summary Changelog:
 - General: update requirements to latest Fastify 3.x release ('^3.3.0' or later) 
