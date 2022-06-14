@@ -4,7 +4,12 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: ensure all works as before: test, example, server-simple, server, in Docker container, etc ... wip
+* [x] general: ensure all works as before: test, server-simple, server ... all seems to work; then check even in Docker container, etc ... wip
+* [x] general: re-enable some of my other plugins, once compatible with Fastify 4.x, so:
+```
+    "fastify-nats-client": "^4.0.0",
+```
+and then re-enable related code (in features and in main sources) ... wip
 * [x] general: merge the code into 'master' with a Pull Request (PR), with squash mode ... wip
 * [x] general: re-enable all my plugins, once compatible with Fastify 4.x, so:
 ```
