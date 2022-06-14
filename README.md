@@ -44,7 +44,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^3.3.0, Node.js 12 LTS (12.13.0) or later.
+Fastify ^4.0.0, Node.js 12 LTS (14.15.0) or later.
 
 
 ## Security

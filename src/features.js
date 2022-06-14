@@ -44,8 +44,11 @@ const featuresEnabled = {
   nats: utils.featureIsEnabled(true, utils.fromEnv('FEATURE_NATS_DISABLE'), false)
 }
 
+/*
+// TODO: re-enable later ... wip
 // load some publish/subscribe utility functions
 const { publish, subscribe } = require('./pubsub')
+*/
 
 // features is a function because I need to pass fastify instance, and some configuration options
 // otherwise implement as a class and pass those arguments in its constructor)
@@ -60,7 +63,10 @@ async function features (fastify, options = {}) {
   const featuresEnabledMsg = `Webapp features enabled: '${utils.dumpObject(featuresEnabled, { method: 'stringify' })}'`
   utils.logToConsole(featuresEnabledMsg)
 
+  /*
+  // TODO: re-enable later ... wip
   let ceLogFile = null // defined here because I need it visible in two unrelated code blocks
+  */
 
   if (featuresEnabled.platformInfo) {
     features.platformInfo = { // sample to return some feature data
@@ -77,6 +83,8 @@ async function features (fastify, options = {}) {
     fastify.log.info(featuresEnabledMsg)
   }
 
+  /*
+  // TODO: re-enable later ... wip
   if (featuresEnabled.checkRuntimeEnv) {
     // check if current Node.js runtime env is compatible
     // with requirements in 'package.json', or an exception will the thrown
@@ -91,6 +99,7 @@ async function features (fastify, options = {}) {
     })
     // features.checkRuntimeEnv = {} // sample
   }
+  */
 
   if (featuresEnabled.favicon) {
     // fastify-favicon, example with null or empty options, using only plugin default options
@@ -102,6 +111,8 @@ async function features (fastify, options = {}) {
     })
   }
 
+  /*
+  // TODO: re-enable later ... wip
   if (featuresEnabled.webhook) {
     // fastify-webhook, example with null or empty options, using only plugin default options
     // fastify.register(require('fastify-webhook'))
@@ -117,6 +128,7 @@ async function features (fastify, options = {}) {
     })
     fastify.log.info('Webhook registered with custom options')
   }
+  */
 
   if (featuresEnabled.healthcheck) {
     // fastify-healthcheck, example with null or empty options, using only plugin default options
@@ -127,6 +139,8 @@ async function features (fastify, options = {}) {
     })
   }
 
+  /*
+  // TODO: re-enable later ... wip
   if (featuresEnabled.nats) {
     // example to connect to a nats queue using related plugin
     features.nats = {} // put all values of this feature inside a specific object
@@ -152,7 +166,10 @@ async function features (fastify, options = {}) {
       features.nats.jsonCodec = fastify.NATS.JSONCodec()
     }
   }
+  */
 
+  /*
+  // TODO: re-enable later ... wip
   if (featuresEnabled.cloudevents) {
     // example usage of fastify-cloudevents plugin
     // features.cloudevents = {} // put all values of this feature inside a specific object
@@ -211,6 +228,7 @@ async function features (fastify, options = {}) {
       cloudEventOptions: k.cloudEventOptions
     })
   }
+  */
 
   fastify.log.info('Webapp features loaded')
 

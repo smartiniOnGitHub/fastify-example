@@ -22,8 +22,11 @@
 
 const assert = require('assert').strict
 
+/*
+// TODO: re-enable later ... wip
 // TODO: later try to use fastify.NATS instead (published by my plugin) ... wip
 const NATS = require('nats')
+*/
 
 const utils = require('./utils')
 // const hostname = require('os').hostname()
@@ -33,10 +36,13 @@ function logReceivedMessage (err, msg) {
   if (err) {
     console.error(err.message)
   } else {
+    /*
+    // TODO: re-enable later ... wip
     // later find a good way to inject here NATS StringCodec,
     // or use it directly from an external variable ...
     const sc = NATS.StringCodec() // codec for a string message
     utils.logToConsole(`Message received, decoded: '${sc.decode(msg.data)}'`)
+    */
   }
 }
 
@@ -47,6 +53,8 @@ async function subscribe (nats, queueName, disabled = false, cb = logReceivedMes
   }
   utils.logToConsole(`Subscribe to messages from the queue '${queueName}'`)
 
+  /*
+  // TODO: re-enable later ... wip
   if (utils.isDefinedAndNotNull(cb)) {
     // simple subscriber with a callback
     nats.subscribe(queueName, { callback: cb }, {
@@ -63,6 +71,7 @@ async function subscribe (nats, queueName, disabled = false, cb = logReceivedMes
       utils.logToConsole(`Message received from async iterator, decoded: '${decoded}'`)
     }
   }
+  */
 }
 
 // sample publish function for the NATS queue specified in constants
@@ -72,8 +81,11 @@ async function publish (nats, queueName, disabled = false, msg = '', enc = NATS.
   }
   utils.logToConsole(`Publish message in the queue '${queueName}'`)
 
+  /*
+  // TODO: re-enable later ... wip
   // simple publisher
   nats.publish(queueName, enc.encode(msg))
+  */
 }
 
 module.exports = {

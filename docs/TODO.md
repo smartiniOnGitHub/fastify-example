@@ -4,11 +4,26 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: bump release to '4.0.0' for Fastify 4.x and so Node.js 14 LTS (14.15.0) and all other dependencies; but do all in a branch 'update-to-fastify-4' ... wip
+* [x] general: bump release to '4.0.0' for Fastify 4.x and so Node.js 14 LTS (14.15.0) and all other dependencies; but do all in a branch 'update-to-fastify-4' ... ok
 * [x] general: update CHANGELOG (with breaking and normal changes), README, etc ... wip
-* [x] general: update code for Fastify v4, as seen for example in [Fastify v4 GA - Fastify - Medium](https://medium.com/@fastifyjs/fastify-v4-ga-59f2103b5f0e), so: update Fastify 'listen' calls (even in the README), etc ... updated code with: `fastify.listen({ port: 3000, host: 'localhost' }, (err, address) => { ... })`, as seen in [Server - Fastify Sources](https://github.com/fastify/fastify/blob/main/lib/server.js); note that default port is 0, and that by setting as host 'localhost' (default value) it means listen to both 127.0.0.1 or ::1 if they are available, otherwise only set '127.0.0.1' or '::1'; simplify tests; later check with containers if set '0.0.0.0' is still good (even if only for IPv4) ... wip
-* [x] general: ensure all works as before: test, example, in Docker container, etc ... wip
+* [x] general: update code for Fastify v4, as seen for example in [Fastify v4 GA - Fastify - Medium](https://medium.com/@fastifyjs/fastify-v4-ga-59f2103b5f0e), so: update Fastify 'listen' calls (even in the README), etc ... updated code with: `fastify.listen({ port: 3000, host: 'localhost' }, (err, address) => { ... })`, as seen in [Server - Fastify Sources](https://github.com/fastify/fastify/blob/main/lib/server.js); note that default port is 0, and that by setting as host 'localhost' (default value) it means listen to both 127.0.0.1 or ::1 if they are available, otherwise only set '127.0.0.1' or '::1'; simplify tests ... ok, later check with containers if set '0.0.0.0' is still good (even if only for IPv4)
+* [x] general: disable all my plugins not yet compatible with Fastify 4.x (by commenting them in dependencies and its usage in features and main code) ... note that some are already compatible, like:
+```
+    "fastify-favicon": "^4.0.0",
+    "fastify-healthcheck": "^4.0.0",
+```
+so keep them enabled ... ok
+* [x] general: wait for a new (major) release of Fastify plugin 'fastify-static' to be compatible with 4.x, important ... wip
+* [x] general: ensure all works as before: test, example, server-simple, server, in Docker container, etc ... wip
 * [x] general: merge the code into 'master' with a Pull Request (PR), with squash mode ... wip
+* [x] general: re-enable all my plugins, once compatible with Fastify 4.x, so:
+```
+    "fastify-check-runtime-env": "^4.0.0",
+    "fastify-cloudevents": "^4.0.0",
+    "fastify-nats-client": "^4.0.0",
+    "fastify-webhook": "^4.0.0",
+```
+and then re-enable related code (in features and in main sources) ... wip
 * [x] general: update CHANGELOG (with breaking and normal changes), README, etc ... wip
 * [x] general: tag sources ... wip
 
