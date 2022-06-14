@@ -30,7 +30,7 @@ const resolve = require('path').resolve
 const templatesFolder = 'templates'
 const pubFolder = '../public'
 
-fastify.register(require('point-of-view'), {
+fastify.register(require('@fastify/view'), {
   engine: {
     ejs: templateEngine
   },
@@ -42,7 +42,7 @@ fastify.register(require('point-of-view'), {
   }
 })
 
-fastify.register(require('fastify-static'), {
+fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, pubFolder),
   prefix: '/public/' // optional: default '/'
 })

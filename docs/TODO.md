@@ -4,7 +4,6 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: wait for a new (major) release of Fastify plugin 'fastify-static' to be compatible with 4.x, important ... wip
 * [x] general: ensure all works as before: test, example, server-simple, server, in Docker container, etc ... wip
 * [x] general: merge the code into 'master' with a Pull Request (PR), with squash mode ... wip
 * [x] general: re-enable all my plugins, once compatible with Fastify 4.x, so:
@@ -467,6 +466,8 @@ and remove eslint rule to disable @typescript-eslint/no-var-requires, fix all ot
     "fastify-healthcheck": "^4.0.0",
 ```
 so keep them enabled ... ok
+* [x] general: update Fastify core plugins (like 'fastify-static' etc) to the new (scoped) package version (like '@fastify/static' etc) ... ok, done for: 'fastify-formbody' -> '@fastify/formbody', 'fastify-jwt' -> '@fastify/jwt', 'fastify-static' -> '@fastify/static', 'point-of-view' -> '@fastify/view'; later check for others
+* [x] general: wait for a new (major) release of Fastify plugin 'fastify-static' to be compatible with 4.x, important ... ok, resolved by updating it wo the new, scoped package [@fastify/static - npm](https://www.npmjs.com/package/@fastify/static) (and the same for others)
 
 
 ---------------
