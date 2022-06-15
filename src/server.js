@@ -25,11 +25,8 @@
 
 // const assert = require('assert').strict
 
-/*
-// TODO: re-enable later ... wip
 // TODO: later try to use fastify.NATS instead (published by my plugin) ... wip
 const NATS = require('nats')
-*/
 
 // load environment specific variables from '.env' file (if any) into process.env ...
 const dotenv = require('dotenv')
@@ -86,8 +83,6 @@ fastify.ready((err) => {
     utils.logToConsole(msgPrintRoutesFull)
   }
 
-  /*
-  // TODO: re-enable later ... wip
   // subscribe and publish a message to the queue, as a sample
   // assert(utils.isDefinedAndNotNull(fastify.NATS))
   // assert(utils.isDefinedAndNotNull(fastify.nc))
@@ -96,7 +91,6 @@ fastify.ready((err) => {
   subscribe(fastify.nc, k.queueName, k.queueDisabled, null, natsStringCodec)
   publish(fastify.nc, k.queueName, k.queueDisabled, k.message, natsStringCodec)
   // later find a better way to reuse StringCodec as default, without having to pass as argument ...
-  */
 })
 
 // log server startup, but note that by default logs are disabled in Fastify (even errors) ...
