@@ -24,7 +24,7 @@ ENV NODE_ENV=${NODE_ENV}
 ENV NPM_CONFIG_LOGLEVEL=warn
 
 # copy project definition/dependencies files, for better reuse of layers
-COPY package*.json ./
+COPY --chown=nodejs:nodejs package*.json ./
 
 # copy stuff required by prepublish (postinstall)
 COPY .snyk ./
