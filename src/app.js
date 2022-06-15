@@ -56,7 +56,7 @@ async function app (fastify, options = {}) {
   // define an object to return, it could contain useful data/references, depending on needs
   let app = {}
 
-  fastify.register(require('point-of-view'), {
+  fastify.register(require('@fastify/view'), {
     engine: {
       ejs: require('ejs')
     },
@@ -71,7 +71,7 @@ async function app (fastify, options = {}) {
     }
   })
 
-  fastify.register(require('fastify-static'), {
+  fastify.register(require('@fastify/static'), {
     root: publicFolderFromScript,
     prefix: k.mappings.staticAssetsMapping // optional: default '/'
   })

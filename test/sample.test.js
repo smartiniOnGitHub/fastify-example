@@ -45,12 +45,14 @@ tap.equal(utilModule.isStringEmpty(''), true)
 
 // other tests, using a different (better) syntax
 test('util, string empty or not', (t) => {
-  t.plan(2)
+  // t.plan(2)
   // const util = require('../src/utils.js')  // forbidden by my ESLint rules (at the moment), and best practice
   const util = utilModule
 
   t.equal(utilModule.isStringEmpty('not empty'), false)
   t.equal(utilModule.isStringEmpty(''), true)
+
+  t.end()
 })
 
 // etc ...

@@ -55,7 +55,7 @@ const app = App(fastify, fastifyOptions)
 
 // start the web application
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(k.port, k.address, (err, address) => {
+fastify.listen({ port: k.port, host: k.address }, (err, address) => {
   if (err) {
     fastify.log.error(err)
     process.exit(1)

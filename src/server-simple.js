@@ -30,7 +30,7 @@ const resolve = require('path').resolve
 const templatesFolder = 'templates'
 const pubFolder = '../public'
 
-fastify.register(require('point-of-view'), {
+fastify.register(require('@fastify/view'), {
   engine: {
     ejs: templateEngine
   },
@@ -42,7 +42,7 @@ fastify.register(require('point-of-view'), {
   }
 })
 
-fastify.register(require('fastify-static'), {
+fastify.register(require('@fastify/static'), {
   root: path.join(__dirname, pubFolder),
   prefix: '/public/' // optional: default '/'
 })
@@ -65,7 +65,7 @@ fastify.get('/favicon.ico', (request, reply) => {
 })
 
 // note that to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
-fastify.listen(8000, '0.0.0.0', (err, address) => {
+fastify.listen({ port: 8000, host: '0.0.0.0' }, (err, address) => {
   if (err) {
     app.log.error(err)
     process.exit(1)
