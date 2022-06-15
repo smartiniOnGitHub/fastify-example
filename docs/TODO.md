@@ -4,7 +4,6 @@
 
 * [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
 
-* [x] general: merge the code into 'master' with a Pull Request (PR), with squash mode ... wip
 * [x] general: re-enable all my plugins, once compatible with Fastify 4.x, so:
 ```
     "fastify-check-runtime-env": "^4.0.0",
@@ -472,6 +471,7 @@ so keep them enabled ... ok
 ```
 and then re-enable related code (in features and in main sources) ... ok, done; all works as before
 * [x] general: ensure all works as before: test, server-simple, server ... all seems to work; then check even in Docker container, etc ... ok, done; all works as before
+* [x] general: merge the code into 'master' with a Pull Request (PR), with squash mode ... ok
 
 
 ---------------
