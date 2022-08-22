@@ -44,7 +44,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^4.0.0, Node.js 12 LTS (14.15.0) or later.
+Fastify ^4.5.2, Node.js 14 LTS (14.15.0) or later.
 
 
 ## Security
@@ -102,6 +102,7 @@ As a sample, by default (unless disabled) some messages will be sent to a NATS q
 when the web application has started and when a client ask for a page.
 NATS server by default (in related plugin) is a public one, 
 [demo.nats.io](nats://demo.nats.io:4222).
+Pay attention in corporate networks, where that NATS server could NOT be reachable.
 
 
 ## License
