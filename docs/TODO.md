@@ -2,7 +2,7 @@
 
 ## TODO
 
-* [x] general: setup some automation to make builds via GitHub Actions and maybe publish there images (but only after a tag, at least trigger them manually) and if possible even latest; update README with some badge or at least some links ... wip 
+* [x] general: setup some automation to make builds via GitHub Actions and maybe even generate and publish container images (at GitHub or at DockerHub, but only after a tag, or at least trigger them manually) and if possible tag even as 'latest'; update README with some badge or at least some links ... wip 
 
 * [x] general: update CHANGELOG (with breaking and normal changes), README, etc ... wip
 * [x] general: tag sources ... wip
