@@ -7,10 +7,13 @@
 * [x] general: update CHANGELOG (with breaking and normal changes), README, etc ... wip
 * [x] general: tag sources ... wip
 
+* [x] general: ensure all works even with latest TypeScript 4.9, see [Announcing TypeScript 4.9 - TypeScript Blog](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/) ... no, not relevant here because I don't use TypeScript in this project, see 'fastify-example-ts'
 * [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
 * [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin; but first remember to re-enable that feature (in local file '.env', by commenting the line with: `FEATURE_NATS_DISABLE=true`) ... wip
 * [x] general: ensure all works even here ... wip
 * [x] general: other improvements for first release compatible with Fastify 4.x ... wip
+* [x] general: check if change template engine, from EJS to LiquidJS; see [Introduction - LiquidJS](https://liquidjs.com/tutorials/intro-to-liquid.html) ... wip
+* [x] general: improve/update cotainerization for the application, by following [10 best practices to containerize Node.js web applications with Docker - SNYK Blog](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/) ... wip
 
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); for example look [here](https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/), [here](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs), etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
