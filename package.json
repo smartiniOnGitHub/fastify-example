@@ -47,15 +47,15 @@
     "start:dev": "nodemon --watch src ./src/server",
     "start:simple": "node ./src/server-simple",
     "start": "node ./src/server",
-    "test:clean": "rm -rf .nyc_output/* ./coverage/*",
-    "test:coverage:all": "npm run test:unit --  --cov",
-    "test:coverage": "npm run test:unit -- --cov --coverage-report=html",
+    "test:clean": "rm -rf .nyc_output/* .tap/* ./coverage/*",
+    "test:coverage:all": "npm run test:unit --  --coverage-report=text",
+    "test:coverage": "npm run test:unit -- --coverage-report=html",
     "test:dev": "npm run test:clean && npm run test:unit:dev",
     "test:unit:debug": "tap -T --node-arg=--inspect-brk",
-    "test:unit:dev": "tap --watch",
+    "test:unit:dev": "tap --watch --coverage-report=none",
     "test:unit:with-snapshot": "cross-env TAP_SNAPSHOT=1 npm run test:unit",
-    "test:unit": "tap",
-    "test": "npm run lint && npm run test:unit"
+    "test:unit": "tap --allow-incomplete-coverage",
+    "test": "npm run lint:standard && npm run test:unit"
   },
   "dependencies": {
     "@fastify/formbody": "^8.0.2",
@@ -72,7 +72,6 @@
     "fastify-nats-client": "^5.0.0",
     "fastify-webhook": "^5.0.0",
     "fastify": "^5.8.5",
-    "is-docker": "^4.0.0",
     "make-promises-safe": "^5.1.0"
   },
   "devDependencies": {
@@ -81,9 +80,10 @@
     "nodemon": "^3.1.14",
     "simple-get": "^4.0.1",
     "standard": "^17.1.2",
-    "tap": "^18.0.0"
+    "tap": "^21.7.1"
   },
   "peerDependencies": {},
+  "type": "commonjs",
   "engines": {
     "node": ">=20.9.0"
   },

@@ -1,15 +1,17 @@
-# tap config file
-# color: false
-check-coverage: false
-comments: true
-# coverage: false
-# jsx: true
-node-arg: --allow-natives-syntax
-# snapshot: true
-strict: true
-# timeout: 60
-# ts: true
+# vim: set filetype=yaml :
 
-files:
-  # - 'test/**/*.test.js'
+# node-arg:
+#   - '--allow-natives-syntax'
+
+# jobs: 1
+comments: true
+# disable-coverage: true
+timeout: 60
+# typecheck: true
+
+include:
   - 'test/*.test.js'
+  # - 'test/**/*.test.js'
+  # - 'test/**/*.test.cjs'
+  # - 'test/**/*.test.mjs'
+  
