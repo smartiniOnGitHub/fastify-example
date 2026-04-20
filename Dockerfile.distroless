@@ -1,4 +1,4 @@
-FROM node:20 as builder
+FROM node:20 AS builder
 
 LABEL version="5.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
@@ -14,7 +14,7 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 COPY package*.json ./
 
 # copy stuff required by prepublish (postinstall)
-COPY .snyk ./
+# COPY .snyk ./
 
 # install dependencies here, for better reuse of layers
 RUN npm install && npm audit fix
@@ -24,7 +24,7 @@ COPY . .
 
 
 # release layer (the only one in the final image)
-FROM gcr.io/distroless/nodejs:20 AS release
+FROM gcr.io/distroless/nodejs20-debian13 AS release
 COPY --from=builder /app /app
 WORKDIR /app
 
