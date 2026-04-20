@@ -23,8 +23,26 @@
 // const assert = require('assert').strict
 const path = require('path')
 const hostname = require('os').hostname()
+const fs = require('fs')
 
-const isDocker = require('is-docker')
+// Synchronous check for Docker/Podman/container environment
+// this is required because the 'is-docker' library now is published only as an ESM module,
+// and we want to keep this file as CommonJS for compatibility with older Node.js versions
+// (and also because it is not a problem to use sync check here, as it is executed only once at startup)
+function isContainer () {
+  try {
+    // Check for Docker/Podman container marker
+    if (fs.existsSync('/.dockerenv')) return true
+    // Check for Podman-specific marker (when running rootless Podman or in some nested scenarios)
+    if (fs.existsSync('/run/.containerenv')) return true
+    // Check for container environment variables
+    if (process.env.DOCKER_HOST) return true
+    if (process.env.PODMAN_HOST) return true
+    return false
+  } catch (err) {
+    return false
+  }
+}
 
 const k = {
   packageName: require('../package.json').name,
@@ -61,7 +79,7 @@ const k = {
 k.imagesFolderFromScript = path.normalize(path.join(k.projectFolderFromScript, path.sep, k.folders.publicAssetsFolderName, path.sep, k.folders.imagesAssetsFolderName, path.sep))
 // to make it work (be exposed) when deployed in a container (Docker, etc) we need to listen not only to localhost but for example to all interfaces ...
 if (!process.env.HTTP_ADDRESS) {
-  k.address = (isDocker() === true) ? '0.0.0.0' : '127.0.0.1'
+  k.address = isContainer() ? '0.0.0.0' : '127.0.0.1'
 }
 k.baseNamespace = `com.github.smartiniOnGitHub.${k.packageName}-v${k.packageVersion}`
 k.serverUrl = `${k.protocol}://${k.address}:${k.port}`
