@@ -1,6 +1,6 @@
-FROM node:lts-slim as builder
+FROM node:lts-slim AS builder
 
-LABEL version="3.0.0"
+LABEL version="5.0.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
 LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 
@@ -27,7 +27,7 @@ ENV NPM_CONFIG_LOGLEVEL=warn
 COPY --chown=nodejs:nodejs package*.json ./
 
 # copy stuff required by prepublish (postinstall)
-COPY .snyk ./
+# COPY .snyk ./
 
 # install dependencies here, for better reuse of layers
 RUN npm install && npm audit fix && npm cache clean --force

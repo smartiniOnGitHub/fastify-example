@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2023 the original author or authors.
+ * Copyright 2018-2026 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -510,6 +510,23 @@ module.exports.getFromEither = function (either, { throwOnError = false, value =
     return either.err
   } else {
     return either.data || value
+  }
+}
+
+// utility function for a synchronous check for Docker/Podman/container environment
+// this is required because the 'is-docker' library now is published only as an ESM module
+module.exports.isContainer = async function () {
+  try {
+    // Check for Docker/Podman container marker
+    if (fs.existsSync('/.dockerenv')) return true
+    // Check for Podman-specific marker (when running rootless Podman or in some nested scenarios)
+    if (fs.existsSync('/run/.containerenv')) return true
+    // Check for container environment variables
+    if (process.env.DOCKER_HOST) return true
+    if (process.env.PODMAN_HOST) return true
+    return false
+  } catch (err) {
+    return false
   }
 }
 
