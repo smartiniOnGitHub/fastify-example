@@ -2,30 +2,18 @@
 
 ## TODO
 
-* [x] general: update code for Fastify v5; for more info, look even at [V5 Migration Guide - Fastify docs](https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/), etc; do all in a branch ... lint all MarkDown files, update all dependencies, copyright year, code, my plugins to latest release, etc; but for TAP, wait to migrate to latest ... wip
+* [x] general: update code for Fastify v5; for more info, look even at [V5 Migration Guide - Fastify docs](https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/), etc; do all in a branch ... lint all MarkDown files, update all dependencies, copyright year, code, my plugins to latest release, etc; update even TAP to latest but migrate/update its config file and command lines; removed dependency on 'is-docker' because since '^4.0.0' it's exported only as an ESM module, so wrote a function to replace it synchronously but that detects Docker and Podman (put even under utils, but not referenced from constants source file to avoid unneeded dependencies between sources); last, ensure Docker images works fine ... wip
+* [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... wip
+* [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... wip
+* [x] general: update code for Fastify v5, continuation: tag sources ... wip
 
+* [x] general: update some libraries to use more modern ones, like: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'eslint', maybe others too ... wip
 * [x] general: setup some automation to make builds via GitHub Actions and maybe even generate and publish container images (at GitHub or at DockerHub, but only after a tag, or at least trigger them manually) and if possible tag even as 'latest'; update README with some badge or at least some links ... wip
-
-* [x] general: update CHANGELOG (with breaking and normal changes), README, etc ... wip
-* [x] general: tag sources ... wip
-
-* [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... wip
-* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin; but first remember to re-enable that feature (in local file '.env', by commenting the line with: `FEATURE_NATS_DISABLE=true`) ... wip
-* [x] general: ensure all works even here ... wip
-* [x] general: other improvements for first release compatible with Fastify 4.x ... wip
-* [x] general: check if change template engine, from EJS to LiquidJS; see [Introduction - LiquidJS](https://liquidjs.com/tutorials/intro-to-liquid.html) ... wip
-* [x] general: improve/update cotainerization for the application, by following [10 best practices to containerize Node.js web applications with Docker - SNYK Blog](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/) ... wip
-
-* [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); for example look <https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/>, <https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs>, etc ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
 * [x] general: fastify-jwt: now (like other parts in this webapp) enable it with a feature flag, and implement a simple login/logout flow, with access to at least 1 route only for logged users (to simplify things maybe generate a random password for an administrator at webapp startup); manage form url-encoded data with 'fastify-formbody' (already added here to dependencies, but need to be enabled/registered at webapp startup) ... wip
-
-* [x] general: update all dependencies to latest ... wip
 * [x] general: define json schema for all exposed endpoints here, as seen in [Validation-and-Serialization - Fastify](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md), useful even to improve performances ... wip
-* [x] content: update css code to work in the right way even in other languages (different directions, etc), as seen for example <https://web.dev/centering-in-css/>; so improve existing styles that uses Flex Box and maybe add others using Flex Grid (now well supported everywhere) maybe to set as default ... wip
-* [x] content: cleanup code related to the info uri ('/info/all', '/info/app', '/info/scm', '/info/os') by moving in a related plugin, and use it from here in the simple way; but add a feature flag to enable them ... wip
-* [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... wip
+* [x] content: cleanup code related to the info uri ('/info/all', '/info/app', '/info/scm', '/info/os') by moving in a related internal plugin, and use it from here in the simple way; but add a feature flag to enable them ... wip
 
 * [ ] general: update code like this great example using ESM: [fastify-101 - delvedor - github](https://github.com/delvedor/fastify-101) ... wip
 
@@ -489,5 +477,16 @@ and then re-enable related code (in features and in main sources) ... ok, done; 
 and then re-enable related code (in features and in main sources) ... ok, all works now
 
 * [x] general: ensure all works even with latest TypeScript 4.9, see [Announcing TypeScript 4.9 - TypeScript Blog](https://devblogs.microsoft.com/typescript/announcing-typescript-4-9/) ... no, not relevant here because I don't use TypeScript in this project, see 'fastify-example-ts'
+
+* [x] general: simplify some async code by using top-level await, available since Node.js 14 LTS; see [Top-level await - V8](https://v8.dev/features/top-level-await), [Top-level await is available in Node.js modules | Stefan Judis](https://www.stefanjudis.com/today-i-learned/top-level-await-is-available-in-node-js-modules/), etc ... maybe later
+* [x] general: pub/sub messages with NATS (using plugin 'fastify-nats-client'), find a better way to use features exposed by my plugin; but first remember to re-enable that feature (in local file '.env', by commenting the line with: `FEATURE_NATS_DISABLE=true`) ... maybe later
+* [x] general: ensure all works even here ... wip
+* [x] general: other improvements for first release compatible with Fastify 4.x ... ok, then do the same even for Fastify 5.x
+* [x] general: check if change template engine, from EJS to LiquidJS; see [Introduction - LiquidJS](https://liquidjs.com/tutorials/intro-to-liquid.html) ... maybe later
+* [x] general: improve/update containerization for the application, by following [10 best practices to containerize Node.js web applications with Docker - SNYK Blog](https://snyk.io/blog/10-best-practices-to-containerize-nodejs-web-applications-with-docker/) ... maybe later
+* [x] general: update all dependencies to latest ... ok, and ofter repeat
+* [x] content: update css code to work in the right way even in other languages (different directions, etc), as seen for example <https://web.dev/centering-in-css/>; so improve existing styles that uses Flex Box and maybe add others using Flex Grid (now well supported everywhere) maybe to set as default ... maybe later, evaluate to migrate to a more modern framework instead like TailWindCSS or others
+* [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... maybe later, not really needed here
+* [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); for example look <https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/>, <https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs>, etc ... maybe later, not really needed here
 
 ---------------
