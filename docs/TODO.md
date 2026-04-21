@@ -2,12 +2,14 @@
 
 ## TODO
 
-* [x] general: update code for Fastify v5; for more info, look even at [V5 Migration Guide - Fastify docs](https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/), etc; do all in a branch ... lint all MarkDown files, update all dependencies, copyright year, code, my plugins to latest release, etc; update even TAP to latest but migrate/update its config file and command lines; removed dependency on 'is-docker' because since '^4.0.0' it's exported only as an ESM module, so wrote a function to replace it synchronously but that detects Docker and Podman (put even under utils, but not referenced from constants source file to avoid unneeded dependencies between sources); removed the '.snyk' file, no more used here; ensured Docker images works fine ... ok, ready fo merge related Pull Request (PR)
-* [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... wip
-* [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... wip
+* [x] general: update code for Fastify v5, continuation: temporarily enable the sending of messages to NATS (change current config item in the '.env' file, from `FEATURE_NATS_DISABLE=true` to `FEATURE_NATS_DISABLE=false`), then re-disable (it's a better default setting) ... wip
+* [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... last, update release date in CHANGELOG ... wip
 * [x] general: update code for Fastify v5, continuation: tag sources ... wip
+* [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... wip
 
-* [x] general: update some libraries to use more modern ones, like: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'eslint', maybe others too ... wip
+* [x] general: bump maintenance release 5.x ... wip
+* [x] general: update some libraries to use more modern ones, like Fastify: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'neostandard' and 'eslint' (update some rules, add its plugins as required) ... wip
+* [x] general: update some libraries to use more modern ones, check if add 'prettier' to format sources (instead of 'standard' and add related eslint plugin), and add npm custom commands for: 'format:check', 'format:fix', 'format' that calls 'format:check' ... wip
 * [x] general: setup some automation to make builds via GitHub Actions and maybe even generate and publish container images (at GitHub or at DockerHub, but only after a tag, or at least trigger them manually) and if possible tag even as 'latest'; update README with some badge or at least some links ... wip
 * [x] content: add a property 'user' to requests, in the right (fast) way for Fastify, like: `fastify.decorateRequest('user', null)`; so the underlying Node.js engine (V8) will optimize requests that will have that field updated (later, when a user will be logged) ... wip
 * [x] content: add a Login page ('/login') and related Logout page ('/logout'), to implement a simple login/logout flow, then expose some resources (for example all under '/private' or '/user' or '/user/info') only to a logged user; but keep this feature always enabled (no feature flag for this, at least now); and enable the link to it in navigation bar ... wip
@@ -488,5 +490,9 @@ and then re-enable related code (in features and in main sources) ... ok, all wo
 * [x] content: update css code to work in the right way even in other languages (different directions, etc), as seen for example <https://web.dev/centering-in-css/>; so improve existing styles that uses Flex Box and maybe add others using Flex Grid (now well supported everywhere) maybe to set as default ... maybe later, evaluate to migrate to a more modern framework instead like TailWindCSS or others
 * [x] content: as a sample, add customizations to current styles with a theme css file (one or more) ... so move in a dedicated theme some styles/colors/etc currently not used (but of course not structural definitions) and use it to override normal styles (for example new ocean related colors) ... maybe later, not really needed here
 * [x] content: update favicon to modern practices (by default add an svg version and manage dark theme, and keep 'favicon.ico' only as fallback, etc); for example look <https://css-tricks.com/svg-favicons-and-all-the-fun-things-we-can-do-with-them/>, <https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs>, etc ... maybe later, not really needed here
+
+* [x] general: update code for Fastify v4 ... ok, code already fine time ago; created a tag '4.0.0' and then even a maintenance branch '4.x' from same tag
+
+* [x] general: update code for Fastify v5; for more info, look even at [V5 Migration Guide - Fastify docs](https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/), etc; do all in a branch ... lint all MarkDown files, update all dependencies, copyright year, code, my plugins to latest release, etc; update even TAP to latest but migrate/update its config file and command lines; removed dependency on 'is-docker' because since '^4.0.0' it's exported only as an ESM module, so wrote a function to replace it synchronously but that detects Docker and Podman (put even under utils, but not referenced from constants source file to avoid unneeded dependencies between sources); removed the '.snyk' file, no more used here; ensured Docker images works fine ... ok, ready fo merge related Pull Request (PR)
 
 ---------------

@@ -1,8 +1,8 @@
 # fastify-example
 
-  [![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
-  [![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
-  [![Apache 2.0 License](https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat)](./LICENSE)
+[![Code Style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
+[![Known Vulnerabilities](https://snyk.io//test/github/smartiniOnGitHub/fastify-example/badge.svg)](https://snyk.io//test/github/smartiniOnGitHub/fastify-example?targetFile=package.json)
+[![Apache 2.0 License](https://img.shields.io/badge/license-Apache_2.0-green.svg?style=flat)](./LICENSE)
 
 Example webapp with Fastify
 
@@ -93,7 +93,7 @@ Supported variables:
   but previous (if present) will be overwritten,
   so any new run is fresh and old logs will be discarded
 - `FEATURE_NATS_DISABLE`, to disable (not load) related plugin
-if not specified default behavior will be applied.
+  if not specified default behavior will be applied.
 
 As a sample, by default (unless disabled) some messages will be sent to a NATS queue,
 when the web application has started and when a client ask for a page.
@@ -105,4 +105,4 @@ Pay attention in corporate networks, where that NATS server could NOT be reachab
 
 Licensed under [Apache-2.0](./LICENSE).
 
-----
+---

@@ -28,6 +28,7 @@
     "docs:clean": "rm -rf ./out/*",
     "docs:generate": "npx jsdoc -c .jsdoc.json -R README.md",
     "docs": "npm run docs:clean && npm run docs:generate",
+    "format": "npm run lint:fix",
     "healthcheck-manual": "node node_modules/fastify-healthcheck/src/healthcheck http://localhost:8000/health",
     "license-check:log": "npx legally | tee ./temp/license-check.log",
     "license-check": "npx legally",
@@ -71,8 +72,7 @@
     "fastify-healthcheck": "^5.1.0",
     "fastify-nats-client": "^5.0.0",
     "fastify-webhook": "^5.0.0",
-    "fastify": "^5.8.5",
-    "make-promises-safe": "^5.1.0"
+    "fastify": "^5.8.5"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",

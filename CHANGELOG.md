@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/5.0.0) (unreleased)
+## [5.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/5.0.0) (2026-04-21)
 
 Summary Changelog:
 
@@ -8,6 +8,8 @@ Summary Changelog:
   and related plugins and Node.js 20 LTS (20.9.0 or later)
 - Feature: update and re-enable features dependent from my plugins,
   as soon as they are compatible with Fastify 5.x
+- Remove some libraries from dependencies, like 'make-promises-safe'
+  (no more needed with modern Node.js versions)
 
 ## [4.0.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/4.0.0) (2023-01-28)
 
