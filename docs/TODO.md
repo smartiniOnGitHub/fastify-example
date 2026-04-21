@@ -2,11 +2,6 @@
 
 ## TODO
 
-* [x] general: update code for Fastify v5, continuation: temporarily enable the sending of messages to NATS (change current config item in the '.env' file, from `FEATURE_NATS_DISABLE=true` to `FEATURE_NATS_DISABLE=false`), then re-disable (it's a better default setting) ... wip
-* [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... last, update release date in CHANGELOG ... wip
-* [x] general: update code for Fastify v5, continuation: tag sources ... wip
-* [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... wip
-
 * [x] general: bump maintenance release 5.x ... wip
 * [x] general: update some libraries to use more modern ones, like Fastify: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'neostandard' and 'eslint' (update some rules, add its plugins as required) ... wip
 * [x] general: update some libraries to use more modern ones, check if add 'prettier' to format sources (instead of 'standard' and add related eslint plugin), and add npm custom commands for: 'format:check', 'format:fix', 'format' that calls 'format:check' ... wip
@@ -494,5 +489,9 @@ and then re-enable related code (in features and in main sources) ... ok, all wo
 * [x] general: update code for Fastify v4 ... ok, code already fine time ago; created a tag '4.0.0' and then even a maintenance branch '4.x' from same tag
 
 * [x] general: update code for Fastify v5; for more info, look even at [V5 Migration Guide - Fastify docs](https://fastify.dev/docs/latest/Guides/Migration-Guide-V5/), etc; do all in a branch ... lint all MarkDown files, update all dependencies, copyright year, code, my plugins to latest release, etc; update even TAP to latest but migrate/update its config file and command lines; removed dependency on 'is-docker' because since '^4.0.0' it's exported only as an ESM module, so wrote a function to replace it synchronously but that detects Docker and Podman (put even under utils, but not referenced from constants source file to avoid unneeded dependencies between sources); removed the '.snyk' file, no more used here; ensured Docker images works fine ... ok, ready fo merge related Pull Request (PR)
+* [x] general: update code for Fastify v5, continuation: temporarily enable the sending of messages to NATS (change current config item in the '.env' file, from `FEATURE_NATS_DISABLE=true` to `FEATURE_NATS_DISABLE=false`), then re-disable (it's a better default setting) ... ok
+* [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... last, update release date in CHANGELOG, then commit and push last changes for this release ... ok
+* [x] general: update code for Fastify v5, continuation: tag sources ... ok (ASAP)
+* [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... ok (ASAP), usually post-release
 
 ---------------
