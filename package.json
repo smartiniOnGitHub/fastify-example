@@ -96,8 +96,8 @@
     "example",
     "fastify",
     "ejs",
-    "es10",
-    "es2019"
+    "es14",
+    "es2023"
   ],
   "author": "Sandro Martini <sandro.martini@gmail.com>",
   "license": "Apache-2.0"
