@@ -1,13 +1,17 @@
 {
   "name": "fastify-example",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Example web application with Fastify",
   "main": "src/server",
   "scripts": {
     "audit:log": "npm audit > ./temp/audit.log",
     "cache:cleanup": "npm cache clean --force",
     "cache:verify": "npm cache verify",
+    "clean:all": "npm run clean:dist && npm run clean:install && npm run clean:log",
+    "clean:dist": "rm -rf dist/*",
     "clean:install": "rm -rf ./package-lock.json ./node_modules/",
+    "clean:log": "rm -rf ./*.log",
+    "clean": "npm run clean:dist && npm run clean:log",
     "debug:dev": "nodemon --debug --watch src ./src/server",
     "debug": "node --inspect ./src/server",
     "dependency:log": "npm list > ./temp/dependencies.log",
@@ -40,6 +44,10 @@
     "lint:log": "npm run lint > ./temp/lint-standard.log",
     "lint:standard": "standard --verbose",
     "lint": "npm run lint:standard",
+    "npm:user-logs:clear": "rm ~/.npm/_logs/*.log",
+    "npm:packages:install": "npm install",
+    "npm:packages:show-outdated": "npm outdated",
+    "npm:packages:update-semver": "npm update --save",
     "postinstall": "",
     "prepublish": "",
     "prestart": "",
@@ -60,19 +68,19 @@
   },
   "dependencies": {
     "@fastify/formbody": "^8.0.2",
-    "@fastify/jwt": "^10.0.0",
-    "@fastify/static": "^9.1.1",
+    "@fastify/jwt": "^10.2.2",
+    "@fastify/static": "^9.3.0",
     "@fastify/view": "^11.1.1",
     "dotenv": "^17.4.2",
     "ejs": "^5.0.2",
-    "fast-json-stringify": "^6.3.0",
+    "fast-json-stringify": "^6.4.0",
+    "fastify": "^5.12.3",
     "fastify-check-runtime-env": "^5.1.0",
     "fastify-cloudevents": "^5.1.0",
     "fastify-favicon": "^5.0.0",
     "fastify-healthcheck": "^5.1.0",
     "fastify-nats-client": "^5.0.0",
-    "fastify-webhook": "^5.0.0",
-    "fastify": "^5.8.5"
+    "fastify-webhook": "^5.0.0"
   },
   "devDependencies": {
     "cross-env": "^10.1.0",
@@ -80,9 +88,8 @@
     "nodemon": "^3.1.14",
     "simple-get": "^4.0.1",
     "standard": "^17.1.2",
-    "tap": "^21.7.1"
+    "tap": "^21.8.0"
   },
-  "peerDependencies": {},
   "type": "commonjs",
   "engines": {
     "node": ">=20.9.0"

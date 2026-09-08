@@ -2,7 +2,7 @@
 
 ## TODO
 
-* [x] general: bump maintenance release 5.x ... wip
+* [x] general: update dependencies to latest version and ensure all is good ... wip
 * [x] general: update some libraries to use more modern ones, like Fastify: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'neostandard' and 'eslint' (update some rules, add its plugins as required) or evaluate to use 'oxlint' ... wip
 * [x] general: update some libraries to use more modern ones, check if add 'prettier' to format sources (instead of 'standard' and add related eslint plugin), and maybe change its default setting for quotes from `"singleQuote": false` to `"singleQuote": true` and add npm custom commands for: 'format:check', 'format:fix', 'format' that calls 'format:check' ... wip
 * [x] general: setup some automation to make builds via GitHub Actions and maybe even generate and publish container images (at GitHub or at DockerHub, but only after a tag, or at least trigger them manually) and if possible tag even as 'latest'; update README with some badge or at least some links ... wip
@@ -494,5 +494,10 @@ and then re-enable related code (in features and in main sources) ... ok, all wo
 * [x] general: update code for Fastify v5, continuation: update CHANGELOG (with breaking and normal changes), README, etc ... last, update release date in CHANGELOG, then commit and push last changes for this release ... ok
 * [x] general: update code for Fastify v5, continuation: tag sources ... ok (ASAP)
 * [x] general: update code for Fastify v5, continuation: generate and inspect source docs, then publish in usual repository ... ok (ASAP), usually a post-release step
+
+* [x] general: bump maintenance release 5.x ... ok, updated to '5.1.0', even in Dockerfile/s
+* [x] general: add npm custom commands to simplify management/upgrade of dependencies ... ok
+* [x] general: restore (default setting) in '.npmrc' (to `ignore-scripts=true`) so that during `npm install` and other npm commands, no additional scripts could run, for better safety; this could require to update my npm custom commands to prepend some cleanup tasks (no more called automatically when disabling such feature) ... ok done and edded cool-down period of 3 days (`min-release-age=3`) to ensure all is good in dependencies
+* [x] general: update dependencies in a semver compatible way and ensure all is good ... ok
 
 ---------------

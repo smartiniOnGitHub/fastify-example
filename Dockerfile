@@ -1,6 +1,6 @@
 FROM node:lts-slim AS builder
 
-LABEL version="5.0.0"
+LABEL version="5.1.0"
 LABEL description="Example Fastify (Node.js) webapp Docker Image"
 LABEL maintainer="Sandro Martini <sandro.martini@gmail.com>"
 

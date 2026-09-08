@@ -42,7 +42,7 @@ For other custom commands look the 'scripts' section inside 'package.json'.
 
 ## Requirements
 
-Fastify ^5.8.5, Node.js 20 LTS (20.9.0) or later.
+Fastify ^5.12.3, Node.js 20 LTS (20.9.0) or later.
 
 ## Security
 
