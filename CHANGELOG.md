@@ -1,11 +1,11 @@
 # Change Log
 
-## [5.1.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/5.1.0) (unreleased)
+## [5.1.0](https://github.com/smartiniOnGitHub/fastify-example/releases/tag/5.1.0) (2026-09-22)
 
 Summary Changelog:
 
-- General: update requirements to latest Fastify 5.x release
-  and related plugins and Node.js 20 LTS (20.9.0 or later)
+- General: update requirements to latest Fastify 5.x release and related plugins
+- General: update all dependencies to latest version
 - General: revert '.npmrc' to safer settings and introduce a cool-down period
 - General: add npm custom commands to simplify npm dependencies management
 

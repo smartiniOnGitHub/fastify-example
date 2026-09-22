@@ -2,7 +2,6 @@
 
 ## TODO
 
-* [x] general: update all dependencies to latest version and ensure all is good ... note that doing an audit I found that @fastify/static has an high severity vulnerability (more info at <https://socket.dev/npm/package/@fastify/static/versions/>), so it must be updated at least to 10.1.3, which is a breaking change, check at <https://github.com/fastify/fastify-static/releases> for breaking changes using it ... wip
 * [x] general: update some libraries to use more modern ones, like Fastify: remove 'tap' and use Node.js integrated test libraries, change: 'jsdoc' -> 'esdoc' (maybe, but to check), 'standard' -> 'neostandard' and 'eslint' (update some rules, add its plugins as required) or evaluate to use 'oxlint'; but do **not** use TypeScript here, I have a dedicated project/repo for it (derived from this one) ... wip
 * [x] general: update some libraries to use more modern ones, check if add 'prettier' to format sources (instead of 'standard' and add related eslint plugin), and maybe change its default setting for quotes from `"singleQuote": false` to `"singleQuote": true` and add npm custom commands for: 'format:check', 'format:fix', 'format' that calls 'format:check' ... wip
 * [x] general: update Dockerfile/s to use latest Node.js LTS version (no more the 20 LTS, in End-of-Life/EOL since 2026-04) and ensure all is good ... wip
@@ -500,5 +499,6 @@ and then re-enable related code (in features and in main sources) ... ok, all wo
 * [x] general: add npm custom commands to simplify management/upgrade of dependencies ... ok
 * [x] general: restore (default setting) in '.npmrc' (to `ignore-scripts=true`) so that during `npm install` and other npm commands, no additional scripts could run, for better safety; this could require to update my npm custom commands to prepend some cleanup tasks (no more called automatically when disabling such feature) ... ok done and edded cool-down period of 3 days (`min-release-age=3`) to ensure all is good in dependencies
 * [x] general: update dependencies in a semver compatible way and ensure all is good ... ok
+* [x] general: update all dependencies to latest version and ensure all is good ... note that doing an audit I found that @fastify/static has an high severity vulnerability (more info at <https://socket.dev/npm/package/@fastify/static/versions/>), so it must be updated at least to 10.1.3, which is a breaking change, check at <https://github.com/fastify/fastify-static/releases> for breaking changes using it ... ok, all works after updates to latest (no-semver respect)
 
 ---------------
